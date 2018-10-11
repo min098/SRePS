@@ -32,13 +32,12 @@
             this.UserName = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(217, 193);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(147, 20);
             this.textBox1.TabIndex = 0;
@@ -57,7 +56,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(217, 226);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(147, 20);
             this.textBox2.TabIndex = 2;
@@ -72,38 +71,17 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Password:";
             // 
-<<<<<<< HEAD:frmlogIn.Designer.cs
-            // frmlogIn
-=======
-            // btnLogin
-            // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(137, 275);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(91, 32);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Log In";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            // 
-            // logIn
->>>>>>> bd96c8d45c29ac5cdb0aae0e562f9f3b5801f69f:logIn.Designer.cs
+            // frmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 447);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.UserName);
             this.Controls.Add(this.textBox1);
-<<<<<<< HEAD:frmlogIn.Designer.cs
-            this.Name = "frmlogIn";
+            this.Name = "frmLogIn";
             this.Text = "Form1";
-=======
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "logIn";
-            this.Text = "test";
->>>>>>> bd96c8d45c29ac5cdb0aae0e562f9f3b5801f69f:logIn.Designer.cs
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,7 +93,6 @@
         private System.Windows.Forms.Label UserName;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnLogin;
     }
 }
 
