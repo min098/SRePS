@@ -1,6 +1,6 @@
 ﻿namespace SRePS
 {
-    partial class frmSalesReport
+    partial class frmSalesReportM
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picDailyIcon = new System.Windows.Forms.PictureBox();
-            this.picWeeklyIcon = new System.Windows.Forms.PictureBox();
-            this.picMonthlyIcon = new System.Windows.Forms.PictureBox();
-            this.lblDSalesReport = new System.Windows.Forms.Label();
-            this.lblWSalesReport = new System.Windows.Forms.Label();
-            this.lblMSalesReport = new System.Windows.Forms.Label();
+            this.salesReportMDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnVisualize = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.dtpickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpickerStart = new System.Windows.Forms.DateTimePicker();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.lblMonth = new System.Windows.Forms.Label();
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,71 +48,89 @@
             this.weeklyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.picDailyIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWeeklyIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picMonthlyIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesReportMDataGridView)).BeginInit();
             this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // picDailyIcon
+            // salesReportMDataGridView
             // 
-            this.picDailyIcon.Image = global::SRePS.Properties.Resources.dailyIcon;
-            this.picDailyIcon.Location = new System.Drawing.Point(69, 123);
-            this.picDailyIcon.Name = "picDailyIcon";
-            this.picDailyIcon.Size = new System.Drawing.Size(162, 162);
-            this.picDailyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picDailyIcon.TabIndex = 0;
-            this.picDailyIcon.TabStop = false;
+            this.salesReportMDataGridView.AllowUserToAddRows = false;
+            this.salesReportMDataGridView.AllowUserToDeleteRows = false;
+            this.salesReportMDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.salesReportMDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesReportMDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesReportMDataGridView.Name = "salesReportMDataGridView";
+            this.salesReportMDataGridView.ReadOnly = true;
+            this.salesReportMDataGridView.Size = new System.Drawing.Size(784, 272);
+            this.salesReportMDataGridView.TabIndex = 21;
             // 
-            // picWeeklyIcon
+            // btnExport
             // 
-            this.picWeeklyIcon.Image = global::SRePS.Properties.Resources.weeklyIcon;
-            this.picWeeklyIcon.Location = new System.Drawing.Point(314, 123);
-            this.picWeeklyIcon.Name = "picWeeklyIcon";
-            this.picWeeklyIcon.Size = new System.Drawing.Size(162, 162);
-            this.picWeeklyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picWeeklyIcon.TabIndex = 0;
-            this.picWeeklyIcon.TabStop = false;
+            this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Location = new System.Drawing.Point(717, 402);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 18;
+            this.btnExport.Text = "&Export";
+            this.btnExport.UseVisualStyleBackColor = true;
             // 
-            // picMonthlyIcon
+            // btnVisualize
             // 
-            this.picMonthlyIcon.Image = global::SRePS.Properties.Resources.monthlyIcon;
-            this.picMonthlyIcon.Location = new System.Drawing.Point(565, 123);
-            this.picMonthlyIcon.Name = "picMonthlyIcon";
-            this.picMonthlyIcon.Size = new System.Drawing.Size(163, 162);
-            this.picMonthlyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picMonthlyIcon.TabIndex = 0;
-            this.picMonthlyIcon.TabStop = false;
+            this.btnVisualize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualize.Location = new System.Drawing.Point(622, 402);
+            this.btnVisualize.Name = "btnVisualize";
+            this.btnVisualize.Size = new System.Drawing.Size(75, 23);
+            this.btnVisualize.TabIndex = 19;
+            this.btnVisualize.Text = "&Visualize";
+            this.btnVisualize.UseVisualStyleBackColor = true;
             // 
-            // lblDSalesReport
+            // btnSearch
             // 
-            this.lblDSalesReport.AutoSize = true;
-            this.lblDSalesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSalesReport.Location = new System.Drawing.Point(109, 305);
-            this.lblDSalesReport.Name = "lblDSalesReport";
-            this.lblDSalesReport.Size = new System.Drawing.Size(83, 16);
-            this.lblDSalesReport.TabIndex = 1;
-            this.lblDSalesReport.Text = "Daily Report";
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(508, 39);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 20;
+            this.btnSearch.Text = "&Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // lblWSalesReport
+            // dtpickerEnd
             // 
-            this.lblWSalesReport.AutoSize = true;
-            this.lblWSalesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWSalesReport.Location = new System.Drawing.Point(347, 305);
-            this.lblWSalesReport.Name = "lblWSalesReport";
-            this.lblWSalesReport.Size = new System.Drawing.Size(98, 16);
-            this.lblWSalesReport.TabIndex = 1;
-            this.lblWSalesReport.Text = "Weekly Report";
+            this.dtpickerEnd.CustomFormat = "MMMM, yyyy";
+            this.dtpickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpickerEnd.Location = new System.Drawing.Point(295, 40);
+            this.dtpickerEnd.Name = "dtpickerEnd";
+            this.dtpickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.dtpickerEnd.TabIndex = 16;
             // 
-            // lblMSalesReport
+            // dtpickerStart
             // 
-            this.lblMSalesReport.AutoSize = true;
-            this.lblMSalesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMSalesReport.Location = new System.Drawing.Point(599, 305);
-            this.lblMSalesReport.Name = "lblMSalesReport";
-            this.lblMSalesReport.Size = new System.Drawing.Size(98, 16);
-            this.lblMSalesReport.TabIndex = 1;
-            this.lblMSalesReport.Text = "Monthly Report";
+            this.dtpickerStart.CustomFormat = "MMMM, yyyy";
+            this.dtpickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpickerStart.Location = new System.Drawing.Point(58, 40);
+            this.dtpickerStart.Name = "dtpickerStart";
+            this.dtpickerStart.Size = new System.Drawing.Size(200, 20);
+            this.dtpickerStart.TabIndex = 17;
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTo.Location = new System.Drawing.Point(264, 42);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(25, 16);
+            this.lblTo.TabIndex = 14;
+            this.lblTo.Text = "To";
+            // 
+            // lblMonth
+            // 
+            this.lblMonth.AutoSize = true;
+            this.lblMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonth.Location = new System.Drawing.Point(12, 42);
+            this.lblMonth.Name = "lblMonth";
+            this.lblMonth.Size = new System.Drawing.Size(47, 16);
+            this.lblMonth.TabIndex = 15;
+            this.lblMonth.Text = "Month:";
             // 
             // menuBar
             // 
@@ -127,7 +147,7 @@
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Size = new System.Drawing.Size(800, 24);
-            this.menuBar.TabIndex = 2;
+            this.menuBar.TabIndex = 22;
             // 
             // accountToolStripMenuItem
             // 
@@ -201,23 +221,23 @@
             this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
-            // frmSalesReport
+            // frmSalesReportM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuBar);
-            this.Controls.Add(this.lblMSalesReport);
-            this.Controls.Add(this.lblWSalesReport);
-            this.Controls.Add(this.lblDSalesReport);
-            this.Controls.Add(this.picMonthlyIcon);
-            this.Controls.Add(this.picWeeklyIcon);
-            this.Controls.Add(this.picDailyIcon);
-            this.Name = "frmSalesReport";
+            this.Controls.Add(this.salesReportMDataGridView);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.btnVisualize);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.dtpickerEnd);
+            this.Controls.Add(this.dtpickerStart);
+            this.Controls.Add(this.lblTo);
+            this.Controls.Add(this.lblMonth);
+            this.Name = "frmSalesReportM";
             this.Text = "Family Aid Pharmacy Inc. SRePS";
-            ((System.ComponentModel.ISupportInitialize)(this.picDailyIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWeeklyIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picMonthlyIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesReportMDataGridView)).EndInit();
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.ResumeLayout(false);
@@ -227,12 +247,14 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picDailyIcon;
-        private System.Windows.Forms.PictureBox picWeeklyIcon;
-        private System.Windows.Forms.PictureBox picMonthlyIcon;
-        private System.Windows.Forms.Label lblDSalesReport;
-        private System.Windows.Forms.Label lblWSalesReport;
-        private System.Windows.Forms.Label lblMSalesReport;
+        private System.Windows.Forms.DataGridView salesReportMDataGridView;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnVisualize;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DateTimePicker dtpickerEnd;
+        private System.Windows.Forms.DateTimePicker dtpickerStart;
+        private System.Windows.Forms.Label lblTo;
+        private System.Windows.Forms.Label lblMonth;
         private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
