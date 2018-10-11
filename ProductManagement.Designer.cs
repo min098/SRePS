@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.SuspendLayout();
+            // 
+            // productManagement
+            // 
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ProductManagement";
+            this.Name = "productManagement";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
     }
 }

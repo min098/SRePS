@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="logIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="logIn.Designer.cs">
+      <DependentUpon>logIn.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSalesReport.cs">
       <SubType>Form</SubType>
@@ -57,10 +57,19 @@
     <Compile Include="frmSalesReport.Designer.cs">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="productManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productManagement.Designer.cs">
+      <DependentUpon>productManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="logIn.resx">
+      <DependentUpon>logIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductManagement.resx">
+      <DependentUpon>productManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
