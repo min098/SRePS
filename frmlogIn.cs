@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SRePS
 {
-    public partial class logIn : Form
+    public partial class frmLogIn : Form
     {
-        public logIn()
+        public frmLogIn()
         {
             InitializeComponent();
         }

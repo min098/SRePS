@@ -1,6 +1,6 @@
 ﻿namespace SRePS
 {
-    partial class logIn
+    partial class frmLogIn
     {
         /// <summary>
         /// Required designer variable.
@@ -67,7 +67,7 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Password:";
             // 
-            // logIn
+            // frmlogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,7 +76,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.UserName);
             this.Controls.Add(this.textBox1);
-            this.Name = "logIn";
+            this.Name = "frmlogIn";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
