@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddProduct.Designer.cs">
+      <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,17 +64,17 @@
     <Compile Include="frmLogIn.Designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmProductManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductManagement.designer.cs">
+      <DependentUpon>frmProductManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSalesReport.Designer.cs">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmProductManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmProductManagement.Designer.cs">
-      <DependentUpon>frmProductManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSalesReportD.cs">
       <SubType>Form</SubType>
@@ -95,6 +101,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SRePS_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAddProduct.resx">
+      <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmployeeManagement.resx">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
