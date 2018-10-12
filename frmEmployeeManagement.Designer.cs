@@ -49,10 +49,6 @@
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.employeesTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.EmployeesTableAdapter();
-            this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ePositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eGenderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -85,7 +81,8 @@
             this.predictionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(808, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(808, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,37 +91,37 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 22);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
             this.productToolStripMenuItem.Text = "Product";
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 22);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 22);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // salesReportToolStripMenuItem
@@ -134,38 +131,39 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 22);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button2.Location = new System.Drawing.Point(321, 388);
+            this.button2.Location = new System.Drawing.Point(338, 405);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 33);
             this.button2.TabIndex = 4;
@@ -176,11 +174,12 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(203, 388);
+            this.button1.Location = new System.Drawing.Point(220, 405);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 33);
             this.button1.TabIndex = 3;
-            this.button1.Text = "&Add";
+            this.button1.Text = "&Add New";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -188,7 +187,8 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button3.Location = new System.Drawing.Point(439, 388);
+            this.button3.Location = new System.Drawing.Point(456, 405);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 33);
             this.button3.TabIndex = 5;
@@ -197,20 +197,14 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.eIDDataGridViewTextBoxColumn,
-            this.eNameDataGridViewTextBoxColumn,
-            this.ePositionDataGridViewTextBoxColumn,
-            this.eGenderDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.employeesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 43);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 273);
+            this.dataGridView1.Size = new System.Drawing.Size(784, 287);
             this.dataGridView1.TabIndex = 7;
             // 
             // employeesBindingSource
@@ -226,30 +220,6 @@
             // employeesTableAdapter
             // 
             this.employeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // eIDDataGridViewTextBoxColumn
-            // 
-            this.eIDDataGridViewTextBoxColumn.DataPropertyName = "E_ID";
-            this.eIDDataGridViewTextBoxColumn.HeaderText = "E_ID";
-            this.eIDDataGridViewTextBoxColumn.Name = "eIDDataGridViewTextBoxColumn";
-            // 
-            // eNameDataGridViewTextBoxColumn
-            // 
-            this.eNameDataGridViewTextBoxColumn.DataPropertyName = "E_Name";
-            this.eNameDataGridViewTextBoxColumn.HeaderText = "E_Name";
-            this.eNameDataGridViewTextBoxColumn.Name = "eNameDataGridViewTextBoxColumn";
-            // 
-            // ePositionDataGridViewTextBoxColumn
-            // 
-            this.ePositionDataGridViewTextBoxColumn.DataPropertyName = "E_Position";
-            this.ePositionDataGridViewTextBoxColumn.HeaderText = "E_Position";
-            this.ePositionDataGridViewTextBoxColumn.Name = "ePositionDataGridViewTextBoxColumn";
-            // 
-            // eGenderDataGridViewTextBoxColumn
-            // 
-            this.eGenderDataGridViewTextBoxColumn.DataPropertyName = "E_Gender";
-            this.eGenderDataGridViewTextBoxColumn.HeaderText = "E_Gender";
-            this.eGenderDataGridViewTextBoxColumn.Name = "eGenderDataGridViewTextBoxColumn";
             // 
             // productBindingNavigator
             // 
@@ -268,21 +238,21 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2});
-            this.productBindingNavigator.Location = new System.Drawing.Point(12, 319);
+            this.productBindingNavigator.Location = new System.Drawing.Point(12, 333);
             this.productBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.productBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.productBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.productBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productBindingNavigator.Name = "productBindingNavigator";
             this.productBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productBindingNavigator.Size = new System.Drawing.Size(278, 28);
+            this.productBindingNavigator.Size = new System.Drawing.Size(213, 27);
             this.productBindingNavigator.TabIndex = 8;
             this.productBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 25);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -292,7 +262,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 25);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -301,13 +271,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 25);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 28);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -321,7 +291,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 28);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -329,7 +299,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 25);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -338,27 +308,28 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 25);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 28);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // frmEmployeeManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(808, 450);
             this.Controls.Add(this.productBindingNavigator);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.dataGridView1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEmployeeManagement";
             this.Text = "Family Aid Pharmacy Inc. SRePS";
             this.Load += new System.EventHandler(this.frmEmployeeManagement_Load);
@@ -396,10 +367,6 @@
         private SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
         private System.Windows.Forms.BindingSource employeesBindingSource;
         private SRePS_DatabaseDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ePositionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eGenderDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingNavigator productBindingNavigator;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;

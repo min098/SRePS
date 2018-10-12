@@ -83,24 +83,26 @@
             // 
             // btnLogIn
             // 
+            this.btnLogIn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogIn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogIn.Location = new System.Drawing.Point(228, 367);
+            this.btnLogIn.Location = new System.Drawing.Point(257, 365);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(86, 25);
+            this.btnLogIn.Size = new System.Drawing.Size(84, 27);
             this.btnLogIn.TabIndex = 4;
             this.btnLogIn.Text = "Log In";
-            this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnLogIn.UseVisualStyleBackColor = false;
             // 
             // btnRegister
             // 
+            this.btnRegister.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(372, 368);
+            this.btnRegister.Location = new System.Drawing.Point(348, 365);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(86, 24);
+            this.btnRegister.Size = new System.Drawing.Size(84, 27);
             this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
             // 
             // lblTitle
             // 

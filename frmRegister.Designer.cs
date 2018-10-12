@@ -58,6 +58,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accountToolStripMenuItem,
             this.homeToolStripMenuItem,
@@ -258,23 +259,25 @@
             // 
             // btnRegister
             // 
+            this.btnRegister.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(280, 298);
+            this.btnRegister.Location = new System.Drawing.Point(320, 298);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(88, 25);
+            this.btnRegister.Size = new System.Drawing.Size(84, 27);
             this.btnRegister.TabIndex = 12;
             this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(417, 298);
+            this.btnCancel.Location = new System.Drawing.Point(410, 298);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(88, 25);
+            this.btnCancel.Size = new System.Drawing.Size(84, 27);
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // frmRegister
             // 
