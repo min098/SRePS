@@ -214,7 +214,7 @@
             this.Controls.Add(this.picWeeklyIcon);
             this.Controls.Add(this.picDailyIcon);
             this.Name = "frmSalesReport";
-            this.Text = "Family Aid Pharmacy Inc. SRePS";
+            this.Text = "Family Aid Pharmacy Inc. SRePS - Sales Report";
             ((System.ComponentModel.ISupportInitialize)(this.picDailyIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWeeklyIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMonthlyIcon)).EndInit();

@@ -185,7 +185,7 @@
             this.btnRegister.Text = "&Edit";
             this.btnRegister.UseVisualStyleBackColor = false;
             // 
-            // frmAddEmployee
+            // frmEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,8 +204,8 @@
             this.Controls.Add(lblPID);
             this.Controls.Add(this.p_IDTextBox);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmAddEmployee";
-            this.Text = "frmAddEmployee";
+            this.Name = "frmEditEmployee";
+            this.Text = "Family Aid Pharmacy Inc. SRePS - Edit Employee";
             this.ResumeLayout(false);
             this.PerformLayout();
 
