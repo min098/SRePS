@@ -32,5 +32,12 @@ namespace SRePS
         {
 
         }
+
+        private void frmEmployeeManagement_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.sRePS_DatabaseDataSet.Employees);
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.salesReportWDataGridView = new System.Windows.Forms.DataGridView();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnVisualize = new System.Windows.Forms.Button();
@@ -48,28 +49,43 @@
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTo = new System.Windows.Forms.Label();
             this.dtpickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
+            this.salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.salesTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter();
+            this.sDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.salesReportWDataGridView)).BeginInit();
             this.menuBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // salesReportWDataGridView
             // 
             this.salesReportWDataGridView.AllowUserToAddRows = false;
             this.salesReportWDataGridView.AllowUserToDeleteRows = false;
+            this.salesReportWDataGridView.AutoGenerateColumns = false;
+            this.salesReportWDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.salesReportWDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.salesReportWDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.salesReportWDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesReportWDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sDateDataGridViewTextBoxColumn,
+            this.invNoDataGridViewTextBoxColumn});
+            this.salesReportWDataGridView.DataSource = this.salesBindingSource;
+            this.salesReportWDataGridView.Location = new System.Drawing.Point(12, 123);
+            this.salesReportWDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.salesReportWDataGridView.Name = "salesReportWDataGridView";
             this.salesReportWDataGridView.ReadOnly = true;
-            this.salesReportWDataGridView.Size = new System.Drawing.Size(784, 272);
+            this.salesReportWDataGridView.Size = new System.Drawing.Size(1176, 418);
             this.salesReportWDataGridView.TabIndex = 13;
             // 
             // btnExport
             // 
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(717, 402);
+            this.btnExport.Location = new System.Drawing.Point(1076, 618);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(112, 35);
             this.btnExport.TabIndex = 10;
             this.btnExport.Text = "&Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -77,9 +93,10 @@
             // btnVisualize
             // 
             this.btnVisualize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisualize.Location = new System.Drawing.Point(622, 402);
+            this.btnVisualize.Location = new System.Drawing.Point(933, 618);
+            this.btnVisualize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVisualize.Name = "btnVisualize";
-            this.btnVisualize.Size = new System.Drawing.Size(75, 23);
+            this.btnVisualize.Size = new System.Drawing.Size(112, 35);
             this.btnVisualize.TabIndex = 11;
             this.btnVisualize.Text = "&Visualize";
             this.btnVisualize.UseVisualStyleBackColor = true;
@@ -87,27 +104,30 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(508, 39);
+            this.btnSearch.Location = new System.Drawing.Point(762, 60);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(112, 35);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // dtpickerStart
             // 
-            this.dtpickerStart.Location = new System.Drawing.Point(58, 40);
+            this.dtpickerStart.Location = new System.Drawing.Point(87, 62);
+            this.dtpickerStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpickerStart.Name = "dtpickerStart";
-            this.dtpickerStart.Size = new System.Drawing.Size(200, 20);
+            this.dtpickerStart.Size = new System.Drawing.Size(298, 26);
             this.dtpickerStart.TabIndex = 9;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(12, 42);
+            this.lblDate.Location = new System.Drawing.Point(18, 65);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(40, 16);
+            this.lblDate.Size = new System.Drawing.Size(59, 25);
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "Date:";
             // 
@@ -125,7 +145,8 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 24);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuBar.Size = new System.Drawing.Size(1200, 35);
             this.menuBar.TabIndex = 14;
             // 
             // accountToolStripMenuItem
@@ -133,37 +154,37 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
             this.logOutToolStripMenuItem.Text = "Log Out";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
             this.productToolStripMenuItem.Text = "Product";
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // salesReportToolStripMenuItem
@@ -173,55 +194,85 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // lblTo
             // 
             this.lblTo.AutoSize = true;
             this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.Location = new System.Drawing.Point(264, 42);
+            this.lblTo.Location = new System.Drawing.Point(396, 65);
+            this.lblTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(25, 16);
+            this.lblTo.Size = new System.Drawing.Size(36, 25);
             this.lblTo.TabIndex = 8;
             this.lblTo.Text = "To";
             // 
             // dtpickerEnd
             // 
-            this.dtpickerEnd.Location = new System.Drawing.Point(295, 40);
+            this.dtpickerEnd.Location = new System.Drawing.Point(442, 62);
+            this.dtpickerEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpickerEnd.Name = "dtpickerEnd";
-            this.dtpickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.dtpickerEnd.Size = new System.Drawing.Size(298, 26);
             this.dtpickerEnd.TabIndex = 9;
+            // 
+            // sRePS_DatabaseDataSet
+            // 
+            this.sRePS_DatabaseDataSet.DataSetName = "SRePS_DatabaseDataSet";
+            this.sRePS_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // salesBindingSource
+            // 
+            this.salesBindingSource.DataMember = "Sales";
+            this.salesBindingSource.DataSource = this.sRePS_DatabaseDataSet;
+            // 
+            // salesTableAdapter
+            // 
+            this.salesTableAdapter.ClearBeforeFill = true;
+            // 
+            // sDateDataGridViewTextBoxColumn
+            // 
+            this.sDateDataGridViewTextBoxColumn.DataPropertyName = "S_Date";
+            this.sDateDataGridViewTextBoxColumn.HeaderText = "S_Date";
+            this.sDateDataGridViewTextBoxColumn.Name = "sDateDataGridViewTextBoxColumn";
+            this.sDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // invNoDataGridViewTextBoxColumn
+            // 
+            this.invNoDataGridViewTextBoxColumn.DataPropertyName = "Inv_No";
+            this.invNoDataGridViewTextBoxColumn.HeaderText = "Inv_No";
+            this.invNoDataGridViewTextBoxColumn.Name = "invNoDataGridViewTextBoxColumn";
+            this.invNoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmSalesReportW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.salesReportWDataGridView);
             this.Controls.Add(this.btnExport);
@@ -231,11 +282,15 @@
             this.Controls.Add(this.dtpickerStart);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.lblDate);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSalesReportW";
             this.Text = "Family Aid Pharmacy Inc. SRePS";
+            this.Load += new System.EventHandler(this.frmSalesReportW_Load);
             ((System.ComponentModel.ISupportInitialize)(this.salesReportWDataGridView)).EndInit();
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +318,10 @@
         private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.DateTimePicker dtpickerEnd;
+        private SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
+        private System.Windows.Forms.BindingSource salesBindingSource;
+        private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invNoDataGridViewTextBoxColumn;
     }
 }

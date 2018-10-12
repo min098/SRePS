@@ -16,5 +16,12 @@ namespace SRePS
         {
             InitializeComponent();
         }
+
+        private void frmSalesReportW_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Sales' table. You can move, or remove it, as needed.
+            this.salesTableAdapter.Fill(this.sRePS_DatabaseDataSet.Sales);
+
+        }
     }
 }
