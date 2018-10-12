@@ -16,7 +16,7 @@ namespace SRePS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProductManagement());
+            Application.Run(new frmEmployeeManagement());
         }
     }
 }
