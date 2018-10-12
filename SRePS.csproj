@@ -172,6 +172,7 @@
     <None Include="Resources\dailyIcon.png" />
     <None Include="Resources\monthlyIcon.png" />
     <None Include="Resources\weeklyIcon.png" />
+    <None Include="Resources\Logo.png" />
     <Content Include="SRePS_Database.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
