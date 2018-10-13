@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuBar = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,21 +45,21 @@
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPosistion = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.e_UserNameTextBox = new System.Windows.Forms.TextBox();
+            this.e_PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.e_ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.rdMale = new System.Windows.Forms.RadioButton();
             this.rdFemale = new System.Windows.Forms.RadioButton();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuBar
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuBar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accountToolStripMenuItem,
             this.homeToolStripMenuItem,
             this.productToolStripMenuItem,
@@ -67,11 +67,10 @@
             this.employeeToolStripMenuItem,
             this.salesReportToolStripMenuItem,
             this.predictionToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuBar.Location = new System.Drawing.Point(0, 0);
+            this.menuBar.Name = "menuBar";
+            this.menuBar.Size = new System.Drawing.Size(800, 24);
+            this.menuBar.TabIndex = 0;
             // 
             // accountToolStripMenuItem
             // 
@@ -200,29 +199,29 @@
             this.lblGender.TabIndex = 5;
             this.lblGender.Text = "Gender:";
             // 
-            // txtUserName
+            // e_UserNameTextBox
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(337, 129);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(211, 22);
-            this.txtUserName.TabIndex = 6;
+            this.e_UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.e_UserNameTextBox.Location = new System.Drawing.Point(337, 129);
+            this.e_UserNameTextBox.Name = "e_UserNameTextBox";
+            this.e_UserNameTextBox.Size = new System.Drawing.Size(211, 22);
+            this.e_UserNameTextBox.TabIndex = 6;
             // 
-            // txtPassword
+            // e_PasswordTextBox
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(337, 158);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(211, 22);
-            this.txtPassword.TabIndex = 7;
+            this.e_PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.e_PasswordTextBox.Location = new System.Drawing.Point(337, 158);
+            this.e_PasswordTextBox.Name = "e_PasswordTextBox";
+            this.e_PasswordTextBox.Size = new System.Drawing.Size(211, 22);
+            this.e_PasswordTextBox.TabIndex = 7;
             // 
-            // txtConfirmPassword
+            // e_ConfirmPasswordTextBox
             // 
-            this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmPassword.Location = new System.Drawing.Point(337, 188);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(211, 22);
-            this.txtConfirmPassword.TabIndex = 8;
+            this.e_ConfirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.e_ConfirmPasswordTextBox.Location = new System.Drawing.Point(337, 188);
+            this.e_ConfirmPasswordTextBox.Name = "e_ConfirmPasswordTextBox";
+            this.e_ConfirmPasswordTextBox.Size = new System.Drawing.Size(211, 22);
+            this.e_ConfirmPasswordTextBox.TabIndex = 8;
             // 
             // cmbPosition
             // 
@@ -289,20 +288,20 @@
             this.Controls.Add(this.rdFemale);
             this.Controls.Add(this.rdMale);
             this.Controls.Add(this.cmbPosition);
-            this.Controls.Add(this.txtConfirmPassword);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.e_ConfirmPasswordTextBox);
+            this.Controls.Add(this.e_PasswordTextBox);
+            this.Controls.Add(this.e_UserNameTextBox);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblPosistion);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuBar);
+            this.MainMenuStrip = this.menuBar;
             this.Name = "frmRegister";
             this.Text = "Family Aid Pharmacy Inc. SRePS - Register/Add Employee";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuBar.ResumeLayout(false);
+            this.menuBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,7 +309,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
@@ -327,9 +326,9 @@
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPosistion;
         private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtConfirmPassword;
+        private System.Windows.Forms.TextBox e_UserNameTextBox;
+        private System.Windows.Forms.TextBox e_PasswordTextBox;
+        private System.Windows.Forms.TextBox e_ConfirmPasswordTextBox;
         private System.Windows.Forms.ComboBox cmbPosition;
         private System.Windows.Forms.RadioButton rdMale;
         private System.Windows.Forms.RadioButton rdFemale;

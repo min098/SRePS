@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
@@ -40,14 +40,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtUserName
+            // UserNameTextBox
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(321, 282);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(147, 22);
-            this.txtUserName.TabIndex = 0;
+            this.UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameTextBox.Location = new System.Drawing.Point(321, 282);
+            this.UserNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.UserNameTextBox.Name = "UserNameTextBox";
+            this.UserNameTextBox.Size = new System.Drawing.Size(147, 22);
+            this.UserNameTextBox.TabIndex = 0;
             // 
             // lblUserName
             // 
@@ -61,14 +61,14 @@
             this.lblUserName.Text = "User Name:";
             this.lblUserName.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtPassword
+            // PasswordTextBox
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(321, 314);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(147, 22);
-            this.txtPassword.TabIndex = 2;
+            this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTextBox.Location = new System.Drawing.Point(321, 314);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(147, 22);
+            this.PasswordTextBox.TabIndex = 2;
             // 
             // lblPassword
             // 
@@ -145,9 +145,9 @@
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.UserNameTextBox);
             this.Name = "frmLogIn";
             this.Text = "Family Aid Pharmacy Inc. SRePS";
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
@@ -158,9 +158,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox UserNameTextBox;
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.Button btnRegister;
