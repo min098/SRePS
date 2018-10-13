@@ -87,8 +87,7 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuBar.Size = new System.Drawing.Size(808, 24);
+            this.menuBar.Size = new System.Drawing.Size(1212, 33);
             this.menuBar.TabIndex = 0;
             this.menuBar.Text = "menuStrip1";
             // 
@@ -97,37 +96,40 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 22);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
             this.productToolStripMenuItem.Text = "Product";
+            this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 22);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 22);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // salesReportToolStripMenuItem
@@ -137,53 +139,55 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 22);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
+            this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
+            this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
+            this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // btnEditEmployee
             // 
             this.btnEditEmployee.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnEditEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnEditEmployee.Location = new System.Drawing.Point(338, 405);
-            this.btnEditEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditEmployee.Location = new System.Drawing.Point(507, 623);
             this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(112, 33);
+            this.btnEditEmployee.Size = new System.Drawing.Size(168, 51);
             this.btnEditEmployee.TabIndex = 4;
             this.btnEditEmployee.Text = "&Edit";
             this.btnEditEmployee.UseVisualStyleBackColor = false;
+            this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
             // 
             // btnAddEmployee
             // 
             this.btnAddEmployee.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnAddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAddEmployee.Location = new System.Drawing.Point(220, 405);
-            this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddEmployee.Location = new System.Drawing.Point(330, 623);
             this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(112, 33);
+            this.btnAddEmployee.Size = new System.Drawing.Size(168, 51);
             this.btnAddEmployee.TabIndex = 3;
             this.btnAddEmployee.Text = "&Add New";
             this.btnAddEmployee.UseVisualStyleBackColor = false;
@@ -193,10 +197,9 @@
             // 
             this.btnDelEmployee.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnDelEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnDelEmployee.Location = new System.Drawing.Point(456, 405);
-            this.btnDelEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelEmployee.Location = new System.Drawing.Point(684, 623);
             this.btnDelEmployee.Name = "btnDelEmployee";
-            this.btnDelEmployee.Size = new System.Drawing.Size(112, 33);
+            this.btnDelEmployee.Size = new System.Drawing.Size(168, 51);
             this.btnDelEmployee.TabIndex = 5;
             this.btnDelEmployee.Text = "&Delete";
             this.btnDelEmployee.UseVisualStyleBackColor = false;
@@ -213,11 +216,10 @@
             this.ePositionDataGridViewTextBoxColumn,
             this.eGenderDataGridViewTextBoxColumn});
             this.employeeDataGridView.DataSource = this.employeesBindingSource1;
-            this.employeeDataGridView.Location = new System.Drawing.Point(12, 43);
-            this.employeeDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.employeeDataGridView.Location = new System.Drawing.Point(18, 66);
             this.employeeDataGridView.Name = "employeeDataGridView";
             this.employeeDataGridView.RowTemplate.Height = 28;
-            this.employeeDataGridView.Size = new System.Drawing.Size(784, 287);
+            this.employeeDataGridView.Size = new System.Drawing.Size(1176, 442);
             this.employeeDataGridView.TabIndex = 7;
             // 
             // eIDDataGridViewTextBoxColumn
@@ -280,21 +282,22 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2});
-            this.productBindingNavigator.Location = new System.Drawing.Point(12, 333);
+            this.productBindingNavigator.Location = new System.Drawing.Point(18, 512);
             this.productBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.productBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.productBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.productBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productBindingNavigator.Name = "productBindingNavigator";
+            this.productBindingNavigator.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.productBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productBindingNavigator.Size = new System.Drawing.Size(213, 27);
+            this.productBindingNavigator.Size = new System.Drawing.Size(256, 31);
             this.productBindingNavigator.TabIndex = 8;
             this.productBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -304,7 +307,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -313,27 +316,27 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(73, 31);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -341,7 +344,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -350,20 +353,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // frmEmployeeManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(1212, 692);
             this.Controls.Add(this.productBindingNavigator);
             this.Controls.Add(this.btnDelEmployee);
             this.Controls.Add(this.btnEditEmployee);
@@ -371,9 +374,9 @@
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.employeeDataGridView);
             this.MainMenuStrip = this.menuBar;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEmployeeManagement";
             this.Text = "Family Aid Pharmacy Inc. SRePS - Employee Management";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEmployeeManagement_FormClosing);
             this.Load += new System.EventHandler(this.frmEmployeeManagement_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();

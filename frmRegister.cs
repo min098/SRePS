@@ -46,5 +46,28 @@ namespace SRePS
         {
 
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+                Program.frmHome = new frmHomepage();
+                Program.frmHome.Show();
+                //temporary
+                this.Hide();
+            
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+                Program.frmLogin = new frmLogIn();
+                Program.frmLogin.Show();
+                //temporary
+                this.Hide();
+            
+        }
+
+        private void frmRegister_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

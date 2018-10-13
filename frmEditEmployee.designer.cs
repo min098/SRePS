@@ -186,6 +186,7 @@
             this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEditEmployee
             // 
@@ -224,24 +225,28 @@
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.accountToolStripMenuItem.Text = "Account";
+            this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
             this.productToolStripMenuItem.Text = "Product";
+            this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
@@ -254,6 +259,7 @@
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
             this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.employeeToolStripMenuItem.Text = "Employee";
+            this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
             // salesReportToolStripMenuItem
             // 
@@ -270,18 +276,21 @@
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
             this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
+            this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
             this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
+            this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
             this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
+            this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
@@ -310,6 +319,7 @@
             this.Controls.Add(this.e_UserNameTextBox);
             this.Name = "frmEditEmployee";
             this.Text = "Family Aid Pharmacy Inc. SRePS - Edit Employee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditEmployee_FormClosing);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.ResumeLayout(false);

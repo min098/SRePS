@@ -26,5 +26,38 @@ namespace SRePS
         {
 
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+                Program.frmRegister = new frmRegister();
+                Program.frmRegister.Show();
+                //temporary
+                this.Hide();
+        }
+
+        private void frmLogIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //temporarily link to homepage
+        //need to validate account availability 
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmHome) == true)
+            {
+
+                Program.frmHome.Show();
+                this.Hide();
+
+            }
+            else
+            {
+                Program.frmHome = new frmHomepage();
+                Program.frmHome.Show();
+                //temporary
+                this.Hide();
+            }
+        }
     }
 }
