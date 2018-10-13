@@ -59,8 +59,8 @@
             this.p_PriceTextBox = new System.Windows.Forms.TextBox();
             this.p_CostTextBox = new System.Windows.Forms.TextBox();
             this.p_SupplierTextBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.p_UOMComboBox = new System.Windows.Forms.ComboBox();
+            this.p_GroupComboBox = new System.Windows.Forms.ComboBox();
             this.btnCancelProduct = new System.Windows.Forms.Button();
             this.btnAddProduct = new System.Windows.Forms.Button();
             lblPID = new System.Windows.Forms.Label();
@@ -80,10 +80,9 @@
             // 
             lblPID.AutoSize = true;
             lblPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPID.Location = new System.Drawing.Point(92, 63);
-            lblPID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPID.Location = new System.Drawing.Point(123, 78);
             lblPID.Name = "lblPID";
-            lblPID.Size = new System.Drawing.Size(78, 17);
+            lblPID.Size = new System.Drawing.Size(94, 20);
             lblPID.TabIndex = 3;
             lblPID.Text = "Product ID:";
             lblPID.Click += new System.EventHandler(this.p_IDLabel_Click);
@@ -92,10 +91,9 @@
             // 
             lblPName.AutoSize = true;
             lblPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPName.Location = new System.Drawing.Point(92, 93);
-            lblPName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPName.Location = new System.Drawing.Point(123, 114);
             lblPName.Name = "lblPName";
-            lblPName.Size = new System.Drawing.Size(102, 17);
+            lblPName.Size = new System.Drawing.Size(121, 20);
             lblPName.TabIndex = 4;
             lblPName.Text = "Product Name:";
             // 
@@ -103,10 +101,9 @@
             // 
             lblPQuantity.AutoSize = true;
             lblPQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPQuantity.Location = new System.Drawing.Point(92, 123);
-            lblPQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPQuantity.Location = new System.Drawing.Point(123, 151);
             lblPQuantity.Name = "lblPQuantity";
-            lblPQuantity.Size = new System.Drawing.Size(118, 17);
+            lblPQuantity.Size = new System.Drawing.Size(139, 20);
             lblPQuantity.TabIndex = 6;
             lblPQuantity.Text = "Product Quantity:";
             lblPQuantity.Click += new System.EventHandler(this.p_QuantityLabel_Click);
@@ -115,10 +112,9 @@
             // 
             lblPPrice.AutoSize = true;
             lblPPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPPrice.Location = new System.Drawing.Point(92, 154);
-            lblPPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPPrice.Location = new System.Drawing.Point(123, 190);
             lblPPrice.Name = "lblPPrice";
-            lblPPrice.Size = new System.Drawing.Size(97, 17);
+            lblPPrice.Size = new System.Drawing.Size(116, 20);
             lblPPrice.TabIndex = 8;
             lblPPrice.Text = "Product Price:";
             lblPPrice.Click += new System.EventHandler(this.p_PriceLabel_Click);
@@ -127,10 +123,9 @@
             // 
             lblPCost.AutoSize = true;
             lblPCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPCost.Location = new System.Drawing.Point(92, 184);
-            lblPCost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPCost.Location = new System.Drawing.Point(123, 226);
             lblPCost.Name = "lblPCost";
-            lblPCost.Size = new System.Drawing.Size(93, 17);
+            lblPCost.Size = new System.Drawing.Size(112, 20);
             lblPCost.TabIndex = 10;
             lblPCost.Text = "Product Cost:";
             lblPCost.Click += new System.EventHandler(this.lblPCost_Click);
@@ -139,10 +134,9 @@
             // 
             lblPSupplier.AutoSize = true;
             lblPSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPSupplier.Location = new System.Drawing.Point(92, 214);
-            lblPSupplier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPSupplier.Location = new System.Drawing.Point(123, 263);
             lblPSupplier.Name = "lblPSupplier";
-            lblPSupplier.Size = new System.Drawing.Size(117, 17);
+            lblPSupplier.Size = new System.Drawing.Size(138, 20);
             lblPSupplier.TabIndex = 12;
             lblPSupplier.Text = "Product Supplier:";
             lblPSupplier.Click += new System.EventHandler(this.p_SupplierLabel_Click);
@@ -151,10 +145,9 @@
             // 
             lblPUOM.AutoSize = true;
             lblPUOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPUOM.Location = new System.Drawing.Point(92, 244);
-            lblPUOM.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPUOM.Location = new System.Drawing.Point(123, 300);
             lblPUOM.Name = "lblPUOM";
-            lblPUOM.Size = new System.Drawing.Size(97, 17);
+            lblPUOM.Size = new System.Drawing.Size(116, 20);
             lblPUOM.TabIndex = 14;
             lblPUOM.Text = "Product UOM:";
             // 
@@ -162,10 +155,9 @@
             // 
             lblPGroup.AutoSize = true;
             lblPGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPGroup.Location = new System.Drawing.Point(92, 276);
-            lblPGroup.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPGroup.Location = new System.Drawing.Point(123, 340);
             lblPGroup.Name = "lblPGroup";
-            lblPGroup.Size = new System.Drawing.Size(105, 17);
+            lblPGroup.Size = new System.Drawing.Size(123, 20);
             lblPGroup.TabIndex = 16;
             lblPGroup.Text = "Product Group:";
             // 
@@ -183,8 +175,8 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(606, 24);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuBar.Size = new System.Drawing.Size(808, 28);
             this.menuBar.TabIndex = 2;
             // 
             // accountToolStripMenuItem
@@ -192,37 +184,37 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.productToolStripMenuItem.Text = "Product";
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // salesReportToolStripMenuItem
@@ -232,31 +224,31 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // sRePS_DatabaseDataSet
@@ -286,40 +278,40 @@
             // 
             this.p_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_ID", true));
             this.p_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_IDTextBox.Location = new System.Drawing.Point(214, 60);
-            this.p_IDTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.p_IDTextBox.Location = new System.Drawing.Point(285, 74);
+            this.p_IDTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_IDTextBox.Name = "p_IDTextBox";
-            this.p_IDTextBox.Size = new System.Drawing.Size(279, 23);
+            this.p_IDTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_IDTextBox.TabIndex = 4;
             // 
             // p_NameTextBox
             // 
             this.p_NameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Name", true));
             this.p_NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_NameTextBox.Location = new System.Drawing.Point(214, 90);
-            this.p_NameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.p_NameTextBox.Location = new System.Drawing.Point(285, 111);
+            this.p_NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_NameTextBox.Name = "p_NameTextBox";
-            this.p_NameTextBox.Size = new System.Drawing.Size(279, 23);
+            this.p_NameTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_NameTextBox.TabIndex = 5;
             // 
             // p_QuantityTextBox
             // 
             this.p_QuantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Quantity", true));
             this.p_QuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_QuantityTextBox.Location = new System.Drawing.Point(214, 120);
-            this.p_QuantityTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.p_QuantityTextBox.Location = new System.Drawing.Point(285, 148);
+            this.p_QuantityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_QuantityTextBox.Name = "p_QuantityTextBox";
-            this.p_QuantityTextBox.Size = new System.Drawing.Size(279, 23);
+            this.p_QuantityTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_QuantityTextBox.TabIndex = 7;
             // 
             // p_PriceTextBox
             // 
             this.p_PriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Price", true));
             this.p_PriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_PriceTextBox.Location = new System.Drawing.Point(214, 151);
-            this.p_PriceTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.p_PriceTextBox.Location = new System.Drawing.Point(285, 186);
+            this.p_PriceTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_PriceTextBox.Name = "p_PriceTextBox";
-            this.p_PriceTextBox.Size = new System.Drawing.Size(279, 23);
+            this.p_PriceTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_PriceTextBox.TabIndex = 9;
             this.p_PriceTextBox.TextChanged += new System.EventHandler(this.p_PriceTextBox_TextChanged);
             // 
@@ -327,84 +319,86 @@
             // 
             this.p_CostTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Cost", true));
             this.p_CostTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_CostTextBox.Location = new System.Drawing.Point(214, 181);
-            this.p_CostTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.p_CostTextBox.Location = new System.Drawing.Point(285, 223);
+            this.p_CostTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_CostTextBox.Name = "p_CostTextBox";
-            this.p_CostTextBox.Size = new System.Drawing.Size(279, 23);
+            this.p_CostTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_CostTextBox.TabIndex = 11;
             // 
             // p_SupplierTextBox
             // 
             this.p_SupplierTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Supplier", true));
             this.p_SupplierTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_SupplierTextBox.Location = new System.Drawing.Point(214, 211);
-            this.p_SupplierTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.p_SupplierTextBox.Location = new System.Drawing.Point(285, 260);
+            this.p_SupplierTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_SupplierTextBox.Name = "p_SupplierTextBox";
-            this.p_SupplierTextBox.Size = new System.Drawing.Size(279, 23);
+            this.p_SupplierTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_SupplierTextBox.TabIndex = 13;
             // 
-            // comboBox1
+            // p_UOMComboBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.p_UOMComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p_UOMComboBox.FormattingEnabled = true;
+            this.p_UOMComboBox.Items.AddRange(new object[] {
             "Bottle",
             "Pcs",
             "Tablet",
             "Gram"});
-            this.comboBox1.Location = new System.Drawing.Point(214, 241);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(279, 25);
-            this.comboBox1.TabIndex = 17;
+            this.p_UOMComboBox.Location = new System.Drawing.Point(285, 297);
+            this.p_UOMComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p_UOMComboBox.Name = "p_UOMComboBox";
+            this.p_UOMComboBox.Size = new System.Drawing.Size(371, 28);
+            this.p_UOMComboBox.TabIndex = 17;
             // 
-            // comboBox2
+            // p_GroupComboBox
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.p_GroupComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.p_GroupComboBox.FormattingEnabled = true;
+            this.p_GroupComboBox.Items.AddRange(new object[] {
             "Medicine",
             "Healthcare",
             "Equipment"});
-            this.comboBox2.Location = new System.Drawing.Point(214, 274);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(279, 25);
-            this.comboBox2.TabIndex = 18;
+            this.p_GroupComboBox.Location = new System.Drawing.Point(285, 337);
+            this.p_GroupComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.p_GroupComboBox.Name = "p_GroupComboBox";
+            this.p_GroupComboBox.Size = new System.Drawing.Size(371, 28);
+            this.p_GroupComboBox.TabIndex = 18;
             // 
             // btnCancelProduct
             // 
             this.btnCancelProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelProduct.Location = new System.Drawing.Point(314, 306);
-            this.btnCancelProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelProduct.Location = new System.Drawing.Point(419, 377);
+            this.btnCancelProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelProduct.Name = "btnCancelProduct";
-            this.btnCancelProduct.Size = new System.Drawing.Size(84, 27);
+            this.btnCancelProduct.Size = new System.Drawing.Size(112, 33);
             this.btnCancelProduct.TabIndex = 21;
             this.btnCancelProduct.Text = "&Cancel";
             this.btnCancelProduct.UseVisualStyleBackColor = false;
+            this.btnCancelProduct.Click += new System.EventHandler(this.btnCancelProduct_Click);
             // 
             // btnAddProduct
             // 
             this.btnAddProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.Location = new System.Drawing.Point(225, 306);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddProduct.Location = new System.Drawing.Point(300, 377);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(84, 27);
+            this.btnAddProduct.Size = new System.Drawing.Size(112, 33);
             this.btnAddProduct.TabIndex = 20;
             this.btnAddProduct.Text = "&Add New";
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // frmAddProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 366);
+            this.ClientSize = new System.Drawing.Size(808, 450);
             this.Controls.Add(this.btnCancelProduct);
             this.Controls.Add(this.btnAddProduct);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.p_GroupComboBox);
+            this.Controls.Add(this.p_UOMComboBox);
             this.Controls.Add(lblPGroup);
             this.Controls.Add(lblPUOM);
             this.Controls.Add(lblPSupplier);
@@ -420,7 +414,7 @@
             this.Controls.Add(lblPID);
             this.Controls.Add(this.p_IDTextBox);
             this.Controls.Add(this.menuBar);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddProduct";
             this.Text = "Family Aid Pharmacy Inc. SRePS - Add Product";
             this.Load += new System.EventHandler(this.frmAddProduct_Load);
@@ -457,9 +451,9 @@
         private System.Windows.Forms.TextBox p_PriceTextBox;
         private System.Windows.Forms.TextBox p_CostTextBox;
         private System.Windows.Forms.TextBox p_SupplierTextBox;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox p_GroupComboBox;
         private System.Windows.Forms.Button btnCancelProduct;
         private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.ComboBox p_UOMComboBox;
     }
 }
