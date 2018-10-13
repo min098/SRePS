@@ -149,7 +149,7 @@
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(212, 132);
+            this.lblUserName.Location = new System.Drawing.Point(217, 132);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(80, 16);
             this.lblUserName.TabIndex = 1;
@@ -160,7 +160,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(212, 160);
+            this.lblPassword.Location = new System.Drawing.Point(217, 160);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(71, 16);
             this.lblPassword.TabIndex = 2;
@@ -171,7 +171,7 @@
             // 
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPassword.Location = new System.Drawing.Point(212, 189);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(217, 189);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Size = new System.Drawing.Size(119, 16);
             this.lblConfirmPassword.TabIndex = 3;
@@ -182,7 +182,7 @@
             // 
             this.lblPosistion.AutoSize = true;
             this.lblPosistion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosistion.Location = new System.Drawing.Point(212, 219);
+            this.lblPosistion.Location = new System.Drawing.Point(217, 219);
             this.lblPosistion.Name = "lblPosistion";
             this.lblPosistion.Size = new System.Drawing.Size(59, 16);
             this.lblPosistion.TabIndex = 4;
@@ -193,7 +193,7 @@
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(212, 248);
+            this.lblGender.Location = new System.Drawing.Point(217, 248);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(56, 16);
             this.lblGender.TabIndex = 5;
@@ -202,7 +202,7 @@
             // e_UserNameTextBox
             // 
             this.e_UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_UserNameTextBox.Location = new System.Drawing.Point(337, 129);
+            this.e_UserNameTextBox.Location = new System.Drawing.Point(342, 129);
             this.e_UserNameTextBox.Name = "e_UserNameTextBox";
             this.e_UserNameTextBox.Size = new System.Drawing.Size(211, 22);
             this.e_UserNameTextBox.TabIndex = 6;
@@ -210,7 +210,7 @@
             // e_PasswordTextBox
             // 
             this.e_PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_PasswordTextBox.Location = new System.Drawing.Point(337, 158);
+            this.e_PasswordTextBox.Location = new System.Drawing.Point(342, 158);
             this.e_PasswordTextBox.Name = "e_PasswordTextBox";
             this.e_PasswordTextBox.Size = new System.Drawing.Size(211, 22);
             this.e_PasswordTextBox.TabIndex = 7;
@@ -218,7 +218,7 @@
             // e_ConfirmPasswordTextBox
             // 
             this.e_ConfirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_ConfirmPasswordTextBox.Location = new System.Drawing.Point(337, 188);
+            this.e_ConfirmPasswordTextBox.Location = new System.Drawing.Point(342, 188);
             this.e_ConfirmPasswordTextBox.Name = "e_ConfirmPasswordTextBox";
             this.e_ConfirmPasswordTextBox.Size = new System.Drawing.Size(211, 22);
             this.e_ConfirmPasswordTextBox.TabIndex = 8;
@@ -226,7 +226,7 @@
             // cmbPosition
             // 
             this.cmbPosition.FormattingEnabled = true;
-            this.cmbPosition.Location = new System.Drawing.Point(337, 219);
+            this.cmbPosition.Location = new System.Drawing.Point(342, 219);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(211, 21);
             this.cmbPosition.TabIndex = 9;
@@ -235,7 +235,7 @@
             // 
             this.rdMale.AutoSize = true;
             this.rdMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdMale.Location = new System.Drawing.Point(337, 248);
+            this.rdMale.Location = new System.Drawing.Point(342, 248);
             this.rdMale.Name = "rdMale";
             this.rdMale.Size = new System.Drawing.Size(56, 20);
             this.rdMale.TabIndex = 10;
@@ -247,7 +247,7 @@
             // 
             this.rdFemale.AutoSize = true;
             this.rdFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdFemale.Location = new System.Drawing.Point(417, 248);
+            this.rdFemale.Location = new System.Drawing.Point(422, 248);
             this.rdFemale.Name = "rdFemale";
             this.rdFemale.Size = new System.Drawing.Size(72, 20);
             this.rdFemale.TabIndex = 11;
@@ -260,7 +260,7 @@
             // 
             this.btnRegister.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(320, 298);
+            this.btnRegister.Location = new System.Drawing.Point(325, 298);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(84, 27);
             this.btnRegister.TabIndex = 12;
@@ -271,7 +271,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(410, 298);
+            this.btnCancel.Location = new System.Drawing.Point(415, 298);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(84, 27);
             this.btnCancel.TabIndex = 13;

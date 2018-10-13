@@ -204,7 +204,7 @@
             this.btnVisualize.Location = new System.Drawing.Point(561, 405);
             this.btnVisualize.Name = "btnVisualize";
             this.btnVisualize.Size = new System.Drawing.Size(112, 33);
-            this.btnVisualize.TabIndex = 6;
+            this.btnVisualize.TabIndex = 8;
             this.btnVisualize.Text = "&Visualize";
             this.btnVisualize.UseVisualStyleBackColor = false;
             // 
@@ -215,7 +215,7 @@
             this.btnExport.Location = new System.Drawing.Point(679, 405);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(112, 33);
-            this.btnExport.TabIndex = 6;
+            this.btnExport.TabIndex = 9;
             this.btnExport.Text = "&Export";
             this.btnExport.UseVisualStyleBackColor = false;
             // 

@@ -55,7 +55,7 @@
             this.p_PriceTextBox = new System.Windows.Forms.TextBox();
             this.p_CostTextBox = new System.Windows.Forms.TextBox();
             this.p_SupplierTextBox = new System.Windows.Forms.TextBox();
-            this.btnSavesChanges = new System.Windows.Forms.Button();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cmbPUOM = new System.Windows.Forms.ComboBox();
             this.cmbPGroup = new System.Windows.Forms.ComboBox();
@@ -95,7 +95,7 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             // 
             // homeToolStripMenuItem
@@ -135,19 +135,19 @@
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             // 
             // predictionToolStripMenuItem
@@ -286,16 +286,16 @@
             this.p_SupplierTextBox.Size = new System.Drawing.Size(240, 22);
             this.p_SupplierTextBox.TabIndex = 14;
             // 
-            // btnSavesChanges
+            // btnSaveChanges
             // 
-            this.btnSavesChanges.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnSavesChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavesChanges.Location = new System.Drawing.Point(221, 377);
-            this.btnSavesChanges.Name = "btnSavesChanges";
-            this.btnSavesChanges.Size = new System.Drawing.Size(127, 27);
-            this.btnSavesChanges.TabIndex = 17;
-            this.btnSavesChanges.Text = "Saves changes";
-            this.btnSavesChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChanges.Location = new System.Drawing.Point(221, 377);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(127, 27);
+            this.btnSaveChanges.TabIndex = 17;
+            this.btnSaveChanges.Text = "Save changes";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
@@ -315,7 +315,7 @@
             this.cmbPUOM.Location = new System.Drawing.Point(301, 277);
             this.cmbPUOM.Name = "cmbPUOM";
             this.cmbPUOM.Size = new System.Drawing.Size(240, 24);
-            this.cmbPUOM.TabIndex = 19;
+            this.cmbPUOM.TabIndex = 15;
             // 
             // cmbPGroup
             // 
@@ -324,7 +324,7 @@
             this.cmbPGroup.Location = new System.Drawing.Point(301, 313);
             this.cmbPGroup.Name = "cmbPGroup";
             this.cmbPGroup.Size = new System.Drawing.Size(240, 24);
-            this.cmbPGroup.TabIndex = 20;
+            this.cmbPGroup.TabIndex = 16;
             // 
             // sRePS_DatabaseDataSet
             // 
@@ -357,7 +357,7 @@
             this.Controls.Add(this.cmbPGroup);
             this.Controls.Add(this.cmbPUOM);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSavesChanges);
+            this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.p_SupplierTextBox);
             this.Controls.Add(this.p_CostTextBox);
             this.Controls.Add(this.p_PriceTextBox);
@@ -413,7 +413,7 @@
         private System.Windows.Forms.TextBox p_PriceTextBox;
         private System.Windows.Forms.TextBox p_CostTextBox;
         private System.Windows.Forms.TextBox p_SupplierTextBox;
-        private System.Windows.Forms.Button btnSavesChanges;
+        private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox cmbPUOM;
         private System.Windows.Forms.ComboBox cmbPGroup;

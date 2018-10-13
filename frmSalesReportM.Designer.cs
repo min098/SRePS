@@ -71,7 +71,7 @@
             this.salesReportMDataGridView.Name = "salesReportMDataGridView";
             this.salesReportMDataGridView.ReadOnly = true;
             this.salesReportMDataGridView.Size = new System.Drawing.Size(784, 272);
-            this.salesReportMDataGridView.TabIndex = 21;
+            this.salesReportMDataGridView.TabIndex = 20;
             // 
             // salesBindingSource
             // 
@@ -90,7 +90,7 @@
             this.btnExport.Location = new System.Drawing.Point(679, 405);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(112, 33);
-            this.btnExport.TabIndex = 18;
+            this.btnExport.TabIndex = 22;
             this.btnExport.Text = "&Export";
             this.btnExport.UseVisualStyleBackColor = false;
             // 
@@ -101,7 +101,7 @@
             this.btnVisualize.Location = new System.Drawing.Point(561, 405);
             this.btnVisualize.Name = "btnVisualize";
             this.btnVisualize.Size = new System.Drawing.Size(112, 33);
-            this.btnVisualize.TabIndex = 19;
+            this.btnVisualize.TabIndex = 21;
             this.btnVisualize.Text = "&Visualize";
             this.btnVisualize.UseVisualStyleBackColor = false;
             // 
@@ -111,7 +111,7 @@
             this.btnSearch.Location = new System.Drawing.Point(508, 39);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 20;
+            this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
@@ -122,7 +122,7 @@
             this.dtpickerEnd.Location = new System.Drawing.Point(295, 40);
             this.dtpickerEnd.Name = "dtpickerEnd";
             this.dtpickerEnd.Size = new System.Drawing.Size(200, 20);
-            this.dtpickerEnd.TabIndex = 16;
+            this.dtpickerEnd.TabIndex = 18;
             // 
             // dtpickerStart
             // 
