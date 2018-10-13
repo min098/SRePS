@@ -42,7 +42,7 @@
             this.weeklyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.salesDataGridView = new System.Windows.Forms.DataGridView();
             this.salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.salesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
@@ -159,19 +159,19 @@
             this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
-            // dataGridView1
+            // salesDataGridView
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 33);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 287);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.salesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.salesDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.salesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesDataGridView.Location = new System.Drawing.Point(10, 33);
+            this.salesDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.salesDataGridView.Name = "salesDataGridView";
+            this.salesDataGridView.ReadOnly = true;
+            this.salesDataGridView.RowTemplate.Height = 24;
+            this.salesDataGridView.Size = new System.Drawing.Size(784, 287);
+            this.salesDataGridView.TabIndex = 2;
+            this.salesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // salesBindingSource
             // 
@@ -331,7 +331,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEditProduct);
             this.Controls.Add(this.btnAddProduct);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.salesDataGridView);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.productBindingNavigator);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -340,7 +340,7 @@
             this.Load += new System.EventHandler(this.frmSalesManagement_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).EndInit();
@@ -366,7 +366,7 @@
         private System.Windows.Forms.ToolStripMenuItem weeklyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monthlyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView salesDataGridView;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEditProduct;
         private System.Windows.Forms.Button btnAddProduct;

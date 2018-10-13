@@ -43,7 +43,6 @@
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -59,22 +58,22 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.productTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter();
             this.tableAdapterManager = new SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pGroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pUOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.OrderTableAdapter();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
             this.productBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -170,7 +169,6 @@
             // productBindingNavigator
             // 
             this.productBindingNavigator.AddNewItem = null;
-            this.productBindingNavigator.BindingSource = this.productBindingSource;
             this.productBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.productBindingNavigator.DeleteItem = null;
             this.productBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
@@ -195,11 +193,6 @@
             this.productBindingNavigator.Size = new System.Drawing.Size(213, 27);
             this.productBindingNavigator.TabIndex = 1;
             this.productBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.sRePS_DatabaseDataSet;
             // 
             // sRePS_DatabaseDataSet
             // 
@@ -306,6 +299,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // productTableAdapter
             // 
@@ -320,24 +314,25 @@
             this.tableAdapterManager.SalesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dataGridView1
+            // productDataGridView
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productDataGridView.AutoGenerateColumns = false;
+            this.productDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.productDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pIDDataGridViewTextBoxColumn,
             this.pNameDataGridViewTextBoxColumn,
             this.pGroupDataGridViewTextBoxColumn,
             this.pUOMDataGridViewTextBoxColumn,
             this.pQuantityDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.productBindingSource2;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 287);
-            this.dataGridView1.TabIndex = 6;
+            this.productDataGridView.DataSource = this.productBindingSource2;
+            this.productDataGridView.Location = new System.Drawing.Point(12, 43);
+            this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.RowTemplate.Height = 24;
+            this.productDataGridView.Size = new System.Drawing.Size(784, 287);
+            this.productDataGridView.TabIndex = 6;
+            this.productDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productDataGridView_RowHeaderMouseClick);
             // 
             // pIDDataGridViewTextBoxColumn
             // 
@@ -374,15 +369,19 @@
             this.productBindingSource2.DataMember = "Product";
             this.productBindingSource2.DataSource = this.sRePS_DatabaseDataSet;
             // 
-            // productBindingSource1
+            // orderBindingSource
             // 
-            this.productBindingSource1.DataMember = "Product";
-            this.productBindingSource1.DataSource = this.sRePS_DatabaseDataSet;
+            this.orderBindingSource.DataMember = "ProductOrder";
+            this.orderBindingSource.DataSource = this.productBindingSource2;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
             // 
             // frmProductManagement
             // 
             this.ClientSize = new System.Drawing.Size(808, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.productDataGridView);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEditProduct);
             this.Controls.Add(this.btnAddProduct);
@@ -397,11 +396,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).EndInit();
             this.productBindingNavigator.ResumeLayout(false);
             this.productBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,7 +419,6 @@
         private System.Windows.Forms.ToolStripMenuItem weeklyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monthlyReportToolStripMenuItem;
         private SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
-        private System.Windows.Forms.BindingSource productBindingSource;
         private SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private SRePS_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator productBindingNavigator;
@@ -439,13 +436,14 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource productBindingSource1;
+        private System.Windows.Forms.DataGridView productDataGridView;
         private System.Windows.Forms.BindingSource productBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pGroupDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pUOMDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource orderBindingSource;
+        private SRePS_DatabaseDataSetTableAdapters.OrderTableAdapter orderTableAdapter;
     }
 }
