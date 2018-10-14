@@ -118,9 +118,9 @@ namespace SRePS
 
 
             Program.frmLogin = new frmLogIn();
-                Program.frmLogin.Show();
-                //temporary
-                this.Hide();
+            Program.frmLogin.Show();
+            //temporary
+            this.Hide();
             
         }
 
