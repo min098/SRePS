@@ -146,17 +146,18 @@ namespace SRePS
                         c1.Text = string.Empty;
                     }
                 }
-                if (Program.isOpened(Program.frmProduct) == true)
+
+                if (Program.isOpened(Program.frmAddP) == true)
                 {
 
-                    Program.frmProduct.Focus();
-
+                    Program.frmAddP.Focus();
                 }
                 else
                 {
-                    Program.frmProduct = new frmProductManagement();
-                    Program.frmProduct.Show();
+                    Program.frmAddP = new frmAddProduct();
+                    Program.frmAddP.Show();
                 }
+
 
             }
         }
@@ -188,8 +189,7 @@ namespace SRePS
         {
             if (Program.isOpened(Program.frmHome) == true)
             {
-
-                Program.frmHome.Show();
+                Program.frmHome.Focus();
             }
             else
             {

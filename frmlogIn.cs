@@ -32,7 +32,7 @@ namespace SRePS
                 Program.frmRegister = new frmRegister();
                 Program.frmRegister.Show();
                 //temporary
-                this.Hide();
+                this.Dispose();
         }
 
         private void frmLogIn_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,7 +48,7 @@ namespace SRePS
             {
 
                 Program.frmHome.Show();
-                this.Hide();
+                this.Dispose();
 
             }
             else
@@ -56,7 +56,7 @@ namespace SRePS
                 Program.frmHome = new frmHomepage();
                 Program.frmHome.Show();
                 //temporary
-                this.Hide();
+                this.Dispose();
             }
         }
     }

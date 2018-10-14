@@ -40,7 +40,6 @@ namespace SRePS
             {
                 Program.frmRegister = new frmRegister();
                 Program.frmRegister.Show();
-                Program.frmEmployee.Dispose();
             }
         }
 
@@ -78,7 +77,7 @@ namespace SRePS
             if (Program.isOpened(Program.frmHome) == true)
             {
 
-                Program.frmHome.Show();
+                Program.frmHome.Focus();
 
             }
             else

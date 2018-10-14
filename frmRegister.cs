@@ -102,7 +102,7 @@ namespace SRePS
             Program.frmHome = new frmHomepage();
             Program.frmHome.Show();
             //temporary
-            this.Hide();
+            this.Dispose();
             
         }
 
@@ -116,12 +116,18 @@ namespace SRePS
             rdMale.Checked = false;
             rdFemale.Checked = false;
 
+            if (Program.isOpened(Program.frmEmployee))
+            {
 
-            Program.frmLogin = new frmLogIn();
-            Program.frmLogin.Show();
-            //temporary
-            this.Hide();
-            
+                this.Dispose();
+            }
+            else
+            {
+                Program.frmLogin = new frmLogIn();
+                Program.frmLogin.Show();
+                //temporary
+                this.Dispose();
+            }
         }
 
         private void frmRegister_FormClosing(object sender, FormClosingEventArgs e)

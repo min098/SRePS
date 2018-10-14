@@ -55,7 +55,7 @@ namespace SRePS
             if (Program.isOpened(Program.frmHome) == true)
             {
 
-                Program.frmHome.Show();
+                Program.frmHome.Focus();
 
             }
             else
@@ -142,17 +142,7 @@ namespace SRePS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmProduct) == true)
-            {
-
-                Program.frmProduct.Focus();
-
-            }
-            else
-            {
-                Program.frmProduct = new frmProductManagement();
-                Program.frmProduct.Show();
-            }
+            this.Dispose();
         }
 
         private void frmEditProduct_FormClosing(object sender, FormClosingEventArgs e)

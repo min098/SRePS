@@ -28,5 +28,10 @@ namespace SRePS
         {
 
         }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

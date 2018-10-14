@@ -95,7 +95,7 @@ namespace SRePS
             if (Program.isOpened(Program.frmHome) == true)
             {
 
-                Program.frmHome.Show();
+                Program.frmHome.Focus();
 
             }
             else

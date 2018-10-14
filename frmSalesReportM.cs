@@ -51,7 +51,7 @@ namespace SRePS
             if (Program.isOpened(Program.frmHome) == true)
             {
 
-                Program.frmHome.Show();
+                Program.frmHome.Focus();
 
             }
             else
@@ -139,6 +139,11 @@ namespace SRePS
                 Program.frmSalesM = new frmSalesReportM();
                 Program.frmSalesM.Show();
             }
+        }
+
+        private void btnVisualize_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
