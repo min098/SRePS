@@ -24,14 +24,13 @@ namespace SRePS
 
         private void frmHomepage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+       
         }
 
         private void picProduct_Click(object sender, EventArgs e)
         {
             if (Program.isOpened(Program.frmProduct) == true)
             {
-                Program.frmProduct.Show();
                 Program.frmProduct.Focus();
 
             }

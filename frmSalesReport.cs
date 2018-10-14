@@ -19,7 +19,7 @@ namespace SRePS
 
         private void frmSalesReport_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+           
         }
 
         private void picDailyIcon_Click(object sender, EventArgs e)
@@ -34,6 +34,7 @@ namespace SRePS
             {
                 Program.frmSalesD = new frmSalesReportD();
                 Program.frmSalesD.Show();
+                Program.frmSalesReport.Dispose();
             }
         }
 
@@ -49,6 +50,8 @@ namespace SRePS
             {
                 Program.frmSalesW = new frmSalesReportW();
                 Program.frmSalesW.Show();
+                Program.frmSalesReport.Dispose();
+
             }
         }
 
@@ -64,6 +67,8 @@ namespace SRePS
             {
                 Program.frmSalesM = new frmSalesReportM();
                 Program.frmSalesM.Show();
+                Program.frmSalesReport.Dispose();
+
             }
         }
 
@@ -73,7 +78,7 @@ namespace SRePS
             {
 
                 Program.frmLogin.Show();
-                this.Hide();
+                this.Dispose();
 
             }
             else

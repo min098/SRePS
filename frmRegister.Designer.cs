@@ -213,6 +213,7 @@
             this.Name = "frmRegister";
             this.Text = "Family Aid Pharmacy Inc. SRePS - Register/Add Employee";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegister_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRegister_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

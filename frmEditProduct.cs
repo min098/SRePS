@@ -38,7 +38,7 @@ namespace SRePS
             {
 
                 Program.frmLogin.Show();
-                this.Hide();
+                this.Dispose();
 
             }
             else

@@ -141,7 +141,7 @@ namespace SRePS
 
         private void frmProductManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+         
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace SRePS
             {
 
                 Program.frmLogin.Show();
-                this.Hide();
+                this.Dispose();
 
             }
             else
