@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace SRePS
 {
@@ -137,6 +138,44 @@ namespace SRePS
                 Program.frmSalesM = new frmSalesReportM();
                 Program.frmSalesM.Show();
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //clear any record in the table before fetching a new one so that there are only records for that particular date
+            //picked by the user
+            if (sRePS_DatabaseDataSet.Tables["DailySalesReport"] != null)
+            {
+                sRePS_DatabaseDataSet.Tables["DailySalesReport"].Clear();
+            }
+
+            OleDbConnection conn = new OleDbConnection();
+            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+            try
+            {
+                conn.Open();
+
+                string query = "SELECT Sales.S_Date, [Order].Inv_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
+                    "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                    "Product ON [Order].P_ID = Product.P_ID) " +
+                    "WHERE Sales.S_Date = @S_Date " +
+                    "GROUP BY Sales.S_Date, [Order].Inv_No";
+                OleDbCommand cmd = new OleDbCommand(query, conn);
+                cmd.Parameters.AddWithValue("@S_Date", dtpicker.Text);
+                cmd.ExecuteNonQuery();
+
+                OleDbDataAdapter dSalesReportAdapter = new OleDbDataAdapter(cmd);
+                DataSet dSalesReportDataset = new DataSet();
+                dSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesReport");
+                salesReportDDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["DailySalesReport"];
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("Failed to search due to " + a.Message);
+            }
+
+            conn.Close();
         }
     }
 }
