@@ -50,10 +50,6 @@
             this.weeklyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter();
-            this.tableAdapterManager = new SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.p_IDTextBox = new System.Windows.Forms.TextBox();
             this.p_NameTextBox = new System.Windows.Forms.TextBox();
             this.p_QuantityTextBox = new System.Windows.Forms.TextBox();
@@ -65,6 +61,10 @@
             this.btnCancelProduct = new System.Windows.Forms.Button();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.p_SubGroupComboBox = new System.Windows.Forms.ComboBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
+            this.productTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter();
+            this.tableAdapterManager = new SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager();
             lblPID = new System.Windows.Forms.Label();
             lblPName = new System.Windows.Forms.Label();
             lblPQuantity = new System.Windows.Forms.Label();
@@ -75,15 +75,15 @@
             lblPGroup = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             this.menuBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPID
             // 
             lblPID.AutoSize = true;
             lblPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPID.Location = new System.Drawing.Point(113, 56);
+            lblPID.Location = new System.Drawing.Point(245, 77);
             lblPID.Name = "lblPID";
             lblPID.Size = new System.Drawing.Size(94, 20);
             lblPID.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             lblPName.AutoSize = true;
             lblPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPName.Location = new System.Drawing.Point(113, 92);
+            lblPName.Location = new System.Drawing.Point(245, 121);
             lblPName.Name = "lblPName";
             lblPName.Size = new System.Drawing.Size(121, 20);
             lblPName.TabIndex = 4;
@@ -104,7 +104,7 @@
             // 
             lblPQuantity.AutoSize = true;
             lblPQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPQuantity.Location = new System.Drawing.Point(113, 129);
+            lblPQuantity.Location = new System.Drawing.Point(245, 165);
             lblPQuantity.Name = "lblPQuantity";
             lblPQuantity.Size = new System.Drawing.Size(139, 20);
             lblPQuantity.TabIndex = 6;
@@ -115,7 +115,7 @@
             // 
             lblPPrice.AutoSize = true;
             lblPPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPPrice.Location = new System.Drawing.Point(113, 168);
+            lblPPrice.Location = new System.Drawing.Point(245, 211);
             lblPPrice.Name = "lblPPrice";
             lblPPrice.Size = new System.Drawing.Size(116, 20);
             lblPPrice.TabIndex = 8;
@@ -126,7 +126,7 @@
             // 
             lblPCost.AutoSize = true;
             lblPCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPCost.Location = new System.Drawing.Point(113, 204);
+            lblPCost.Location = new System.Drawing.Point(245, 254);
             lblPCost.Name = "lblPCost";
             lblPCost.Size = new System.Drawing.Size(112, 20);
             lblPCost.TabIndex = 10;
@@ -137,7 +137,7 @@
             // 
             lblPSupplier.AutoSize = true;
             lblPSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPSupplier.Location = new System.Drawing.Point(113, 241);
+            lblPSupplier.Location = new System.Drawing.Point(245, 297);
             lblPSupplier.Name = "lblPSupplier";
             lblPSupplier.Size = new System.Drawing.Size(138, 20);
             lblPSupplier.TabIndex = 12;
@@ -148,7 +148,7 @@
             // 
             lblPUOM.AutoSize = true;
             lblPUOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPUOM.Location = new System.Drawing.Point(113, 278);
+            lblPUOM.Location = new System.Drawing.Point(245, 339);
             lblPUOM.Name = "lblPUOM";
             lblPUOM.Size = new System.Drawing.Size(116, 20);
             lblPUOM.TabIndex = 14;
@@ -158,11 +158,21 @@
             // 
             lblPGroup.AutoSize = true;
             lblPGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPGroup.Location = new System.Drawing.Point(113, 318);
+            lblPGroup.Location = new System.Drawing.Point(245, 380);
             lblPGroup.Name = "lblPGroup";
             lblPGroup.Size = new System.Drawing.Size(123, 20);
             lblPGroup.TabIndex = 16;
             lblPGroup.Text = "Product Group:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(245, 421);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(158, 20);
+            label1.TabIndex = 25;
+            label1.Text = "Product Sub-Group:";
             // 
             // menuBar
             // 
@@ -179,7 +189,7 @@
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(808, 28);
+            this.menuBar.Size = new System.Drawing.Size(1067, 28);
             this.menuBar.TabIndex = 2;
             // 
             // accountToolStripMenuItem
@@ -262,34 +272,11 @@
             this.predictionToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
-            // sRePS_DatabaseDataSet
-            // 
-            this.sRePS_DatabaseDataSet.DataSetName = "SRePS_DatabaseDataSet";
-            this.sRePS_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataMember = "Product";
-            this.productBindingSource.DataSource = this.sRePS_DatabaseDataSet;
-            // 
-            // productTableAdapter
-            // 
-            this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.EmployeesTableAdapter = null;
-            this.tableAdapterManager.OrderTableAdapter = null;
-            this.tableAdapterManager.ProductTableAdapter = this.productTableAdapter;
-            this.tableAdapterManager.SalesTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // p_IDTextBox
             // 
             this.p_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_ID", true));
             this.p_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_IDTextBox.Location = new System.Drawing.Point(313, 52);
+            this.p_IDTextBox.Location = new System.Drawing.Point(445, 73);
             this.p_IDTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_IDTextBox.Name = "p_IDTextBox";
             this.p_IDTextBox.Size = new System.Drawing.Size(371, 27);
@@ -299,7 +286,7 @@
             // 
             this.p_NameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Name", true));
             this.p_NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_NameTextBox.Location = new System.Drawing.Point(313, 89);
+            this.p_NameTextBox.Location = new System.Drawing.Point(445, 118);
             this.p_NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_NameTextBox.Name = "p_NameTextBox";
             this.p_NameTextBox.Size = new System.Drawing.Size(371, 27);
@@ -309,7 +296,7 @@
             // 
             this.p_QuantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Quantity", true));
             this.p_QuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_QuantityTextBox.Location = new System.Drawing.Point(313, 126);
+            this.p_QuantityTextBox.Location = new System.Drawing.Point(445, 162);
             this.p_QuantityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_QuantityTextBox.Name = "p_QuantityTextBox";
             this.p_QuantityTextBox.Size = new System.Drawing.Size(371, 27);
@@ -319,7 +306,7 @@
             // 
             this.p_PriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Price", true));
             this.p_PriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_PriceTextBox.Location = new System.Drawing.Point(313, 164);
+            this.p_PriceTextBox.Location = new System.Drawing.Point(445, 207);
             this.p_PriceTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_PriceTextBox.Name = "p_PriceTextBox";
             this.p_PriceTextBox.Size = new System.Drawing.Size(371, 27);
@@ -330,7 +317,7 @@
             // 
             this.p_CostTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Cost", true));
             this.p_CostTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_CostTextBox.Location = new System.Drawing.Point(313, 201);
+            this.p_CostTextBox.Location = new System.Drawing.Point(445, 251);
             this.p_CostTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_CostTextBox.Name = "p_CostTextBox";
             this.p_CostTextBox.Size = new System.Drawing.Size(371, 27);
@@ -340,7 +327,7 @@
             // 
             this.p_SupplierTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Supplier", true));
             this.p_SupplierTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_SupplierTextBox.Location = new System.Drawing.Point(313, 238);
+            this.p_SupplierTextBox.Location = new System.Drawing.Point(445, 294);
             this.p_SupplierTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_SupplierTextBox.Name = "p_SupplierTextBox";
             this.p_SupplierTextBox.Size = new System.Drawing.Size(371, 27);
@@ -355,7 +342,7 @@
             "Pcs",
             "Tablet",
             "Gram"});
-            this.p_UOMComboBox.Location = new System.Drawing.Point(313, 275);
+            this.p_UOMComboBox.Location = new System.Drawing.Point(445, 336);
             this.p_UOMComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_UOMComboBox.Name = "p_UOMComboBox";
             this.p_UOMComboBox.Size = new System.Drawing.Size(371, 28);
@@ -369,7 +356,7 @@
             "Equipment",
             "Healthcare",
             "Medicine"});
-            this.p_GroupComboBox.Location = new System.Drawing.Point(313, 315);
+            this.p_GroupComboBox.Location = new System.Drawing.Point(445, 377);
             this.p_GroupComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_GroupComboBox.Name = "p_GroupComboBox";
             this.p_GroupComboBox.Size = new System.Drawing.Size(371, 28);
@@ -381,10 +368,10 @@
             // 
             this.btnCancelProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelProduct.Location = new System.Drawing.Point(414, 406);
+            this.btnCancelProduct.Location = new System.Drawing.Point(547, 473);
             this.btnCancelProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelProduct.Name = "btnCancelProduct";
-            this.btnCancelProduct.Size = new System.Drawing.Size(112, 33);
+            this.btnCancelProduct.Size = new System.Drawing.Size(149, 41);
             this.btnCancelProduct.TabIndex = 21;
             this.btnCancelProduct.Text = "&Cancel";
             this.btnCancelProduct.UseVisualStyleBackColor = false;
@@ -394,10 +381,10 @@
             // 
             this.btnAddProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.Location = new System.Drawing.Point(296, 406);
+            this.btnAddProduct.Location = new System.Drawing.Point(392, 473);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(112, 33);
+            this.btnAddProduct.Size = new System.Drawing.Size(149, 41);
             this.btnAddProduct.TabIndex = 20;
             this.btnAddProduct.Text = "&Add New";
             this.btnAddProduct.UseVisualStyleBackColor = false;
@@ -411,28 +398,41 @@
             "Equipment",
             "Healthcare",
             "Medicine"});
-            this.p_SubGroupComboBox.Location = new System.Drawing.Point(313, 359);
+            this.p_SubGroupComboBox.Location = new System.Drawing.Point(445, 418);
             this.p_SubGroupComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_SubGroupComboBox.Name = "p_SubGroupComboBox";
             this.p_SubGroupComboBox.Size = new System.Drawing.Size(371, 28);
             this.p_SubGroupComboBox.Sorted = true;
             this.p_SubGroupComboBox.TabIndex = 26;
             // 
-            // label1
+            // productBindingSource
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(113, 362);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(158, 20);
-            label1.TabIndex = 25;
-            label1.Text = "Product Sub-Group:";
+            this.productBindingSource.DataMember = "Product";
+            this.productBindingSource.DataSource = this.sRePS_DatabaseDataSet;
+            // 
+            // sRePS_DatabaseDataSet
+            // 
+            this.sRePS_DatabaseDataSet.DataSetName = "SRePS_DatabaseDataSet";
+            this.sRePS_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productTableAdapter
+            // 
+            this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.EmployeesTableAdapter = null;
+            this.tableAdapterManager.OrderTableAdapter = null;
+            this.tableAdapterManager.ProductTableAdapter = this.productTableAdapter;
+            this.tableAdapterManager.SalesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // frmAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.p_SubGroupComboBox);
             this.Controls.Add(label1);
             this.Controls.Add(this.btnCancelProduct);
@@ -461,8 +461,8 @@
             this.Load += new System.EventHandler(this.frmAddProduct_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

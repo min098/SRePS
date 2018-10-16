@@ -86,7 +86,7 @@
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(808, 28);
+            this.menuBar.Size = new System.Drawing.Size(1067, 28);
             this.menuBar.TabIndex = 0;
             // 
             // accountToolStripMenuItem
@@ -172,7 +172,7 @@
             // 
             this.lblPID.AutoSize = true;
             this.lblPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPID.Location = new System.Drawing.Point(113, 50);
+            this.lblPID.Location = new System.Drawing.Point(245, 77);
             this.lblPID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPID.Name = "lblPID";
             this.lblPID.Size = new System.Drawing.Size(94, 20);
@@ -183,7 +183,7 @@
             // 
             this.lblPName.AutoSize = true;
             this.lblPName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPName.Location = new System.Drawing.Point(115, 86);
+            this.lblPName.Location = new System.Drawing.Point(245, 121);
             this.lblPName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPName.Name = "lblPName";
             this.lblPName.Size = new System.Drawing.Size(121, 20);
@@ -194,7 +194,7 @@
             // 
             this.lblPQuantity.AutoSize = true;
             this.lblPQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPQuantity.Location = new System.Drawing.Point(115, 127);
+            this.lblPQuantity.Location = new System.Drawing.Point(247, 165);
             this.lblPQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPQuantity.Name = "lblPQuantity";
             this.lblPQuantity.Size = new System.Drawing.Size(139, 20);
@@ -206,7 +206,7 @@
             // 
             this.lblPPrice.AutoSize = true;
             this.lblPPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPPrice.Location = new System.Drawing.Point(115, 169);
+            this.lblPPrice.Location = new System.Drawing.Point(247, 212);
             this.lblPPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPPrice.Name = "lblPPrice";
             this.lblPPrice.Size = new System.Drawing.Size(116, 20);
@@ -217,7 +217,7 @@
             // 
             this.lblPCost.AutoSize = true;
             this.lblPCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPCost.Location = new System.Drawing.Point(115, 212);
+            this.lblPCost.Location = new System.Drawing.Point(247, 258);
             this.lblPCost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPCost.Name = "lblPCost";
             this.lblPCost.Size = new System.Drawing.Size(117, 20);
@@ -229,7 +229,7 @@
             // 
             this.lblPSupplier.AutoSize = true;
             this.lblPSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPSupplier.Location = new System.Drawing.Point(115, 251);
+            this.lblPSupplier.Location = new System.Drawing.Point(247, 302);
             this.lblPSupplier.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPSupplier.Name = "lblPSupplier";
             this.lblPSupplier.Size = new System.Drawing.Size(138, 20);
@@ -240,7 +240,7 @@
             // 
             this.lblPUOM.AutoSize = true;
             this.lblPUOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPUOM.Location = new System.Drawing.Point(115, 296);
+            this.lblPUOM.Location = new System.Drawing.Point(247, 349);
             this.lblPUOM.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPUOM.Name = "lblPUOM";
             this.lblPUOM.Size = new System.Drawing.Size(116, 20);
@@ -251,7 +251,7 @@
             // 
             this.lblPGroup.AutoSize = true;
             this.lblPGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPGroup.Location = new System.Drawing.Point(115, 340);
+            this.lblPGroup.Location = new System.Drawing.Point(247, 397);
             this.lblPGroup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPGroup.Name = "lblPGroup";
             this.lblPGroup.Size = new System.Drawing.Size(123, 20);
@@ -261,7 +261,7 @@
             // p_IDTextBox
             // 
             this.p_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_IDTextBox.Location = new System.Drawing.Point(313, 46);
+            this.p_IDTextBox.Location = new System.Drawing.Point(445, 73);
             this.p_IDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p_IDTextBox.Name = "p_IDTextBox";
             this.p_IDTextBox.Size = new System.Drawing.Size(371, 26);
@@ -270,7 +270,7 @@
             // p_NameTextBox
             // 
             this.p_NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_NameTextBox.Location = new System.Drawing.Point(313, 83);
+            this.p_NameTextBox.Location = new System.Drawing.Point(445, 118);
             this.p_NameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p_NameTextBox.Name = "p_NameTextBox";
             this.p_NameTextBox.Size = new System.Drawing.Size(371, 26);
@@ -279,7 +279,7 @@
             // p_QuantityTextBox
             // 
             this.p_QuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_QuantityTextBox.Location = new System.Drawing.Point(313, 125);
+            this.p_QuantityTextBox.Location = new System.Drawing.Point(445, 163);
             this.p_QuantityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p_QuantityTextBox.Name = "p_QuantityTextBox";
             this.p_QuantityTextBox.Size = new System.Drawing.Size(371, 26);
@@ -288,7 +288,7 @@
             // p_PriceTextBox
             // 
             this.p_PriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_PriceTextBox.Location = new System.Drawing.Point(313, 165);
+            this.p_PriceTextBox.Location = new System.Drawing.Point(445, 208);
             this.p_PriceTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p_PriceTextBox.Name = "p_PriceTextBox";
             this.p_PriceTextBox.Size = new System.Drawing.Size(371, 26);
@@ -297,7 +297,7 @@
             // p_CostTextBox
             // 
             this.p_CostTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_CostTextBox.Location = new System.Drawing.Point(313, 207);
+            this.p_CostTextBox.Location = new System.Drawing.Point(445, 253);
             this.p_CostTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p_CostTextBox.Name = "p_CostTextBox";
             this.p_CostTextBox.Size = new System.Drawing.Size(371, 26);
@@ -306,7 +306,7 @@
             // p_SupplierTextBox
             // 
             this.p_SupplierTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_SupplierTextBox.Location = new System.Drawing.Point(313, 249);
+            this.p_SupplierTextBox.Location = new System.Drawing.Point(445, 300);
             this.p_SupplierTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.p_SupplierTextBox.Name = "p_SupplierTextBox";
             this.p_SupplierTextBox.Size = new System.Drawing.Size(371, 26);
@@ -316,10 +316,10 @@
             // 
             this.btnSaveChanges.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.Location = new System.Drawing.Point(241, 409);
+            this.btnSaveChanges.Location = new System.Drawing.Point(392, 473);
             this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(169, 33);
+            this.btnSaveChanges.Size = new System.Drawing.Size(149, 41);
             this.btnSaveChanges.TabIndex = 17;
             this.btnSaveChanges.Text = "Save changes";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
@@ -329,10 +329,10 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(418, 409);
+            this.btnCancel.Location = new System.Drawing.Point(549, 473);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(169, 33);
+            this.btnCancel.Size = new System.Drawing.Size(149, 41);
             this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -342,7 +342,7 @@
             // 
             this.cmbPUOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPUOM.FormattingEnabled = true;
-            this.cmbPUOM.Location = new System.Drawing.Point(313, 291);
+            this.cmbPUOM.Location = new System.Drawing.Point(445, 344);
             this.cmbPUOM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbPUOM.Name = "cmbPUOM";
             this.cmbPUOM.Size = new System.Drawing.Size(371, 28);
@@ -352,7 +352,7 @@
             // 
             this.cmbPGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPGroup.FormattingEnabled = true;
-            this.cmbPGroup.Location = new System.Drawing.Point(313, 335);
+            this.cmbPGroup.Location = new System.Drawing.Point(445, 392);
             this.cmbPGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbPGroup.Name = "cmbPGroup";
             this.cmbPGroup.Size = new System.Drawing.Size(371, 28);
@@ -389,7 +389,7 @@
             "Equipment",
             "Healthcare",
             "Medicine"});
-            this.p_SubGroupComboBox.Location = new System.Drawing.Point(313, 375);
+            this.p_SubGroupComboBox.Location = new System.Drawing.Point(445, 436);
             this.p_SubGroupComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.p_SubGroupComboBox.Name = "p_SubGroupComboBox";
             this.p_SubGroupComboBox.Size = new System.Drawing.Size(371, 28);
@@ -400,7 +400,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(113, 378);
+            label1.Location = new System.Drawing.Point(245, 439);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(158, 20);
             label1.TabIndex = 27;
@@ -410,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.p_SubGroupComboBox);
             this.Controls.Add(label1);
             this.Controls.Add(this.cmbPGroup);
