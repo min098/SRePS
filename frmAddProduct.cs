@@ -298,8 +298,10 @@ namespace SRePS
 
         private void p_GroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (p_GroupComboBox.SelectedItem.ToString() == "Medicine")
             {
+                p_SubGroupComboBox.Text = "--Select the sub group of product--";
                 p_SubGroupComboBox.Enabled = true;
                 p_SubGroupComboBox.Items.Clear();
                 p_SubGroupComboBox.Items.Add("Allergic");
@@ -322,10 +324,12 @@ namespace SRePS
                 p_SubGroupComboBox.Items.Add("Throat");
                 p_SubGroupComboBox.Items.Add("Skin");
                 p_SubGroupComboBox.Items.Add("Urinary System");
+                
 
             }
             else if (p_GroupComboBox.SelectedItem.ToString() == "Healthcare")
             {
+                p_SubGroupComboBox.Text = "--Select the sub group of product--";
                 p_SubGroupComboBox.Enabled = true;
                 p_SubGroupComboBox.Items.Clear();
                 p_SubGroupComboBox.Items.Add("Cod Liver Oil");
@@ -338,6 +342,7 @@ namespace SRePS
             }
             else if (p_GroupComboBox.SelectedItem.ToString() == "Equipment")
             {
+                p_SubGroupComboBox.Text = "--Select the sub group of product--";
                 p_SubGroupComboBox.Enabled = true;
                 p_SubGroupComboBox.Items.Clear();
                 p_SubGroupComboBox.Items.Add("Incontinence");
@@ -345,8 +350,8 @@ namespace SRePS
                 p_SubGroupComboBox.Items.Add("Walking Aids");
                 p_SubGroupComboBox.Items.Add("Wheelchairs");
                 p_SubGroupComboBox.Items.Add("Wound Care");
-
             }
+           
         }
     }
 }
