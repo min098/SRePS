@@ -30,7 +30,9 @@ namespace SRePS
         {
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Product' table. You can move, or remove it, as needed.
             //this.productTableAdapter.Fill(this.sRePS_DatabaseDataSet.Product);
-            this.ResetText();
+            p_SubGroupComboBox.Enabled = false;
+            p_GroupComboBox.Text = "--Select the main group of product--";
+            p_SubGroupComboBox.Text = "--Select the sub group of product--";
         }
 
         private void p_SupplierLabel_Click(object sender, EventArgs e)
@@ -65,9 +67,10 @@ namespace SRePS
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
+            
             System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-            //Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\ASUS\Desktop\SRePS\SRePS_Database.mdb
+            Boolean added = false;
             try
             {
                 conn.Open();
@@ -82,10 +85,20 @@ namespace SRePS
                 cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
                 cmd.Parameters.AddWithValue("@P_UOM", p_UOMComboBox.SelectedItem.ToString());
                 cmd.Parameters.AddWithValue("@P_Group", p_GroupComboBox.SelectedItem.ToString());
-                cmd.ExecuteNonQuery();
+                
+                //The selling price must not lower than cost
+                if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
+                {
+                    MessageBox.Show("Selling price must not be lower than cost!");
+                }
+                else
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Product added successfully!");
+                    added = true;
+                }
 
-                MessageBox.Show("Product added successfully!");
-
+                Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
             }
             catch (Exception ex)
             {
@@ -95,25 +108,28 @@ namespace SRePS
             {
                 conn.Close();
 
-                foreach (var item in this.Controls)
+                if (added == true)
                 {
-                    //check item is textbox
-                    if (item.GetType().Equals(typeof(TextBox)))
+                    foreach (var item in this.Controls)
                     {
-                        //clear all textbox at the same time
-                        TextBox t1 = item as TextBox;
-                        t1.Text = string.Empty;
+                        //check item is textbox
+                        if (item.GetType().Equals(typeof(TextBox)))
+                        {
+                            //clear all textbox at the same time
+                            TextBox t1 = item as TextBox;
+                            t1.Text = string.Empty;
+                        }
                     }
-                }
 
-                foreach (var item in this.Controls)
-                {
-                    //check item is combobox
-                    if (item.GetType().Equals(typeof(ComboBox)))
+                    foreach (var item in this.Controls)
                     {
-                        //clear all combobox at the same time
-                        ComboBox c1 = item as ComboBox;
-                        c1.Text = string.Empty;
+                        //check item is combobox
+                        if (item.GetType().Equals(typeof(ComboBox)))
+                        {
+                            //clear all combobox at the same time
+                            ComboBox c1 = item as ComboBox;
+                            c1.Text = string.Empty;
+                        }
                     }
                 }
             }
@@ -277,6 +293,59 @@ namespace SRePS
         private void accountToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void p_GroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (p_GroupComboBox.SelectedItem.ToString() == "Medicine")
+            {
+                p_SubGroupComboBox.Enabled = true;
+                p_SubGroupComboBox.Items.Clear();
+                p_SubGroupComboBox.Items.Add("Allergic");
+                p_SubGroupComboBox.Items.Add("Birth Control");
+                p_SubGroupComboBox.Items.Add("Central Nervous System");
+                p_SubGroupComboBox.Items.Add("Circulatory System");
+                p_SubGroupComboBox.Items.Add("Cough");
+                p_SubGroupComboBox.Items.Add("Digestive System");
+                p_SubGroupComboBox.Items.Add("Ear");
+                p_SubGroupComboBox.Items.Add("Eye");
+                p_SubGroupComboBox.Items.Add("Endocrine System");
+                p_SubGroupComboBox.Items.Add("Fever");
+                p_SubGroupComboBox.Items.Add("Immune System");
+                p_SubGroupComboBox.Items.Add("Menstrual Pain");
+                p_SubGroupComboBox.Items.Add("Musculoskeletal Disorders");
+                p_SubGroupComboBox.Items.Add("Nose");
+                p_SubGroupComboBox.Items.Add("Pain and Consciousness");
+                p_SubGroupComboBox.Items.Add("Reproductive System");
+                p_SubGroupComboBox.Items.Add("Respiratory System");
+                p_SubGroupComboBox.Items.Add("Throat");
+                p_SubGroupComboBox.Items.Add("Skin");
+                p_SubGroupComboBox.Items.Add("Urinary System");
+
+            }
+            else if (p_GroupComboBox.SelectedItem.ToString() == "Healthcare")
+            {
+                p_SubGroupComboBox.Enabled = true;
+                p_SubGroupComboBox.Items.Clear();
+                p_SubGroupComboBox.Items.Add("Cod Liver Oil");
+                p_SubGroupComboBox.Items.Add("Chicken Essence");
+                p_SubGroupComboBox.Items.Add("Diet");
+                p_SubGroupComboBox.Items.Add("Fish Essence");
+                p_SubGroupComboBox.Items.Add("Spirulina");
+                p_SubGroupComboBox.Items.Add("Vitamin");
+
+            }
+            else if (p_GroupComboBox.SelectedItem.ToString() == "Equipment")
+            {
+                p_SubGroupComboBox.Enabled = true;
+                p_SubGroupComboBox.Items.Clear();
+                p_SubGroupComboBox.Items.Add("Incontinence");
+                p_SubGroupComboBox.Items.Add("Orthopedic");
+                p_SubGroupComboBox.Items.Add("Walking Aids");
+                p_SubGroupComboBox.Items.Add("Wheelchairs");
+                p_SubGroupComboBox.Items.Add("Wound Care");
+
+            }
         }
     }
 }

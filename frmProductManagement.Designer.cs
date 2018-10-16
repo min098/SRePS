@@ -427,9 +427,9 @@
         private System.Windows.Forms.ToolStripMenuItem dailyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weeklyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monthlyReportToolStripMenuItem;
-        private SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
-        private SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter productTableAdapter;
-        private SRePS_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        public SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
+        public SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter productTableAdapter;
+        public SRePS_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator productBindingNavigator;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -446,7 +446,7 @@
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.DataGridView productDataGridView;
-        private System.Windows.Forms.BindingSource productBindingSource2;
+        public System.Windows.Forms.BindingSource productBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pGroupDataGridViewTextBoxColumn;
