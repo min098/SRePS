@@ -149,5 +149,10 @@ namespace SRePS
         {
  
         }
+
+        private void frmEditProduct_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
