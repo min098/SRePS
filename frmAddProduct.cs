@@ -85,7 +85,7 @@ namespace SRePS
                 cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
                 cmd.Parameters.AddWithValue("@P_UOM", p_UOMComboBox.SelectedItem.ToString());
                 cmd.Parameters.AddWithValue("@P_Group", p_GroupComboBox.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@P_SubGroup", p_GroupComboBox.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@P_SubGroup", p_SubGroupComboBox.SelectedItem.ToString());
 
                 //The selling price must not lower than cost
                 if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
