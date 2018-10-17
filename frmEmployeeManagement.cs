@@ -161,5 +161,20 @@ namespace SRePS
                 Program.frmEditE.Show();
             }
         }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmSales) == true)
+            {
+
+                Program.frmSales.Focus();
+
+            }
+            else
+            {
+                Program.frmSales = new frmSalesManagement();
+                Program.frmSales.Show();
+            }
+        }
     }
 }

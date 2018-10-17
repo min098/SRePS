@@ -157,7 +157,7 @@ namespace SRePS
             {
                 Program.frmLogin = new frmLogIn();
                 Program.frmLogin.Show();
-                Program.frmProduct.Dispose();
+                this.Dispose();
 
             }
         }
@@ -180,7 +180,17 @@ namespace SRePS
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Program.isOpened(Program.frmSales) == true)
+            {
 
+                Program.frmSales.Focus();
+
+            }
+            else
+            {
+                Program.frmSales = new frmSalesManagement();
+                Program.frmSales.Show();
+            }
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)

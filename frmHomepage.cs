@@ -46,7 +46,18 @@ namespace SRePS
         //no add sales page yet
         private void picSales_Click(object sender, EventArgs e)
         {
-        
+            if (Program.isOpened(Program.frmSales) == true)
+            {
+                Program.frmSales.Focus();
+
+            }
+            else
+            {
+                Program.frmSales = new frmSalesManagement();
+                Program.frmSales.Show();
+                Program.frmHome.Dispose();
+
+            }
         }
 
         private void picEmployees_Click(object sender, EventArgs e)
@@ -111,7 +122,7 @@ namespace SRePS
             {
                 Program.frmProduct = new frmProductManagement();
                 Program.frmProduct.Show();
-                Program.frmHome.Dispose();
+                this.Dispose();
             }
         }
 
@@ -128,7 +139,7 @@ namespace SRePS
             {
                 Program.frmEmployee = new frmEmployeeManagement();
                 Program.frmEmployee.Show();
-                Program.frmHome.Dispose();
+                this.Dispose();
             }
         }
 
@@ -150,7 +161,7 @@ namespace SRePS
             {
                 Program.frmSalesD = new frmSalesReportD();
                 Program.frmSalesD.Show();
-                Program.frmHome.Dispose();
+                this.Dispose();
             }
         }
 
@@ -166,7 +177,7 @@ namespace SRePS
             {
                 Program.frmSalesW = new frmSalesReportW();
                 Program.frmSalesW.Show();
-                Program.frmHome.Dispose();
+                this.Dispose();
             }
         }
 
@@ -182,7 +193,7 @@ namespace SRePS
             {
                 Program.frmSalesM = new frmSalesReportM();
                 Program.frmSalesM.Show();
-                Program.frmHome.Dispose();
+                this.Dispose();
             }
         }
 
@@ -193,7 +204,17 @@ namespace SRePS
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Program.isOpened(Program.frmSales) == true)
+            {
 
+                Program.frmSales.Focus();
+
+            }
+            else
+            {
+                Program.frmSales = new frmSalesManagement();
+                Program.frmSales.Show();
+            }
         }
     }
 }
