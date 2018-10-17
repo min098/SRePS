@@ -80,36 +80,43 @@ namespace SRePS
                 cmd.Parameters.AddWithValue("@E_Position", cmbPosition.SelectedItem.ToString());
                 cmd.Parameters.AddWithValue("@E_Gender", gender);
                 cmd.Parameters.AddWithValue("@E_Password", e_PasswordTextBox.Text);
-                cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Register Successfully");
+                if (e_PasswordTextBox.Text != e_ConfirmPasswordTextBox.Text)
+                {
+                    MessageBox.Show("Register Failed due to Password and Confirm Password mismatch");
+                }
+                else
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Register Successfully");
+                    e_IDTextBox.Text = "";
+                    e_NameTextBox.Text = "";
+                    e_PasswordTextBox.Text = "";
+                    e_ConfirmPasswordTextBox.Text = "";
+                    cmbPosition.Items.Clear();
+                    rdMale.Checked = false;
+                    rdFemale.Checked = false;
+
+                    con.Close();
+
+                    Program.frmHome = new frmHomepage();
+                    Program.frmHome.Show();
+                    //temporary
+                    this.Dispose();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            } 
 
-            con.Close();
-
-            e_NameTextBox.Text = "";
-            e_IDTextBox.Text = "";
-            e_PasswordTextBox.Text = "";
-            e_ConfirmPasswordTextBox.Text = "";
-            cmbPosition.Items.Clear();
-            rdMale.Checked = false;
-            rdFemale.Checked = false;
-
-            Program.frmHome = new frmHomepage();
-            Program.frmHome.Show();
-            //temporary
-            this.Dispose();
-            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
 
             e_IDTextBox.Text = "";
+            e_NameTextBox.Text = "";
             e_PasswordTextBox.Text = "";
             e_ConfirmPasswordTextBox.Text = "";
             cmbPosition.Items.Clear();
