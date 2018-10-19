@@ -380,7 +380,7 @@
         private SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
         private System.Windows.Forms.BindingSource salesBindingSource;
         private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invNoDataGridViewTextBoxColumn;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn invNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingNavigator productBindingNavigator;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
