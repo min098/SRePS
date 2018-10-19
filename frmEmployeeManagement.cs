@@ -52,7 +52,25 @@ namespace SRePS
 
         private void frmEmployeeManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
-       
+            //if this form is the last open form, exit the application
+            if (Application.OpenForms.Count == 1)
+            {
+                //check the close reason so that exit confirmation messagebox only show up for UserClosing, not ApplicationExitCall
+                //or else it will pop up two times
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit this application?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

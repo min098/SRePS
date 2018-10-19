@@ -64,9 +64,10 @@
             // 
             lblPass.AutoSize = true;
             lblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPass.Location = new System.Drawing.Point(278, 266);
+            lblPass.Location = new System.Drawing.Point(185, 173);
+            lblPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblPass.Name = "lblPass";
-            lblPass.Size = new System.Drawing.Size(112, 25);
+            lblPass.Size = new System.Drawing.Size(73, 17);
             lblPass.TabIndex = 7;
             lblPass.Text = "Password:";
             lblPass.Click += new System.EventHandler(this.lblPName_Click);
@@ -75,9 +76,10 @@
             // 
             lblUserName.AutoSize = true;
             lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblUserName.Location = new System.Drawing.Point(278, 220);
+            lblUserName.Location = new System.Drawing.Point(185, 143);
+            lblUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new System.Drawing.Size(125, 25);
+            lblUserName.Size = new System.Drawing.Size(83, 17);
             lblUserName.TabIndex = 6;
             lblUserName.Text = "User Name:";
             // 
@@ -85,9 +87,10 @@
             // 
             lblPosition.AutoSize = true;
             lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPosition.Location = new System.Drawing.Point(278, 357);
+            lblPosition.Location = new System.Drawing.Point(185, 232);
+            lblPosition.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblPosition.Name = "lblPosition";
-            lblPosition.Size = new System.Drawing.Size(95, 25);
+            lblPosition.Size = new System.Drawing.Size(62, 17);
             lblPosition.TabIndex = 11;
             lblPosition.Text = "Position:";
             // 
@@ -95,9 +98,10 @@
             // 
             lblConfirmPass.AutoSize = true;
             lblConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblConfirmPass.Location = new System.Drawing.Point(278, 311);
+            lblConfirmPass.Location = new System.Drawing.Point(185, 202);
+            lblConfirmPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblConfirmPass.Name = "lblConfirmPass";
-            lblConfirmPass.Size = new System.Drawing.Size(192, 25);
+            lblConfirmPass.Size = new System.Drawing.Size(125, 17);
             lblConfirmPass.TabIndex = 10;
             lblConfirmPass.Text = "Confirm Password:";
             lblConfirmPass.Click += new System.EventHandler(this.label2_Click);
@@ -105,47 +109,46 @@
             // e_PassTextBox
             // 
             this.e_PassTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_PassTextBox.Location = new System.Drawing.Point(479, 263);
-            this.e_PassTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.e_PassTextBox.Location = new System.Drawing.Point(319, 171);
+            this.e_PassTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.e_PassTextBox.Name = "e_PassTextBox";
-            this.e_PassTextBox.Size = new System.Drawing.Size(416, 31);
+            this.e_PassTextBox.Size = new System.Drawing.Size(279, 23);
             this.e_PassTextBox.TabIndex = 9;
             // 
             // e_UserNameTextBox
             // 
             this.e_UserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_UserNameTextBox.Location = new System.Drawing.Point(479, 217);
-            this.e_UserNameTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.e_UserNameTextBox.Location = new System.Drawing.Point(319, 141);
+            this.e_UserNameTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.e_UserNameTextBox.Name = "e_UserNameTextBox";
-            this.e_UserNameTextBox.Size = new System.Drawing.Size(416, 31);
+            this.e_UserNameTextBox.Size = new System.Drawing.Size(279, 23);
             this.e_UserNameTextBox.TabIndex = 8;
             // 
             // e_PositionTextBox
             // 
             this.e_PositionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_PositionTextBox.Location = new System.Drawing.Point(479, 357);
-            this.e_PositionTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.e_PositionTextBox.Location = new System.Drawing.Point(319, 232);
+            this.e_PositionTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.e_PositionTextBox.Name = "e_PositionTextBox";
-            this.e_PositionTextBox.Size = new System.Drawing.Size(416, 31);
+            this.e_PositionTextBox.Size = new System.Drawing.Size(279, 23);
             this.e_PositionTextBox.TabIndex = 13;
             // 
             // e_ConfirmPassTextBox
             // 
             this.e_ConfirmPassTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_ConfirmPassTextBox.Location = new System.Drawing.Point(479, 311);
-            this.e_ConfirmPassTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.e_ConfirmPassTextBox.Location = new System.Drawing.Point(319, 202);
+            this.e_ConfirmPassTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.e_ConfirmPassTextBox.Name = "e_ConfirmPassTextBox";
-            this.e_ConfirmPassTextBox.Size = new System.Drawing.Size(416, 31);
+            this.e_ConfirmPassTextBox.Size = new System.Drawing.Size(279, 23);
             this.e_ConfirmPassTextBox.TabIndex = 12;
             // 
             // rdFemale
             // 
             this.rdFemale.AutoSize = true;
             this.rdFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdFemale.Location = new System.Drawing.Point(597, 405);
-            this.rdFemale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdFemale.Location = new System.Drawing.Point(398, 263);
             this.rdFemale.Name = "rdFemale";
-            this.rdFemale.Size = new System.Drawing.Size(102, 29);
+            this.rdFemale.Size = new System.Drawing.Size(72, 20);
             this.rdFemale.TabIndex = 16;
             this.rdFemale.TabStop = true;
             this.rdFemale.Text = "Female";
@@ -155,10 +158,9 @@
             // 
             this.rdMale.AutoSize = true;
             this.rdMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdMale.Location = new System.Drawing.Point(477, 405);
-            this.rdMale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdMale.Location = new System.Drawing.Point(318, 263);
             this.rdMale.Name = "rdMale";
-            this.rdMale.Size = new System.Drawing.Size(80, 29);
+            this.rdMale.Size = new System.Drawing.Size(56, 20);
             this.rdMale.TabIndex = 15;
             this.rdMale.TabStop = true;
             this.rdMale.Text = "Male";
@@ -168,10 +170,9 @@
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(278, 405);
-            this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGender.Location = new System.Drawing.Point(185, 263);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(83, 25);
+            this.lblGender.Size = new System.Drawing.Size(56, 16);
             this.lblGender.TabIndex = 14;
             this.lblGender.Text = "Gender:";
             // 
@@ -179,10 +180,9 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(597, 453);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancel.Location = new System.Drawing.Point(398, 294);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(126, 42);
+            this.btnCancel.Size = new System.Drawing.Size(84, 27);
             this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -192,10 +192,9 @@
             // 
             this.btnEditEmployee.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnEditEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEmployee.Location = new System.Drawing.Point(453, 453);
-            this.btnEditEmployee.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEditEmployee.Location = new System.Drawing.Point(302, 294);
             this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(126, 42);
+            this.btnEditEmployee.Size = new System.Drawing.Size(84, 27);
             this.btnEditEmployee.TabIndex = 17;
             this.btnEditEmployee.Text = "&Edit";
             this.btnEditEmployee.UseVisualStyleBackColor = false;
@@ -214,7 +213,8 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(1212, 33);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuBar.Size = new System.Drawing.Size(808, 24);
             this.menuBar.TabIndex = 19;
             this.menuBar.Text = "menuStrip1";
             // 
@@ -223,42 +223,42 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 22);
             this.accountToolStripMenuItem.Text = "Account";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 22);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 22);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -269,41 +269,41 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 22);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // frmEditEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1212, 678);
+            this.ClientSize = new System.Drawing.Size(808, 441);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEditEmployee);
@@ -318,7 +318,9 @@
             this.Controls.Add(this.e_PassTextBox);
             this.Controls.Add(lblUserName);
             this.Controls.Add(this.e_UserNameTextBox);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEditEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Edit Employee";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditEmployee_FormClosing);
             this.menuBar.ResumeLayout(false);

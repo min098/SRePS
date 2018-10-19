@@ -267,6 +267,7 @@
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.menuBar);
             this.Name = "frmSalesReportD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Daily Sales Report";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSalesReportD_FormClosing);
             this.Load += new System.EventHandler(this.frmSalesReportD_Load);

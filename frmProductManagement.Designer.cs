@@ -103,7 +103,7 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(1067, 28);
+            this.menuBar.Size = new System.Drawing.Size(1067, 24);
             this.menuBar.TabIndex = 0;
             // 
             // accountToolStripMenuItem
@@ -111,41 +111,41 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -156,34 +156,34 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // productBindingNavigator
@@ -210,14 +210,14 @@
             this.productBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productBindingNavigator.Name = "productBindingNavigator";
             this.productBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productBindingNavigator.Size = new System.Drawing.Size(223, 27);
+            this.productBindingNavigator.Size = new System.Drawing.Size(213, 27);
             this.productBindingNavigator.TabIndex = 1;
             this.productBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -368,7 +368,6 @@
             this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
             this.pNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
             this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
-            this.pNameDataGridViewTextBoxColumn.Width = 127;
             // 
             // pGroupDataGridViewTextBoxColumn
             // 
@@ -433,14 +432,14 @@
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.bindingNavigator1.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator1.Size = new System.Drawing.Size(239, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(229, 27);
             this.bindingNavigator1.TabIndex = 10;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(45, 24);
+            this.toolStripLabel1.Size = new System.Drawing.Size(35, 24);
             this.toolStripLabel1.Text = "of {0}";
             this.toolStripLabel1.ToolTipText = "Total number of items";
             // 
@@ -516,6 +515,7 @@
             this.Controls.Add(this.menuBar);
             this.MainMenuStrip = this.menuBar;
             this.Name = "frmProductManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Product Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProductManagement_FormClosing);
             this.Load += new System.EventHandler(this.frmProductManagement_Load);

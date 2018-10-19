@@ -55,8 +55,7 @@
             // picDailyIcon
             // 
             this.picDailyIcon.Image = global::SRePS.Properties.Resources.dailyIcon;
-            this.picDailyIcon.Location = new System.Drawing.Point(104, 189);
-            this.picDailyIcon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picDailyIcon.Location = new System.Drawing.Point(69, 123);
             this.picDailyIcon.Name = "picDailyIcon";
             this.picDailyIcon.Size = new System.Drawing.Size(162, 162);
             this.picDailyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -67,8 +66,7 @@
             // picWeeklyIcon
             // 
             this.picWeeklyIcon.Image = global::SRePS.Properties.Resources.weeklyIcon;
-            this.picWeeklyIcon.Location = new System.Drawing.Point(471, 189);
-            this.picWeeklyIcon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picWeeklyIcon.Location = new System.Drawing.Point(314, 123);
             this.picWeeklyIcon.Name = "picWeeklyIcon";
             this.picWeeklyIcon.Size = new System.Drawing.Size(162, 162);
             this.picWeeklyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -79,8 +77,7 @@
             // picMonthlyIcon
             // 
             this.picMonthlyIcon.Image = global::SRePS.Properties.Resources.monthlyIcon;
-            this.picMonthlyIcon.Location = new System.Drawing.Point(848, 189);
-            this.picMonthlyIcon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picMonthlyIcon.Location = new System.Drawing.Point(565, 123);
             this.picMonthlyIcon.Name = "picMonthlyIcon";
             this.picMonthlyIcon.Size = new System.Drawing.Size(163, 162);
             this.picMonthlyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -92,10 +89,9 @@
             // 
             this.lblDSalesReport.AutoSize = true;
             this.lblDSalesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDSalesReport.Location = new System.Drawing.Point(164, 469);
-            this.lblDSalesReport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDSalesReport.Location = new System.Drawing.Point(109, 305);
             this.lblDSalesReport.Name = "lblDSalesReport";
-            this.lblDSalesReport.Size = new System.Drawing.Size(117, 25);
+            this.lblDSalesReport.Size = new System.Drawing.Size(83, 16);
             this.lblDSalesReport.TabIndex = 1;
             this.lblDSalesReport.Text = "Daily Report";
             // 
@@ -103,10 +99,9 @@
             // 
             this.lblWSalesReport.AutoSize = true;
             this.lblWSalesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWSalesReport.Location = new System.Drawing.Point(520, 469);
-            this.lblWSalesReport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWSalesReport.Location = new System.Drawing.Point(347, 305);
             this.lblWSalesReport.Name = "lblWSalesReport";
-            this.lblWSalesReport.Size = new System.Drawing.Size(140, 25);
+            this.lblWSalesReport.Size = new System.Drawing.Size(98, 16);
             this.lblWSalesReport.TabIndex = 1;
             this.lblWSalesReport.Text = "Weekly Report";
             // 
@@ -114,10 +109,9 @@
             // 
             this.lblMSalesReport.AutoSize = true;
             this.lblMSalesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMSalesReport.Location = new System.Drawing.Point(898, 469);
-            this.lblMSalesReport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMSalesReport.Location = new System.Drawing.Point(599, 305);
             this.lblMSalesReport.Name = "lblMSalesReport";
-            this.lblMSalesReport.Size = new System.Drawing.Size(143, 25);
+            this.lblMSalesReport.Size = new System.Drawing.Size(98, 16);
             this.lblMSalesReport.TabIndex = 1;
             this.lblMSalesReport.Text = "Monthly Report";
             // 
@@ -135,8 +129,7 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuBar.Size = new System.Drawing.Size(1200, 35);
+            this.menuBar.Size = new System.Drawing.Size(800, 24);
             this.menuBar.TabIndex = 2;
             // 
             // accountToolStripMenuItem
@@ -144,41 +137,41 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -189,41 +182,41 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // frmSalesReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.lblMSalesReport);
             this.Controls.Add(this.lblWSalesReport);
@@ -231,8 +224,8 @@
             this.Controls.Add(this.picMonthlyIcon);
             this.Controls.Add(this.picWeeklyIcon);
             this.Controls.Add(this.picDailyIcon);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSalesReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Sales Report";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSalesReport_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.picDailyIcon)).EndInit();
