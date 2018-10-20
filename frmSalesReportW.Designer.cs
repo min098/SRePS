@@ -53,11 +53,13 @@
             this.dtpickerEnd = new System.Windows.Forms.DateTimePicker();
             this.salesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.salesTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter();
+            this.salesDetailDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.salesReportWDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDetailDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // salesReportWDataGridView
@@ -72,6 +74,7 @@
             this.salesReportWDataGridView.ReadOnly = true;
             this.salesReportWDataGridView.Size = new System.Drawing.Size(784, 272);
             this.salesReportWDataGridView.TabIndex = 12;
+            this.salesReportWDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesReportWDataGridView_CellDoubleClick);
             // 
             // salesBindingSource
             // 
@@ -114,9 +117,12 @@
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dtpickerStart
             // 
+            this.dtpickerStart.CustomFormat = "dd/MM/yyyy dddd";
+            this.dtpickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpickerStart.Location = new System.Drawing.Point(58, 40);
             this.dtpickerStart.Name = "dtpickerStart";
             this.dtpickerStart.Size = new System.Drawing.Size(200, 20);
@@ -241,6 +247,8 @@
             // 
             // dtpickerEnd
             // 
+            this.dtpickerEnd.CustomFormat = "dd/MM/yyyy dddd";
+            this.dtpickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpickerEnd.Location = new System.Drawing.Point(295, 40);
             this.dtpickerEnd.Name = "dtpickerEnd";
             this.dtpickerEnd.Size = new System.Drawing.Size(200, 20);
@@ -255,11 +263,25 @@
             // 
             this.salesTableAdapter.ClearBeforeFill = true;
             // 
+            // salesDetailDataGridView
+            // 
+            this.salesDetailDataGridView.AllowUserToAddRows = false;
+            this.salesDetailDataGridView.AllowUserToDeleteRows = false;
+            this.salesDetailDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.salesDetailDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.salesDetailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesDetailDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesDetailDataGridView.Name = "salesDetailDataGridView";
+            this.salesDetailDataGridView.ReadOnly = true;
+            this.salesDetailDataGridView.Size = new System.Drawing.Size(784, 272);
+            this.salesDetailDataGridView.TabIndex = 15;
+            // 
             // frmSalesReportW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.salesDetailDataGridView);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.salesReportWDataGridView);
             this.Controls.Add(this.btnExport);
@@ -280,6 +302,7 @@
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDetailDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,6 +334,7 @@
         private System.Windows.Forms.BindingSource salesBindingSource;
         private System.Windows.Forms.BindingSource salesBindingSource1;
         private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
+        private System.Windows.Forms.DataGridView salesDetailDataGridView;
         //private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
     }
 }

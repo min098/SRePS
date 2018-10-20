@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace SRePS
 {
@@ -24,6 +25,8 @@ namespace SRePS
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Sales' table. You can move, or remove it, as needed.
             //this.salesTableAdapter.Fill(this.sRePS_DatabaseDataSet.Sales);
 
+            //hide the salesDetailDataGridView when first load to the form
+            salesDetailDataGridView.Hide();
         }
 
         private void frmSalesReportW_FormClosing(object sender, FormClosingEventArgs e)
@@ -169,6 +172,164 @@ namespace SRePS
             {
                 Program.frmSales = new frmSalesManagement();
                 Program.frmSales.Show();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            salesDetailDataGridView.Hide();
+            salesReportWDataGridView.Show();
+
+            //clear any record in the table before fetching a new one so that there are only records for that particular date
+            //picked by the user
+            if (sRePS_DatabaseDataSet.Tables["WeeklySalesReport"] != null)
+            {
+                sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Clear();
+            }
+
+            //startDate
+            string pickedSDateName = dtpickerStart.Text;
+            string[] splitSDateName = pickedSDateName.Split(' ');
+            string pickedSDate = splitSDateName[0];
+            string pickedSName = splitSDateName[1];
+
+            //endDate
+            string pickedEDateName = dtpickerEnd.Text;
+            string[] splitEDateName = pickedEDateName.Split(' ');
+            string pickedEDate = splitEDateName[0];
+
+            if (pickedSDate != pickedEDate)
+            {
+                if (pickedSName == "Monday")
+                {
+                    string[] splitSDate = pickedSDate.Split('/');
+                    int startday = Convert.ToInt32(splitSDate[0]);
+                    //Convert to int to check the range
+                    string[] splitEDate = pickedEDate.Split('/');
+                    int endday = Convert.ToInt32(splitEDate[0]);
+
+                    if ((endday - startday) == 6)
+                    {
+                        OleDbConnection conn = new OleDbConnection();
+                        conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                        try
+                        {
+                            conn.Open();
+
+                            string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
+                                "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                                "Product ON [Order].P_ID = Product.P_ID) " +
+                                "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
+                                "GROUP BY Sales.S_Date, [Order].Inv_No";
+                            OleDbCommand cmd = new OleDbCommand(query, conn);
+                            cmd.Parameters.AddWithValue("@startDate", pickedSDate);
+                            cmd.Parameters.AddWithValue("@endDate", pickedEDate);
+                            cmd.ExecuteNonQuery();
+
+                            OleDbDataAdapter wSalesReportAdapter = new OleDbDataAdapter(cmd);
+                            DataSet wSalesReportDataset = new DataSet();
+                            wSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "WeeklySalesReport");
+
+                            //only create the new column when it is not in the table
+                            if (!sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Columns.Contains("DayOfTheWeek"))
+                            {
+                                DataColumn days = new DataColumn("DayOfTheWeek", typeof(string));
+                                sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Columns.Add(days);
+                                days.SetOrdinal(0); //change the position of the new column to the first column in the table
+                            }
+
+                            for (int i = 0; i < sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows.Count; i++)
+                            {
+                                //display the day of week in the newly created column according to the date of that row
+                                sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows[i]["DayOfTheWeek"] = Convert.ToDateTime(sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows[i][1]).DayOfWeek.ToString();
+                            }
+
+                            salesReportWDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["WeeklySalesReport"];
+                        }
+                        catch (Exception a)
+                        {
+                            MessageBox.Show("Failed to search due to " + a.Message);
+                        }
+
+                        conn.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("The end date must be 6 days after the start date!", "End date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The start date must be Monday!", "Start date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Start date and end date should not be the same", "Start date and End date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void salesReportWDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //clear any record in the table before fetching a new one
+            if (sRePS_DatabaseDataSet.Tables["DailySalesDetail"] != null)
+            {
+                sRePS_DatabaseDataSet.Tables["DailySalesDetail"].Clear();
+            }
+
+            //if user do not double-click on the header
+            if (e.RowIndex > -1)
+            {
+                //if the clicked column is Date
+                if (e.ColumnIndex == 1) //index 1 because index 0 is the newly added column "Days of the week"
+                {
+                    string selectedDateTime = salesReportWDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    //need to perform split because the value stored contains time, we only need date
+                    string[] split = selectedDateTime.Split(' ');
+                    string selectedDate = split[0];
+
+                    OleDbConnection conn = new OleDbConnection();
+                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                    try
+                    {
+                        conn.Open();
+
+                        string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
+                            "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                            "Product ON [Order].P_ID = Product.P_ID) " +
+                            "WHERE Sales.S_Date = @selectedDate";
+                        OleDbCommand cmd = new OleDbCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
+                        cmd.ExecuteNonQuery();
+
+                        OleDbDataAdapter dSalesDetailAdapter = new OleDbDataAdapter(cmd);
+                        DataSet dSalesDetailDataset = new DataSet();
+                        dSalesDetailAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesDetail");
+                        salesDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["DailySalesDetail"];
+
+                        //change column size so that it fills up the datagrid
+                        salesDetailDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("Failed to view due to " + a.Message);
+                    }
+
+                    conn.Close();
+
+                    salesDetailDataGridView.Show();
+                    salesReportWDataGridView.Hide();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Double-click the date of the record to view the details", "Clicking on header", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
