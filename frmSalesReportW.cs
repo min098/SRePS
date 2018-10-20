@@ -177,6 +177,7 @@ namespace SRePS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //make sure that the report datagrid always displayed when Search button is clicked
             salesDetailDataGridView.Hide();
             salesReportWDataGridView.Show();
 

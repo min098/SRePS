@@ -22,7 +22,8 @@ namespace SRePS
         {
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Sales' table. You can move, or remove it, as needed.
             this.salesTableAdapter.Fill(this.sRePS_DatabaseDataSet.Sales);
-            //hide the salesDetailDataGrid first
+
+            //hide the salesDetailDataGridView when first load to the form 
             salesDetailDataGridView.Hide();
         }
 
@@ -163,6 +164,8 @@ namespace SRePS
         {
             //make sure that the report datagrid always displayed when Search button is clicked
             salesDetailDataGridView.Hide();
+            salesReportDDataGridView.Show();
+
             //clear any record in the table before fetching a new one so that there are only records for that particular date
             //picked by the user
             if (sRePS_DatabaseDataSet.Tables["DailySalesReport"] != null)
@@ -177,7 +180,7 @@ namespace SRePS
             {
                 conn.Open();
 
-                string query = "SELECT Sales.S_Date, [Order].Inv_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
+                string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
                     "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
                     "Product ON [Order].P_ID = Product.P_ID) " +
                     "WHERE Sales.S_Date = @S_Date " +
@@ -222,50 +225,58 @@ namespace SRePS
                 sRePS_DatabaseDataSet.Tables["DailySalesDetail"].Clear();
             }
 
-            //if the clicked column is Inv_No
-            if (e.ColumnIndex == 0)
+            //if user do not double-click on the header
+            if (e.RowIndex > -1)
             {
-                string selectedDateTime = salesReportDDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                //need to perform split because the value stored contains time, we only need date
-                string[] split = selectedDateTime.Split(' ');
-                string selectedDate = split[0];
-
-                OleDbConnection conn = new OleDbConnection();
-                conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-
-                try
+                //if the clicked column is Date
+                if (e.ColumnIndex == 0)
                 {
-                    conn.Open();
+                    string selectedDateTime = salesReportDDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    //need to perform split because the value stored contains time, we only need date
+                    string[] split = selectedDateTime.Split(' ');
+                    string selectedDate = split[0];
 
-                    string query = "SELECT Sales.S_Date, [Order].Inv_No, [Order].P_ID, [Order].S_Quantity, Product.P_Price " +
-                        "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
-                        "Product ON [Order].P_ID = Product.P_ID) " +
-                        "WHERE Sales.S_Date = @selectedDate";
-                    OleDbCommand cmd = new OleDbCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
-                    cmd.ExecuteNonQuery();
+                    OleDbConnection conn = new OleDbConnection();
+                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
-                    OleDbDataAdapter dSalesDetailAdapter = new OleDbDataAdapter(cmd);
-                    DataSet dSalesDetailDataset = new DataSet();
-                    dSalesDetailAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesDetail");
-                    salesDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["DailySalesDetail"];
+                    try
+                    {
+                        conn.Open();
 
-                    //change column size so that it fills up the datagrid
-                    salesDetailDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    salesDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    salesDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    salesDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
+                            "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                            "Product ON [Order].P_ID = Product.P_ID) " +
+                            "WHERE Sales.S_Date = @selectedDate";
+                        OleDbCommand cmd = new OleDbCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
+                        cmd.ExecuteNonQuery();
 
+                        OleDbDataAdapter dSalesDetailAdapter = new OleDbDataAdapter(cmd);
+                        DataSet dSalesDetailDataset = new DataSet();
+                        dSalesDetailAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesDetail");
+                        salesDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["DailySalesDetail"];
+
+                        //change column size so that it fills up the datagrid
+                        salesDetailDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                        salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("Failed to view due to " + a.Message);
+                    }
+
+                    conn.Close();
+
+                    salesDetailDataGridView.Show();
+                    salesReportDDataGridView.Hide();
                 }
-                catch (Exception a)
-                {
-                    MessageBox.Show("Failed to view due to " + a.Message);
-                }
-
-                conn.Close();
-
-                salesDetailDataGridView.Show();
+            }
+            else
+            {
+                MessageBox.Show("Double-click the date of the record to view the details", "Clicking on header", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
