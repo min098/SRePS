@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.OleDb;
 namespace SRePS
 {
     public partial class frmEmployeeManagement : Form
@@ -167,16 +167,66 @@ namespace SRePS
 
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmEditE) == true)
+
+            if (employeeDataGridView.SelectedRows.Count != 0)
             {
+                if (Program.isOpened(Program.frmEditE) == true)
+                {
 
-                Program.frmEditE.Focus();
+                    Program.frmEditE.Focus();
 
+                }
+                else
+                {
+                    Program.frmEditE = new frmEditEmployee();
+                    Program.frmEditE.Show();
+                    Program.frmEditE.txtUserName.Text = this.employeeDataGridView.CurrentRow.Cells[0].Value.ToString();
+                    Program.frmEditE.txtUserName.SelectionStart = Program.frmEditE.txtUserName.TextLength;
+                    Program.frmEditE.txtName.Text = this.employeeDataGridView.CurrentRow.Cells[1].Value.ToString();
+                    if (this.employeeDataGridView.CurrentRow.Cells[2].Value.ToString() == "Admin")
+                    {
+                        Program.frmEditE.cmbPosition.SelectedItem = "Admin";
+                    }
+                    else
+                    {
+                        Program.frmEditE.cmbPosition.SelectedItem = "Cashier";
+
+                    }
+
+                    if (this.employeeDataGridView.CurrentRow.Cells[3].Value.ToString() == "Female")
+                    {
+                        Program.frmEditE.rdFemale.Checked = true;
+                    }
+                    else
+                    {
+                        Program.frmEditE.rdMale.Checked = true;
+
+                    }
+
+                    string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+
+                    System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                    conn.Open();
+                    OleDbDataReader read;
+                    string my_query = "SELECT * FROM Employees WHERE [E_ID]=?";
+                    OleDbCommand cmd = new OleDbCommand(my_query, conn);
+                    cmd.Parameters.AddWithValue("E_ID", oldID);
+
+                    read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        Program.frmEditE.txtPass.Text = read["E_Password"].ToString();
+                    }
+                    conn.Close();
+
+                }
             }
             else
             {
-                Program.frmEditE = new frmEditEmployee();
-                Program.frmEditE.Show();
+                MessageBox.Show("No row has been selected. Please select a row to edit", "Error",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

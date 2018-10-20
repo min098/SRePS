@@ -99,10 +99,18 @@ namespace SRePS
 
                     con.Close();
 
-                    Program.frmHome = new frmHomepage();
-                    Program.frmHome.Show();
-                    //temporary
-                    this.Dispose();
+                    if (Program.isOpened(Program.frmEmployee))
+                    {
+                        this.Dispose();
+                        Program.frmEmployee.employeesTableAdapter.Fill(Program.frmEmployee.sRePS_DatabaseDataSet.Employees);
+
+                    }
+                    else
+                    {
+                        Program.frmLogin = new frmLogIn();
+                        Program.frmLogin.Show();
+                        this.Dispose();
+                    }
                 }
             }
             catch (Exception ex)
@@ -132,7 +140,6 @@ namespace SRePS
             {
                 Program.frmLogin = new frmLogIn();
                 Program.frmLogin.Show();
-                //temporary
                 this.Dispose();
             }
         }

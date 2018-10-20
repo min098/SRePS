@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace SRePS
 {
@@ -182,6 +183,112 @@ namespace SRePS
                 Program.frmSales = new frmSalesManagement();
                 Program.frmSales.Show();
             }
+        }
+
+        private void lblUserName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public Boolean isUserNameExists()
+        {
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+            conn.Open();
+            OleDbDataReader read;
+            string my_query = "SELECT * FROM Employees WHERE [E_ID]=?";
+            OleDbCommand cmd = new OleDbCommand(my_query, conn);
+
+            cmd.Parameters.AddWithValue("E_ID", txtUserName.Text);
+            read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                if (read.HasRows == true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void btnEditEmployee_Click(object sender, EventArgs e)
+        {
+            string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+            if (txtUserName.Text == "" || txtName.Text == "" || txtPass.Text == "" || txtConPass.Text == "")
+            {
+                MessageBox.Show("Please fill in all the fields.", "Error",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    conn.Open();
+                    string my_query = "UPDATE [Employees] SET [E_ID]=?, [E_Name]=?, [E_Position]=?, [E_Gender]=?, [E_Password]=? WHERE [E_ID]=?";
+                    OleDbCommand cmd = new OleDbCommand(my_query, conn);
+
+                    if (txtUserName.Text == oldID)
+                    {
+                        cmd.Parameters.AddWithValue("E_ID", txtUserName.Text);
+                    }
+                    else if (isUserNameExists() == true)
+                    {
+                        MessageBox.Show("Username exists.", "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("E_ID", txtUserName.Text);
+                    }
+
+                    cmd.Parameters.AddWithValue("E_Name", txtName.Text);
+                    cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
+
+                    bool isChecked = rdFemale.Checked;
+                    if (isChecked)
+                        cmd.Parameters.AddWithValue("@E_Gender", rdFemale.Text);
+                    else
+                        cmd.Parameters.AddWithValue("@E_Gender", rdMale.Text);
+
+                    if (txtConPass.Text != "")
+                    {
+                        if (txtConPass.Text == txtPass.Text)
+                        {
+                            cmd.Parameters.AddWithValue("E_Password", txtPass.Text);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password mismatch", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+
+                    cmd.Parameters.AddWithValue("E_ID", oldID);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Employee details edited successfully!");
+                    Program.frmEmployee.employeesTableAdapter.Fill(Program.frmEmployee.sRePS_DatabaseDataSet.Employees);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
