@@ -350,6 +350,7 @@
             this.pQuantityDataGridViewTextBoxColumn});
             this.productDataGridView.DataSource = this.productBindingSource2;
             this.productDataGridView.Location = new System.Drawing.Point(13, 41);
+            this.productDataGridView.MultiSelect = false;
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.RowTemplate.Height = 24;
             this.productDataGridView.Size = new System.Drawing.Size(1045, 354);
