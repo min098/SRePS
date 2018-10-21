@@ -178,8 +178,8 @@ namespace SRePS
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //make sure that the report datagrid always displayed when Search button is clicked
-            salesDetailDataGridView.Hide();
             salesReportWDataGridView.Show();
+            salesDetailDataGridView.Hide();
 
             //clear any record in the table before fetching a new one so that there are only records for that particular date
             //picked by the user
@@ -305,9 +305,9 @@ namespace SRePS
                         cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
                         cmd.ExecuteNonQuery();
 
-                        OleDbDataAdapter dSalesDetailAdapter = new OleDbDataAdapter(cmd);
-                        DataSet dSalesDetailDataset = new DataSet();
-                        dSalesDetailAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesDetail");
+                        OleDbDataAdapter wSalesDetailAdapter = new OleDbDataAdapter(cmd);
+                        DataSet wSalesDetailDataset = new DataSet();
+                        wSalesDetailAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesDetail");
                         salesDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["DailySalesDetail"];
 
                         //change column size so that it fills up the datagrid

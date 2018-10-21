@@ -70,6 +70,7 @@
             this.salesReportWDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesReportWDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesReportWDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesReportWDataGridView.MultiSelect = false;
             this.salesReportWDataGridView.Name = "salesReportWDataGridView";
             this.salesReportWDataGridView.ReadOnly = true;
             this.salesReportWDataGridView.Size = new System.Drawing.Size(784, 272);
@@ -271,6 +272,7 @@
             this.salesDetailDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesDetailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesDetailDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesDetailDataGridView.MultiSelect = false;
             this.salesDetailDataGridView.Name = "salesDetailDataGridView";
             this.salesDetailDataGridView.ReadOnly = true;
             this.salesDetailDataGridView.Size = new System.Drawing.Size(784, 272);

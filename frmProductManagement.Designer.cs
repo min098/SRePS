@@ -337,6 +337,8 @@
             // 
             // productDataGridView
             // 
+            this.productDataGridView.AllowUserToAddRows = false;
+            this.productDataGridView.AllowUserToDeleteRows = false;
             this.productDataGridView.AutoGenerateColumns = false;
             this.productDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -352,6 +354,7 @@
             this.productDataGridView.Location = new System.Drawing.Point(13, 41);
             this.productDataGridView.MultiSelect = false;
             this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.ReadOnly = true;
             this.productDataGridView.RowTemplate.Height = 24;
             this.productDataGridView.Size = new System.Drawing.Size(1045, 354);
             this.productDataGridView.TabIndex = 6;
@@ -362,6 +365,7 @@
             this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
             this.pIDDataGridViewTextBoxColumn.HeaderText = "Product ID";
             this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
+            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pNameDataGridViewTextBoxColumn
             // 
@@ -369,30 +373,35 @@
             this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
             this.pNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
             this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
+            this.pNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pGroupDataGridViewTextBoxColumn
             // 
             this.pGroupDataGridViewTextBoxColumn.DataPropertyName = "P_Group";
             this.pGroupDataGridViewTextBoxColumn.HeaderText = "Group";
             this.pGroupDataGridViewTextBoxColumn.Name = "pGroupDataGridViewTextBoxColumn";
+            this.pGroupDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // P_SubGroup
             // 
             this.P_SubGroup.DataPropertyName = "P_SubGroup";
             this.P_SubGroup.HeaderText = "Sub Group";
             this.P_SubGroup.Name = "P_SubGroup";
+            this.P_SubGroup.ReadOnly = true;
             // 
             // pUOMDataGridViewTextBoxColumn
             // 
             this.pUOMDataGridViewTextBoxColumn.DataPropertyName = "P_UOM";
             this.pUOMDataGridViewTextBoxColumn.HeaderText = "UOM";
             this.pUOMDataGridViewTextBoxColumn.Name = "pUOMDataGridViewTextBoxColumn";
+            this.pUOMDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pQuantityDataGridViewTextBoxColumn
             // 
             this.pQuantityDataGridViewTextBoxColumn.DataPropertyName = "P_Quantity";
             this.pQuantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.pQuantityDataGridViewTextBoxColumn.Name = "pQuantityDataGridViewTextBoxColumn";
+            this.pQuantityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // productBindingSource2
             // 

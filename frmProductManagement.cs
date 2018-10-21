@@ -15,7 +15,6 @@ namespace SRePS
     {
         bool rowSeleted = false;
         int rowIndex = -1;
-        string deletingPid;
 
         public frmProductManagement()
         {
@@ -113,7 +112,8 @@ namespace SRePS
             if (rowSeleted == true)
             {
                 //Get the deleted row P_ID
-                deletingPid = productDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+                //string deletingPid = productDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+                string deletingPid = productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
 
                 DataRow[] foundPID = sRePS_DatabaseDataSet.Order.Select("P_ID = '" + deletingPid + "'");
                 //Check if the deleting product is existing in the Order table
@@ -137,6 +137,10 @@ namespace SRePS
                         return;
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("No row has been selected. Please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

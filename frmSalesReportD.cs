@@ -163,8 +163,8 @@ namespace SRePS
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //make sure that the report datagrid always displayed when Search button is clicked
-            salesDetailDataGridView.Hide();
             salesReportDDataGridView.Show();
+            salesDetailDataGridView.Hide();
 
             //clear any record in the table before fetching a new one so that there are only records for that particular date
             //picked by the user
