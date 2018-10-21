@@ -251,36 +251,43 @@ namespace SRePS
             }
             else
             {
-                sameDate = false;
-
-                OleDbConnection conn = new OleDbConnection();
-                conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-
-                try
+                if (Convert.ToDateTime(pickedEMonthYear) > Convert.ToDateTime(pickedSMonthYear))
                 {
-                    conn.Open();
+                    sameDate = false;
 
-                    string query = "SELECT MONTH(Sales.S_Date) AS Sales_Month, YEAR(Sales.S_Date) AS Sales_Year, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
-                        "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
-                        "Product ON [Order].P_ID = Product.P_ID) " +
-                        "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
-                        "GROUP BY YEAR(Sales.S_Date), MONTH(Sales.S_Date)";
-                    OleDbCommand cmd = new OleDbCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@startDate", pickedSDate);
-                    cmd.Parameters.AddWithValue("@endDate", pickedEDate);
-                    cmd.ExecuteNonQuery();
+                    OleDbConnection conn = new OleDbConnection();
+                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
-                    OleDbDataAdapter mSalesReportAdapter = new OleDbDataAdapter(cmd);
-                    DataSet mSalesReportDataset = new DataSet();
-                    mSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "MonthlySalesReport");
-                    salesReportMDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["MonthlySalesReport"];
+                    try
+                    {
+                        conn.Open();
+
+                        string query = "SELECT MONTH(Sales.S_Date) AS Sales_Month, YEAR(Sales.S_Date) AS Sales_Year, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
+                            "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                            "Product ON [Order].P_ID = Product.P_ID) " +
+                            "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
+                            "GROUP BY YEAR(Sales.S_Date), MONTH(Sales.S_Date)";
+                        OleDbCommand cmd = new OleDbCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@startDate", pickedSDate);
+                        cmd.Parameters.AddWithValue("@endDate", pickedEDate);
+                        cmd.ExecuteNonQuery();
+
+                        OleDbDataAdapter mSalesReportAdapter = new OleDbDataAdapter(cmd);
+                        DataSet mSalesReportDataset = new DataSet();
+                        mSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "MonthlySalesReport");
+                        salesReportMDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["MonthlySalesReport"];
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("Failed to search due to " + a.Message);
+                    }
+
+                    conn.Close();
                 }
-                catch (Exception a)
+                else
                 {
-                    MessageBox.Show("Failed to search due to " + a.Message);
+                    MessageBox.Show("The start month must be earlier than the end month", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                conn.Close();
             }
         }
 
