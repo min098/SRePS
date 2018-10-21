@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace SRePS
 {
@@ -273,17 +274,208 @@ namespace SRePS
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmEditP) == true)
+            if (productDataGridView.SelectedRows.Count != 0)
             {
+                if (Program.isOpened(Program.frmEditP) == true)
+                {
 
-                Program.frmEditP.Focus();
+                    Program.frmEditP.Focus();
 
+                }
+                else
+                {
+                    Program.frmEditP = new frmEditProduct();
+                    Program.frmEditP.Show();
+                    Program.frmEditP.p_IDTextBox.Text = this.productDataGridView.CurrentRow.Cells[0].Value.ToString();
+                    Program.frmEditP.p_NameTextBox.Text = this.productDataGridView.CurrentRow.Cells[1].Value.ToString();
+
+                    if (this.productDataGridView.CurrentRow.Cells[2].Value.ToString() == "Equipment")
+                    {
+                        Program.frmEditP.cmbPGroup.SelectedItem = "Equipment";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[2].Value.ToString() == "Healthcare")
+                    {
+                        Program.frmEditP.cmbPGroup.SelectedItem = "Healthcare";
+                    }
+                    else
+                    {
+                        Program.frmEditP.cmbPGroup.SelectedItem = "Medicine";
+                    }
+
+                    if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Allergic")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Allergic";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Birth Control")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Birth Control";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Central Nervous System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Central Nervous System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Circulatory System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Circulatory System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Cough")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Cough";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Digestive System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Digestive System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Ear")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Ear";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Eye")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Eye";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Endocrine System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Endocrine System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Fever")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Fever";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Immune System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Immune System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Menstrual Pain")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Menstrual Pain";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Musculoskeletal Disorders")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Musculoskeletal Disorders";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Nose")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Nose";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Pain and Consciousness")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Pain and Consciousness";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Reproductive System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Reproductive System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Respiratory System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Respiratory System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Throat")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Throat";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Skin")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Skin";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Urinary System")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Urinary System";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Cod Liver Oil")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Cod Liver Oil";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Chicken Essence")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Chicken Essence";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Diet")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Diet";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Fish Essence")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Fish Essence";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Spirulina")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Spirulina";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Vitamin")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Vitamin";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Incontinence")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Incontinence";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Orthopedic")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Orthopedic";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Walking Aids")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Walking Aids";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[3].Value.ToString() == "Wheelchairs")
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Wheelchairs";
+                    }
+                    else
+                    {
+                        Program.frmEditP.cmbPSubGroup.SelectedItem = "Wound Care";
+                    }
+
+                    if (this.productDataGridView.CurrentRow.Cells[4].Value.ToString() == "Bottle")
+                    {
+                        Program.frmEditP.cmbPUOM.SelectedItem = "Bottle";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[4].Value.ToString() == "Pcs")
+                    {
+                        Program.frmEditP.cmbPUOM.SelectedItem = "Pcs";
+                    }
+                    else if (this.productDataGridView.CurrentRow.Cells[4].Value.ToString() == "Tablet")
+                    {
+                        Program.frmEditP.cmbPUOM.SelectedItem = "Tablet";
+                    }
+                    else
+                    {
+                        Program.frmEditP.cmbPUOM.SelectedItem = "Gram";
+                    }
+
+
+                    Program.frmEditP.p_QuantityTextBox.Text = this.productDataGridView.CurrentRow.Cells[5].Value.ToString();
+
+                    string oldID = Program.frmProduct.productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+
+
+                    System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                    conn.Open();
+                    OleDbDataReader read;
+                    string my_query = "SELECT * FROM Product WHERE [P_ID]=?";
+                    OleDbCommand cmd = new OleDbCommand(my_query, conn);
+                    cmd.Parameters.AddWithValue("P_ID", oldID);
+
+                    read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        Program.frmEditP.p_PriceTextBox.Text = read["P_Price"].ToString();
+                        Program.frmEditP.p_CostTextBox.Text = read["P_Cost"].ToString();
+                        Program.frmEditP.p_SupplierTextBox.Text = read["P_Supplier"].ToString();
+
+                    }
+                    conn.Close();
+
+                }
             }
             else
             {
-                Program.frmEditP = new frmEditProduct();
-                Program.frmEditP.Show();
+                MessageBox.Show("No row has been selected. Please select a row to edit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
-}
+ }
+

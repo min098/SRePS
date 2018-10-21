@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace SRePS
 {
@@ -29,7 +30,45 @@ namespace SRePS
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
+            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
+            try
+            {
+                con.Open();
+
+                string query = "UPDATE [Product] SET [P_ID]=@P_ID,[P_Name]=@P_Name,[P_Quantity]=@P_Quantity,[P_Price]=@P_Price,[P_Cost]=@P_Cost," +
+                    "[P_Supplier]=@P_Supplier,[P_UOM]=@P_UOM,[P_Group]=@P_Group,[P_SubGroup]=@P_SubGroup WHERE [P_ID] = @P_ID";
+                OleDbCommand cmd = new OleDbCommand(query, con);
+                cmd.Parameters.AddWithValue("@P_ID", p_IDTextBox.Text);
+                cmd.Parameters.AddWithValue("@P_Name", p_NameTextBox.Text);
+                cmd.Parameters.AddWithValue("@P_Quantity", p_QuantityTextBox.Text);
+                cmd.Parameters.AddWithValue("@P_Price", p_PriceTextBox.Text);
+                cmd.Parameters.AddWithValue("@P_Cost", p_CostTextBox.Text);
+                cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
+                cmd.Parameters.AddWithValue("@P_UOM", cmbPUOM.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@P_Group", cmbPGroup.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@P_SubGroup", cmbPSubGroup.SelectedItem.ToString());
+
+
+                //The selling price must not lower than cost
+                if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
+                {
+                    MessageBox.Show("Selling price must not be lower than cost!");
+                }
+                else
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Edit Successfully");
+                }
+
+                Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to edit due to " + ex.Message);
+            }
+            con.Close();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,6 +224,59 @@ namespace SRePS
             {
                 Program.frmSales = new frmSalesManagement();
                 Program.frmSales.Show();
+            }
+        }
+
+        private void cmbPGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbPGroup.SelectedItem.ToString() == "Medicine")
+            {
+                cmbPSubGroup.Text = "--Select the sub group of product--";
+                cmbPSubGroup.Items.Clear();
+                cmbPSubGroup.Items.Add("Allergic");
+                cmbPSubGroup.Items.Add("Birth Control");
+                cmbPSubGroup.Items.Add("Central Nervous System");
+                cmbPSubGroup.Items.Add("Circulatory System");
+                cmbPSubGroup.Items.Add("Cough");
+                cmbPSubGroup.Items.Add("Digestive System");
+                cmbPSubGroup.Items.Add("Ear");
+                cmbPSubGroup.Items.Add("Eye");
+                cmbPSubGroup.Items.Add("Endocrine System");
+                cmbPSubGroup.Items.Add("Fever");
+                cmbPSubGroup.Items.Add("Immune System");
+                cmbPSubGroup.Items.Add("Menstrual Pain");
+                cmbPSubGroup.Items.Add("Musculoskeletal Disorders");
+                cmbPSubGroup.Items.Add("Nose");
+                cmbPSubGroup.Items.Add("Pain and Consciousness");
+                cmbPSubGroup.Items.Add("Reproductive System");
+                cmbPSubGroup.Items.Add("Respiratory System");
+                cmbPSubGroup.Items.Add("Throat");
+                cmbPSubGroup.Items.Add("Skin");
+                cmbPSubGroup.Items.Add("Urinary System");
+
+
+            }
+            else if (cmbPGroup.SelectedItem.ToString() == "Healthcare")
+            {
+                cmbPSubGroup.Text = "--Select the sub group of product--";
+                cmbPSubGroup.Items.Clear();
+                cmbPSubGroup.Items.Add("Cod Liver Oil");
+                cmbPSubGroup.Items.Add("Chicken Essence");
+                cmbPSubGroup.Items.Add("Diet");
+                cmbPSubGroup.Items.Add("Fish Essence");
+                cmbPSubGroup.Items.Add("Spirulina");
+                cmbPSubGroup.Items.Add("Vitamin");
+
+            }
+            else if (cmbPGroup.SelectedItem.ToString() == "Equipment")
+            {
+                cmbPSubGroup.Text = "--Select the sub group of product--";
+                cmbPSubGroup.Items.Clear();
+                cmbPSubGroup.Items.Add("Incontinence");
+                cmbPSubGroup.Items.Add("Orthopedic");
+                cmbPSubGroup.Items.Add("Walking Aids");
+                cmbPSubGroup.Items.Add("Wheelchairs");
+                cmbPSubGroup.Items.Add("Wound Care");
             }
         }
     }

@@ -64,7 +64,7 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter();
             this.tableAdapterManager = new SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.p_SubGroupComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbPSubGroup = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
@@ -338,6 +338,11 @@
             // 
             this.cmbPUOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPUOM.FormattingEnabled = true;
+            this.cmbPUOM.Items.AddRange(new object[] {
+            "Bottle",
+            "Pcs",
+            "Tablet",
+            "Gram"});
             this.cmbPUOM.Location = new System.Drawing.Point(334, 279);
             this.cmbPUOM.Name = "cmbPUOM";
             this.cmbPUOM.Size = new System.Drawing.Size(279, 24);
@@ -347,10 +352,15 @@
             // 
             this.cmbPGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPGroup.FormattingEnabled = true;
+            this.cmbPGroup.Items.AddRange(new object[] {
+            "Equipment",
+            "Healthcare",
+            "Medicine"});
             this.cmbPGroup.Location = new System.Drawing.Point(334, 318);
             this.cmbPGroup.Name = "cmbPGroup";
             this.cmbPGroup.Size = new System.Drawing.Size(279, 24);
             this.cmbPGroup.TabIndex = 16;
+            this.cmbPGroup.SelectedIndexChanged += new System.EventHandler(this.cmbPGroup_SelectedIndexChanged);
             // 
             // sRePS_DatabaseDataSet
             // 
@@ -375,27 +385,27 @@
             this.tableAdapterManager.SalesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // p_SubGroupComboBox
+            // cmbPSubGroup
             // 
-            this.p_SubGroupComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_SubGroupComboBox.FormattingEnabled = true;
-            this.p_SubGroupComboBox.Items.AddRange(new object[] {
+            this.cmbPSubGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPSubGroup.FormattingEnabled = true;
+            this.cmbPSubGroup.Items.AddRange(new object[] {
             "Equipment",
             "Healthcare",
             "Medicine"});
-            this.p_SubGroupComboBox.Location = new System.Drawing.Point(334, 354);
-            this.p_SubGroupComboBox.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.p_SubGroupComboBox.Name = "p_SubGroupComboBox";
-            this.p_SubGroupComboBox.Size = new System.Drawing.Size(279, 25);
-            this.p_SubGroupComboBox.Sorted = true;
-            this.p_SubGroupComboBox.TabIndex = 28;
+            this.cmbPSubGroup.Location = new System.Drawing.Point(334, 354);
+            this.cmbPSubGroup.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.cmbPSubGroup.Name = "cmbPSubGroup";
+            this.cmbPSubGroup.Size = new System.Drawing.Size(279, 25);
+            this.cmbPSubGroup.Sorted = true;
+            this.cmbPSubGroup.TabIndex = 28;
             // 
             // frmEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.p_SubGroupComboBox);
+            this.Controls.Add(this.cmbPSubGroup);
             this.Controls.Add(label1);
             this.Controls.Add(this.cmbPGroup);
             this.Controls.Add(this.cmbPUOM);
@@ -453,20 +463,20 @@
         private System.Windows.Forms.Label lblPSupplier;
         private System.Windows.Forms.Label lblPUOM;
         private System.Windows.Forms.Label lblPGroup;
-        private System.Windows.Forms.TextBox p_IDTextBox;
-        private System.Windows.Forms.TextBox p_NameTextBox;
-        private System.Windows.Forms.TextBox p_QuantityTextBox;
-        private System.Windows.Forms.TextBox p_PriceTextBox;
-        private System.Windows.Forms.TextBox p_CostTextBox;
-        private System.Windows.Forms.TextBox p_SupplierTextBox;
         private System.Windows.Forms.Button btnSaveChanges;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.ComboBox cmbPUOM;
-        private System.Windows.Forms.ComboBox cmbPGroup;
         private SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
         private System.Windows.Forms.BindingSource productBindingSource;
         private SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private SRePS_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox p_SubGroupComboBox;
+        public System.Windows.Forms.TextBox p_IDTextBox;
+        public System.Windows.Forms.TextBox p_NameTextBox;
+        public System.Windows.Forms.TextBox p_QuantityTextBox;
+        public System.Windows.Forms.TextBox p_PriceTextBox;
+        public System.Windows.Forms.TextBox p_CostTextBox;
+        public System.Windows.Forms.TextBox p_SupplierTextBox;
+        public System.Windows.Forms.ComboBox cmbPUOM;
+        public System.Windows.Forms.ComboBox cmbPGroup;
+        public System.Windows.Forms.ComboBox cmbPSubGroup;
     }
 }
