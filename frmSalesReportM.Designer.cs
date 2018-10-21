@@ -53,11 +53,13 @@
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter();
             this.salesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.salesDetailDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.salesReportMDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDetailDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // salesReportMDataGridView
@@ -68,10 +70,12 @@
             this.salesReportMDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesReportMDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesReportMDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesReportMDataGridView.MultiSelect = false;
             this.salesReportMDataGridView.Name = "salesReportMDataGridView";
             this.salesReportMDataGridView.ReadOnly = true;
             this.salesReportMDataGridView.Size = new System.Drawing.Size(784, 272);
             this.salesReportMDataGridView.TabIndex = 20;
+            this.salesReportMDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesReportMDataGridView_CellDoubleClick);
             // 
             // salesBindingSource
             // 
@@ -115,10 +119,11 @@
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dtpickerEnd
             // 
-            this.dtpickerEnd.CustomFormat = "MMMM, yyyy";
+            this.dtpickerEnd.CustomFormat = "MMMM yyyy";
             this.dtpickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpickerEnd.Location = new System.Drawing.Point(295, 40);
             this.dtpickerEnd.Name = "dtpickerEnd";
@@ -127,7 +132,7 @@
             // 
             // dtpickerStart
             // 
-            this.dtpickerStart.CustomFormat = "MMMM, yyyy";
+            this.dtpickerStart.CustomFormat = "MMMM yyyy";
             this.dtpickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpickerStart.Location = new System.Drawing.Point(58, 40);
             this.dtpickerStart.Name = "dtpickerStart";
@@ -261,11 +266,26 @@
             this.salesBindingSource1.DataMember = "Sales";
             this.salesBindingSource1.DataSource = this.sRePS_DatabaseDataSet;
             // 
+            // salesDetailDataGridView
+            // 
+            this.salesDetailDataGridView.AllowUserToAddRows = false;
+            this.salesDetailDataGridView.AllowUserToDeleteRows = false;
+            this.salesDetailDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.salesDetailDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.salesDetailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesDetailDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesDetailDataGridView.MultiSelect = false;
+            this.salesDetailDataGridView.Name = "salesDetailDataGridView";
+            this.salesDetailDataGridView.ReadOnly = true;
+            this.salesDetailDataGridView.Size = new System.Drawing.Size(784, 272);
+            this.salesDetailDataGridView.TabIndex = 23;
+            // 
             // frmSalesReportM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.salesDetailDataGridView);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.salesReportMDataGridView);
             this.Controls.Add(this.btnExport);
@@ -286,6 +306,7 @@
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDetailDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +338,6 @@
         private System.Windows.Forms.BindingSource salesBindingSource;
         private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
         private System.Windows.Forms.BindingSource salesBindingSource1;
+        private System.Windows.Forms.DataGridView salesDetailDataGridView;
     }
 }
