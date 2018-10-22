@@ -12,7 +12,6 @@ namespace SRePS
 {
     public partial class frmEmployeeManagement : Form
     {
-        bool rowSeleted = false;
         int rowIndex = -1;
         string deleteEID;
 
@@ -254,14 +253,12 @@ namespace SRePS
 
         private void employeeDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            rowSeleted = true;
             rowIndex = e.RowIndex;
         }
 
         private void btnDelEmployee_Click(object sender, EventArgs e)
         {
-
-            if (rowSeleted == true)
+            if (employeeDataGridView.SelectedRows.Count != 0)
             {
                 //Get the deleted row E_ID
                 deleteEID = employeeDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
@@ -281,7 +278,6 @@ namespace SRePS
                     {
                         this.sRePS_DatabaseDataSet.Employees.Rows[rowIndex].Delete();
                         employeesTableAdapter.Update(sRePS_DatabaseDataSet);
-                        rowSeleted = false;
                     }
                     else
                     {

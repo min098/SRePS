@@ -13,7 +13,6 @@ namespace SRePS
 {
     public partial class frmProductManagement : Form
     {
-        bool rowSeleted = false;
         int rowIndex = -1;
 
         public frmProductManagement()
@@ -30,7 +29,7 @@ namespace SRePS
         {
 
         }
-       private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
@@ -103,17 +102,15 @@ namespace SRePS
 
         private void productDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            rowSeleted = true;
             rowIndex = e.RowIndex;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (rowSeleted == true)
+            if (productDataGridView.SelectedRows.Count != 0)
             {
                 //Get the deleted row P_ID
-                //string deletingPid = productDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
-                string deletingPid = productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+                string deletingPid = productDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
 
                 DataRow[] foundPID = sRePS_DatabaseDataSet.Order.Select("P_ID = '" + deletingPid + "'");
                 //Check if the deleting product is existing in the Order table
@@ -130,7 +127,6 @@ namespace SRePS
                     {
                         this.sRePS_DatabaseDataSet.Product.Rows[rowIndex].Delete();
                         productTableAdapter.Update(sRePS_DatabaseDataSet);
-                        rowSeleted = false;
                     }
                     else
                     {
