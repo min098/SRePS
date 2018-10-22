@@ -81,11 +81,9 @@ namespace SRePS
                 cmd.Parameters.AddWithValue("@E_Gender", gender);
                 cmd.Parameters.AddWithValue("@E_Password", e_PasswordTextBox.Text);
 
-                if (e_PasswordTextBox.Text != e_ConfirmPasswordTextBox.Text || e_PasswordTextBox.Text == "" || e_ConfirmPasswordTextBox.Text == "")
+                if (e_PasswordTextBox.Text != e_ConfirmPasswordTextBox.Text)
                 {
-                    MessageBox.Show("Register Failed due to Password and Confirm Password mismatch " +
-                        "/ Register Failed due to password is empty " +
-                        "/ Register Failed due to confirm password is empty");
+                    MessageBox.Show("Register Failed due to Password and Confirm Password mismatch ");
                 }
                 else if (e_NameTextBox.Text == "")
                 {
@@ -94,6 +92,10 @@ namespace SRePS
                 else if (e_IDTextBox.Text == "")
                 {
                     MessageBox.Show("Register Failed due to User Name is empty");
+                }
+                else if (e_PasswordTextBox.Text == "" || e_ConfirmPasswordTextBox.Text == "")
+                {
+                    MessageBox.Show("Register Failed due to Password or Confirm Password is empty");
                 }
                 else
                 {

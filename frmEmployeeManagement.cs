@@ -260,10 +260,6 @@ namespace SRePS
 
         private void btnDelEmployee_Click(object sender, EventArgs e)
         {
-            if (employeeDataGridView.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("No row has been selected. Please select a row to delete");
-            }
 
             if (rowSeleted == true)
             {
@@ -292,6 +288,10 @@ namespace SRePS
                         return;
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("No row has been selected. Please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
