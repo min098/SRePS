@@ -12,6 +12,10 @@ namespace SRePS
 {
     public partial class frmEmployeeManagement : Form
     {
+        bool rowSeleted = false;
+        int rowIndex = -1;
+        string deleteEID;
+
         public frmEmployeeManagement()
         {
             InitializeComponent();
@@ -47,6 +51,9 @@ namespace SRePS
         {
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this.sRePS_DatabaseDataSet.Employees);
+            // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Sales' table. You can move, or remove it, as needed.
+            this.salesTableAdapter.Fill(this.sRePS_DatabaseDataSet.Sales);
+
 
         }
 
@@ -242,6 +249,49 @@ namespace SRePS
             {
                 Program.frmSales = new frmSalesManagement();
                 Program.frmSales.Show();
+            }
+        }
+
+        private void employeeDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            rowSeleted = true;
+            rowIndex = e.RowIndex;
+        }
+
+        private void btnDelEmployee_Click(object sender, EventArgs e)
+        {
+            if (employeeDataGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No row has been selected. Please select a row to delete");
+            }
+
+            if (rowSeleted == true)
+            {
+                //Get the deleted row E_ID
+                deleteEID = employeeDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+
+                DataRow[] foundPID = sRePS_DatabaseDataSet.Sales.Select("E_ID = '" + deleteEID + "'");
+                //Check if the deleting product is existing in the Sales table
+                if (foundPID.Length != 0)
+                {
+                    MessageBox.Show("This record cannot be deleted as this employee have made sales before", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    //Pop up confirmation box
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        this.sRePS_DatabaseDataSet.Employees.Rows[rowIndex].Delete();
+                        employeesTableAdapter.Update(sRePS_DatabaseDataSet);
+                        rowSeleted = false;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
             }
         }
     }
