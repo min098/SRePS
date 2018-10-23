@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.IO;
 
 namespace SRePS
 {
@@ -277,6 +278,66 @@ namespace SRePS
             else
             {
                 MessageBox.Show("Double-click the date of the record to view the details", "Clicking on header", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string filename = "";
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV (*.csv)|*.csv";
+            sfd.FileName = "SalesReport.csv";
+            if (salesReportDDataGridView.Visible == true)
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(filename))
+                    {
+                        MessageBox.Show(filename + "already exists");
+                    }
+                    int columnCount = salesReportDDataGridView.ColumnCount;
+                    string columnNames = "";
+                    string[] output = new string[salesReportDDataGridView.RowCount + 1];
+                    for (int i = 0; i < columnCount; i++)
+                    {
+                        columnNames += salesReportDDataGridView.Columns[i].Name.ToString() + ",";
+                    }
+                    output[0] += columnNames;
+                    for (int i = 1; (i - 1) < salesReportDDataGridView.RowCount; i++)
+                    {
+                        for (int j = 0; j < columnCount; j++)
+                        {
+                            output[i] += salesReportDDataGridView.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                        }
+                    }
+                    System.IO.File.WriteAllLines(sfd.FileName, output, System.Text.Encoding.UTF8);
+                }
+            }
+            else if (salesDetailDataGridView.Visible == true)
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(filename))
+                    {
+                        MessageBox.Show(filename + "already exists");
+                    }
+                    int columnCount = salesDetailDataGridView.ColumnCount;
+                    string columnNames = "";
+                    string[] output = new string[salesDetailDataGridView.RowCount + 1];
+                    for (int i = 0; i < columnCount; i++)
+                    {
+                        columnNames += salesDetailDataGridView.Columns[i].Name.ToString() + ",";
+                    }
+                    output[0] += columnNames;
+                    for (int i = 1; (i - 1) < salesDetailDataGridView.RowCount; i++)
+                    {
+                        for (int j = 0; j < columnCount; j++)
+                        {
+                            output[i] += salesDetailDataGridView.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                        }
+                    }
+                    System.IO.File.WriteAllLines(sfd.FileName, output, System.Text.Encoding.UTF8);
+                }
             }
         }
     }
