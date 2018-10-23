@@ -173,66 +173,73 @@ namespace SRePS
 
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
-
-            if (employeeDataGridView.SelectedRows.Count != 0)
+            if (Program.curPosition == "Admin")
             {
-                if (Program.isOpened(Program.frmEditE) == true)
+                if (employeeDataGridView.SelectedRows.Count != 0)
                 {
+                    if (Program.isOpened(Program.frmEditE) == true)
+                    {
 
-                    Program.frmEditE.Focus();
+                        Program.frmEditE.Focus();
 
+                    }
+                    else
+                    {
+                        Program.frmEditE = new frmEditEmployee();
+                        Program.frmEditE.Show();
+                        Program.frmEditE.txtUserName.Text = this.employeeDataGridView.CurrentRow.Cells[0].Value.ToString();
+                        Program.frmEditE.txtUserName.SelectionStart = Program.frmEditE.txtUserName.TextLength;
+                        Program.frmEditE.txtName.Text = this.employeeDataGridView.CurrentRow.Cells[1].Value.ToString();
+                        if (this.employeeDataGridView.CurrentRow.Cells[2].Value.ToString() == "Admin")
+                        {
+                            Program.frmEditE.cmbPosition.SelectedItem = "Admin";
+                        }
+                        else
+                        {
+                            Program.frmEditE.cmbPosition.SelectedItem = "Cashier";
+
+                        }
+
+                        if (this.employeeDataGridView.CurrentRow.Cells[3].Value.ToString() == "Female")
+                        {
+                            Program.frmEditE.rdFemale.Checked = true;
+                        }
+                        else
+                        {
+                            Program.frmEditE.rdMale.Checked = true;
+
+                        }
+
+                        string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+
+                        System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                        conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                        conn.Open();
+                        OleDbDataReader read;
+                        string my_query = "SELECT * FROM Employees WHERE [E_ID]=?";
+                        OleDbCommand cmd = new OleDbCommand(my_query, conn);
+                        cmd.Parameters.AddWithValue("E_ID", oldID);
+
+                        read = cmd.ExecuteReader();
+                        while (read.Read())
+                        {
+                            Program.frmEditE.txtPass.Text = read["E_Password"].ToString();
+                        }
+                        conn.Close();
+
+                    }
                 }
                 else
                 {
-                    Program.frmEditE = new frmEditEmployee();
-                    Program.frmEditE.Show();
-                    Program.frmEditE.txtUserName.Text = this.employeeDataGridView.CurrentRow.Cells[0].Value.ToString();
-                    Program.frmEditE.txtUserName.SelectionStart = Program.frmEditE.txtUserName.TextLength;
-                    Program.frmEditE.txtName.Text = this.employeeDataGridView.CurrentRow.Cells[1].Value.ToString();
-                    if (this.employeeDataGridView.CurrentRow.Cells[2].Value.ToString() == "Admin")
-                    {
-                        Program.frmEditE.cmbPosition.SelectedItem = "Admin";
-                    }
-                    else
-                    {
-                        Program.frmEditE.cmbPosition.SelectedItem = "Cashier";
-
-                    }
-
-                    if (this.employeeDataGridView.CurrentRow.Cells[3].Value.ToString() == "Female")
-                    {
-                        Program.frmEditE.rdFemale.Checked = true;
-                    }
-                    else
-                    {
-                        Program.frmEditE.rdMale.Checked = true;
-
-                    }
-
-                    string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-
-                    System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
-                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-
-                    conn.Open();
-                    OleDbDataReader read;
-                    string my_query = "SELECT * FROM Employees WHERE [E_ID]=?";
-                    OleDbCommand cmd = new OleDbCommand(my_query, conn);
-                    cmd.Parameters.AddWithValue("E_ID", oldID);
-
-                    read = cmd.ExecuteReader();
-                    while (read.Read())
-                    {
-                        Program.frmEditE.txtPass.Text = read["E_Password"].ToString();
-                    }
-                    conn.Close();
-
+                    MessageBox.Show("No row has been selected. Please select a row to edit.", "Error",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("No row has been selected. Please select a row to edit", "Error",
-                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Only admin can edit employee details. ", "Error",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -258,36 +265,44 @@ namespace SRePS
 
         private void btnDelEmployee_Click(object sender, EventArgs e)
         {
-            if (employeeDataGridView.SelectedRows.Count != 0)
+            if (Program.curPosition == "Admin")
             {
-                //Get the deleted row E_ID
-                deleteEID = employeeDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+                if (employeeDataGridView.SelectedRows.Count != 0)
+                {
+                    //Get the deleted row E_ID
+                    deleteEID = employeeDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
 
-                DataRow[] foundPID = sRePS_DatabaseDataSet.Sales.Select("E_ID = '" + deleteEID + "'");
-                //Check if the deleting product is existing in the Sales table
-                if (foundPID.Length != 0)
-                {
-                    MessageBox.Show("This record cannot be deleted as this employee have made sales before", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                else
-                {
-                    //Pop up confirmation box
-                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (dialogResult == DialogResult.Yes)
+                    DataRow[] foundPID = sRePS_DatabaseDataSet.Sales.Select("E_ID = '" + deleteEID + "'");
+                    //Check if the deleting product is existing in the Sales table
+                    if (foundPID.Length != 0)
                     {
-                        this.sRePS_DatabaseDataSet.Employees.Rows[rowIndex].Delete();
-                        employeesTableAdapter.Update(sRePS_DatabaseDataSet);
+                        MessageBox.Show("This record cannot be deleted as this employee have made sales before", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                     else
                     {
-                        return;
+                        //Pop up confirmation box
+                        DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            this.sRePS_DatabaseDataSet.Employees.Rows[rowIndex].Delete();
+                            employeesTableAdapter.Update(sRePS_DatabaseDataSet);
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("No row has been selected. Please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("No row has been selected. Please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Only admin can delete employee account.", "Error",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

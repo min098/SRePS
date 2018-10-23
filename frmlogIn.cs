@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace SRePS
 {
@@ -62,20 +63,33 @@ namespace SRePS
         //need to validate account availability 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmHome) == true)
-            {
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
+            conn.Open();
+            OleDbDataReader read;
+            string my_query = "SELECT * FROM Employees WHERE [E_ID]=? AND [E_Password]=?";
+            OleDbCommand cmd = new OleDbCommand(my_query, conn);
+            cmd.Parameters.AddWithValue("E_ID", UserNameTextBox.Text);
+            cmd.Parameters.AddWithValue("E_Password", PasswordTextBox.Text);
+
+            read = cmd.ExecuteReader();
+            if (read.Read())
+            {
+                Program.curUserName = read["E_ID"].ToString();
+                Program.curPassword = read["E_Password"].ToString();
+                Program.curName = read["E_Name"].ToString();
+                Program.curPosition = read["E_Position"].ToString();
+                Program.frmHome = new frmHomepage();
                 Program.frmHome.Show();
                 this.Dispose();
-
             }
             else
             {
-                Program.frmHome = new frmHomepage();
-                Program.frmHome.Show();
-                //temporary
-                this.Dispose();
+                MessageBox.Show("Wrong username or password.", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }

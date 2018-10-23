@@ -22,6 +22,12 @@ namespace SRePS
         public static frmSalesReportM frmSalesM;
         public static frmSalesReportW frmSalesW;
 
+        //stores current account information
+        public static string curUserName = "";
+        public static string curPassword = "";
+        public static string curName = "";
+        public static string curPosition = "";
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
