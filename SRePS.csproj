@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddSales.designer.cs">
+      <DependentUpon>frmAddSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="frmLogIn.Designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayment.designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProductManagement.cs">
       <SubType>Form</SubType>
@@ -131,6 +143,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SRePS_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAddSales.resx">
+      <DependentUpon>frmAddSales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditEmployee.resx">
       <DependentUpon>frmEditEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogIn.resx">
       <DependentUpon>frmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductManagement.resx">
       <DependentUpon>frmProductManagement.cs</DependentUpon>

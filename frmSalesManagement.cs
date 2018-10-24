@@ -19,6 +19,8 @@ namespace SRePS
 
         private void frmSalesManagement_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Order' table. You can move, or remove it, as needed.
+            this.orderTableAdapter.Fill(this.sRePS_DatabaseDataSet.Order);
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Sales' table. You can move, or remove it, as needed.
             this.salesTableAdapter.Fill(this.sRePS_DatabaseDataSet.Sales);
 
@@ -169,6 +171,21 @@ namespace SRePS
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmAddS) == true)
+            {
+
+                Program.frmAddS.Focus();
+
+            }
+            else
+            {
+                Program.frmAddS = new frmAddSales();
+                Program.frmAddS.Show();
+            }
         }
     }
 }

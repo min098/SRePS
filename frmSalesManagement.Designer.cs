@@ -60,6 +60,15 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.salesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.salesOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.OrderTableAdapter();
+            this.salesOrderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.salesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.salesOrderBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.salesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.invNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.S_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.E_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource)).BeginInit();
@@ -67,6 +76,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
             this.productBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -83,7 +97,8 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(1200, 33);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuBar.Size = new System.Drawing.Size(1067, 28);
             this.menuBar.TabIndex = 1;
             // 
             // accountToolStripMenuItem
@@ -91,40 +106,40 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -135,47 +150,53 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // salesDataGridView
             // 
+            this.salesDataGridView.AutoGenerateColumns = false;
             this.salesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.salesDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.salesDataGridView.Location = new System.Drawing.Point(15, 51);
+            this.salesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.invNoDataGridViewTextBoxColumn,
+            this.S_Date,
+            this.E_ID});
+            this.salesDataGridView.DataSource = this.salesBindingSource3;
+            this.salesDataGridView.Location = new System.Drawing.Point(13, 41);
             this.salesDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.salesDataGridView.Name = "salesDataGridView";
             this.salesDataGridView.ReadOnly = true;
             this.salesDataGridView.RowTemplate.Height = 24;
-            this.salesDataGridView.Size = new System.Drawing.Size(1176, 442);
+            this.salesDataGridView.Size = new System.Drawing.Size(1045, 354);
             this.salesDataGridView.TabIndex = 2;
             this.salesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -193,10 +214,10 @@
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(684, 622);
+            this.btnDelete.Location = new System.Drawing.Point(608, 498);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(168, 51);
+            this.btnDelete.Size = new System.Drawing.Size(149, 41);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -206,10 +227,10 @@
             // 
             this.btnEditProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditProduct.Location = new System.Drawing.Point(507, 622);
+            this.btnEditProduct.Location = new System.Drawing.Point(451, 498);
             this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditProduct.Name = "btnEditProduct";
-            this.btnEditProduct.Size = new System.Drawing.Size(168, 51);
+            this.btnEditProduct.Size = new System.Drawing.Size(149, 41);
             this.btnEditProduct.TabIndex = 7;
             this.btnEditProduct.Text = "&Edit";
             this.btnEditProduct.UseVisualStyleBackColor = false;
@@ -219,13 +240,14 @@
             // 
             this.btnAddProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.Location = new System.Drawing.Point(330, 622);
+            this.btnAddProduct.Location = new System.Drawing.Point(293, 498);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(168, 51);
+            this.btnAddProduct.Size = new System.Drawing.Size(149, 41);
             this.btnAddProduct.TabIndex = 6;
             this.btnAddProduct.Text = "&Add New";
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // salesTableAdapter
             // 
@@ -248,7 +270,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2});
-            this.productBindingNavigator.Location = new System.Drawing.Point(15, 495);
+            this.productBindingNavigator.Location = new System.Drawing.Point(13, 396);
             this.productBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.productBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.productBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -256,14 +278,14 @@
             this.productBindingNavigator.Name = "productBindingNavigator";
             this.productBindingNavigator.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.productBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productBindingNavigator.Size = new System.Drawing.Size(256, 31);
+            this.productBindingNavigator.Size = new System.Drawing.Size(239, 27);
             this.productBindingNavigator.TabIndex = 9;
             this.productBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -273,7 +295,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -282,27 +304,27 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(73, 31);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -310,7 +332,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -319,24 +341,74 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // salesBindingSource1
             // 
             this.salesBindingSource1.DataMember = "Sales";
             this.salesBindingSource1.DataSource = this.sRePS_DatabaseDataSet;
             // 
+            // salesOrderBindingSource
+            // 
+            this.salesOrderBindingSource.DataMember = "SalesOrder";
+            this.salesOrderBindingSource.DataSource = this.salesBindingSource;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // salesOrderBindingSource1
+            // 
+            this.salesOrderBindingSource1.DataMember = "SalesOrder";
+            this.salesOrderBindingSource1.DataSource = this.salesBindingSource;
+            // 
+            // salesBindingSource2
+            // 
+            this.salesBindingSource2.DataMember = "Sales";
+            this.salesBindingSource2.DataSource = this.sRePS_DatabaseDataSet;
+            // 
+            // salesOrderBindingSource2
+            // 
+            this.salesOrderBindingSource2.DataMember = "SalesOrder";
+            this.salesOrderBindingSource2.DataSource = this.salesBindingSource;
+            // 
+            // salesBindingSource3
+            // 
+            this.salesBindingSource3.DataMember = "Sales";
+            this.salesBindingSource3.DataSource = this.sRePS_DatabaseDataSet;
+            // 
+            // invNoDataGridViewTextBoxColumn
+            // 
+            this.invNoDataGridViewTextBoxColumn.DataPropertyName = "Inv_No";
+            this.invNoDataGridViewTextBoxColumn.HeaderText = "Inv_No";
+            this.invNoDataGridViewTextBoxColumn.Name = "invNoDataGridViewTextBoxColumn";
+            this.invNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // S_Date
+            // 
+            this.S_Date.DataPropertyName = "S_Date";
+            this.S_Date.HeaderText = "S_Date";
+            this.S_Date.Name = "S_Date";
+            this.S_Date.ReadOnly = true;
+            // 
+            // E_ID
+            // 
+            this.E_ID.DataPropertyName = "E_ID";
+            this.E_ID.HeaderText = "E_ID";
+            this.E_ID.Name = "E_ID";
+            this.E_ID.ReadOnly = true;
+            // 
             // frmSalesManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEditProduct);
             this.Controls.Add(this.btnAddProduct);
@@ -358,6 +430,11 @@
             this.productBindingNavigator.ResumeLayout(false);
             this.productBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesOrderBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,13 +454,13 @@
         private System.Windows.Forms.ToolStripMenuItem weeklyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monthlyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
-        private System.Windows.Forms.DataGridView salesDataGridView;
+        public System.Windows.Forms.DataGridView salesDataGridView;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEditProduct;
         private System.Windows.Forms.Button btnAddProduct;
-        private SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
-        private System.Windows.Forms.BindingSource salesBindingSource;
-        private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
+        public SRePS_DatabaseDataSet sRePS_DatabaseDataSet;
+        public System.Windows.Forms.BindingSource salesBindingSource;
+        public SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
         //private System.Windows.Forms.DataGridViewTextBoxColumn invNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingNavigator productBindingNavigator;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -395,6 +472,15 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.BindingSource salesBindingSource1;
+        public System.Windows.Forms.BindingSource salesBindingSource1;
+        private System.Windows.Forms.BindingSource salesOrderBindingSource;
+        private SRePS_DatabaseDataSetTableAdapters.OrderTableAdapter orderTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn S_Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn E_ID;
+        private System.Windows.Forms.BindingSource salesBindingSource3;
+        private System.Windows.Forms.BindingSource salesOrderBindingSource1;
+        private System.Windows.Forms.BindingSource salesBindingSource2;
+        private System.Windows.Forms.BindingSource salesOrderBindingSource2;
     }
 }
