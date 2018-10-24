@@ -13,6 +13,7 @@ namespace SRePS
 {
     public partial class frmSalesManagement : Form
     {
+        int rowIndex = -1;
         public frmSalesManagement()
         {
             InitializeComponent();
@@ -265,9 +266,54 @@ namespace SRePS
             }
         }
 
+        private void salesDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (Program.curPosition == "Admin")
+            {
+                if (salesDataGridView.SelectedRows.Count != 0)
+                {
 
+                    //rowIndex = salesDataGridView.CurrentRow.Index;
+                    string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting sales", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < this.sRePS_DatabaseDataSet.Order.Rows.Count - 1; i++)
+                        {
+                            DataRow row = this.sRePS_DatabaseDataSet.Order.Rows[i];
+                            if (Convert.ToInt32(row[0]) == Convert.ToInt32(selectedInvNo))
+                            {
+                                row.Delete();
+                            }
+                        }
+
+
+                        this.sRePS_DatabaseDataSet.Sales.Rows[rowIndex].Delete();
+                        salesTableAdapter.Update(sRePS_DatabaseDataSet);
+
+                        salesManagementTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+
+                        if (salesMngDetailDataGridView.Visible)
+                        {
+                            salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No row has been selected. Please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Only admin can delete sales record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -305,5 +351,17 @@ namespace SRePS
                 Program.frmAddS.Show();
             }
         }
+
+        private void menuBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void salesMngDetailDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+
     }
 }
