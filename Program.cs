@@ -11,6 +11,7 @@ namespace SRePS
         public static frmAddProduct frmAddP;
         public static frmEditEmployee frmEditE;
         public static frmEditProduct frmEditP;
+        public static frmEditSales frmEditS;
         public static frmEmployeeManagement frmEmployee;
         public static frmHomepage frmHome;
         public static frmLogIn frmLogin;
