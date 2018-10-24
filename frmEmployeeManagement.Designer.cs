@@ -46,10 +46,6 @@
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnDelEmployee = new System.Windows.Forms.Button();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ePositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eGenderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -66,6 +62,10 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.salesbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salesTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter();
+            this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ePositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eGenderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).BeginInit();
@@ -232,34 +232,6 @@
             this.employeeDataGridView.Size = new System.Drawing.Size(1176, 442);
             this.employeeDataGridView.TabIndex = 7;
             // 
-            // eIDDataGridViewTextBoxColumn
-            // 
-            this.eIDDataGridViewTextBoxColumn.DataPropertyName = "E_ID";
-            this.eIDDataGridViewTextBoxColumn.HeaderText = "User Name";
-            this.eIDDataGridViewTextBoxColumn.Name = "eIDDataGridViewTextBoxColumn";
-            this.eIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eNameDataGridViewTextBoxColumn
-            // 
-            this.eNameDataGridViewTextBoxColumn.DataPropertyName = "E_Name";
-            this.eNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.eNameDataGridViewTextBoxColumn.Name = "eNameDataGridViewTextBoxColumn";
-            this.eNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ePositionDataGridViewTextBoxColumn
-            // 
-            this.ePositionDataGridViewTextBoxColumn.DataPropertyName = "E_Position";
-            this.ePositionDataGridViewTextBoxColumn.HeaderText = "Position";
-            this.ePositionDataGridViewTextBoxColumn.Name = "ePositionDataGridViewTextBoxColumn";
-            this.ePositionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eGenderDataGridViewTextBoxColumn
-            // 
-            this.eGenderDataGridViewTextBoxColumn.DataPropertyName = "E_Gender";
-            this.eGenderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            this.eGenderDataGridViewTextBoxColumn.Name = "eGenderDataGridViewTextBoxColumn";
-            this.eGenderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // employeesBindingSource1
             // 
             this.employeesBindingSource1.DataMember = "Employees";
@@ -384,6 +356,34 @@
             // 
             this.salesTableAdapter.ClearBeforeFill = true;
             // 
+            // eIDDataGridViewTextBoxColumn
+            // 
+            this.eIDDataGridViewTextBoxColumn.DataPropertyName = "E_ID";
+            this.eIDDataGridViewTextBoxColumn.HeaderText = "Employee Username";
+            this.eIDDataGridViewTextBoxColumn.Name = "eIDDataGridViewTextBoxColumn";
+            this.eIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eNameDataGridViewTextBoxColumn
+            // 
+            this.eNameDataGridViewTextBoxColumn.DataPropertyName = "E_Name";
+            this.eNameDataGridViewTextBoxColumn.HeaderText = "Employee Name";
+            this.eNameDataGridViewTextBoxColumn.Name = "eNameDataGridViewTextBoxColumn";
+            this.eNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ePositionDataGridViewTextBoxColumn
+            // 
+            this.ePositionDataGridViewTextBoxColumn.DataPropertyName = "E_Position";
+            this.ePositionDataGridViewTextBoxColumn.HeaderText = "Employee Position";
+            this.ePositionDataGridViewTextBoxColumn.Name = "ePositionDataGridViewTextBoxColumn";
+            this.ePositionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eGenderDataGridViewTextBoxColumn
+            // 
+            this.eGenderDataGridViewTextBoxColumn.DataPropertyName = "E_Gender";
+            this.eGenderDataGridViewTextBoxColumn.HeaderText = "Employee Gender";
+            this.eGenderDataGridViewTextBoxColumn.Name = "eGenderDataGridViewTextBoxColumn";
+            this.eGenderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmEmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -449,11 +449,11 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.BindingSource employeesBindingSource1;
         public System.Windows.Forms.DataGridView employeeDataGridView;
+        private System.Windows.Forms.BindingSource salesbindingSource;
+        private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn eIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ePositionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eGenderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource salesbindingSource;
-        private SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter salesTableAdapter;
     }
 }

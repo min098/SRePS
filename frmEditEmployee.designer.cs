@@ -115,6 +115,7 @@
             lblUserName.Size = new System.Drawing.Size(125, 25);
             lblUserName.TabIndex = 21;
             lblUserName.Text = "User Name:";
+            lblUserName.Click += new System.EventHandler(this.lblUserName_Click_1);
             // 
             // txtPass
             // 
@@ -184,7 +185,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(597, 452);
+            this.btnCancel.Location = new System.Drawing.Point(625, 459);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 42);
@@ -197,12 +198,12 @@
             // 
             this.btnEditEmployee.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnEditEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditEmployee.Location = new System.Drawing.Point(453, 452);
+            this.btnEditEmployee.Location = new System.Drawing.Point(438, 459);
             this.btnEditEmployee.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(126, 42);
+            this.btnEditEmployee.Size = new System.Drawing.Size(169, 42);
             this.btnEditEmployee.TabIndex = 8;
-            this.btnEditEmployee.Text = "&Edit";
+            this.btnEditEmployee.Text = "&Save Changes";
             this.btnEditEmployee.UseVisualStyleBackColor = false;
             this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
             // 

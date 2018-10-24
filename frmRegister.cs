@@ -135,18 +135,15 @@ namespace SRePS
         private void btnCancel_Click(object sender, EventArgs e)
         {
 
-            e_IDTextBox.Text = "";
-            e_NameTextBox.Text = "";
-            e_PasswordTextBox.Text = "";
-            e_ConfirmPasswordTextBox.Text = "";
-            cmbPosition.Items.Clear();
-            rdMale.Checked = false;
-            rdFemale.Checked = false;
-
             if (Program.isOpened(Program.frmEmployee))
             {
-
-                this.Dispose();
+                e_IDTextBox.Text = "";
+                e_NameTextBox.Text = "";
+                e_PasswordTextBox.Text = "";
+                e_ConfirmPasswordTextBox.Text = "";
+                cmbPosition.Items.Clear();
+                rdMale.Checked = false;
+                rdFemale.Checked = false;
             }
             else
             {
@@ -187,6 +184,11 @@ namespace SRePS
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

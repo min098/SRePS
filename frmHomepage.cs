@@ -64,15 +64,15 @@ namespace SRePS
         //no add sales page yet
         private void picSales_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmSales) == true)
+            if (Program.isOpened(Program.frmAddS) == true)
             {
-                Program.frmSales.Focus();
+                Program.frmAddS.Focus();
 
             }
             else
             {
-                Program.frmSales = new frmSalesManagement();
-                Program.frmSales.Show();
+                Program.frmAddS = new frmAddSales();
+                Program.frmAddS.Show();
                 Program.frmHome.Dispose();
 
             }
@@ -222,16 +222,16 @@ namespace SRePS
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmSales) == true)
+            if (Program.isOpened(Program.frmAddS) == true)
             {
 
-                Program.frmSales.Focus();
+                Program.frmAddS.Focus();
 
             }
             else
             {
-                Program.frmSales = new frmSalesManagement();
-                Program.frmSales.Show();
+                Program.frmAddS = new frmAddSales();
+                Program.frmAddS.Show();
             }
         }
     }
