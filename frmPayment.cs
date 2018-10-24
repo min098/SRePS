@@ -77,6 +77,17 @@ namespace SRePS
                     {
                         MessageBox.Show("Committed!");
                         Program.frmSales.salesTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.Sales);
+                        if (Program.frmSales.salesDataGridView.Visible)
+                        {
+
+                            Program.frmSales.salesManagementTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+                        }
+
+
+                        if (Program.frmSales.salesMngDetailDataGridView.Visible)
+                        {
+                            Program.frmSales.salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+                        }
 
                         //Clear the datagrid
                         if (Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"] != null)

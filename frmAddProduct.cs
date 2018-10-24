@@ -31,8 +31,12 @@ namespace SRePS
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Product' table. You can move, or remove it, as needed.
             //this.productTableAdapter.Fill(this.sRePS_DatabaseDataSet.Product);
             p_SubGroupComboBox.Enabled = false;
-            p_GroupComboBox.Text = "--Select the main group of product--";
-            p_SubGroupComboBox.Text = "--Select the sub group of product--";
+            //p_GroupComboBox.Text = "--Select the main group of product--";
+            //p_SubGroupComboBox.Text = "--Select the sub group of product--";
+            p_GroupComboBox.SelectedIndex = 0;
+            
+            p_SubGroupComboBox.SelectedIndex = 0;
+
         }
 
         private void p_SupplierLabel_Click(object sender, EventArgs e)
@@ -316,59 +320,64 @@ namespace SRePS
 
         private void p_GroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+                if (p_GroupComboBox.SelectedItem.ToString() == "Medicine")
+                {
+                    p_SubGroupComboBox.Items.Clear();
+                    p_SubGroupComboBox.Items.Add("--Select the sub group of product--");
+                    // p_SubGroupComboBox.Text = "--Select the sub group of product--";
+
+                    p_SubGroupComboBox.Enabled = true;
+                    p_SubGroupComboBox.Items.Add("Allergic");
+                    p_SubGroupComboBox.Items.Add("Birth Control");
+                    p_SubGroupComboBox.Items.Add("Central Nervous System");
+                    p_SubGroupComboBox.Items.Add("Circulatory System");
+                    p_SubGroupComboBox.Items.Add("Cough");
+                    p_SubGroupComboBox.Items.Add("Digestive System");
+                    p_SubGroupComboBox.Items.Add("Ear");
+                    p_SubGroupComboBox.Items.Add("Eye");
+                    p_SubGroupComboBox.Items.Add("Endocrine System");
+                    p_SubGroupComboBox.Items.Add("Fever");
+                    p_SubGroupComboBox.Items.Add("Immune System");
+                    p_SubGroupComboBox.Items.Add("Menstrual Pain");
+                    p_SubGroupComboBox.Items.Add("Musculoskeletal Disorders");
+                    p_SubGroupComboBox.Items.Add("Nose");
+                    p_SubGroupComboBox.Items.Add("Pain and Consciousness");
+                    p_SubGroupComboBox.Items.Add("Reproductive System");
+                    p_SubGroupComboBox.Items.Add("Respiratory System");
+                    p_SubGroupComboBox.Items.Add("Throat");
+                    p_SubGroupComboBox.Items.Add("Skin");
+                    p_SubGroupComboBox.Items.Add("Urinary System");
+
+
+                }
+                else if (p_GroupComboBox.SelectedItem.ToString() == "Healthcare")
+                {
+                    p_SubGroupComboBox.Items.Clear();
+                    p_SubGroupComboBox.Items.Add("--Select the sub group of product--");
+
+                    p_SubGroupComboBox.Enabled = true;
+                    p_SubGroupComboBox.Items.Add("Cod Liver Oil");
+                    p_SubGroupComboBox.Items.Add("Chicken Essence");
+                    p_SubGroupComboBox.Items.Add("Diet");
+                    p_SubGroupComboBox.Items.Add("Fish Essence");
+                    p_SubGroupComboBox.Items.Add("Spirulina");
+                    p_SubGroupComboBox.Items.Add("Vitamin");
+
+                }
+                else if (p_GroupComboBox.SelectedItem.ToString() == "Equipment")
+                {
+                    p_SubGroupComboBox.Items.Clear();
+                    p_SubGroupComboBox.Items.Add("--Select the sub group of product--");
+
+                    p_SubGroupComboBox.Enabled = true;
+                    p_SubGroupComboBox.Items.Add("Incontinence");
+                    p_SubGroupComboBox.Items.Add("Orthopedic");
+                    p_SubGroupComboBox.Items.Add("Walking Aids");
+                    p_SubGroupComboBox.Items.Add("Wheelchairs");
+                    p_SubGroupComboBox.Items.Add("Wound Care");
+                }
             
-            if (p_GroupComboBox.SelectedItem.ToString() == "Medicine")
-            {
-                p_SubGroupComboBox.Text = "--Select the sub group of product--";
-                p_SubGroupComboBox.Enabled = true;
-                p_SubGroupComboBox.Items.Clear();
-                p_SubGroupComboBox.Items.Add("Allergic");
-                p_SubGroupComboBox.Items.Add("Birth Control");
-                p_SubGroupComboBox.Items.Add("Central Nervous System");
-                p_SubGroupComboBox.Items.Add("Circulatory System");
-                p_SubGroupComboBox.Items.Add("Cough");
-                p_SubGroupComboBox.Items.Add("Digestive System");
-                p_SubGroupComboBox.Items.Add("Ear");
-                p_SubGroupComboBox.Items.Add("Eye");
-                p_SubGroupComboBox.Items.Add("Endocrine System");
-                p_SubGroupComboBox.Items.Add("Fever");
-                p_SubGroupComboBox.Items.Add("Immune System");
-                p_SubGroupComboBox.Items.Add("Menstrual Pain");
-                p_SubGroupComboBox.Items.Add("Musculoskeletal Disorders");
-                p_SubGroupComboBox.Items.Add("Nose");
-                p_SubGroupComboBox.Items.Add("Pain and Consciousness");
-                p_SubGroupComboBox.Items.Add("Reproductive System");
-                p_SubGroupComboBox.Items.Add("Respiratory System");
-                p_SubGroupComboBox.Items.Add("Throat");
-                p_SubGroupComboBox.Items.Add("Skin");
-                p_SubGroupComboBox.Items.Add("Urinary System");
-                
 
-            }
-            else if (p_GroupComboBox.SelectedItem.ToString() == "Healthcare")
-            {
-                p_SubGroupComboBox.Text = "--Select the sub group of product--";
-                p_SubGroupComboBox.Enabled = true;
-                p_SubGroupComboBox.Items.Clear();
-                p_SubGroupComboBox.Items.Add("Cod Liver Oil");
-                p_SubGroupComboBox.Items.Add("Chicken Essence");
-                p_SubGroupComboBox.Items.Add("Diet");
-                p_SubGroupComboBox.Items.Add("Fish Essence");
-                p_SubGroupComboBox.Items.Add("Spirulina");
-                p_SubGroupComboBox.Items.Add("Vitamin");
-
-            }
-            else if (p_GroupComboBox.SelectedItem.ToString() == "Equipment")
-            {
-                p_SubGroupComboBox.Text = "--Select the sub group of product--";
-                p_SubGroupComboBox.Enabled = true;
-                p_SubGroupComboBox.Items.Clear();
-                p_SubGroupComboBox.Items.Add("Incontinence");
-                p_SubGroupComboBox.Items.Add("Orthopedic");
-                p_SubGroupComboBox.Items.Add("Walking Aids");
-                p_SubGroupComboBox.Items.Add("Wheelchairs");
-                p_SubGroupComboBox.Items.Add("Wound Care");
-            }
            
         }
 

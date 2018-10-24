@@ -190,5 +190,10 @@ namespace SRePS
         {
 
         }
+
+        private void cmbPosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
