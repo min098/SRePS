@@ -129,7 +129,7 @@ namespace SRePS
 
                     this.Close();
                 }
-                catch (Exception a)
+                catch (Exception)
                 {
                     //MessageBox.Show("Failed to edit due to " + a.Message);
                 }

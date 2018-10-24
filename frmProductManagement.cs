@@ -13,8 +13,6 @@ namespace SRePS
 {
     public partial class frmProductManagement : Form
     {
-        int rowIndex = -1;
-
         public frmProductManagement()
         {
             InitializeComponent();
@@ -100,17 +98,13 @@ namespace SRePS
             }
         }
 
-        private void productDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            rowIndex = e.RowIndex;
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (Program.curPosition == "Admin")
             {
                 if (productDataGridView.SelectedRows.Count != 0)
                 {
+                    int rowIndex = productDataGridView.CurrentRow.Index;
                     //Get the deleted row P_ID
                     string deletingPid = productDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
 

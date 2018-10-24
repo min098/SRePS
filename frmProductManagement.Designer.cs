@@ -356,9 +356,9 @@
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.ReadOnly = true;
             this.productDataGridView.RowTemplate.Height = 24;
+            this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productDataGridView.Size = new System.Drawing.Size(1045, 354);
             this.productDataGridView.TabIndex = 6;
-            this.productDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productDataGridView_RowHeaderMouseClick);
             // 
             // pIDDataGridViewTextBoxColumn
             // 
