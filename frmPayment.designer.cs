@@ -45,9 +45,10 @@
             // 
             lblTotal.AutoSize = true;
             lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblTotal.Location = new System.Drawing.Point(117, 98);
+            lblTotal.Location = new System.Drawing.Point(88, 80);
+            lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new System.Drawing.Size(51, 20);
+            lblTotal.Size = new System.Drawing.Size(44, 17);
             lblTotal.TabIndex = 7;
             lblTotal.Text = "Total:";
             // 
@@ -55,9 +56,10 @@
             // 
             lblPaid.AutoSize = true;
             lblPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPaid.Location = new System.Drawing.Point(117, 146);
+            lblPaid.Location = new System.Drawing.Point(88, 119);
+            lblPaid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblPaid.Name = "lblPaid";
-            lblPaid.Size = new System.Drawing.Size(47, 20);
+            lblPaid.Size = new System.Drawing.Size(40, 17);
             lblPaid.TabIndex = 9;
             lblPaid.Text = "Paid:";
             // 
@@ -65,30 +67,31 @@
             // 
             lblChange.AutoSize = true;
             lblChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblChange.Location = new System.Drawing.Point(117, 189);
+            lblChange.Location = new System.Drawing.Point(88, 154);
+            lblChange.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             lblChange.Name = "lblChange";
-            lblChange.Size = new System.Drawing.Size(71, 20);
+            lblChange.Size = new System.Drawing.Size(61, 17);
             lblChange.TabIndex = 10;
             lblChange.Text = "Change:";
             // 
             // txtPaid
             // 
             this.txtPaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaid.Location = new System.Drawing.Point(194, 143);
-            this.txtPaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPaid.Location = new System.Drawing.Point(146, 116);
+            this.txtPaid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPaid.Name = "txtPaid";
-            this.txtPaid.Size = new System.Drawing.Size(371, 27);
+            this.txtPaid.Size = new System.Drawing.Size(279, 23);
             this.txtPaid.TabIndex = 8;
             this.txtPaid.TextChanged += new System.EventHandler(this.txtPaid_TextChanged);
             // 
             // txtChange
             // 
             this.txtChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChange.Location = new System.Drawing.Point(194, 186);
-            this.txtChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtChange.Location = new System.Drawing.Point(146, 151);
+            this.txtChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtChange.Name = "txtChange";
             this.txtChange.ReadOnly = true;
-            this.txtChange.Size = new System.Drawing.Size(371, 27);
+            this.txtChange.Size = new System.Drawing.Size(279, 23);
             this.txtChange.TabIndex = 11;
             this.txtChange.TextChanged += new System.EventHandler(this.txtChange_TextChanged);
             // 
@@ -96,10 +99,10 @@
             // 
             this.btnCommit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCommit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCommit.Location = new System.Drawing.Point(194, 241);
-            this.btnCommit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCommit.Location = new System.Drawing.Point(146, 196);
+            this.btnCommit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(149, 41);
+            this.btnCommit.Size = new System.Drawing.Size(112, 33);
             this.btnCommit.TabIndex = 21;
             this.btnCommit.Text = "&Commit";
             this.btnCommit.UseVisualStyleBackColor = false;
@@ -109,10 +112,10 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(349, 241);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancel.Location = new System.Drawing.Point(262, 196);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(149, 41);
+            this.btnCancel.Size = new System.Drawing.Size(112, 33);
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -121,18 +124,18 @@
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(194, 98);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTotal.Location = new System.Drawing.Point(146, 80);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(371, 27);
+            this.txtTotal.Size = new System.Drawing.Size(279, 23);
             this.txtTotal.TabIndex = 24;
             // 
             // frmPayment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 358);
+            this.ClientSize = new System.Drawing.Size(513, 291);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnCommit);
@@ -141,9 +144,11 @@
             this.Controls.Add(lblPaid);
             this.Controls.Add(lblTotal);
             this.Controls.Add(this.txtPaid);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddSalesFamily Aid Pharmacy Inc. SRePS - Payment";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPayment_FormClosing);
             this.Load += new System.EventHandler(this.frmPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

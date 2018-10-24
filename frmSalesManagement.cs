@@ -13,7 +13,6 @@ namespace SRePS
 {
     public partial class frmSalesManagement : Form
     {
-        int rowIndex = -1;
         public frmSalesManagement()
         {
             InitializeComponent();
@@ -266,19 +265,13 @@ namespace SRePS
             }
         }
 
-        private void salesDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            rowIndex = e.RowIndex;
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (Program.curPosition == "Admin")
             {
                 if (salesDataGridView.SelectedRows.Count != 0)
                 {
-
-                    //rowIndex = salesDataGridView.CurrentRow.Index;
+                    int rowIndex = salesDataGridView.CurrentRow.Index;
                     string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[1].Value.ToString();
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting sales", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (dialogResult == DialogResult.Yes)

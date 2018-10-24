@@ -337,5 +337,34 @@ namespace SRePS
         {
 
         }
+
+        private void frmAddSales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if this form is the last open form, exit the application
+            if (Application.OpenForms.Count == 1)
+            {
+                //check the close reason so that exit confirmation messagebox only show up for UserClosing, not ApplicationExitCall
+                //or else it will pop up two times
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit this application?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+            //prevent "parent" form closed when the "child form" still opened
+            else if (Program.isOpened(Program.frmP))
+            {
+                Program.frmP.Focus();
+                e.Cancel = true;
+            }
+        }
     }
 }
