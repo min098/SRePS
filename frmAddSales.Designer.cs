@@ -56,22 +56,23 @@
             this.weeklyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             lblBarcode = new System.Windows.Forms.Label();
             lblQuantity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
             this.menuBar.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBarcode
             // 
             lblBarcode.AutoSize = true;
             lblBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblBarcode.Location = new System.Drawing.Point(50, 67);
-            lblBarcode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblBarcode.Location = new System.Drawing.Point(62, 101);
             lblBarcode.Name = "lblBarcode";
-            lblBarcode.Size = new System.Drawing.Size(65, 17);
+            lblBarcode.Size = new System.Drawing.Size(77, 20);
             lblBarcode.TabIndex = 5;
             lblBarcode.Text = "Barcode:";
             lblBarcode.Click += new System.EventHandler(this.lblBarcode_Click);
@@ -80,39 +81,40 @@
             // 
             lblQuantity.AutoSize = true;
             lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblQuantity.Location = new System.Drawing.Point(50, 102);
-            lblQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblQuantity.Location = new System.Drawing.Point(62, 145);
             lblQuantity.Name = "lblQuantity";
-            lblQuantity.Size = new System.Drawing.Size(65, 17);
+            lblQuantity.Size = new System.Drawing.Size(76, 20);
             lblQuantity.TabIndex = 7;
             lblQuantity.Text = "Quantity:";
             // 
             // barcodeTextBox
             // 
             this.barcodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barcodeTextBox.Location = new System.Drawing.Point(160, 64);
-            this.barcodeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.barcodeTextBox.Location = new System.Drawing.Point(161, 99);
+            this.barcodeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barcodeTextBox.Name = "barcodeTextBox";
-            this.barcodeTextBox.Size = new System.Drawing.Size(279, 23);
+            this.barcodeTextBox.Size = new System.Drawing.Size(374, 27);
             this.barcodeTextBox.TabIndex = 6;
+            this.barcodeTextBox.TextChanged += new System.EventHandler(this.barcodeTextBox_TextChanged);
             // 
             // quantityTextBox
             // 
             this.quantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityTextBox.Location = new System.Drawing.Point(160, 99);
-            this.quantityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quantityTextBox.Location = new System.Drawing.Point(161, 142);
+            this.quantityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(279, 23);
+            this.quantityTextBox.Size = new System.Drawing.Size(374, 27);
             this.quantityTextBox.TabIndex = 8;
+            this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
             // 
             // btnAddItem
             // 
             this.btnAddItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(639, 240);
-            this.btnAddItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddItem.Location = new System.Drawing.Point(855, 303);
+            this.btnAddItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(112, 33);
+            this.btnAddItem.Size = new System.Drawing.Size(149, 41);
             this.btnAddItem.TabIndex = 21;
             this.btnAddItem.Text = "&Add Item";
             this.btnAddItem.UseVisualStyleBackColor = false;
@@ -122,10 +124,10 @@
             // 
             this.btnClear.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(639, 314);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Location = new System.Drawing.Point(855, 406);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(112, 33);
+            this.btnClear.Size = new System.Drawing.Size(149, 41);
             this.btnClear.TabIndex = 22;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -135,10 +137,10 @@
             // 
             this.btnRemove.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(639, 277);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemove.Location = new System.Drawing.Point(855, 354);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(112, 33);
+            this.btnRemove.Size = new System.Drawing.Size(149, 41);
             this.btnRemove.TabIndex = 23;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -148,10 +150,10 @@
             // 
             this.btnConfirm.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(523, 351);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConfirm.Location = new System.Drawing.Point(692, 461);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(112, 33);
+            this.btnConfirm.Size = new System.Drawing.Size(149, 41);
             this.btnConfirm.TabIndex = 24;
             this.btnConfirm.Text = "C&onfirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -161,10 +163,10 @@
             // 
             this.btnManage.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManage.Location = new System.Drawing.Point(406, 351);
-            this.btnManage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnManage.Location = new System.Drawing.Point(532, 461);
+            this.btnManage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManage.Name = "btnManage";
-            this.btnManage.Size = new System.Drawing.Size(112, 33);
+            this.btnManage.Size = new System.Drawing.Size(149, 41);
             this.btnManage.TabIndex = 25;
             this.btnManage.Text = "&Manage Sales";
             this.btnManage.UseVisualStyleBackColor = false;
@@ -176,13 +178,13 @@
             this.itemGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.itemGrid.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.itemGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemGrid.Location = new System.Drawing.Point(53, 137);
-            this.itemGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.itemGrid.Location = new System.Drawing.Point(66, 188);
+            this.itemGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.itemGrid.Name = "itemGrid";
             this.itemGrid.ReadOnly = true;
             this.itemGrid.RowTemplate.Height = 24;
             this.itemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.itemGrid.Size = new System.Drawing.Size(581, 210);
+            this.itemGrid.Size = new System.Drawing.Size(775, 258);
             this.itemGrid.TabIndex = 26;
             this.itemGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGrid_CellContentClick);
             // 
@@ -203,13 +205,12 @@
             // lblInv_No
             // 
             this.lblInv_No.AutoSize = true;
-            this.lblInv_No.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInv_No.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.lblInv_No.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInv_No.ForeColor = System.Drawing.Color.Red;
-            this.lblInv_No.Location = new System.Drawing.Point(553, 78);
-            this.lblInv_No.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInv_No.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblInv_No.Location = new System.Drawing.Point(181, 11);
             this.lblInv_No.Name = "lblInv_No";
-            this.lblInv_No.Size = new System.Drawing.Size(86, 31);
+            this.lblInv_No.Size = new System.Drawing.Size(103, 38);
             this.lblInv_No.TabIndex = 27;
             this.lblInv_No.Text = "label1";
             this.lblInv_No.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -217,12 +218,12 @@
             // lblInv
             // 
             this.lblInv.AutoSize = true;
-            this.lblInv.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInv.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.lblInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInv.Location = new System.Drawing.Point(447, 78);
-            this.lblInv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInv.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblInv.Location = new System.Drawing.Point(21, 11);
             this.lblInv.Name = "lblInv";
-            this.lblInv.Size = new System.Drawing.Size(109, 31);
+            this.lblInv.Size = new System.Drawing.Size(129, 38);
             this.lblInv.TabIndex = 28;
             this.lblInv.Text = "Inv_No:";
             this.lblInv.Click += new System.EventHandler(this.label1_Click);
@@ -241,8 +242,8 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(800, 24);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuBar.Size = new System.Drawing.Size(1067, 28);
             this.menuBar.TabIndex = 29;
             // 
             // accountToolStripMenuItem
@@ -250,42 +251,42 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.accountToolStripMenuItem.Text = "Account";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -296,44 +297,54 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.predictionToolStripMenuItem.Text = "Prediction";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblInv_No);
+            this.panel1.Controls.Add(this.lblInv);
+            this.panel1.Location = new System.Drawing.Point(550, 99);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(291, 70);
+            this.panel1.TabIndex = 31;
             // 
             // frmAddSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuBar);
-            this.Controls.Add(this.lblInv);
-            this.Controls.Add(this.lblInv_No);
             this.Controls.Add(this.itemGrid);
             this.Controls.Add(this.btnManage);
             this.Controls.Add(this.btnConfirm);
@@ -344,8 +355,9 @@
             this.Controls.Add(this.quantityTextBox);
             this.Controls.Add(lblBarcode);
             this.Controls.Add(this.barcodeTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddSales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddSalesFamily Aid Pharmacy Inc. SRePS - Add Sales";
             this.Load += new System.EventHandler(this.frmAddSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.itemGrid)).EndInit();
@@ -353,6 +365,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).EndInit();
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,5 +399,6 @@
         private System.Windows.Forms.ToolStripMenuItem weeklyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monthlyReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
     }
 }

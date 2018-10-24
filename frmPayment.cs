@@ -32,7 +32,7 @@ namespace SRePS
             {
                 conn.Open();
 
-                if (Convert.ToInt32(txtChange.Text) < 0)
+                if (Convert.ToInt32(txtChange.Text) < 0 || string.IsNullOrEmpty(txtPaid.Text))
                 {
                     MessageBox.Show("The payment must not be lower than total!");
                     txtPaid.Focus();
@@ -71,21 +71,27 @@ namespace SRePS
 
                     }
 
-                    //Clear the datagrid
-                    if (Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"] != null)
-                    {
-                        Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"].Clear();
-                    }
+                    
 
-                    MessageBox.Show("Committed!");
-                    Program.frmSales.salesTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.Sales);
-
-                    if (Program.isOpened(Program.frmProduct) == true)
+                    if(Convert.ToDouble(txtPaid.Text) >= Convert.ToDouble(txtTotal.Text))
                     {
-                        Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                        MessageBox.Show("Committed!");
+                        Program.frmSales.salesTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.Sales);
+
+                        //Clear the datagrid
+                        if (Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"] != null)
+                        {
+                            Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"].Clear();
+                        }
+
+                        if (Program.isOpened(Program.frmProduct) == true)
+                        {
+                            Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                        }
+                        added = true;
+                        Program.frmP.Close();
                     }
-                    added = true;
-                    Program.frmP.Close();
+                    
                 }
 
             }

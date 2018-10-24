@@ -337,5 +337,15 @@ namespace SRePS
                 Program.frmSalesM.Show();
             }
         }
+
+        private void barcodeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quantityTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

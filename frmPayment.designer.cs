@@ -142,6 +142,8 @@
             this.Controls.Add(lblTotal);
             this.Controls.Add(this.txtPaid);
             this.Name = "frmPayment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmAddSalesFamily Aid Pharmacy Inc. SRePS - Payment";
             this.Load += new System.EventHandler(this.frmPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
