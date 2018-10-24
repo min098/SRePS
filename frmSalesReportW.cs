@@ -219,7 +219,7 @@ namespace SRePS
                         {
                             conn.Open();
 
-                            string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
+                            string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total_Sales " +
                                 "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
                                 "Product ON [Order].P_ID = Product.P_ID) " +
                                 "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
@@ -295,7 +295,7 @@ namespace SRePS
                 {
                     conn.Open();
 
-                    string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
+                    string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
                         "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
                         "Product ON [Order].P_ID = Product.P_ID) " +
                         "WHERE Sales.S_Date = @selectedDate";

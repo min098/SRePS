@@ -206,7 +206,7 @@ namespace SRePS
                     {
                         conn.Open();
 
-                        string query = "SELECT [Order].Inv_No, Sales.S_Date, Employees.E_ID, Product.P_ID, [Order].S_Quantity " +
+                        string query = "SELECT [Order].Inv_No AS Invoice_No, Sales.S_Date AS Sales_Date, Employees.E_ID AS Employee_ID, Product.P_ID AS Product_ID, [Order].S_Quantity AS Quantity_Sold " +
                             "FROM (((Product INNER JOIN [Order] ON Product.P_ID = [Order].P_ID) " +
                             "INNER JOIN Sales ON [Order].Inv_No = Sales.Inv_No) " +
                             "INNER JOIN Employees ON Sales.E_ID = Employees.E_ID) " +
