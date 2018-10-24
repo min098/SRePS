@@ -577,7 +577,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.DataGridView productDataGridView;
         public System.Windows.Forms.BindingSource productBindingSource2;
         private System.Windows.Forms.BindingSource orderBindingSource;
         private SRePS_DatabaseDataSetTableAdapters.OrderTableAdapter orderTableAdapter;
@@ -597,5 +596,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        public System.Windows.Forms.DataGridView productDataGridView;
     }
 }

@@ -28,47 +28,91 @@ namespace SRePS
 
         }
 
+        public Boolean isUserNameExists()
+        {
+            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+            con.Open();
+            OleDbDataReader read;
+            string query = "SELECT * FROM Product WHERE [P_ID]=?";
+            OleDbCommand cmd = new OleDbCommand(query, con);
+
+            cmd.Parameters.AddWithValue("P_ID", p_IDTextBox.Text);
+            read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                if (read.HasRows == true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
             con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
-            try
+            string oldID = Program.frmProduct.productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            if (p_IDTextBox.Text == "" || p_NameTextBox.Text == "" || p_QuantityTextBox.Text == "" || p_PriceTextBox.Text == "" || p_CostTextBox.Text == ""
+                || p_SupplierTextBox.Text == "" || cmbPUOM.SelectedItem == null || cmbPGroup.SelectedItem == null
+                || cmbPSubGroup.SelectedItem == null)
             {
-                con.Open();
-
-                string query = "UPDATE [Product] SET [P_ID]=@P_ID,[P_Name]=@P_Name,[P_Quantity]=@P_Quantity,[P_Price]=@P_Price,[P_Cost]=@P_Cost," +
-                    "[P_Supplier]=@P_Supplier,[P_UOM]=@P_UOM,[P_Group]=@P_Group,[P_SubGroup]=@P_SubGroup WHERE [P_ID] = @P_ID";
-                OleDbCommand cmd = new OleDbCommand(query, con);
-                cmd.Parameters.AddWithValue("@P_ID", p_IDTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_Name", p_NameTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_Quantity", p_QuantityTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_Price", p_PriceTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_Cost", p_CostTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_UOM", cmbPUOM.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@P_Group", cmbPGroup.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@P_SubGroup", cmbPSubGroup.SelectedItem.ToString());
-
-
-                //The selling price must not lower than cost
-                if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
+                MessageBox.Show("Please fill in all the field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
                 {
-                    MessageBox.Show("Selling price must not be lower than cost!");
-                }
-                else
-                {
+                    con.Open();
+
+                    string query = "UPDATE [Product] SET [P_ID]=@P_ID,[P_Name]=@P_Name,[P_Quantity]=@P_Quantity,[P_Price]=@P_Price,[P_Cost]=@P_Cost," +
+                        "[P_Supplier]=@P_Supplier,[P_UOM]=@P_UOM,[P_Group]=@P_Group,[P_SubGroup]=@P_SubGroup WHERE [P_ID] = @oldID";
+                    OleDbCommand cmd = new OleDbCommand(query, con);
+
+                    if (p_IDTextBox.Text == oldID)
+                    {
+                        cmd.Parameters.AddWithValue("P_ID", p_IDTextBox.Text);
+                    }
+                    else if (isUserNameExists() == true)
+                    {
+                        MessageBox.Show("Product ID exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("P_ID", p_IDTextBox.Text);
+                    }
+                    cmd.Parameters.AddWithValue("@P_Name", p_NameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@P_Quantity", p_QuantityTextBox.Text);
+                    cmd.Parameters.AddWithValue("@P_Price", p_PriceTextBox.Text);
+                    cmd.Parameters.AddWithValue("@P_Cost", p_CostTextBox.Text);
+                    cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
+                    cmd.Parameters.AddWithValue("@P_UOM", cmbPUOM.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@P_Group", cmbPGroup.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@P_SubGroup", cmbPSubGroup.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@oldID", oldID);
+
+
+                    //The selling price must not lower than cost
+                    if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
+                    {
+                        MessageBox.Show("Selling price must not be lower than cost!");
+                    }
+
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Edit Successfully");
+                    Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                    this.Close();
                 }
+                catch (Exception)
+                {
 
-                Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                }
+                con.Close();
+
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to edit due to " + ex.Message);
-            }
-            con.Close();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
