@@ -77,6 +77,17 @@ namespace SRePS
                     }
                 }
             }
+            //prevent "parent" form closed when the "child form" still opened
+            else if (Program.isOpened(Program.frmRegister))
+            {
+                Program.frmRegister.Focus();
+                e.Cancel = true;
+            }
+            else if (Program.isOpened(Program.frmEditE))
+            {
+                Program.frmEditE.Focus();
+                e.Cancel = true;
+            }
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

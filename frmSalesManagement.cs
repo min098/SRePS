@@ -170,6 +170,17 @@ namespace SRePS
                     }
                 }
             }
+            //prevent "parent" form closed when the "child form" still opened
+            else if (Program.isOpened(Program.frmAddS))
+            {
+                Program.frmAddS.Focus();
+                e.Cancel = true;
+            }
+            else if (Program.isOpened(Program.frmEditS))
+            {
+                Program.frmEditS.Focus();
+                e.Cancel = true;
+            }
         }
 
         public OleDbDataAdapter salesMngDetailAdapter;
