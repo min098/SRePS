@@ -91,5 +91,10 @@ namespace SRePS
             }
 
         }
+
+        private void frmLogIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
