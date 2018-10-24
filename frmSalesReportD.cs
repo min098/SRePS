@@ -229,55 +229,51 @@ namespace SRePS
             //if user do not double-click on the header
             if (e.RowIndex > -1)
             {
-                //if the clicked column is Date
-                if (e.ColumnIndex == 0)
+                string selectedDateTime = salesReportDDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                //need to perform split because the value stored contains time, we only need date
+                string[] split = selectedDateTime.Split(' ');
+                string selectedDate = split[0];
+
+                OleDbConnection conn = new OleDbConnection();
+                conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                try
                 {
-                    string selectedDateTime = salesReportDDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    //need to perform split because the value stored contains time, we only need date
-                    string[] split = selectedDateTime.Split(' ');
-                    string selectedDate = split[0];
+                    conn.Open();
 
-                    OleDbConnection conn = new OleDbConnection();
-                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                    string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
+                        "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                        "Product ON [Order].P_ID = Product.P_ID) " +
+                        "WHERE Sales.S_Date = @selectedDate";
+                    OleDbCommand cmd = new OleDbCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
+                    cmd.ExecuteNonQuery();
 
-                    try
-                    {
-                        conn.Open();
+                    OleDbDataAdapter dSalesDetailAdapter = new OleDbDataAdapter(cmd);
+                    DataSet dSalesDetailDataset = new DataSet();
+                    dSalesDetailAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesDetail");
+                    salesDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["DailySalesDetail"];
 
-                        string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
-                            "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
-                            "Product ON [Order].P_ID = Product.P_ID) " +
-                            "WHERE Sales.S_Date = @selectedDate";
-                        OleDbCommand cmd = new OleDbCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
-                        cmd.ExecuteNonQuery();
-
-                        OleDbDataAdapter dSalesDetailAdapter = new OleDbDataAdapter(cmd);
-                        DataSet dSalesDetailDataset = new DataSet();
-                        dSalesDetailAdapter.Fill(sRePS_DatabaseDataSet, "DailySalesDetail");
-                        salesDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["DailySalesDetail"];
-
-                        //change column size so that it fills up the datagrid
-                        salesDetailDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    }
-                    catch (Exception a)
-                    {
-                        MessageBox.Show("Failed to view due to " + a.Message);
-                    }
-
-                    conn.Close();
-
-                    salesDetailDataGridView.Show();
-                    salesReportDDataGridView.Hide();
+                    //change column size so that it fills up the datagrid
+                    salesDetailDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    salesDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    salesDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    salesDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
+                catch (Exception a)
+                {
+                    MessageBox.Show("Failed to view due to " + a.Message);
+                }
+
+                conn.Close();
+
+                salesDetailDataGridView.Show();
+                salesReportDDataGridView.Hide();
             }
             else
             {
-                MessageBox.Show("Double-click the date of the record to view the details", "Clicking on header", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Double-click the row of the record to view the details", "Clicking on header", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -339,6 +335,19 @@ namespace SRePS
                     System.IO.File.WriteAllLines(sfd.FileName, output, System.Text.Encoding.UTF8);
                 }
             }
+        }
+
+        private void salesReportDDataGridView_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1) //Not headers
+            {
+                lblStatus.Text = "Double-click the row to view details";
+            }
+        }
+
+        private void salesReportDDataGridView_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            lblStatus.Text = "";
         }
     }
 }

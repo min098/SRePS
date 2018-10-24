@@ -303,19 +303,15 @@ namespace SRePS
             //if user do not double-click on the header
             if (e.RowIndex > -1)
             {
-                //if the clicked column is Month
-                if (e.ColumnIndex == 0)
-                {
-                    string selectedMonth = salesReportMDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    string selectedYear = salesReportMDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string selectedMonth = salesReportMDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string selectedYear = salesReportMDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                    //call the method to display the sales detail of the selected month and year
-                    displaySalesDetail(selectedMonth, selectedYear);
-                }
+                //call the method to display the sales detail of the selected month and year
+                displaySalesDetail(selectedMonth, selectedYear);
             }
             else if (sameDate == false)  //the double-click to view details feature only available when the date picked are not the same
             {
-                MessageBox.Show("Double-click the month of the record to view the details", "Clicking on header", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Double-click the row of the record to view the details", "Clicking on header", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -411,6 +407,19 @@ namespace SRePS
                     System.IO.File.WriteAllLines(sfd.FileName, output, System.Text.Encoding.UTF8);
                 }
             }
+        }
+
+        private void salesReportMDataGridView_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1) //Not headers
+            {
+                lblStatus.Text = "Double-click the row to view details";
+            }
+        }
+
+        private void salesReportMDataGridView_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            lblStatus.Text = "";
         }
     }
 }
