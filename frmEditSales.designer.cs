@@ -281,6 +281,7 @@
             this.Name = "frmEditSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Edit Sales";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditSales_FormClosing);
             this.Load += new System.EventHandler(this.frmEditSales_Load);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
