@@ -180,88 +180,95 @@ namespace SRePS
 
         public OleDbDataAdapter salesMngDetailAdapter;
 
-        private void btnEditProduct_Click(object sender, EventArgs e)
+        private void btnEditSales_Click(object sender, EventArgs e)
         {
-            if (salesDataGridView.Visible)  //the displayed datagrid is salesDataGrid
+            if (Program.curPosition == "Admin")
             {
-                if (salesDataGridView.SelectedRows.Count != 0)
+                if (salesDataGridView.Visible)  //the displayed datagrid is salesDataGrid
                 {
-                    //clear any record in the table before fetching a new one
-                    if (sRePS_DatabaseDataSet.Tables["SalesManagementDetail"] != null)
+                    if (salesDataGridView.SelectedRows.Count != 0)
                     {
-                        sRePS_DatabaseDataSet.Tables["SalesManagementDetail"].Clear();
-                    }
+                        //clear any record in the table before fetching a new one
+                        if (sRePS_DatabaseDataSet.Tables["SalesManagementDetail"] != null)
+                        {
+                            sRePS_DatabaseDataSet.Tables["SalesManagementDetail"].Clear();
+                        }
 
-                    string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                        string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[1].Value.ToString();
 
-                    OleDbConnection conn = new OleDbConnection();
-                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                        OleDbConnection conn = new OleDbConnection();
+                        conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
-                    try
-                    {
-                        conn.Open();
+                        try
+                        {
+                            conn.Open();
 
-                        string query = "SELECT [Order].Inv_No AS Invoice_No, Sales.S_Date AS Sales_Date, Employees.E_ID AS Employee_ID, Product.P_ID AS Product_ID, [Order].S_Quantity AS Quantity_Sold " +
-                            "FROM (((Product INNER JOIN [Order] ON Product.P_ID = [Order].P_ID) " +
-                            "INNER JOIN Sales ON [Order].Inv_No = Sales.Inv_No) " +
-                            "INNER JOIN Employees ON Sales.E_ID = Employees.E_ID) " +
-                            "WHERE [Order].Inv_No = @selectedInvNo";
-                        OleDbCommand cmd = new OleDbCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@selectedInvNo", selectedInvNo);
-                        cmd.ExecuteNonQuery();
+                            string query = "SELECT [Order].Inv_No AS Invoice_No, Sales.S_Date AS Sales_Date, Employees.E_ID AS Employee_ID, Product.P_ID AS Product_ID, [Order].S_Quantity AS Quantity_Sold " +
+                                "FROM (((Product INNER JOIN [Order] ON Product.P_ID = [Order].P_ID) " +
+                                "INNER JOIN Sales ON [Order].Inv_No = Sales.Inv_No) " +
+                                "INNER JOIN Employees ON Sales.E_ID = Employees.E_ID) " +
+                                "WHERE [Order].Inv_No = @selectedInvNo";
+                            OleDbCommand cmd = new OleDbCommand(query, conn);
+                            cmd.Parameters.AddWithValue("@selectedInvNo", selectedInvNo);
+                            cmd.ExecuteNonQuery();
 
-                        salesMngDetailAdapter = new OleDbDataAdapter(cmd);
-                        DataSet salesMngDetailDataset = new DataSet();
-                        salesMngDetailAdapter.Fill(sRePS_DatabaseDataSet, "SalesManagementDetail");
-                        salesMngDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["SalesManagementDetail"];
+                            salesMngDetailAdapter = new OleDbDataAdapter(cmd);
+                            DataSet salesMngDetailDataset = new DataSet();
+                            salesMngDetailAdapter.Fill(sRePS_DatabaseDataSet, "SalesManagementDetail");
+                            salesMngDetailDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["SalesManagementDetail"];
 
-                        //change column size so that it fills up the datagrid
-                        salesMngDetailDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesMngDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesMngDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesMngDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                        salesMngDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    }
-                    catch (Exception a)
-                    {
-                        MessageBox.Show("Failed to view due to " + a.Message);
-                    }
+                            //change column size so that it fills up the datagrid
+                            salesMngDetailDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                            salesMngDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                            salesMngDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                            salesMngDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                            salesMngDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        }
+                        catch (Exception a)
+                        {
+                            MessageBox.Show("Failed to view due to " + a.Message);
+                        }
 
-                    conn.Close();
+                        conn.Close();
 
-                    salesMngDetailDataGridView.Show();
-                    salesDataGridView.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("No row has been selected. Please select a row to edit", "Error",
-                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else if (salesMngDetailDataGridView.Visible) //the displayed datagrid is salesMngDetailDataGrid (after double-clicked)
-            {
-                if (salesMngDetailDataGridView.SelectedRows.Count != 0)
-                {
-                    if (Program.isOpened(Program.frmEditS) == true)
-                    {
-                        Program.frmEditS.Focus();
+                        salesMngDetailDataGridView.Show();
+                        salesDataGridView.Hide();
                     }
                     else
                     {
-                        Program.frmEditS = new frmEditSales();
-                        Program.frmEditS.Show();
-                        Program.frmEditS.lblInvoiceNo.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[0].Value.ToString();
-                        Program.frmEditS.txtSalesDate.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[1].Value.ToString();
-                        Program.frmEditS.txtEID.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[2].Value.ToString();
-                        Program.frmEditS.txtPID.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[3].Value.ToString();
-                        Program.frmEditS.txtSQty.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[4].Value.ToString();
+                        MessageBox.Show("No row has been selected. Please select a row to edit", "Error",
+                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else
+                else if (salesMngDetailDataGridView.Visible) //the displayed datagrid is salesMngDetailDataGrid (after double-clicked)
                 {
-                    MessageBox.Show("No row has been selected. Please select a row to edit", "Error",
-                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (salesMngDetailDataGridView.SelectedRows.Count != 0)
+                    {
+                        if (Program.isOpened(Program.frmEditS) == true)
+                        {
+                            Program.frmEditS.Focus();
+                        }
+                        else
+                        {
+                            Program.frmEditS = new frmEditSales();
+                            Program.frmEditS.Show();
+                            Program.frmEditS.lblInvoiceNo.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[0].Value.ToString();
+                            Program.frmEditS.txtSalesDate.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[1].Value.ToString();
+                            Program.frmEditS.txtEID.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[2].Value.ToString();
+                            Program.frmEditS.txtPID.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[3].Value.ToString();
+                            Program.frmEditS.txtSQty.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[4].Value.ToString();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No row has been selected. Please select a row to edit", "Error",
+                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Only admin can edit sales record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -330,7 +337,7 @@ namespace SRePS
             }
         }
 
-        private void btnAddProduct_Click(object sender, EventArgs e)
+        private void btnAddSales_Click(object sender, EventArgs e)
         {
             if (Program.isOpened(Program.frmAddS) == true)
             {

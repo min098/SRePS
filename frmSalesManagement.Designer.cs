@@ -50,8 +50,8 @@
             this.salesManagementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEditProduct = new System.Windows.Forms.Button();
-            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.btnEditSales = new System.Windows.Forms.Button();
+            this.btnAddSales = new System.Windows.Forms.Button();
             this.productBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -205,7 +205,7 @@
             this.totalDataGridViewTextBoxColumn});
             this.salesDataGridView.DataSource = this.salesManagementBindingSource;
             this.salesDataGridView.Location = new System.Drawing.Point(10, 33);
-            this.salesDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.salesDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.salesDataGridView.MultiSelect = false;
             this.salesDataGridView.Name = "salesDataGridView";
             this.salesDataGridView.ReadOnly = true;
@@ -258,7 +258,7 @@
             this.btnDelete.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(456, 405);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 33);
             this.btnDelete.TabIndex = 8;
@@ -266,31 +266,31 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnEditProduct
+            // btnEditSales
             // 
-            this.btnEditProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnEditProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditProduct.Location = new System.Drawing.Point(338, 405);
-            this.btnEditProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnEditProduct.Name = "btnEditProduct";
-            this.btnEditProduct.Size = new System.Drawing.Size(112, 33);
-            this.btnEditProduct.TabIndex = 7;
-            this.btnEditProduct.Text = "&Edit";
-            this.btnEditProduct.UseVisualStyleBackColor = false;
-            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
+            this.btnEditSales.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnEditSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditSales.Location = new System.Drawing.Point(338, 405);
+            this.btnEditSales.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditSales.Name = "btnEditSales";
+            this.btnEditSales.Size = new System.Drawing.Size(112, 33);
+            this.btnEditSales.TabIndex = 7;
+            this.btnEditSales.Text = "&Edit";
+            this.btnEditSales.UseVisualStyleBackColor = false;
+            this.btnEditSales.Click += new System.EventHandler(this.btnEditSales_Click);
             // 
-            // btnAddProduct
+            // btnAddSales
             // 
-            this.btnAddProduct.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.Location = new System.Drawing.Point(220, 405);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(112, 33);
-            this.btnAddProduct.TabIndex = 6;
-            this.btnAddProduct.Text = "&Add New";
-            this.btnAddProduct.UseVisualStyleBackColor = false;
-            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            this.btnAddSales.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAddSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSales.Location = new System.Drawing.Point(220, 405);
+            this.btnAddSales.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddSales.Name = "btnAddSales";
+            this.btnAddSales.Size = new System.Drawing.Size(112, 33);
+            this.btnAddSales.TabIndex = 6;
+            this.btnAddSales.Text = "&Add New";
+            this.btnAddSales.UseVisualStyleBackColor = false;
+            this.btnAddSales.Click += new System.EventHandler(this.btnAddSales_Click);
             // 
             // productBindingNavigator
             // 
@@ -477,12 +477,12 @@
             this.ClientSize = new System.Drawing.Size(802, 458);
             this.Controls.Add(this.salesMngDetailDataGridView);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEditProduct);
-            this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.btnEditSales);
+            this.Controls.Add(this.btnAddSales);
             this.Controls.Add(this.salesDataGridView);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.productBindingNavigator);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSalesManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Sales Management";
@@ -524,8 +524,8 @@
         private System.Windows.Forms.ToolStripMenuItem predictionToolStripMenuItem;
         public System.Windows.Forms.DataGridView salesDataGridView;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEditProduct;
-        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnEditSales;
+        private System.Windows.Forms.Button btnAddSales;
         public SRePS_DatabaseDataSet sRePS_DatabaseDataSet; //NOTE: changed to public
         private System.Windows.Forms.BindingNavigator productBindingNavigator;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;

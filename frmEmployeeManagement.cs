@@ -30,7 +30,7 @@ namespace SRePS
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             if (Program.isOpened(Program.frmRegister) == true)
             {

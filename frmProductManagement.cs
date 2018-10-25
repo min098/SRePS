@@ -83,18 +83,25 @@ namespace SRePS
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmAddP) == true)
+            if (Program.curPosition == "Admin")
             {
+                if (Program.isOpened(Program.frmAddP) == true)
+                {
 
-                Program.frmAddP.Focus();
+                    Program.frmAddP.Focus();
 
+                }
+                else
+                {
+                    Program.frmAddP = new frmAddProduct();
+                    Program.frmAddP.Show();
+                }
             }
             else
             {
-                Program.frmAddP = new frmAddProduct();
-                Program.frmAddP.Show();
+                MessageBox.Show("Only admin can add product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
