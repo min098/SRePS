@@ -174,26 +174,36 @@ namespace SRePS
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Remove "  + itemGrid.CurrentRow.Cells[1].Value.ToString() +"?" , "Warning", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+
+            if (itemGrid.Rows.Count != 1)
             {
-                itemGrid.Rows.RemoveAt(itemGrid.CurrentRow.Index);
-                sRePS_DatabaseDataSet.Tables["AddItem"].AcceptChanges();
+                DialogResult result = MessageBox.Show("Are you sure you want to remove item?", "Removing Item", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                if (result == DialogResult.Yes)
+                {
+                    //sRePS_DatabaseDataSet.Tables["AddItem"].Rows.RemoveAt(itemGrid.CurrentRow.Index);
+                    itemGrid.Rows.RemoveAt(itemGrid.CurrentRow.Index);
+                    sRePS_DatabaseDataSet.Tables["AddItem"].AcceptChanges();
+                }
+
+                //DialogResult result = MessageBox.Show("Remove "  + itemGrid.CurrentRow.Cells[1].Value.ToString() +"?" , "Removing Item", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             //clear all rows
-            DialogResult result = MessageBox.Show("Clear all added items?", "Warning", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            if (itemGrid.Rows.Count != 1)
             {
-                if (sRePS_DatabaseDataSet.Tables["AddItem"] != null)
+                DialogResult result = MessageBox.Show("Are you sure you want to clear all added items?", "Clearing added items", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Yes)
                 {
-                    sRePS_DatabaseDataSet.Tables["AddItem"].Clear();
+                    if (sRePS_DatabaseDataSet.Tables["AddItem"] != null)
+                    {
+                        sRePS_DatabaseDataSet.Tables["AddItem"].Clear();
+                    }
                 }
             }
-
 
         }
 

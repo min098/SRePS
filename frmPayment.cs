@@ -36,7 +36,7 @@ namespace SRePS
 
                 if (Convert.ToInt32(txtChange.Text) < 0 || string.IsNullOrEmpty(txtPaid.Text))
                 {
-                    MessageBox.Show("The payment must not be lower than total!");
+                    MessageBox.Show("The payment must not be lower than total!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPaid.Focus();
                     txtPaid.SelectAll();
                 }
@@ -52,19 +52,6 @@ namespace SRePS
                     //Execute the INSERT for Order
                     for (int i = 0; i < Program.frmAddS.itemGrid.Rows.Count - 1; i++)
                     {
-                        //if (Program.frmAddS.lblInv_No.Text == "1")
-                        //{
-                        //    invno = int.Parse(Inv_No.ExecuteScalar().ToString());
-                        //    string newOrder = "INSERT INTO `Order` (`Inv_No`,`P_ID`, `S_Quantity`) VALUES (?,?,?)";
-                        //    OleDbCommand cmdn = new OleDbCommand(newOrder, conn);
-                        //    cmdn.Parameters.AddWithValue("@Inv_No", invno);
-                        //    cmdn.Parameters.AddWithValue("@P_ID", Convert.ToDouble(Program.frmAddS.itemGrid.Rows[i].Cells[0].Value));
-                        //    cmdn.Parameters.AddWithValue("@S_Quantity", Convert.ToDouble(Program.frmAddS.itemGrid.Rows[i].Cells[3].Value));
-
-                        //    cmdn.ExecuteNonQuery();
-                        //}
-                        //else
-                        //{
                         invno = int.Parse(Inv_No.ExecuteScalar().ToString());
                         string my_query2 = "INSERT INTO `Order` (`Inv_No`,`P_ID`, `S_Quantity`) VALUES (?,?,?)";
                         OleDbCommand cmd2 = new OleDbCommand(my_query2, conn);
@@ -94,7 +81,7 @@ namespace SRePS
 
                     if (Convert.ToDouble(txtPaid.Text) >= Convert.ToDouble(txtTotal.Text))
                     {
-                        MessageBox.Show("Committed!");
+                        MessageBox.Show("Committed!", "Sales recorded",MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
@@ -163,7 +150,7 @@ namespace SRePS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("The payment has not been committed! Are you sure you want to cancel?)", "Warning", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("The payment has not been committed! Are you sure you want to cancel?", "Cancelling Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
             if(result == DialogResult.Yes)
             {
