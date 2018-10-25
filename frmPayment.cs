@@ -102,15 +102,16 @@ namespace SRePS
                         {
                             Program.frmSales.salesTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.Sales);
                             Program.frmSales.salesManagementTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
-
+                        
 
                             if (Program.frmSales.salesMngDetailDataGridView.Visible)
                             {
                                 Program.frmSales.salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
                             }
+                        }
 
-                            //Clear the datagrid
-                            if (Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"] != null)
+                        //Clear the datagrid
+                        if (Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"] != null)
                             {
                                 Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"].Clear();
                             }
@@ -119,7 +120,7 @@ namespace SRePS
                             {
                                 Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
                             }
-                        }
+                        
                         added = true;
                         Program.frmP.Close();
                     }
