@@ -41,7 +41,7 @@ namespace SRePS
 
             //select last row
             itemGrid.ClearSelection();
-            //itemGrid.Rows[itemGrid.Rows.Count-1].Selected = true;
+            
 
             try
             {
@@ -156,7 +156,15 @@ namespace SRePS
             OleDbCommand cmd = new OleDbCommand(inv, conn);
             cmd.CommandType = CommandType.Text;
             cmd.Connection.Open();
-            lblInv_No.Text = Convert.ToString(Convert.ToInt32(cmd.ExecuteScalar().ToString())+1);
+            object obj = cmd.ExecuteScalar();
+            if (string.IsNullOrEmpty(obj.ToString()))
+            {
+                lblInv_No.Text = "1";
+            }
+            else
+            {
+                lblInv_No.Text = Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
+            }
         }
 
         private void itemGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)

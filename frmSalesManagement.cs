@@ -285,9 +285,29 @@ namespace SRePS
                             }
                         }
 
-
                         this.sRePS_DatabaseDataSet.Sales.Rows[rowIndex].Delete();
                         salesTableAdapter.Update(sRePS_DatabaseDataSet);
+
+
+                        if (Program.isOpened(Program.frmAddS) == true)
+                        {
+                            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                            string inv = "SELECT MAX(Inv_No) FROM Sales";
+                            OleDbCommand cmd = new OleDbCommand(inv, conn);
+                            cmd.CommandType = CommandType.Text;
+                            cmd.Connection.Open();
+                            object obj = cmd.ExecuteScalar();
+                            if (string.IsNullOrEmpty(obj.ToString()))
+                            {
+                                Program.frmAddS.lblInv_No.Text = "1";
+                            }
+                            else
+                            {
+                                Program.frmAddS.lblInv_No.Text = Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
+                            }
+
+                        }
 
                         salesManagementTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
 
@@ -295,6 +315,7 @@ namespace SRePS
                         {
                             salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
                         }
+
                     }
 
                 }

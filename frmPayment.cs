@@ -27,7 +27,9 @@ namespace SRePS
             DateTime s_date = DateTime.Today;
 
             Boolean added = false;
-
+            int invno;
+            //OleDbConnection connection = new OleDbConnection();
+            OleDbCommand Inv_No = new OleDbCommand("SELECT MAX(Inv_No) FROM Sales", conn);
             try
             {
                 conn.Open();
@@ -50,10 +52,25 @@ namespace SRePS
                     //Execute the INSERT for Order
                     for (int i = 0; i < Program.frmAddS.itemGrid.Rows.Count - 1; i++)
                     {
+                        //if (Program.frmAddS.lblInv_No.Text == "1")
+                        //{
+                        //    invno = int.Parse(Inv_No.ExecuteScalar().ToString());
+                        //    string newOrder = "INSERT INTO `Order` (`Inv_No`,`P_ID`, `S_Quantity`) VALUES (?,?,?)";
+                        //    OleDbCommand cmdn = new OleDbCommand(newOrder, conn);
+                        //    cmdn.Parameters.AddWithValue("@Inv_No", invno);
+                        //    cmdn.Parameters.AddWithValue("@P_ID", Convert.ToDouble(Program.frmAddS.itemGrid.Rows[i].Cells[0].Value));
+                        //    cmdn.Parameters.AddWithValue("@S_Quantity", Convert.ToDouble(Program.frmAddS.itemGrid.Rows[i].Cells[3].Value));
+
+                        //    cmdn.ExecuteNonQuery();
+                        //}
+                        //else
+                        //{
+                        invno = int.Parse(Inv_No.ExecuteScalar().ToString());
                         string my_query2 = "INSERT INTO `Order` (`Inv_No`,`P_ID`, `S_Quantity`) VALUES (?,?,?)";
                         OleDbCommand cmd2 = new OleDbCommand(my_query2, conn);
 
-                        cmd2.Parameters.AddWithValue("@Inv_No", Convert.ToDouble(Program.frmAddS.lblInv_No.Text));
+
+                        cmd2.Parameters.AddWithValue("@Inv_No", invno);
 
 
                         cmd2.Parameters.AddWithValue("@P_ID", Convert.ToDouble(Program.frmAddS.itemGrid.Rows[i].Cells[0].Value));
@@ -68,41 +85,45 @@ namespace SRePS
                         cmdr.Parameters.AddWithValue("@Quantity", Convert.ToDouble(Program.frmAddS.itemGrid.Rows[i].Cells[3].Value));
                         cmdr.Parameters.AddWithValue("@ID", Convert.ToDouble(Program.frmAddS.itemGrid.Rows[i].Cells[0].Value));
                         cmdr.ExecuteNonQuery();
+                        //}
+
 
                     }
 
-                    
 
-                    if(Convert.ToDouble(txtPaid.Text) >= Convert.ToDouble(txtTotal.Text))
+
+                    if (Convert.ToDouble(txtPaid.Text) >= Convert.ToDouble(txtTotal.Text))
                     {
                         MessageBox.Show("Committed!");
-                        Program.frmSales.salesTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.Sales);
-                        if (Program.frmSales.salesDataGridView.Visible)
-                        {
 
+
+
+                        if (Program.isOpened(Program.frmSales))
+                        {
+                            Program.frmSales.salesTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.Sales);
                             Program.frmSales.salesManagementTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
-                        }
 
 
-                        if (Program.frmSales.salesMngDetailDataGridView.Visible)
-                        {
-                            Program.frmSales.salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
-                        }
+                            if (Program.frmSales.salesMngDetailDataGridView.Visible)
+                            {
+                                Program.frmSales.salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+                            }
 
-                        //Clear the datagrid
-                        if (Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"] != null)
-                        {
-                            Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"].Clear();
-                        }
+                            //Clear the datagrid
+                            if (Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"] != null)
+                            {
+                                Program.frmAddS.sRePS_DatabaseDataSet.Tables["AddItem"].Clear();
+                            }
 
-                        if (Program.isOpened(Program.frmProduct) == true)
-                        {
-                            Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                            if (Program.isOpened(Program.frmProduct) == true)
+                            {
+                                Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                            }
                         }
                         added = true;
                         Program.frmP.Close();
                     }
-                    
+
                 }
 
             }
@@ -116,10 +137,15 @@ namespace SRePS
                 //increase the Inv_No after the user successfully committed the sales
                 if (added == true)
                 {
-                    Program.frmAddS.lblInv_No.Text = Convert.ToString(Convert.ToInt32(Program.frmAddS.lblInv_No.Text) + 1);
+                    string inv = "SELECT MAX(Inv_No) FROM Sales";
+                    OleDbCommand cmd = new OleDbCommand(inv, conn);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection.Open();
+                    object obj = cmd.ExecuteScalar();
+                    Program.frmAddS.lblInv_No.Text = Convert.ToString(Convert.ToInt32(obj.ToString()));
                 }
-               
-                
+
+
             }
         }
 
