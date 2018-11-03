@@ -348,7 +348,7 @@ namespace SRePS
 
         private void barcodeTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            quantityTextBox.Text = "1";
         }
 
         private void quantityTextBox_TextChanged(object sender, EventArgs e)
