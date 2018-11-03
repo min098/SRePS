@@ -26,6 +26,9 @@ namespace SRePS
 
             //hide the salesDetailDataGridView when first load to the form
             salesDetailDataGridView.Hide();
+
+            //Do not allow the user to select end date that is earlier than the start date
+            dtpickerEnd.MinDate = dtpickerStart.Value;
         }
 
         private void frmSalesReportM_FormClosing(object sender, FormClosingEventArgs e)
@@ -252,43 +255,36 @@ namespace SRePS
             }
             else
             {
-                if (Convert.ToDateTime(pickedEMonthYear) > Convert.ToDateTime(pickedSMonthYear))
+                sameDate = false;
+
+                OleDbConnection conn = new OleDbConnection();
+                conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                try
                 {
-                    sameDate = false;
+                    conn.Open();
 
-                    OleDbConnection conn = new OleDbConnection();
-                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                    string query = "SELECT MONTH(Sales.S_Date) AS Sales_Month, YEAR(Sales.S_Date) AS Sales_Year, SUM(Product.P_Price*[Order].S_Quantity) AS Total_Sales " +
+                        "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                        "Product ON [Order].P_ID = Product.P_ID) " +
+                        "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
+                        "GROUP BY YEAR(Sales.S_Date), MONTH(Sales.S_Date)";
+                    OleDbCommand cmd = new OleDbCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@startDate", pickedSDate);
+                    cmd.Parameters.AddWithValue("@endDate", pickedEDate);
+                    cmd.ExecuteNonQuery();
 
-                    try
-                    {
-                        conn.Open();
-
-                        string query = "SELECT MONTH(Sales.S_Date) AS Sales_Month, YEAR(Sales.S_Date) AS Sales_Year, SUM(Product.P_Price*[Order].S_Quantity) AS Total_Sales " +
-                            "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
-                            "Product ON [Order].P_ID = Product.P_ID) " +
-                            "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
-                            "GROUP BY YEAR(Sales.S_Date), MONTH(Sales.S_Date)";
-                        OleDbCommand cmd = new OleDbCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@startDate", pickedSDate);
-                        cmd.Parameters.AddWithValue("@endDate", pickedEDate);
-                        cmd.ExecuteNonQuery();
-
-                        OleDbDataAdapter mSalesReportAdapter = new OleDbDataAdapter(cmd);
-                        DataSet mSalesReportDataset = new DataSet();
-                        mSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "MonthlySalesReport");
-                        salesReportMDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["MonthlySalesReport"];
-                    }
-                    catch (Exception a)
-                    {
-                        MessageBox.Show("Failed to search due to " + a.Message);
-                    }
-
-                    conn.Close();
+                    OleDbDataAdapter mSalesReportAdapter = new OleDbDataAdapter(cmd);
+                    DataSet mSalesReportDataset = new DataSet();
+                    mSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "MonthlySalesReport");
+                    salesReportMDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["MonthlySalesReport"];
                 }
-                else
+                catch (Exception a)
                 {
-                    MessageBox.Show("The start month must be earlier than the end month", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to search due to " + a.Message);
                 }
+
+                conn.Close();
             }
         }
 
@@ -420,6 +416,12 @@ namespace SRePS
         private void salesReportMDataGridView_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             lblStatus.Text = "";
+        }
+
+        private void dtpickerStart_CloseUp(object sender, EventArgs e)
+        {
+            //Do not allow the user to select end date that is earlier than the start date
+            dtpickerEnd.MinDate = dtpickerStart.Value;
         }
     }
 }
