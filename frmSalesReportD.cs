@@ -181,11 +181,11 @@ namespace SRePS
             {
                 conn.Open();
 
-                string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total_Sales " +
+                string query = "SELECT Sales.S_Date AS Sales_Date, SUM(Product.P_Price*[Order].S_Quantity) AS Total_Sales " +
                     "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
                     "Product ON [Order].P_ID = Product.P_ID) " +
                     "WHERE Sales.S_Date = @S_Date " +
-                    "GROUP BY Sales.S_Date, [Order].Inv_No";
+                    "GROUP BY Sales.S_Date";
                 OleDbCommand cmd = new OleDbCommand(query, conn);
                 cmd.Parameters.AddWithValue("@S_Date", dtpicker.Text);
                 cmd.ExecuteNonQuery();
@@ -241,10 +241,11 @@ namespace SRePS
                 {
                     conn.Open();
 
-                    string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
+                    string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
                         "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
                         "Product ON [Order].P_ID = Product.P_ID) " +
-                        "WHERE Sales.S_Date = @selectedDate";
+                        "WHERE Sales.S_Date = @selectedDate " +
+                        "GROUP BY Sales.S_Date, [Order].Inv_No, Product.P_Name, [Order].S_Quantity, Product.P_Price";
                     OleDbCommand cmd = new OleDbCommand(query, conn);
                     cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
                     cmd.ExecuteNonQuery();
@@ -259,7 +260,8 @@ namespace SRePS
                     salesDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     salesDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     salesDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    salesDetailDataGridView.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
                 catch (Exception a)
                 {
