@@ -453,9 +453,9 @@ namespace SRePS {
             
             private global::System.Data.DataColumn columnE_Position;
             
-            private global::System.Data.DataColumn columnE_Gender;
-            
             private global::System.Data.DataColumn columnE_Password;
+            
+            private global::System.Data.DataColumn columnE_Status;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -516,17 +516,17 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn E_GenderColumn {
+            public global::System.Data.DataColumn E_PasswordColumn {
                 get {
-                    return this.columnE_Gender;
+                    return this.columnE_Password;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn E_PasswordColumn {
+            public global::System.Data.DataColumn E_StatusColumn {
                 get {
-                    return this.columnE_Password;
+                    return this.columnE_Status;
                 }
             }
             
@@ -567,14 +567,14 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public EmployeesRow AddEmployeesRow(string E_ID, string E_Name, string E_Position, string E_Gender, string E_Password) {
+            public EmployeesRow AddEmployeesRow(string E_ID, string E_Name, string E_Position, string E_Password, string E_Status) {
                 EmployeesRow rowEmployeesRow = ((EmployeesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         E_ID,
                         E_Name,
                         E_Position,
-                        E_Gender,
-                        E_Password};
+                        E_Password,
+                        E_Status};
                 rowEmployeesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmployeesRow);
                 return rowEmployeesRow;
@@ -607,8 +607,8 @@ namespace SRePS {
                 this.columnE_ID = base.Columns["E_ID"];
                 this.columnE_Name = base.Columns["E_Name"];
                 this.columnE_Position = base.Columns["E_Position"];
-                this.columnE_Gender = base.Columns["E_Gender"];
                 this.columnE_Password = base.Columns["E_Password"];
+                this.columnE_Status = base.Columns["E_Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -620,10 +620,10 @@ namespace SRePS {
                 base.Columns.Add(this.columnE_Name);
                 this.columnE_Position = new global::System.Data.DataColumn("E_Position", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnE_Position);
-                this.columnE_Gender = new global::System.Data.DataColumn("E_Gender", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnE_Gender);
                 this.columnE_Password = new global::System.Data.DataColumn("E_Password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnE_Password);
+                this.columnE_Status = new global::System.Data.DataColumn("E_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnE_Status);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnE_ID}, true));
                 this.columnE_ID.AllowDBNull = false;
@@ -631,8 +631,8 @@ namespace SRePS {
                 this.columnE_ID.MaxLength = 12;
                 this.columnE_Name.MaxLength = 50;
                 this.columnE_Position.MaxLength = 20;
-                this.columnE_Gender.MaxLength = 6;
                 this.columnE_Password.MaxLength = 10;
+                this.columnE_Status.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1078,6 +1078,8 @@ namespace SRePS {
             
             private global::System.Data.DataColumn columnP_SubGroup;
             
+            private global::System.Data.DataColumn columnP_Archive;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ProductDataTable() {
@@ -1185,6 +1187,14 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn P_ArchiveColumn {
+                get {
+                    return this.columnP_Archive;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1220,7 +1230,7 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProductRow AddProductRow(short P_ID, string P_Name, short P_Quantity, double P_Price, double P_Cost, string P_Supplier, string P_UOM, string P_Group, string P_SubGroup) {
+            public ProductRow AddProductRow(short P_ID, string P_Name, short P_Quantity, double P_Price, double P_Cost, string P_Supplier, string P_UOM, string P_Group, string P_SubGroup, string P_Archive) {
                 ProductRow rowProductRow = ((ProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         P_ID,
@@ -1231,7 +1241,8 @@ namespace SRePS {
                         P_Supplier,
                         P_UOM,
                         P_Group,
-                        P_SubGroup};
+                        P_SubGroup,
+                        P_Archive};
                 rowProductRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductRow);
                 return rowProductRow;
@@ -1270,6 +1281,7 @@ namespace SRePS {
                 this.columnP_UOM = base.Columns["P_UOM"];
                 this.columnP_Group = base.Columns["P_Group"];
                 this.columnP_SubGroup = base.Columns["P_SubGroup"];
+                this.columnP_Archive = base.Columns["P_Archive"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1293,6 +1305,8 @@ namespace SRePS {
                 base.Columns.Add(this.columnP_Group);
                 this.columnP_SubGroup = new global::System.Data.DataColumn("P_SubGroup", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnP_SubGroup);
+                this.columnP_Archive = new global::System.Data.DataColumn("P_Archive", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnP_Archive);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnP_ID}, true));
                 this.columnP_ID.AllowDBNull = false;
@@ -1302,6 +1316,7 @@ namespace SRePS {
                 this.columnP_UOM.MaxLength = 12;
                 this.columnP_Group.MaxLength = 12;
                 this.columnP_SubGroup.MaxLength = 50;
+                this.columnP_Archive.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2070,22 +2085,6 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string E_Gender {
-                get {
-                    try {
-                        return ((string)(this[this.tableEmployees.E_GenderColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'E_Gender\' in table \'Employees\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableEmployees.E_GenderColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string E_Password {
                 get {
                     try {
@@ -2097,6 +2096,22 @@ namespace SRePS {
                 }
                 set {
                     this[this.tableEmployees.E_PasswordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string E_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployees.E_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'E_Status\' in table \'Employees\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployees.E_StatusColumn] = value;
                 }
             }
             
@@ -2126,18 +2141,6 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsE_GenderNull() {
-                return this.IsNull(this.tableEmployees.E_GenderColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetE_GenderNull() {
-                this[this.tableEmployees.E_GenderColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsE_PasswordNull() {
                 return this.IsNull(this.tableEmployees.E_PasswordColumn);
             }
@@ -2146,6 +2149,18 @@ namespace SRePS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetE_PasswordNull() {
                 this[this.tableEmployees.E_PasswordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsE_StatusNull() {
+                return this.IsNull(this.tableEmployees.E_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetE_StatusNull() {
+                this[this.tableEmployees.E_StatusColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2402,6 +2417,22 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string P_Archive {
+                get {
+                    try {
+                        return ((string)(this[this.tableProduct.P_ArchiveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'P_Archive\' in table \'Product\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProduct.P_ArchiveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsP_NameNull() {
                 return this.IsNull(this.tableProduct.P_NameColumn);
             }
@@ -2494,6 +2525,18 @@ namespace SRePS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetP_SubGroupNull() {
                 this[this.tableProduct.P_SubGroupColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsP_ArchiveNull() {
+                return this.IsNull(this.tableProduct.P_ArchiveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetP_ArchiveNull() {
+                this[this.tableProduct.P_ArchiveColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3059,50 +3102,50 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("E_ID", "E_ID");
             tableMapping.ColumnMappings.Add("E_Name", "E_Name");
             tableMapping.ColumnMappings.Add("E_Position", "E_Position");
-            tableMapping.ColumnMappings.Add("E_Gender", "E_Gender");
             tableMapping.ColumnMappings.Add("E_Password", "E_Password");
+            tableMapping.ColumnMappings.Add("E_Status", "E_Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Employees` WHERE ((`E_ID` = ?) AND ((? = 1 AND `E_Name` IS NULL) OR (`E_Name` = ?)) AND ((? = 1 AND `E_Position` IS NULL) OR (`E_Position` = ?)) AND ((? = 1 AND `E_Gender` IS NULL) OR (`E_Gender` = ?)) AND ((? = 1 AND `E_Password` IS NULL) OR (`E_Password` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Employees` WHERE ((`E_ID` = ?) AND ((? = 1 AND `E_Name` IS NULL) OR (`E_Name` = ?)) AND ((? = 1 AND `E_Position` IS NULL) OR (`E_Position` = ?)) AND ((? = 1 AND `E_Password` IS NULL) OR (`E_Password` = ?)) AND ((? = 1 AND `E_Status` IS NULL) OR (`E_Status` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Name", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Position", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Position", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Position", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Position", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Gender", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Gender", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Gender", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Password", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Password", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Password", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Status", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Status", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Employees` (`E_ID`, `E_Name`, `E_Position`, `E_Gender`, `E_Password`" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Employees` (`E_ID`, `E_Name`, `E_Position`, `E_Password`, `E_Status`" +
                 ") VALUES (?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Position", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Position", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Gender", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Password", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Status", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Employees` SET `E_ID` = ?, `E_Name` = ?, `E_Position` = ?, `E_Gender` = ?, `E_Password` = ? WHERE ((`E_ID` = ?) AND ((? = 1 AND `E_Name` IS NULL) OR (`E_Name` = ?)) AND ((? = 1 AND `E_Position` IS NULL) OR (`E_Position` = ?)) AND ((? = 1 AND `E_Gender` IS NULL) OR (`E_Gender` = ?)) AND ((? = 1 AND `E_Password` IS NULL) OR (`E_Password` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Employees` SET `E_ID` = ?, `E_Name` = ?, `E_Position` = ?, `E_Password` = ?, `E_Status` = ? WHERE ((`E_ID` = ?) AND ((? = 1 AND `E_Name` IS NULL) OR (`E_Name` = ?)) AND ((? = 1 AND `E_Position` IS NULL) OR (`E_Position` = ?)) AND ((? = 1 AND `E_Password` IS NULL) OR (`E_Password` = ?)) AND ((? = 1 AND `E_Status` IS NULL) OR (`E_Status` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Position", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Position", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Gender", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Password", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Status", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Name", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Position", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Position", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Position", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Position", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Gender", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Gender", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Gender", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Gender", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Password", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Password", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Password", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Status", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_Status", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3118,7 +3161,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT E_ID, E_Name, E_Position, E_Gender, E_Password FROM Employees";
+            this._commandCollection[0].CommandText = "SELECT E_ID, E_Name, E_Position, E_Password, E_Status FROM Employees";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3179,7 +3222,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_E_ID, string Original_E_Name, string Original_E_Position, string Original_E_Gender, string Original_E_Password) {
+        public virtual int Delete(string Original_E_ID, string Original_E_Name, string Original_E_Position, string Original_E_Password, string Original_E_Status) {
             if ((Original_E_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_E_ID");
             }
@@ -3202,21 +3245,21 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_E_Position));
             }
-            if ((Original_E_Gender == null)) {
+            if ((Original_E_Password == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_E_Gender));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_E_Password));
             }
-            if ((Original_E_Password == null)) {
+            if ((Original_E_Status == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_E_Password));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_E_Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3238,7 +3281,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string E_ID, string E_Name, string E_Position, string E_Gender, string E_Password) {
+        public virtual int Insert(string E_ID, string E_Name, string E_Position, string E_Password, string E_Status) {
             if ((E_ID == null)) {
                 throw new global::System.ArgumentNullException("E_ID");
             }
@@ -3257,17 +3300,17 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(E_Position));
             }
-            if ((E_Gender == null)) {
+            if ((E_Password == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(E_Gender));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(E_Password));
             }
-            if ((E_Password == null)) {
+            if ((E_Status == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(E_Password));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(E_Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3289,7 +3332,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string E_ID, string E_Name, string E_Position, string E_Gender, string E_Password, string Original_E_ID, string Original_E_Name, string Original_E_Position, string Original_E_Gender, string Original_E_Password) {
+        public virtual int Update(string E_ID, string E_Name, string E_Position, string E_Password, string E_Status, string Original_E_ID, string Original_E_Name, string Original_E_Position, string Original_E_Password, string Original_E_Status) {
             if ((E_ID == null)) {
                 throw new global::System.ArgumentNullException("E_ID");
             }
@@ -3308,17 +3351,17 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(E_Position));
             }
-            if ((E_Gender == null)) {
+            if ((E_Password == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(E_Gender));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(E_Password));
             }
-            if ((E_Password == null)) {
+            if ((E_Status == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(E_Password));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(E_Status));
             }
             if ((Original_E_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_E_ID");
@@ -3342,21 +3385,21 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_E_Position));
             }
-            if ((Original_E_Gender == null)) {
+            if ((Original_E_Password == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_E_Gender));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_E_Password));
             }
-            if ((Original_E_Password == null)) {
+            if ((Original_E_Status == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_E_Password));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_E_Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3378,8 +3421,8 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string E_Name, string E_Position, string E_Gender, string E_Password, string Original_E_ID, string Original_E_Name, string Original_E_Position, string Original_E_Gender, string Original_E_Password) {
-            return this.Update(Original_E_ID, E_Name, E_Position, E_Gender, E_Password, Original_E_ID, Original_E_Name, Original_E_Position, Original_E_Gender, Original_E_Password);
+        public virtual int Update(string E_Name, string E_Position, string E_Password, string E_Status, string Original_E_ID, string Original_E_Name, string Original_E_Position, string Original_E_Password, string Original_E_Status) {
+            return this.Update(Original_E_ID, E_Name, E_Position, E_Password, E_Status, Original_E_ID, Original_E_Name, Original_E_Position, Original_E_Password, Original_E_Status);
         }
     }
     
@@ -3847,10 +3890,11 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("P_UOM", "P_UOM");
             tableMapping.ColumnMappings.Add("P_Group", "P_Group");
             tableMapping.ColumnMappings.Add("P_SubGroup", "P_SubGroup");
+            tableMapping.ColumnMappings.Add("P_Archive", "P_Archive");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Product` WHERE ((`P_ID` = ?) AND ((? = 1 AND `P_Name` IS NULL) OR (`P_Name` = ?)) AND ((? = 1 AND `P_Quantity` IS NULL) OR (`P_Quantity` = ?)) AND ((? = 1 AND `P_Price` IS NULL) OR (`P_Price` = ?)) AND ((? = 1 AND `P_Cost` IS NULL) OR (`P_Cost` = ?)) AND ((? = 1 AND `P_Supplier` IS NULL) OR (`P_Supplier` = ?)) AND ((? = 1 AND `P_UOM` IS NULL) OR (`P_UOM` = ?)) AND ((? = 1 AND `P_Group` IS NULL) OR (`P_Group` = ?)) AND ((? = 1 AND `P_SubGroup` IS NULL) OR (`P_SubGroup` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Product` WHERE ((`P_ID` = ?) AND ((? = 1 AND `P_Name` IS NULL) OR (`P_Name` = ?)) AND ((? = 1 AND `P_Quantity` IS NULL) OR (`P_Quantity` = ?)) AND ((? = 1 AND `P_Price` IS NULL) OR (`P_Price` = ?)) AND ((? = 1 AND `P_Cost` IS NULL) OR (`P_Cost` = ?)) AND ((? = 1 AND `P_Supplier` IS NULL) OR (`P_Supplier` = ?)) AND ((? = 1 AND `P_UOM` IS NULL) OR (`P_UOM` = ?)) AND ((? = 1 AND `P_Group` IS NULL) OR (`P_Group` = ?)) AND ((? = 1 AND `P_SubGroup` IS NULL) OR (`P_SubGroup` = ?)) AND ((? = 1 AND `P_Archive` IS NULL) OR (`P_Archive` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_ID", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_P_Name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Name", global::System.Data.DataRowVersion.Original, true, null));
@@ -3869,10 +3913,13 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_Group", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Group", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_P_SubGroup", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_SubGroup", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_SubGroup", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_SubGroup", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_P_Archive", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Archive", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_Archive", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Archive", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Product` (`P_ID`, `P_Name`, `P_Quantity`, `P_Price`, `P_Cost`, `P_Su" +
-                "pplier`, `P_UOM`, `P_Group`, `P_SubGroup`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "pplier`, `P_UOM`, `P_Group`, `P_SubGroup`, `P_Archive`) VALUES (?, ?, ?, ?, ?, ?" +
+                ", ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_ID", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_ID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_Name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Name", global::System.Data.DataRowVersion.Current, false, null));
@@ -3883,9 +3930,10 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_UOM", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_UOM", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_Group", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Group", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_SubGroup", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_SubGroup", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_Archive", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Archive", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Product` SET `P_ID` = ?, `P_Name` = ?, `P_Quantity` = ?, `P_Price` = ?, `P_Cost` = ?, `P_Supplier` = ?, `P_UOM` = ?, `P_Group` = ?, `P_SubGroup` = ? WHERE ((`P_ID` = ?) AND ((? = 1 AND `P_Name` IS NULL) OR (`P_Name` = ?)) AND ((? = 1 AND `P_Quantity` IS NULL) OR (`P_Quantity` = ?)) AND ((? = 1 AND `P_Price` IS NULL) OR (`P_Price` = ?)) AND ((? = 1 AND `P_Cost` IS NULL) OR (`P_Cost` = ?)) AND ((? = 1 AND `P_Supplier` IS NULL) OR (`P_Supplier` = ?)) AND ((? = 1 AND `P_UOM` IS NULL) OR (`P_UOM` = ?)) AND ((? = 1 AND `P_Group` IS NULL) OR (`P_Group` = ?)) AND ((? = 1 AND `P_SubGroup` IS NULL) OR (`P_SubGroup` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Product` SET `P_ID` = ?, `P_Name` = ?, `P_Quantity` = ?, `P_Price` = ?, `P_Cost` = ?, `P_Supplier` = ?, `P_UOM` = ?, `P_Group` = ?, `P_SubGroup` = ?, `P_Archive` = ? WHERE ((`P_ID` = ?) AND ((? = 1 AND `P_Name` IS NULL) OR (`P_Name` = ?)) AND ((? = 1 AND `P_Quantity` IS NULL) OR (`P_Quantity` = ?)) AND ((? = 1 AND `P_Price` IS NULL) OR (`P_Price` = ?)) AND ((? = 1 AND `P_Cost` IS NULL) OR (`P_Cost` = ?)) AND ((? = 1 AND `P_Supplier` IS NULL) OR (`P_Supplier` = ?)) AND ((? = 1 AND `P_UOM` IS NULL) OR (`P_UOM` = ?)) AND ((? = 1 AND `P_Group` IS NULL) OR (`P_Group` = ?)) AND ((? = 1 AND `P_SubGroup` IS NULL) OR (`P_SubGroup` = ?)) AND ((? = 1 AND `P_Archive` IS NULL) OR (`P_Archive` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_ID", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_ID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_Name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Name", global::System.Data.DataRowVersion.Current, false, null));
@@ -3896,6 +3944,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_UOM", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_UOM", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_Group", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Group", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_SubGroup", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_SubGroup", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("P_Archive", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Archive", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_ID", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_P_Name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_Name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Name", global::System.Data.DataRowVersion.Original, false, null));
@@ -3913,6 +3962,8 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_Group", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Group", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_P_SubGroup", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_SubGroup", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_SubGroup", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_SubGroup", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_P_Archive", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Archive", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_P_Archive", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "P_Archive", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3929,7 +3980,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT P_ID, P_Name, P_Quantity, P_Price, P_Cost, P_Supplier, P_UOM, P_Group, P_S" +
-                "ubGroup FROM Product";
+                "ubGroup, P_Archive FROM Product";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3990,7 +4041,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(short Original_P_ID, string Original_P_Name, global::System.Nullable<short> Original_P_Quantity, global::System.Nullable<double> Original_P_Price, global::System.Nullable<double> Original_P_Cost, string Original_P_Supplier, string Original_P_UOM, string Original_P_Group, string Original_P_SubGroup) {
+        public virtual int Delete(short Original_P_ID, string Original_P_Name, global::System.Nullable<short> Original_P_Quantity, global::System.Nullable<double> Original_P_Price, global::System.Nullable<double> Original_P_Cost, string Original_P_Supplier, string Original_P_UOM, string Original_P_Group, string Original_P_SubGroup, string Original_P_Archive) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((short)(Original_P_ID));
             if ((Original_P_Name == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -4056,6 +4107,14 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_P_SubGroup));
             }
+            if ((Original_P_Archive == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_P_Archive));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4076,7 +4135,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(short P_ID, string P_Name, global::System.Nullable<short> P_Quantity, global::System.Nullable<double> P_Price, global::System.Nullable<double> P_Cost, string P_Supplier, string P_UOM, string P_Group, string P_SubGroup) {
+        public virtual int Insert(short P_ID, string P_Name, global::System.Nullable<short> P_Quantity, global::System.Nullable<double> P_Price, global::System.Nullable<double> P_Cost, string P_Supplier, string P_UOM, string P_Group, string P_SubGroup, string P_Archive) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((short)(P_ID));
             if ((P_Name == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -4126,6 +4185,12 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(P_SubGroup));
             }
+            if ((P_Archive == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(P_Archive));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4156,6 +4221,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
                     string P_UOM, 
                     string P_Group, 
                     string P_SubGroup, 
+                    string P_Archive, 
                     short Original_P_ID, 
                     string Original_P_Name, 
                     global::System.Nullable<short> Original_P_Quantity, 
@@ -4164,7 +4230,8 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
                     string Original_P_Supplier, 
                     string Original_P_UOM, 
                     string Original_P_Group, 
-                    string Original_P_SubGroup) {
+                    string Original_P_SubGroup, 
+                    string Original_P_Archive) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((short)(P_ID));
             if ((P_Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -4214,70 +4281,84 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(P_SubGroup));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((short)(Original_P_ID));
-            if ((Original_P_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            if ((P_Archive == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_P_Name));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(P_Archive));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((short)(Original_P_ID));
+            if ((Original_P_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_P_Name));
             }
             if ((Original_P_Quantity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((short)(Original_P_Quantity.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((short)(Original_P_Quantity.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_P_Price.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((double)(Original_P_Price.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((double)(Original_P_Price.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_P_Cost.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_P_Cost.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(Original_P_Cost.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_P_Supplier == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_P_Supplier));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_P_Supplier));
             }
             if ((Original_P_UOM == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_P_UOM));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_P_UOM));
             }
             if ((Original_P_Group == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_P_Group));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_P_Group));
             }
             if ((Original_P_SubGroup == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_P_SubGroup));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_P_SubGroup));
+            }
+            if ((Original_P_Archive == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_P_Archive));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4308,6 +4389,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
                     string P_UOM, 
                     string P_Group, 
                     string P_SubGroup, 
+                    string P_Archive, 
                     short Original_P_ID, 
                     string Original_P_Name, 
                     global::System.Nullable<short> Original_P_Quantity, 
@@ -4316,8 +4398,9 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
                     string Original_P_Supplier, 
                     string Original_P_UOM, 
                     string Original_P_Group, 
-                    string Original_P_SubGroup) {
-            return this.Update(Original_P_ID, P_Name, P_Quantity, P_Price, P_Cost, P_Supplier, P_UOM, P_Group, P_SubGroup, Original_P_ID, Original_P_Name, Original_P_Quantity, Original_P_Price, Original_P_Cost, Original_P_Supplier, Original_P_UOM, Original_P_Group, Original_P_SubGroup);
+                    string Original_P_SubGroup, 
+                    string Original_P_Archive) {
+            return this.Update(Original_P_ID, P_Name, P_Quantity, P_Price, P_Cost, P_Supplier, P_UOM, P_Group, P_SubGroup, P_Archive, Original_P_ID, Original_P_Name, Original_P_Quantity, Original_P_Price, Original_P_Cost, Original_P_Supplier, Original_P_UOM, Original_P_Group, Original_P_SubGroup, Original_P_Archive);
         }
     }
     

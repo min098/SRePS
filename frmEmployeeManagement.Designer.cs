@@ -46,6 +46,9 @@
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnDelEmployee = new System.Windows.Forms.Button();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ePositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,10 +65,8 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.salesbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salesTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.SalesTableAdapter();
-            this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ePositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eGenderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.E_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).BeginInit();
@@ -74,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
             this.productBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesbindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -221,8 +223,8 @@
             this.eIDDataGridViewTextBoxColumn,
             this.eNameDataGridViewTextBoxColumn,
             this.ePositionDataGridViewTextBoxColumn,
-            this.eGenderDataGridViewTextBoxColumn});
-            this.employeeDataGridView.DataSource = this.employeesBindingSource1;
+            this.E_Status});
+            this.employeeDataGridView.DataSource = this.employeesBindingSource2;
             this.employeeDataGridView.Location = new System.Drawing.Point(18, 66);
             this.employeeDataGridView.MultiSelect = false;
             this.employeeDataGridView.Name = "employeeDataGridView";
@@ -231,6 +233,27 @@
             this.employeeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.employeeDataGridView.Size = new System.Drawing.Size(1176, 442);
             this.employeeDataGridView.TabIndex = 7;
+            // 
+            // eIDDataGridViewTextBoxColumn
+            // 
+            this.eIDDataGridViewTextBoxColumn.DataPropertyName = "E_ID";
+            this.eIDDataGridViewTextBoxColumn.HeaderText = "Employee Username";
+            this.eIDDataGridViewTextBoxColumn.Name = "eIDDataGridViewTextBoxColumn";
+            this.eIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eNameDataGridViewTextBoxColumn
+            // 
+            this.eNameDataGridViewTextBoxColumn.DataPropertyName = "E_Name";
+            this.eNameDataGridViewTextBoxColumn.HeaderText = "Employee Name";
+            this.eNameDataGridViewTextBoxColumn.Name = "eNameDataGridViewTextBoxColumn";
+            this.eNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ePositionDataGridViewTextBoxColumn
+            // 
+            this.ePositionDataGridViewTextBoxColumn.DataPropertyName = "E_Position";
+            this.ePositionDataGridViewTextBoxColumn.HeaderText = "Employee Position";
+            this.ePositionDataGridViewTextBoxColumn.Name = "ePositionDataGridViewTextBoxColumn";
+            this.ePositionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // employeesBindingSource1
             // 
@@ -356,33 +379,17 @@
             // 
             this.salesTableAdapter.ClearBeforeFill = true;
             // 
-            // eIDDataGridViewTextBoxColumn
+            // employeesBindingSource2
             // 
-            this.eIDDataGridViewTextBoxColumn.DataPropertyName = "E_ID";
-            this.eIDDataGridViewTextBoxColumn.HeaderText = "Employee Username";
-            this.eIDDataGridViewTextBoxColumn.Name = "eIDDataGridViewTextBoxColumn";
-            this.eIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeesBindingSource2.DataMember = "Employees";
+            this.employeesBindingSource2.DataSource = this.sRePS_DatabaseDataSet;
             // 
-            // eNameDataGridViewTextBoxColumn
+            // E_Status
             // 
-            this.eNameDataGridViewTextBoxColumn.DataPropertyName = "E_Name";
-            this.eNameDataGridViewTextBoxColumn.HeaderText = "Employee Name";
-            this.eNameDataGridViewTextBoxColumn.Name = "eNameDataGridViewTextBoxColumn";
-            this.eNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ePositionDataGridViewTextBoxColumn
-            // 
-            this.ePositionDataGridViewTextBoxColumn.DataPropertyName = "E_Position";
-            this.ePositionDataGridViewTextBoxColumn.HeaderText = "Employee Position";
-            this.ePositionDataGridViewTextBoxColumn.Name = "ePositionDataGridViewTextBoxColumn";
-            this.ePositionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eGenderDataGridViewTextBoxColumn
-            // 
-            this.eGenderDataGridViewTextBoxColumn.DataPropertyName = "E_Gender";
-            this.eGenderDataGridViewTextBoxColumn.HeaderText = "Employee Gender";
-            this.eGenderDataGridViewTextBoxColumn.Name = "eGenderDataGridViewTextBoxColumn";
-            this.eGenderDataGridViewTextBoxColumn.ReadOnly = true;
+            this.E_Status.DataPropertyName = "E_Status";
+            this.E_Status.HeaderText = "E_Status";
+            this.E_Status.Name = "E_Status";
+            this.E_Status.ReadOnly = true;
             // 
             // frmEmployeeManagement
             // 
@@ -412,6 +419,7 @@
             this.productBindingNavigator.ResumeLayout(false);
             this.productBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesbindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,5 +463,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ePositionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eGenderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn E_Status;
+        private System.Windows.Forms.BindingSource employeesBindingSource2;
     }
 }

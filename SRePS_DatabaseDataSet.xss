@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:Employees" ZOrder="8" X="402" Y="70" Height="236" Width="286" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="169" />
     <Shape ID="DesignTable:Order" ZOrder="7" X="758" Y="70" Height="209" Width="243" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="142" />
-    <Shape ID="DesignTable:Product" ZOrder="9" X="70" Y="70" Height="296" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
+    <Shape ID="DesignTable:Product" ZOrder="9" X="70" Y="70" Height="371" Width="262" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="304" />
     <Shape ID="DesignTable:Sales" ZOrder="6" X="1071" Y="70" Height="182" Width="237" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="115" />
     <Shape ID="DesignTable:SalesManagement" ZOrder="2" X="1085" Y="342" Height="153" Width="210" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
   </Shapes>
@@ -16,7 +16,7 @@
     <Connector ID="DesignRelation:ProductOrder" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>292</X>
+          <X>332</X>
           <Y>174</Y>
         </Point>
         <Point>
