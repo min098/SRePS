@@ -274,6 +274,9 @@ namespace SRePS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
             if (Program.curPosition == "Admin")
             {
                 if (salesDataGridView.SelectedRows.Count != 0)
@@ -283,18 +286,36 @@ namespace SRePS
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting sales", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        for (int i = 0; i < this.sRePS_DatabaseDataSet.Order.Rows.Count - 1; i++)
+
+                        con.Open();
+                        string query3 = "UPDATE [Product] SET [P_Quantity]=P_Quantity+@quantityChanged WHERE [P_ID]=?";
+                        OleDbCommand cmd3 = new OleDbCommand(query3, con);
+
+                        for (int i = 0; i < this.sRePS_DatabaseDataSet.Order.Rows.Count; i++)
                         {
                             DataRow row = this.sRePS_DatabaseDataSet.Order.Rows[i];
-                            if (Convert.ToInt32(row[0]) == Convert.ToInt32(selectedInvNo))
+
+                            //update the quantity back to Product
+                            if (Convert.ToInt32(row[1]) == Convert.ToInt32(selectedInvNo))
                             {
+                                cmd3.Parameters.AddWithValue("@quantityChanged", Convert.ToInt32(row[2]));
+                                cmd3.Parameters.AddWithValue("P_ID", Convert.ToInt32(row[0]));
+                                cmd3.ExecuteNonQuery();
+                                cmd3.Parameters.Clear();
                                 row.Delete();
                             }
                         }
 
+                        con.Close();
+
                         this.sRePS_DatabaseDataSet.Sales.Rows[rowIndex].Delete();
                         salesTableAdapter.Update(sRePS_DatabaseDataSet);
 
+
+                        if (Program.isOpened(Program.frmProduct) == true)
+                        {
+                            Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                        }
 
                         if (Program.isOpened(Program.frmAddS) == true)
                         {
