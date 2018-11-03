@@ -253,7 +253,7 @@ namespace SRePS
                             Program.frmEditS = new frmEditSales();
                             Program.frmEditS.Show();
                             Program.frmEditS.lblInvoiceNo.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[0].Value.ToString();
-                            Program.frmEditS.txtSalesDate.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[1].Value.ToString();
+                            Program.frmEditS.dtpickerSalesDate.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[1].Value.ToString();
                             Program.frmEditS.txtEID.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[2].Value.ToString();
                             Program.frmEditS.txtPID.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[3].Value.ToString();
                             Program.frmEditS.txtSQty.Text = this.salesMngDetailDataGridView.CurrentRow.Cells[4].Value.ToString();

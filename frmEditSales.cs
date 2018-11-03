@@ -33,7 +33,7 @@ namespace SRePS
             OleDbConnection conn = new OleDbConnection();
             conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
-            if (txtSalesDate.Text == "" || txtEID.Text == "" || txtPID.Text == "" || txtSQty.Text == "")
+            if (dtpickerSalesDate.Text == "" || txtEID.Text == "" || txtPID.Text == "" || txtSQty.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields.", "Error",
                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -45,7 +45,7 @@ namespace SRePS
                     conn.Open();
                     string query1 = "UPDATE [Sales] SET [S_Date]=?, [E_ID]=? WHERE [Inv_No]=?";
                     OleDbCommand cmd = new OleDbCommand(query1, conn);
-                    cmd.Parameters.AddWithValue("S_Date", txtSalesDate.Text);
+                    cmd.Parameters.AddWithValue("S_Date", dtpickerSalesDate.Text);
 
                     //must include the employeesBindingSource in frmSalesManagement to have the data of the Employees table
                     DataRow[] foundEID = Program.frmSales.sRePS_DatabaseDataSet.Employees.Select("E_ID = '" + txtEID.Text + "'");
