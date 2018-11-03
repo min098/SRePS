@@ -36,6 +36,7 @@ namespace SRePS
             p_GroupComboBox.SelectedIndex = 0;
             
             p_SubGroupComboBox.SelectedIndex = 0;
+            P_QuantityUpDown.Value = 0;
 
         }
 
@@ -83,7 +84,7 @@ namespace SRePS
                 OleDbCommand cmd = new OleDbCommand(my_query, conn);
                 cmd.Parameters.AddWithValue("@P_ID", Convert.ToInt32(p_IDTextBox.Text));
                 cmd.Parameters.AddWithValue("@P_Name", p_NameTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_Quantity", Convert.ToInt32(p_QuantityTextBox.Text));
+                cmd.Parameters.AddWithValue("@P_Quantity", P_QuantityUpDown.Value);
                 cmd.Parameters.AddWithValue("@P_Price", Convert.ToDouble(p_PriceTextBox.Text));
                 cmd.Parameters.AddWithValue("@P_Cost", Convert.ToDouble(p_CostTextBox.Text));
                 cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
@@ -126,16 +127,20 @@ namespace SRePS
                         }
                     }
 
-                    foreach (var item in this.Controls)
-                    {
-                        //check item is combobox
-                        if (item.GetType().Equals(typeof(ComboBox)))
-                        {
-                            //clear all combobox at the same time
-                            ComboBox c1 = item as ComboBox;
-                            c1.Text = string.Empty;
-                        }
-                    }
+                    //foreach (var item in this.Controls)
+                    //{
+                    //    //check item is combobox
+                    //    if (item.GetType().Equals(typeof(ComboBox)))
+                    //    {
+                    //        //clear all combobox at the same time
+                    //        ComboBox c1 = item as ComboBox;
+                    //        c1.Text = string.Empty;
+                    //    }
+                    //}
+
+                    p_GroupComboBox.SelectedIndex = 0;
+                    p_SubGroupComboBox.SelectedIndex = 0;
+                    P_QuantityUpDown.Value = 0;
                 }
             }
         }
@@ -395,5 +400,39 @@ namespace SRePS
                 Program.frmAddS.Show();
             }
         }
+
+        private void p_IDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //P_QuantityUpDown.Value = 10;
+        }
+
+        private void p_UOMComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(p_UOMComboBox.SelectedItem.ToString() == "Bottle")
+            {
+                P_QuantityUpDown.Value = 6;
+            }
+            else if(p_UOMComboBox.SelectedItem.ToString() == "Dozen")
+            {
+                P_QuantityUpDown.Value = 12;
+            }
+            else if (p_UOMComboBox.SelectedItem.ToString() == "Gram")
+            {
+                P_QuantityUpDown.Value = 100;
+            }
+            else if (p_UOMComboBox.SelectedItem.ToString() == "Pcs")
+            {
+                P_QuantityUpDown.Value = 10;
+            }
+            else if (p_UOMComboBox.SelectedItem.ToString() == "Tablet")
+            {
+                P_QuantityUpDown.Value = 6;
+            }
+            else
+            {
+                P_QuantityUpDown.Value = 0;
+            }
+        }
+        
     }
 }

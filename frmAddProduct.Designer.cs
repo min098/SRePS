@@ -54,7 +54,6 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.p_NameTextBox = new System.Windows.Forms.TextBox();
-            this.p_QuantityTextBox = new System.Windows.Forms.TextBox();
             this.p_PriceTextBox = new System.Windows.Forms.TextBox();
             this.p_CostTextBox = new System.Windows.Forms.TextBox();
             this.p_SupplierTextBox = new System.Windows.Forms.TextBox();
@@ -65,6 +64,7 @@
             this.p_SubGroupComboBox = new System.Windows.Forms.ComboBox();
             this.productTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter();
             this.tableAdapterManager = new SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.P_QuantityUpDown = new System.Windows.Forms.NumericUpDown();
             lblPID = new System.Windows.Forms.Label();
             lblPName = new System.Windows.Forms.Label();
             lblPQuantity = new System.Windows.Forms.Label();
@@ -77,6 +77,7 @@
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P_QuantityUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPID
@@ -104,7 +105,7 @@
             // 
             lblPQuantity.AutoSize = true;
             lblPQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPQuantity.Location = new System.Drawing.Point(245, 165);
+            lblPQuantity.Location = new System.Drawing.Point(245, 336);
             lblPQuantity.Name = "lblPQuantity";
             lblPQuantity.Size = new System.Drawing.Size(139, 20);
             lblPQuantity.TabIndex = 6;
@@ -115,7 +116,7 @@
             // 
             lblPPrice.AutoSize = true;
             lblPPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPPrice.Location = new System.Drawing.Point(245, 212);
+            lblPPrice.Location = new System.Drawing.Point(245, 166);
             lblPPrice.Name = "lblPPrice";
             lblPPrice.Size = new System.Drawing.Size(116, 20);
             lblPPrice.TabIndex = 8;
@@ -126,7 +127,7 @@
             // 
             lblPCost.AutoSize = true;
             lblPCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPCost.Location = new System.Drawing.Point(245, 255);
+            lblPCost.Location = new System.Drawing.Point(245, 209);
             lblPCost.Name = "lblPCost";
             lblPCost.Size = new System.Drawing.Size(112, 20);
             lblPCost.TabIndex = 10;
@@ -137,7 +138,7 @@
             // 
             lblPSupplier.AutoSize = true;
             lblPSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPSupplier.Location = new System.Drawing.Point(245, 297);
+            lblPSupplier.Location = new System.Drawing.Point(245, 251);
             lblPSupplier.Name = "lblPSupplier";
             lblPSupplier.Size = new System.Drawing.Size(138, 20);
             lblPSupplier.TabIndex = 12;
@@ -148,7 +149,7 @@
             // 
             lblPUOM.AutoSize = true;
             lblPUOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPUOM.Location = new System.Drawing.Point(245, 340);
+            lblPUOM.Location = new System.Drawing.Point(245, 296);
             lblPUOM.Name = "lblPUOM";
             lblPUOM.Size = new System.Drawing.Size(116, 20);
             lblPUOM.TabIndex = 14;
@@ -282,6 +283,7 @@
             this.p_IDTextBox.Name = "p_IDTextBox";
             this.p_IDTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_IDTextBox.TabIndex = 4;
+            this.p_IDTextBox.TextChanged += new System.EventHandler(this.p_IDTextBox_TextChanged);
             // 
             // productBindingSource
             // 
@@ -303,21 +305,11 @@
             this.p_NameTextBox.Size = new System.Drawing.Size(371, 27);
             this.p_NameTextBox.TabIndex = 5;
             // 
-            // p_QuantityTextBox
-            // 
-            this.p_QuantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Quantity", true));
-            this.p_QuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_QuantityTextBox.Location = new System.Drawing.Point(445, 161);
-            this.p_QuantityTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.p_QuantityTextBox.Name = "p_QuantityTextBox";
-            this.p_QuantityTextBox.Size = new System.Drawing.Size(371, 27);
-            this.p_QuantityTextBox.TabIndex = 7;
-            // 
             // p_PriceTextBox
             // 
             this.p_PriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Price", true));
             this.p_PriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_PriceTextBox.Location = new System.Drawing.Point(445, 207);
+            this.p_PriceTextBox.Location = new System.Drawing.Point(445, 161);
             this.p_PriceTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.p_PriceTextBox.Name = "p_PriceTextBox";
             this.p_PriceTextBox.Size = new System.Drawing.Size(371, 27);
@@ -328,7 +320,7 @@
             // 
             this.p_CostTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Cost", true));
             this.p_CostTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_CostTextBox.Location = new System.Drawing.Point(445, 251);
+            this.p_CostTextBox.Location = new System.Drawing.Point(445, 205);
             this.p_CostTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.p_CostTextBox.Name = "p_CostTextBox";
             this.p_CostTextBox.Size = new System.Drawing.Size(371, 27);
@@ -338,7 +330,7 @@
             // 
             this.p_SupplierTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "P_Supplier", true));
             this.p_SupplierTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p_SupplierTextBox.Location = new System.Drawing.Point(445, 294);
+            this.p_SupplierTextBox.Location = new System.Drawing.Point(445, 248);
             this.p_SupplierTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.p_SupplierTextBox.Name = "p_SupplierTextBox";
             this.p_SupplierTextBox.Size = new System.Drawing.Size(371, 27);
@@ -346,18 +338,21 @@
             // 
             // p_UOMComboBox
             // 
+            this.p_UOMComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.p_UOMComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p_UOMComboBox.FormattingEnabled = true;
             this.p_UOMComboBox.Items.AddRange(new object[] {
             "Bottle",
+            "Dozen",
+            "Gram",
             "Pcs",
-            "Tablet",
-            "Gram"});
-            this.p_UOMComboBox.Location = new System.Drawing.Point(445, 336);
+            "Tablet"});
+            this.p_UOMComboBox.Location = new System.Drawing.Point(445, 292);
             this.p_UOMComboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.p_UOMComboBox.Name = "p_UOMComboBox";
             this.p_UOMComboBox.Size = new System.Drawing.Size(371, 28);
             this.p_UOMComboBox.TabIndex = 17;
+            this.p_UOMComboBox.SelectedIndexChanged += new System.EventHandler(this.p_UOMComboBox_SelectedIndexChanged);
             // 
             // p_GroupComboBox
             // 
@@ -430,11 +425,26 @@
             this.tableAdapterManager.SalesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // P_QuantityUpDown
+            // 
+            this.P_QuantityUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.P_QuantityUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.P_QuantityUpDown.Location = new System.Drawing.Point(445, 334);
+            this.P_QuantityUpDown.Name = "P_QuantityUpDown";
+            this.P_QuantityUpDown.Size = new System.Drawing.Size(371, 27);
+            this.P_QuantityUpDown.TabIndex = 7;
+            this.P_QuantityUpDown.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // frmAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.P_QuantityUpDown);
             this.Controls.Add(this.p_SubGroupComboBox);
             this.Controls.Add(label1);
             this.Controls.Add(this.btnCancelProduct);
@@ -450,7 +460,6 @@
             this.Controls.Add(lblPPrice);
             this.Controls.Add(this.p_PriceTextBox);
             this.Controls.Add(lblPQuantity);
-            this.Controls.Add(this.p_QuantityTextBox);
             this.Controls.Add(lblPName);
             this.Controls.Add(this.p_NameTextBox);
             this.Controls.Add(lblPID);
@@ -466,6 +475,7 @@
             this.menuBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sRePS_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P_QuantityUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,7 +501,6 @@
         private SRePS_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox p_IDTextBox;
         private System.Windows.Forms.TextBox p_NameTextBox;
-        private System.Windows.Forms.TextBox p_QuantityTextBox;
         private System.Windows.Forms.TextBox p_PriceTextBox;
         private System.Windows.Forms.TextBox p_CostTextBox;
         private System.Windows.Forms.TextBox p_SupplierTextBox;
@@ -500,5 +509,6 @@
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.ComboBox p_UOMComboBox;
         private System.Windows.Forms.ComboBox p_SubGroupComboBox;
+        private System.Windows.Forms.NumericUpDown P_QuantityUpDown;
     }
 }
