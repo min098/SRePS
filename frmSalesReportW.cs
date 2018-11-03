@@ -203,68 +203,61 @@ namespace SRePS
             string[] splitEDateName = pickedEDateName.Split(' ');
             string pickedEDate = splitEDateName[0];
 
-            if (pickedSDate != pickedEDate)
+            if (pickedSName == "Monday")
             {
-                if (pickedSName == "Monday")
+                string[] splitSDate = pickedSDate.Split('/');
+                int startday = Convert.ToInt32(splitSDate[0]);
+                //Convert to int to check the range
+                string[] splitEDate = pickedEDate.Split('/');
+                int endday = Convert.ToInt32(splitEDate[0]);
+
+                OleDbConnection conn = new OleDbConnection();
+                conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+                try
                 {
-                    string[] splitSDate = pickedSDate.Split('/');
-                    int startday = Convert.ToInt32(splitSDate[0]);
-                    //Convert to int to check the range
-                    string[] splitEDate = pickedEDate.Split('/');
-                    int endday = Convert.ToInt32(splitEDate[0]);
+                    conn.Open();
 
-                    OleDbConnection conn = new OleDbConnection();
-                    conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                    string query = "SELECT Sales.S_Date AS Sales_Date, SUM(Product.P_Price*[Order].S_Quantity) AS Total_Sales " +
+                        "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
+                        "Product ON [Order].P_ID = Product.P_ID) " +
+                        "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
+                        "GROUP BY Sales.S_Date";
+                    OleDbCommand cmd = new OleDbCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@startDate", pickedSDate);
+                    cmd.Parameters.AddWithValue("@endDate", pickedEDate);
+                    cmd.ExecuteNonQuery();
 
-                    try
+                    OleDbDataAdapter wSalesReportAdapter = new OleDbDataAdapter(cmd);
+                    DataSet wSalesReportDataset = new DataSet();
+                    wSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "WeeklySalesReport");
+
+                    //only create the new column when it is not in the table
+                    if (!sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Columns.Contains("DayOfTheWeek"))
                     {
-                        conn.Open();
-
-                        string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, SUM(Product.P_Price*[Order].S_Quantity) AS Total_Sales " +
-                            "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
-                            "Product ON [Order].P_ID = Product.P_ID) " +
-                            "WHERE (Sales.S_Date >= @startDate) AND (Sales.S_Date <= @endDate) " +
-                            "GROUP BY Sales.S_Date, [Order].Inv_No";
-                        OleDbCommand cmd = new OleDbCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@startDate", pickedSDate);
-                        cmd.Parameters.AddWithValue("@endDate", pickedEDate);
-                        cmd.ExecuteNonQuery();
-
-                        OleDbDataAdapter wSalesReportAdapter = new OleDbDataAdapter(cmd);
-                        DataSet wSalesReportDataset = new DataSet();
-                        wSalesReportAdapter.Fill(sRePS_DatabaseDataSet, "WeeklySalesReport");
-
-                        //only create the new column when it is not in the table
-                        if (!sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Columns.Contains("DayOfTheWeek"))
-                        {
-                            DataColumn days = new DataColumn("DayOfTheWeek", typeof(string));
-                            sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Columns.Add(days);
-                            days.SetOrdinal(0); //change the position of the new column to the first column in the table
-                        }
-
-                        for (int i = 0; i < sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows.Count; i++)
-                        {
-                            //display the day of week in the newly created column according to the date of that row
-                            sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows[i]["DayOfTheWeek"] = Convert.ToDateTime(sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows[i][1]).DayOfWeek.ToString();
-                        }
-
-                        salesReportWDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["WeeklySalesReport"];
-                    }
-                    catch (Exception a)
-                    {
-                        MessageBox.Show("Failed to search due to " + a.Message);
+                        DataColumn days = new DataColumn("DayOfTheWeek", typeof(string));
+                        sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Columns.Add(days);
+                        days.SetOrdinal(0); //change the position of the new column to the first column in the table
                     }
 
-                    conn.Close();
+                    for (int i = 0; i < sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows.Count; i++)
+                    {
+                        //display the day of week in the newly created column according to the date of that row
+                        sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows[i]["DayOfTheWeek"] = Convert.ToDateTime(sRePS_DatabaseDataSet.Tables["WeeklySalesReport"].Rows[i][1]).DayOfWeek.ToString();
+                    }
+
+                    salesReportWDataGridView.DataSource = sRePS_DatabaseDataSet.Tables["WeeklySalesReport"];
                 }
-                else
+                catch (Exception a)
                 {
-                    MessageBox.Show("The start date must be Monday!", "Start date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Failed to search due to " + a.Message);
                 }
+
+                conn.Close();
             }
             else
             {
-                MessageBox.Show("Start date and end date should not be the same", "Start date and End date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("The start date must be Monday!", "Start date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -291,10 +284,11 @@ namespace SRePS
                 {
                     conn.Open();
 
-                    string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price " +
+                    string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
                         "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
                         "Product ON [Order].P_ID = Product.P_ID) " +
-                        "WHERE Sales.S_Date = @selectedDate";
+                        "WHERE Sales.S_Date = @selectedDate " +
+                        "GROUP BY Sales.S_Date, [Order].Inv_No, Product.P_Name, [Order].S_Quantity, Product.P_Price";
                     OleDbCommand cmd = new OleDbCommand(query, conn);
                     cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
                     cmd.ExecuteNonQuery();
@@ -309,7 +303,8 @@ namespace SRePS
                     salesDetailDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     salesDetailDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     salesDetailDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    salesDetailDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    salesDetailDataGridView.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
                 catch (Exception a)
                 {
