@@ -209,9 +209,41 @@ namespace SRePS
                     return true;
                 }
             }
+            conn.Close();
             return false;
         }
 
+        public Boolean isAdminExists()
+        {
+            int count = 0;
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+            conn.Open();
+            OleDbDataReader read;
+            string my_query = "SELECT * FROM Employees WHERE [E_Position]=?";
+            OleDbCommand cmd = new OleDbCommand(my_query, conn);
+
+            cmd.Parameters.AddWithValue("E_Position", "Admin");
+            read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                if (read.HasRows == true)
+                {
+                    count++;
+                }
+            }
+            conn.Close();
+
+            if (count > 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
             string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
@@ -248,8 +280,19 @@ namespace SRePS
                     }
 
                     cmd.Parameters.AddWithValue("E_Name", txtName.Text);
-                    cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
-
+                    if (cmbPosition.SelectedItem.ToString() == oldPosition)
+                    {
+                        cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
+                    }
+                    else if (isAdminExists() == true)
+                    {
+                        cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Must have at least one admin.", "Error",
+                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     if (txtConPass.Text != "")
                     {
                         if (txtConPass.Text == txtPass.Text)
