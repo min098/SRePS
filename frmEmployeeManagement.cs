@@ -212,11 +212,11 @@ namespace SRePS
 
                         if (this.employeeDataGridView.CurrentRow.Cells[3].Value.ToString() == "Female")
                         {
-                            Program.frmEditE.rdFemale.Checked = true;
+                            Program.frmEditE.rdInactive.Checked = true;
                         }
                         else
                         {
-                            Program.frmEditE.rdMale.Checked = true;
+                            Program.frmEditE.rdActive.Checked = true;
 
                         }
 
@@ -235,6 +235,7 @@ namespace SRePS
                         while (read.Read())
                         {
                             Program.frmEditE.txtPass.Text = read["E_Password"].ToString();
+                            Program.frmEditE.txtConPass.Text = read["E_Password"].ToString();
                         }
                         conn.Close();
 
@@ -328,6 +329,10 @@ namespace SRePS
                 }
             }
         }
-    
+
+        private void employeeDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

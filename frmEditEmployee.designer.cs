@@ -36,9 +36,9 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtConPass = new System.Windows.Forms.TextBox();
-            this.rdFemale = new System.Windows.Forms.RadioButton();
-            this.rdMale = new System.Windows.Forms.RadioButton();
-            this.lblGender = new System.Windows.Forms.Label();
+            this.rdInactive = new System.Windows.Forms.RadioButton();
+            this.rdActive = new System.Windows.Forms.RadioButton();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEditEmployee = new System.Windows.Forms.Button();
             this.menuBar = new System.Windows.Forms.MenuStrip();
@@ -123,6 +123,7 @@
             this.txtPass.Location = new System.Drawing.Point(478, 263);
             this.txtPass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(416, 31);
             this.txtPass.TabIndex = 3;
             // 
@@ -141,45 +142,46 @@
             this.txtConPass.Location = new System.Drawing.Point(478, 311);
             this.txtConPass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtConPass.Name = "txtConPass";
+            this.txtConPass.PasswordChar = '*';
             this.txtConPass.Size = new System.Drawing.Size(416, 31);
             this.txtConPass.TabIndex = 4;
             // 
-            // rdFemale
+            // rdInactive
             // 
-            this.rdFemale.AutoSize = true;
-            this.rdFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdFemale.Location = new System.Drawing.Point(597, 405);
-            this.rdFemale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdFemale.Name = "rdFemale";
-            this.rdFemale.Size = new System.Drawing.Size(102, 29);
-            this.rdFemale.TabIndex = 7;
-            this.rdFemale.TabStop = true;
-            this.rdFemale.Text = "Female";
-            this.rdFemale.UseVisualStyleBackColor = true;
+            this.rdInactive.AutoSize = true;
+            this.rdInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdInactive.Location = new System.Drawing.Point(597, 405);
+            this.rdInactive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdInactive.Name = "rdInactive";
+            this.rdInactive.Size = new System.Drawing.Size(104, 29);
+            this.rdInactive.TabIndex = 7;
+            this.rdInactive.TabStop = true;
+            this.rdInactive.Text = "Inactive";
+            this.rdInactive.UseVisualStyleBackColor = true;
             // 
-            // rdMale
+            // rdActive
             // 
-            this.rdMale.AutoSize = true;
-            this.rdMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdMale.Location = new System.Drawing.Point(477, 405);
-            this.rdMale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdMale.Name = "rdMale";
-            this.rdMale.Size = new System.Drawing.Size(80, 29);
-            this.rdMale.TabIndex = 6;
-            this.rdMale.TabStop = true;
-            this.rdMale.Text = "Male";
-            this.rdMale.UseVisualStyleBackColor = true;
+            this.rdActive.AutoSize = true;
+            this.rdActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdActive.Location = new System.Drawing.Point(477, 405);
+            this.rdActive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdActive.Name = "rdActive";
+            this.rdActive.Size = new System.Drawing.Size(91, 29);
+            this.rdActive.TabIndex = 6;
+            this.rdActive.TabStop = true;
+            this.rdActive.Text = "Active";
+            this.rdActive.UseVisualStyleBackColor = true;
             // 
-            // lblGender
+            // lblStatus
             // 
-            this.lblGender.AutoSize = true;
-            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(278, 405);
-            this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(83, 25);
-            this.lblGender.TabIndex = 14;
-            this.lblGender.Text = "Gender:";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(278, 405);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(74, 25);
+            this.lblStatus.TabIndex = 14;
+            this.lblStatus.Text = "Status:";
             // 
             // btnCancel
             // 
@@ -340,9 +342,9 @@
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnEditEmployee);
-            this.Controls.Add(this.rdFemale);
-            this.Controls.Add(this.rdMale);
-            this.Controls.Add(this.lblGender);
+            this.Controls.Add(this.rdInactive);
+            this.Controls.Add(this.rdActive);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(lblPosition);
             this.Controls.Add(lblConfirmPass);
             this.Controls.Add(this.txtConPass);
@@ -362,7 +364,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnEditEmployee;
         private System.Windows.Forms.MenuStrip menuBar;
@@ -380,8 +382,8 @@
         public System.Windows.Forms.TextBox txtPass;
         public System.Windows.Forms.TextBox txtName;
         public System.Windows.Forms.TextBox txtConPass;
-        public System.Windows.Forms.RadioButton rdFemale;
-        public System.Windows.Forms.RadioButton rdMale;
+        public System.Windows.Forms.RadioButton rdInactive;
+        public System.Windows.Forms.RadioButton rdActive;
         public System.Windows.Forms.ComboBox cmbPosition;
         public System.Windows.Forms.TextBox txtUserName;
     }

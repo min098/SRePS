@@ -229,7 +229,7 @@ namespace SRePS
                 try
                 {
                     conn.Open();
-                    string my_query = "UPDATE [Employees] SET [E_ID]=?, [E_Name]=?, [E_Position]=?, [E_Gender]=?, [E_Password]=? WHERE [E_ID]=?";
+                    string my_query = "UPDATE [Employees] SET [E_ID]=?, [E_Name]=?, [E_Position]=?, [E_Password]=?,  [E_Status]=? WHERE [E_ID]=?";
                     OleDbCommand cmd = new OleDbCommand(my_query, conn);
 
                     if (txtUserName.Text == oldID)
@@ -249,12 +249,6 @@ namespace SRePS
                     cmd.Parameters.AddWithValue("E_Name", txtName.Text);
                     cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
 
-                    bool isChecked = rdFemale.Checked;
-                    if (isChecked)
-                        cmd.Parameters.AddWithValue("@E_Gender", rdFemale.Text);
-                    else
-                        cmd.Parameters.AddWithValue("@E_Gender", rdMale.Text);
-
                     if (txtConPass.Text != "")
                     {
                         if (txtConPass.Text == txtPass.Text)
@@ -269,6 +263,13 @@ namespace SRePS
 
                         }
                     }
+
+                    bool isChecked = rdActive.Checked;
+                    if (isChecked)
+                        cmd.Parameters.AddWithValue("@E_Status", rdActive.Text);
+                    else
+                        cmd.Parameters.AddWithValue("@E_Status", rdInactive.Text);
+
 
                     cmd.Parameters.AddWithValue("E_ID", oldID);
                     cmd.ExecuteNonQuery();
