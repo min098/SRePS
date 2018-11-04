@@ -139,7 +139,6 @@
             this.dtpickerStart.Size = new System.Drawing.Size(298, 26);
             this.dtpickerStart.TabIndex = 9;
             this.dtpickerStart.CloseUp += new System.EventHandler(this.dtpickerStart_CloseUp);
-            this.dtpickerStart.ValueChanged += new System.EventHandler(this.dtpickerStart_ValueChanged);
             // 
             // lblDate
             // 

@@ -395,21 +395,6 @@ namespace SRePS
             lblStatus.Text = "";
         }
 
-        private void dtpickerStart_ValueChanged(object sender, EventArgs e)
-        {
-            //startDate
-            string pickedSDateName = dtpickerStart.Text;
-            string pickedSName = pickedSDateName.Split(' ')[1];
-
-            //inform user that the start date must be Monday
-            if (pickedSName != "Monday")
-            {
-                MessageBox.Show("The start date must be Monday!", "Start date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                dtpickerStart.Select();
-                SendKeys.Send("%{DOWN}");
-            }
-        }
-
         private void dtpickerStart_CloseUp(object sender, EventArgs e)
         {
             //automatically select the end date that is 6 days after the start date 

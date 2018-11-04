@@ -464,7 +464,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ePositionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eGenderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn E_Status;
         private System.Windows.Forms.BindingSource employeesBindingSource2;
     }

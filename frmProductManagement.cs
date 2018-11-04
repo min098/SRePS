@@ -161,6 +161,14 @@ namespace SRePS
                             return;
                         }
                     }
+
+                    //if AddSales form is opened, after this changes the AddSales form must be forced to close
+                    if (Program.isOpened(Program.frmAddS) == true)
+                    {
+                        Program.frmAddS.Focus();
+                        MessageBox.Show("You have made changes to the Product table, please reopen the Add Sales window");
+                        Program.frmAddS.Dispose();
+                    }
                 }
                 else
                 {

@@ -61,74 +61,86 @@ namespace SRePS
 
                 if (readerHasRows)
                 {
-                    //check if the quantity inserted is higher than the quantity in database, so retrieve the value of P_Quantity from database
-                    string quantity = "SELECT P_Quantity FROM Product";
-                    OleDbCommand cmd2 = new OleDbCommand(quantity, conn);
-                    cmd2.CommandType = CommandType.Text;
-                    int stock = Convert.ToInt32(cmd2.ExecuteScalar());
-
-                    //NOTE: changed some code here
-                    //compare the stock in database with the quantity entered, if quantity entered is greater than the stock, then pop up error message
-                    if (Convert.ToDouble(quantityTextBox.Text) <= stock)
+                    //get the selectedProductRow to retrieve the value of the P_Archive column
+                    DataRow selectedProductRow = sRePS_DatabaseDataSet.Product.Select("P_ID = '" + barcodeTextBox.Text + "'")[0];
+                    if (selectedProductRow[9].ToString() == "False")
                     {
-                        OleDbDataAdapter myDataAdapter = new OleDbDataAdapter(cmd);
-                        DataSet addItemDataSet = new DataSet();
 
-                        Boolean found = false;
+                        //check if the quantity inserted is higher than the quantity in database, so retrieve the value of P_Quantity from database
+                        string quantity = "SELECT P_Quantity FROM Product";
+                        OleDbCommand cmd2 = new OleDbCommand(quantity, conn);
+                        cmd2.CommandType = CommandType.Text;
+                        int stock = Convert.ToInt32(cmd2.ExecuteScalar());
 
-                        if (itemGrid.Rows.Count > 1)
+                        //NOTE: changed some code here
+                        //compare the stock in database with the quantity entered, if quantity entered is greater than the stock, then pop up error message
+                        if (Convert.ToDouble(quantityTextBox.Text) <= stock)
                         {
-                            for (int i = 0; i < sRePS_DatabaseDataSet.Tables["AddItem"].Rows.Count; i++)
+                            OleDbDataAdapter myDataAdapter = new OleDbDataAdapter(cmd);
+                            DataSet addItemDataSet = new DataSet();
+
+                            Boolean found = false;
+
+                            if (itemGrid.Rows.Count > 1)
                             {
-                                if (sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["P_ID"].ToString() == barcodeTextBox.Text)
+                                for (int i = 0; i < sRePS_DatabaseDataSet.Tables["AddItem"].Rows.Count; i++)
                                 {
-                                    sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Quantity"] = Convert.ToString(Convert.ToDouble(quantityTextBox.Text) + Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Quantity"]));
-                                    sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Total"] = Convert.ToString(Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Quantity"]) * Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["P_Price"]));
-                                    found = true;
-                                    break;
+                                    if (sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["P_ID"].ToString() == barcodeTextBox.Text)
+                                    {
+                                        sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Quantity"] = Convert.ToString(Convert.ToDouble(quantityTextBox.Text) + Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Quantity"]));
+                                        sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Total"] = Convert.ToString(Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["Quantity"]) * Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[i]["P_Price"]));
+                                        found = true;
+                                        break;
+                                    }
+                                }
+
+                                if (found == false)
+                                {
+                                    int index = sRePS_DatabaseDataSet.Tables["AddItem"].Rows.Count;
+
+                                    myDataAdapter.Fill(sRePS_DatabaseDataSet, "AddItem");
+                                    itemGrid.DataSource = sRePS_DatabaseDataSet.Tables["AddItem"];
+                                    sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["Quantity"] = Convert.ToDouble(quantityTextBox.Text);
+                                    sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["Total"] = Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["Quantity"]) * Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["P_Price"]);
                                 }
                             }
-
-                            if (found == false)
+                            else
                             {
-                                int index = sRePS_DatabaseDataSet.Tables["AddItem"].Rows.Count;
-
                                 myDataAdapter.Fill(sRePS_DatabaseDataSet, "AddItem");
                                 itemGrid.DataSource = sRePS_DatabaseDataSet.Tables["AddItem"];
-                                sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["Quantity"] = Convert.ToDouble(quantityTextBox.Text);
-                                sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["Total"] = Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["Quantity"]) * Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[index]["P_Price"]);
+
+                                //create two new columns in the datatable
+                                //only create them when they are not in the table
+                                if (!sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Contains("Quantity") &&
+                                !sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Contains("Total"))
+                                {
+                                    DataColumn pQty = new DataColumn("Quantity");
+                                    DataColumn pTtl = new DataColumn("Total");
+                                    sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Add(pQty);
+                                    sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Add(pTtl);
+                                }
+
+                                sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["Quantity"] = Convert.ToDouble(quantityTextBox.Text);
+                                sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["Total"] = Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["Quantity"]) * Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["P_Price"]);
+
                             }
                         }
                         else
                         {
-                            myDataAdapter.Fill(sRePS_DatabaseDataSet, "AddItem");
-                            itemGrid.DataSource = sRePS_DatabaseDataSet.Tables["AddItem"];
-
-                            //create two new columns in the datatable
-                            //only create them when they are not in the table
-                            if (!sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Contains("Quantity") &&
-                            !sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Contains("Total"))
-                            {
-                                DataColumn pQty = new DataColumn("Quantity");
-                                DataColumn pTtl = new DataColumn("Total");
-                                sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Add(pQty);
-                                sRePS_DatabaseDataSet.Tables["AddItem"].Columns.Add(pTtl);
-                            }
-
-                            sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["Quantity"] = Convert.ToDouble(quantityTextBox.Text);
-                            sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["Total"] = Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["Quantity"]) * Convert.ToDouble(sRePS_DatabaseDataSet.Tables["AddItem"].Rows[0]["P_Price"]);
-
+                            MessageBox.Show("Not enough stock!");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Not enough stock!");
+                        MessageBox.Show("Product not found!"); //archived
                     }
                 }
                 else
                 {
                     MessageBox.Show("Product not found!");
                 }
+                
+                barcodeTextBox.Focus(); //Focus back to the barcode text box
             }
             catch (Exception ex)
             {
@@ -146,7 +158,7 @@ namespace SRePS
         private void frmAddSales_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Product' table. You can move, or remove it, as needed.
-            //this.productTableAdapter.Fill(this.sRePS_DatabaseDataSet.Product);
+            this.productTableAdapter.Fill(this.sRePS_DatabaseDataSet.Product);
 
             System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
