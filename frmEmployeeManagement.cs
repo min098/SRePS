@@ -311,5 +311,23 @@ namespace SRePS
                      MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void employeeDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for (int i = 0; i < employeeDataGridView.Rows.Count; i++)
+            {
+                string value = employeeDataGridView.Rows[i].Cells[3].Value.ToString();
+
+                if (value == "Inactive")
+                {
+                    employeeDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                }
+                else
+                {
+                    employeeDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+        }
+    
     }
 }

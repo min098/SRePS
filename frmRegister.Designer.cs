@@ -33,13 +33,13 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPosistion = new System.Windows.Forms.Label();
-            this.lblGender = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.e_IDTextBox = new System.Windows.Forms.TextBox();
             this.e_PasswordTextBox = new System.Windows.Forms.TextBox();
             this.e_ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
-            this.rdMale = new System.Windows.Forms.RadioButton();
-            this.rdFemale = new System.Windows.Forms.RadioButton();
+            this.rdActive = new System.Windows.Forms.RadioButton();
+            this.rdInactive = new System.Windows.Forms.RadioButton();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.e_NameTextBox = new System.Windows.Forms.TextBox();
@@ -69,10 +69,9 @@
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(290, 121);
-            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserName.Location = new System.Drawing.Point(218, 98);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(99, 20);
+            this.lblUserName.Size = new System.Drawing.Size(80, 16);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "User Name:";
             this.lblUserName.Click += new System.EventHandler(this.lblUserName_Click);
@@ -81,10 +80,9 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(290, 197);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Location = new System.Drawing.Point(218, 160);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(88, 20);
+            this.lblPassword.Size = new System.Drawing.Size(71, 16);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             this.lblPassword.Click += new System.EventHandler(this.label2_Click);
@@ -93,10 +91,9 @@
             // 
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPassword.Location = new System.Drawing.Point(290, 233);
-            this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(218, 189);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(152, 20);
+            this.lblConfirmPassword.Size = new System.Drawing.Size(119, 16);
             this.lblConfirmPassword.TabIndex = 3;
             this.lblConfirmPassword.Text = "Confirm Password:";
             this.lblConfirmPassword.Click += new System.EventHandler(this.label1_Click);
@@ -105,52 +102,47 @@
             // 
             this.lblPosistion.AutoSize = true;
             this.lblPosistion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosistion.Location = new System.Drawing.Point(290, 270);
-            this.lblPosistion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPosistion.Location = new System.Drawing.Point(218, 219);
             this.lblPosistion.Name = "lblPosistion";
-            this.lblPosistion.Size = new System.Drawing.Size(74, 20);
+            this.lblPosistion.Size = new System.Drawing.Size(59, 16);
             this.lblPosistion.TabIndex = 4;
             this.lblPosistion.Text = "Position:";
             this.lblPosistion.Click += new System.EventHandler(this.lblPosistion_Click);
             // 
-            // lblGender
+            // lblStatus
             // 
-            this.lblGender.AutoSize = true;
-            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(290, 306);
-            this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(69, 20);
-            this.lblGender.TabIndex = 5;
-            this.lblGender.Text = "Gender:";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(218, 249);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(48, 16);
+            this.lblStatus.TabIndex = 5;
+            this.lblStatus.Text = "Status:";
             // 
             // e_IDTextBox
             // 
             this.e_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_IDTextBox.Location = new System.Drawing.Point(456, 118);
-            this.e_IDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.e_IDTextBox.Location = new System.Drawing.Point(342, 96);
             this.e_IDTextBox.Name = "e_IDTextBox";
-            this.e_IDTextBox.Size = new System.Drawing.Size(280, 26);
+            this.e_IDTextBox.Size = new System.Drawing.Size(211, 22);
             this.e_IDTextBox.TabIndex = 1;
             // 
             // e_PasswordTextBox
             // 
             this.e_PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_PasswordTextBox.Location = new System.Drawing.Point(456, 194);
-            this.e_PasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.e_PasswordTextBox.Location = new System.Drawing.Point(342, 158);
             this.e_PasswordTextBox.Name = "e_PasswordTextBox";
             this.e_PasswordTextBox.PasswordChar = '*';
-            this.e_PasswordTextBox.Size = new System.Drawing.Size(280, 26);
+            this.e_PasswordTextBox.Size = new System.Drawing.Size(211, 22);
             this.e_PasswordTextBox.TabIndex = 3;
             // 
             // e_ConfirmPasswordTextBox
             // 
             this.e_ConfirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_ConfirmPasswordTextBox.Location = new System.Drawing.Point(456, 231);
-            this.e_ConfirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.e_ConfirmPasswordTextBox.Location = new System.Drawing.Point(342, 188);
             this.e_ConfirmPasswordTextBox.Name = "e_ConfirmPasswordTextBox";
             this.e_ConfirmPasswordTextBox.PasswordChar = '*';
-            this.e_ConfirmPasswordTextBox.Size = new System.Drawing.Size(280, 26);
+            this.e_ConfirmPasswordTextBox.Size = new System.Drawing.Size(211, 22);
             this.e_ConfirmPasswordTextBox.TabIndex = 4;
             // 
             // cmbPosition
@@ -160,48 +152,44 @@
             this.cmbPosition.Items.AddRange(new object[] {
             "Admin",
             "Cashier"});
-            this.cmbPosition.Location = new System.Drawing.Point(456, 270);
-            this.cmbPosition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbPosition.Location = new System.Drawing.Point(342, 219);
             this.cmbPosition.Name = "cmbPosition";
-            this.cmbPosition.Size = new System.Drawing.Size(280, 24);
+            this.cmbPosition.Size = new System.Drawing.Size(211, 21);
             this.cmbPosition.TabIndex = 5;
             this.cmbPosition.SelectedIndexChanged += new System.EventHandler(this.cmbPosition_SelectedIndexChanged);
             // 
-            // rdMale
+            // rdActive
             // 
-            this.rdMale.AutoSize = true;
-            this.rdMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdMale.Location = new System.Drawing.Point(456, 306);
-            this.rdMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rdMale.Name = "rdMale";
-            this.rdMale.Size = new System.Drawing.Size(66, 24);
-            this.rdMale.TabIndex = 6;
-            this.rdMale.TabStop = true;
-            this.rdMale.Text = "Male";
-            this.rdMale.UseVisualStyleBackColor = true;
+            this.rdActive.AutoSize = true;
+            this.rdActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdActive.Location = new System.Drawing.Point(342, 249);
+            this.rdActive.Name = "rdActive";
+            this.rdActive.Size = new System.Drawing.Size(63, 20);
+            this.rdActive.TabIndex = 6;
+            this.rdActive.TabStop = true;
+            this.rdActive.Text = "Active";
+            this.rdActive.UseVisualStyleBackColor = true;
             // 
-            // rdFemale
+            // rdInactive
             // 
-            this.rdFemale.AutoSize = true;
-            this.rdFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdFemale.Location = new System.Drawing.Point(563, 306);
-            this.rdFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rdFemale.Name = "rdFemale";
-            this.rdFemale.Size = new System.Drawing.Size(85, 24);
-            this.rdFemale.TabIndex = 7;
-            this.rdFemale.TabStop = true;
-            this.rdFemale.Text = "Female";
-            this.rdFemale.UseVisualStyleBackColor = true;
-            this.rdFemale.CheckedChanged += new System.EventHandler(this.rdFemale_CheckedChanged);
+            this.rdInactive.AutoSize = true;
+            this.rdInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdInactive.Location = new System.Drawing.Point(422, 249);
+            this.rdInactive.Name = "rdInactive";
+            this.rdInactive.Size = new System.Drawing.Size(72, 20);
+            this.rdInactive.TabIndex = 7;
+            this.rdInactive.TabStop = true;
+            this.rdInactive.Text = "Inactive";
+            this.rdInactive.UseVisualStyleBackColor = true;
+            this.rdInactive.CheckedChanged += new System.EventHandler(this.rdFemale_CheckedChanged);
             // 
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(434, 366);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Location = new System.Drawing.Point(326, 297);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(112, 34);
+            this.btnRegister.Size = new System.Drawing.Size(84, 28);
             this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -211,10 +199,9 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(553, 366);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(415, 297);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(112, 34);
+            this.btnCancel.Size = new System.Drawing.Size(84, 28);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -223,20 +210,18 @@
             // e_NameTextBox
             // 
             this.e_NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_NameTextBox.Location = new System.Drawing.Point(456, 156);
-            this.e_NameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.e_NameTextBox.Location = new System.Drawing.Point(342, 127);
             this.e_NameTextBox.Name = "e_NameTextBox";
-            this.e_NameTextBox.Size = new System.Drawing.Size(280, 26);
+            this.e_NameTextBox.Size = new System.Drawing.Size(211, 22);
             this.e_NameTextBox.TabIndex = 2;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(290, 156);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(218, 127);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(58, 20);
+            this.lblName.Size = new System.Drawing.Size(48, 16);
             this.lblName.TabIndex = 14;
             this.lblName.Text = "Name:";
             // 
@@ -254,8 +239,7 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(1067, 28);
+            this.menuBar.Size = new System.Drawing.Size(800, 24);
             this.menuBar.TabIndex = 16;
             // 
             // accountToolStripMenuItem
@@ -263,38 +247,38 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logToolStripMenuItem
             // 
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.logToolStripMenuItem.Text = "Log Out";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.productToolStripMenuItem.Text = "Product";
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -305,31 +289,31 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // employeeBindingSource
@@ -357,26 +341,25 @@
             // 
             // frmRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.e_NameTextBox);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.rdFemale);
-            this.Controls.Add(this.rdMale);
+            this.Controls.Add(this.rdInactive);
+            this.Controls.Add(this.rdActive);
             this.Controls.Add(this.cmbPosition);
             this.Controls.Add(this.e_ConfirmPasswordTextBox);
             this.Controls.Add(this.e_PasswordTextBox);
             this.Controls.Add(this.e_IDTextBox);
-            this.Controls.Add(this.lblGender);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblPosistion);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Register/Add Employee";
@@ -396,13 +379,13 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPosistion;
-        private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.TextBox e_IDTextBox;
         private System.Windows.Forms.TextBox e_PasswordTextBox;
         private System.Windows.Forms.TextBox e_ConfirmPasswordTextBox;
         private System.Windows.Forms.ComboBox cmbPosition;
-        private System.Windows.Forms.RadioButton rdMale;
-        private System.Windows.Forms.RadioButton rdFemale;
+        private System.Windows.Forms.RadioButton rdActive;
+        private System.Windows.Forms.RadioButton rdInactive;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox e_NameTextBox;

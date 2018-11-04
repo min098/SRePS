@@ -13,7 +13,7 @@ namespace SRePS
 {
     public partial class frmRegister : Form
     {
-        string gender = "";
+        string status = "";
 
         public frmRegister()
         {
@@ -63,22 +63,22 @@ namespace SRePS
             {
                 con.Open();
 
-                if (rdFemale.Checked)
+                if (rdInactive.Checked)
                 {
-                    gender = "Female";
+                    status = "Inactive";
                 }
 
-                if (rdMale.Checked)
+                if (rdActive.Checked)
                 {
-                    gender = "Male";
+                    status = "Active";
                 }
 
-                string data = "Insert into `Employees`(`E_ID`,`E_Name`,`E_Position`,`E_Gender`,`E_Password`)VALUES (?,?,?,?,?)";
+                string data = "Insert into `Employees`(`E_ID`,`E_Name`,`E_Position`,`E_Status`,`E_Password`)VALUES (?,?,?,?,?)";
                 OleDbCommand cmd = new OleDbCommand(data, con);
                 cmd.Parameters.AddWithValue("@E_ID", e_IDTextBox.Text);
                 cmd.Parameters.AddWithValue("@E_Name", e_NameTextBox.Text);
                 cmd.Parameters.AddWithValue("@E_Position", cmbPosition.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@E_Gender", gender);
+                cmd.Parameters.AddWithValue("@E_Status", status);
                 cmd.Parameters.AddWithValue("@E_Password", e_PasswordTextBox.Text);
 
                 if (e_PasswordTextBox.Text != e_ConfirmPasswordTextBox.Text)
@@ -97,6 +97,10 @@ namespace SRePS
                 {
                     MessageBox.Show("Register Failed due to Password or Confirm Password is empty");
                 }
+                else if (status == "")
+                {
+                    MessageBox.Show("Register Failed due to status is empty");
+                }
                 else
                 {
                     cmd.ExecuteNonQuery();
@@ -106,8 +110,8 @@ namespace SRePS
                     e_PasswordTextBox.Text = "";
                     e_ConfirmPasswordTextBox.Text = "";
                     cmbPosition.Items.Clear();
-                    rdMale.Checked = false;
-                    rdFemale.Checked = false;
+                    rdActive.Checked = false;
+                    rdInactive.Checked = false;
 
                     con.Close();
 
@@ -142,8 +146,8 @@ namespace SRePS
                 e_PasswordTextBox.Text = "";
                 e_ConfirmPasswordTextBox.Text = "";
                 cmbPosition.Items.Clear();
-                rdMale.Checked = false;
-                rdFemale.Checked = false;
+                rdActive.Checked = false;
+                rdInactive.Checked = false;
             }
             else
             {
