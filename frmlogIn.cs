@@ -96,5 +96,21 @@ namespace SRePS
         {
 
         }
+
+        private void UserNameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogIn_Click(this, new EventArgs());
+            }
+        }
+
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogIn_Click(this, new EventArgs());
+            }
+        }
     }
 }

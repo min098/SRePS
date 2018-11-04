@@ -215,6 +215,7 @@ namespace SRePS
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
             string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            string oldPosition = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[2].Value.ToString();
 
             System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
@@ -276,6 +277,21 @@ namespace SRePS
                     MessageBox.Show("Employee details edited successfully!");
                     Program.frmEmployee.employeesTableAdapter.Fill(Program.frmEmployee.sRePS_DatabaseDataSet.Employees);
                     this.Close();
+                    if (cmbPosition.SelectedItem.ToString() != oldPosition)
+                    {
+                        //Program.curPosition = cmbPosition.SelectedItem.ToString();
+                        //OR
+                        MessageBox.Show("Please log in to update your position.");
+
+                        Program.frmLogin = new frmLogIn();
+                        Program.frmLogin.Show();
+                        foreach (Form f in Application.OpenForms)
+                        {
+                            if (f != Program.frmLogin)
+                                f.Close();
+                        }
+
+                    }
                 }
                 catch (Exception)
                 {
@@ -284,6 +300,8 @@ namespace SRePS
                 {
                     conn.Close();
                 }
+
+                
             }
         }
 

@@ -70,12 +70,13 @@
             this.salesReportWDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.salesReportWDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesReportWDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.salesReportWDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesReportWDataGridView.Location = new System.Drawing.Point(12, 123);
+            this.salesReportWDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.salesReportWDataGridView.MultiSelect = false;
             this.salesReportWDataGridView.Name = "salesReportWDataGridView";
             this.salesReportWDataGridView.ReadOnly = true;
             this.salesReportWDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.salesReportWDataGridView.Size = new System.Drawing.Size(784, 272);
+            this.salesReportWDataGridView.Size = new System.Drawing.Size(1176, 418);
             this.salesReportWDataGridView.TabIndex = 12;
             this.salesReportWDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesReportWDataGridView_CellDoubleClick);
             this.salesReportWDataGridView.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesReportWDataGridView_CellMouseLeave);
@@ -95,9 +96,10 @@
             // 
             this.btnExport.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(679, 405);
+            this.btnExport.Location = new System.Drawing.Point(1018, 623);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(112, 33);
+            this.btnExport.Size = new System.Drawing.Size(168, 51);
             this.btnExport.TabIndex = 14;
             this.btnExport.Text = "&Export";
             this.btnExport.UseVisualStyleBackColor = false;
@@ -107,9 +109,10 @@
             // 
             this.btnVisualize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnVisualize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisualize.Location = new System.Drawing.Point(561, 405);
+            this.btnVisualize.Location = new System.Drawing.Point(842, 623);
+            this.btnVisualize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVisualize.Name = "btnVisualize";
-            this.btnVisualize.Size = new System.Drawing.Size(112, 33);
+            this.btnVisualize.Size = new System.Drawing.Size(168, 51);
             this.btnVisualize.TabIndex = 13;
             this.btnVisualize.Text = "&Visualize";
             this.btnVisualize.UseVisualStyleBackColor = false;
@@ -117,9 +120,10 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(508, 39);
+            this.btnSearch.Location = new System.Drawing.Point(762, 60);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(112, 35);
             this.btnSearch.TabIndex = 11;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -129,9 +133,10 @@
             // 
             this.dtpickerStart.CustomFormat = "dd/MM/yyyy dddd";
             this.dtpickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpickerStart.Location = new System.Drawing.Point(58, 40);
+            this.dtpickerStart.Location = new System.Drawing.Point(87, 62);
+            this.dtpickerStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpickerStart.Name = "dtpickerStart";
-            this.dtpickerStart.Size = new System.Drawing.Size(200, 20);
+            this.dtpickerStart.Size = new System.Drawing.Size(298, 26);
             this.dtpickerStart.TabIndex = 9;
             this.dtpickerStart.CloseUp += new System.EventHandler(this.dtpickerStart_CloseUp);
             this.dtpickerStart.ValueChanged += new System.EventHandler(this.dtpickerStart_ValueChanged);
@@ -140,9 +145,10 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(12, 42);
+            this.lblDate.Location = new System.Drawing.Point(18, 65);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(40, 16);
+            this.lblDate.Size = new System.Drawing.Size(59, 25);
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "Date:";
             // 
@@ -160,7 +166,8 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 24);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuBar.Size = new System.Drawing.Size(1200, 35);
             this.menuBar.TabIndex = 14;
             // 
             // accountToolStripMenuItem
@@ -168,41 +175,41 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -213,43 +220,44 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             this.dailyReportToolStripMenuItem.Click += new System.EventHandler(this.dailyReportToolStripMenuItem_Click);
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             this.weeklyReportToolStripMenuItem.Click += new System.EventHandler(this.weeklyReportToolStripMenuItem_Click);
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             this.monthlyReportToolStripMenuItem.Click += new System.EventHandler(this.monthlyReportToolStripMenuItem_Click);
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.predictionToolStripMenuItem.Text = "Prediction";
             // 
             // lblTo
             // 
             this.lblTo.AutoSize = true;
             this.lblTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.Location = new System.Drawing.Point(264, 42);
+            this.lblTo.Location = new System.Drawing.Point(396, 65);
+            this.lblTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(25, 16);
+            this.lblTo.Size = new System.Drawing.Size(36, 25);
             this.lblTo.TabIndex = 8;
             this.lblTo.Text = "To";
             // 
@@ -258,9 +266,10 @@
             this.dtpickerEnd.CustomFormat = "dd/MM/yyyy dddd";
             this.dtpickerEnd.Enabled = false;
             this.dtpickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpickerEnd.Location = new System.Drawing.Point(295, 40);
+            this.dtpickerEnd.Location = new System.Drawing.Point(442, 62);
+            this.dtpickerEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpickerEnd.Name = "dtpickerEnd";
-            this.dtpickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.dtpickerEnd.Size = new System.Drawing.Size(298, 26);
             this.dtpickerEnd.TabIndex = 10;
             // 
             // salesBindingSource1
@@ -279,12 +288,13 @@
             this.salesDetailDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.salesDetailDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesDetailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.salesDetailDataGridView.Location = new System.Drawing.Point(8, 80);
+            this.salesDetailDataGridView.Location = new System.Drawing.Point(12, 123);
+            this.salesDetailDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.salesDetailDataGridView.MultiSelect = false;
             this.salesDetailDataGridView.Name = "salesDetailDataGridView";
             this.salesDetailDataGridView.ReadOnly = true;
             this.salesDetailDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.salesDetailDataGridView.Size = new System.Drawing.Size(784, 272);
+            this.salesDetailDataGridView.Size = new System.Drawing.Size(1176, 418);
             this.salesDetailDataGridView.TabIndex = 15;
             // 
             // lblStatus
@@ -292,16 +302,17 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(0, 434);
+            this.lblStatus.Location = new System.Drawing.Point(0, 667);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 16);
+            this.lblStatus.Size = new System.Drawing.Size(0, 25);
             this.lblStatus.TabIndex = 16;
             // 
             // frmSalesReportW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.salesDetailDataGridView);
             this.Controls.Add(this.menuBar);
@@ -313,6 +324,7 @@
             this.Controls.Add(this.dtpickerStart);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.lblDate);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSalesReportW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Weekly Sales Report";
