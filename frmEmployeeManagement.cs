@@ -321,11 +321,7 @@ namespace SRePS
 
                 if (value == "Inactive")
                 {
-                    employeeDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
-                }
-                else
-                {
-                    employeeDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                    employeeDataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
                 }
             }
         }

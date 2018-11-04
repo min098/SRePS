@@ -59,12 +59,6 @@
             this.productTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.ProductTableAdapter();
             this.tableAdapterManager = new SRePS.SRePS_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
-            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pGroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_SubGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pUOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.OrderTableAdapter();
@@ -78,6 +72,13 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.pIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pGroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_SubGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pUOMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_Archive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
             this.productBindingNavigator.SuspendLayout();
@@ -349,7 +350,8 @@
             this.pGroupDataGridViewTextBoxColumn,
             this.P_SubGroup,
             this.pUOMDataGridViewTextBoxColumn,
-            this.pQuantityDataGridViewTextBoxColumn});
+            this.pQuantityDataGridViewTextBoxColumn,
+            this.P_Archive});
             this.productDataGridView.DataSource = this.productBindingSource2;
             this.productDataGridView.Location = new System.Drawing.Point(13, 41);
             this.productDataGridView.MultiSelect = false;
@@ -359,49 +361,7 @@
             this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productDataGridView.Size = new System.Drawing.Size(1045, 354);
             this.productDataGridView.TabIndex = 6;
-            // 
-            // pIDDataGridViewTextBoxColumn
-            // 
-            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
-            this.pIDDataGridViewTextBoxColumn.HeaderText = "Product ID";
-            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
-            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pNameDataGridViewTextBoxColumn
-            // 
-            this.pNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
-            this.pNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
-            this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
-            this.pNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pGroupDataGridViewTextBoxColumn
-            // 
-            this.pGroupDataGridViewTextBoxColumn.DataPropertyName = "P_Group";
-            this.pGroupDataGridViewTextBoxColumn.HeaderText = "Group";
-            this.pGroupDataGridViewTextBoxColumn.Name = "pGroupDataGridViewTextBoxColumn";
-            this.pGroupDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // P_SubGroup
-            // 
-            this.P_SubGroup.DataPropertyName = "P_SubGroup";
-            this.P_SubGroup.HeaderText = "Sub Group";
-            this.P_SubGroup.Name = "P_SubGroup";
-            this.P_SubGroup.ReadOnly = true;
-            // 
-            // pUOMDataGridViewTextBoxColumn
-            // 
-            this.pUOMDataGridViewTextBoxColumn.DataPropertyName = "P_UOM";
-            this.pUOMDataGridViewTextBoxColumn.HeaderText = "UOM";
-            this.pUOMDataGridViewTextBoxColumn.Name = "pUOMDataGridViewTextBoxColumn";
-            this.pUOMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pQuantityDataGridViewTextBoxColumn
-            // 
-            this.pQuantityDataGridViewTextBoxColumn.DataPropertyName = "P_Quantity";
-            this.pQuantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.pQuantityDataGridViewTextBoxColumn.Name = "pQuantityDataGridViewTextBoxColumn";
-            this.pQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.productDataGridView_CellFormatting);
             // 
             // productBindingSource2
             // 
@@ -513,6 +473,56 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
+            // pIDDataGridViewTextBoxColumn
+            // 
+            this.pIDDataGridViewTextBoxColumn.DataPropertyName = "P_ID";
+            this.pIDDataGridViewTextBoxColumn.HeaderText = "Product ID";
+            this.pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
+            this.pIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pNameDataGridViewTextBoxColumn
+            // 
+            this.pNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.pNameDataGridViewTextBoxColumn.DataPropertyName = "P_Name";
+            this.pNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
+            this.pNameDataGridViewTextBoxColumn.Name = "pNameDataGridViewTextBoxColumn";
+            this.pNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pGroupDataGridViewTextBoxColumn
+            // 
+            this.pGroupDataGridViewTextBoxColumn.DataPropertyName = "P_Group";
+            this.pGroupDataGridViewTextBoxColumn.HeaderText = "Group";
+            this.pGroupDataGridViewTextBoxColumn.Name = "pGroupDataGridViewTextBoxColumn";
+            this.pGroupDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // P_SubGroup
+            // 
+            this.P_SubGroup.DataPropertyName = "P_SubGroup";
+            this.P_SubGroup.HeaderText = "Sub Group";
+            this.P_SubGroup.Name = "P_SubGroup";
+            this.P_SubGroup.ReadOnly = true;
+            // 
+            // pUOMDataGridViewTextBoxColumn
+            // 
+            this.pUOMDataGridViewTextBoxColumn.DataPropertyName = "P_UOM";
+            this.pUOMDataGridViewTextBoxColumn.HeaderText = "UOM";
+            this.pUOMDataGridViewTextBoxColumn.Name = "pUOMDataGridViewTextBoxColumn";
+            this.pUOMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pQuantityDataGridViewTextBoxColumn
+            // 
+            this.pQuantityDataGridViewTextBoxColumn.DataPropertyName = "P_Quantity";
+            this.pQuantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.pQuantityDataGridViewTextBoxColumn.Name = "pQuantityDataGridViewTextBoxColumn";
+            this.pQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // P_Archive
+            // 
+            this.P_Archive.DataPropertyName = "P_Archive";
+            this.P_Archive.HeaderText = "P_Archive";
+            this.P_Archive.Name = "P_Archive";
+            this.P_Archive.ReadOnly = true;
+            // 
             // frmProductManagement
             // 
             this.ClientSize = new System.Drawing.Size(1067, 554);
@@ -580,12 +590,6 @@
         public System.Windows.Forms.BindingSource productBindingSource2;
         private System.Windows.Forms.BindingSource orderBindingSource;
         private SRePS_DatabaseDataSetTableAdapters.OrderTableAdapter orderTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pGroupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_SubGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pUOMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -597,5 +601,12 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         public System.Windows.Forms.DataGridView productDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pGroupDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_SubGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pUOMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_Archive;
     }
 }

@@ -119,8 +119,33 @@ namespace SRePS
                     //Check if the deleting product is existing in the Order table
                     if (foundPID.Length != 0)
                     {
-                        MessageBox.Show("This record cannot be deleted as this product sold before", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        if (productDataGridView.SelectedRows[0].Cells[6].Value.ToString() == "False")
+                        {
+                            DialogResult dialogResult = MessageBox.Show("This record cannot be deleted as this product sold before, but you can archieve it. Do you want to archive this record?", "Archiving record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+                                con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                                con.Open();
+                                string query = "UPDATE [Product] SET [P_Archive]=? WHERE [P_ID]=?";
+                                OleDbCommand cmd = new OleDbCommand(query, con);
+                                cmd.Parameters.AddWithValue("P_Archive", "True");
+                                cmd.Parameters.AddWithValue("P_ID", deletingPid);
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+
+                                //update the datagrid
+                                productTableAdapter.Fill(sRePS_DatabaseDataSet.Product);
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("This record is already archieved.", "Archiving error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     else
                     {
@@ -502,6 +527,20 @@ namespace SRePS
             {
                 MessageBox.Show("Only admin can edit product record.", "Error",
                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //if the record is archieved, set the text color to white
+        private void productDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for (int i = 0; i < productDataGridView.Rows.Count; i++)
+            {
+                string value = sRePS_DatabaseDataSet.Product.Rows[i][9].ToString();
+
+                if (value == "True")
+                {
+                    productDataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
+                }
             }
         }
     }
