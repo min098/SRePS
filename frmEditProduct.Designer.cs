@@ -333,9 +333,10 @@
             this.cmbPUOM.FormattingEnabled = true;
             this.cmbPUOM.Items.AddRange(new object[] {
             "Bottle",
+            "Dozen",
+            "Gram",
             "Pcs",
-            "Tablet",
-            "Gram"});
+            "Tablet"});
             this.cmbPUOM.Location = new System.Drawing.Point(334, 244);
             this.cmbPUOM.Name = "cmbPUOM";
             this.cmbPUOM.Size = new System.Drawing.Size(279, 24);
