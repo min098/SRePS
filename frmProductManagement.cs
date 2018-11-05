@@ -500,7 +500,7 @@ namespace SRePS
                         }
 
 
-                        Program.frmEditP.p_QuantityTextBox.Text = this.productDataGridView.CurrentRow.Cells[5].Value.ToString();
+                        Program.frmEditP.p_QuantityUpDown.Value = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells[5].Value);
 
                         string oldID = Program.frmProduct.productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
 

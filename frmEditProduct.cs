@@ -56,7 +56,7 @@ namespace SRePS
             con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
             string oldID = Program.frmProduct.productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            if (p_IDTextBox.Text == "" || p_NameTextBox.Text == "" || p_QuantityTextBox.Text == "" || p_PriceTextBox.Text == "" || p_CostTextBox.Text == ""
+            if (p_IDTextBox.Text == "" || p_NameTextBox.Text == "" || p_QuantityUpDown.Value < 0 || p_PriceTextBox.Text == "" || p_CostTextBox.Text == ""
                 || p_SupplierTextBox.Text == "" || cmbPUOM.SelectedItem == null || cmbPGroup.SelectedItem == null
                 || cmbPSubGroup.SelectedItem == null)
             {
@@ -85,7 +85,7 @@ namespace SRePS
                         cmd.Parameters.AddWithValue("P_ID", p_IDTextBox.Text);
                     }
                     cmd.Parameters.AddWithValue("@P_Name", p_NameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@P_Quantity", p_QuantityTextBox.Text);
+                    cmd.Parameters.AddWithValue("@P_Quantity", p_QuantityUpDown.Value);
                     cmd.Parameters.AddWithValue("@P_Price", p_PriceTextBox.Text);
                     cmd.Parameters.AddWithValue("@P_Cost", p_CostTextBox.Text);
                     cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
