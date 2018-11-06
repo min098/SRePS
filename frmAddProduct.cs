@@ -110,7 +110,7 @@ namespace SRePS
                 {
                     conn.Open();
 
-                    string my_query = "INSERT INTO `Product` (`P_ID`,`P_Name`,`P_Quantity`,`P_Price`,`P_Cost`,`P_Supplier`,`P_UOM`,`P_Group`, `P_SubGroup`) VALUES (?,?,?,?,?,?,?,?,?)";
+                    string my_query = "INSERT INTO `Product` (`P_ID`,`P_Name`,`P_Quantity`,`P_Price`,`P_Cost`,`P_Supplier`,`P_UOM`,`P_Group`, `P_SubGroup`, `P_Archive`) VALUES (?,?,?,?,?,?,?,?,?,?)";
                     OleDbCommand cmd = new OleDbCommand(my_query, conn);
 
                     if (isPIDExists())
@@ -128,6 +128,7 @@ namespace SRePS
                         cmd.Parameters.AddWithValue("@P_UOM", p_UOMComboBox.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@P_Group", p_GroupComboBox.SelectedItem.ToString());
                         cmd.Parameters.AddWithValue("@P_SubGroup", p_SubGroupComboBox.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@P_Archive", "False");
 
                         //The selling price must not lower than cost
                         if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
