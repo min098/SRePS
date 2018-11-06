@@ -30,6 +30,7 @@ namespace SRePS
         public static string curPassword = "";
         public static string curName = "";
         public static string curPosition = "";
+        public static string curStatus = "";
 
         /// <summary>
         /// The main entry point for the application.

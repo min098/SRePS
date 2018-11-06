@@ -221,10 +221,12 @@ namespace SRePS
 
             conn.Open();
             OleDbDataReader read;
-            string my_query = "SELECT * FROM Employees WHERE [E_Position]=?";
+            string my_query = "SELECT * FROM Employees WHERE [E_Position]=? AND [E_Status]=?";
             OleDbCommand cmd = new OleDbCommand(my_query, conn);
 
             cmd.Parameters.AddWithValue("E_Position", "Admin");
+            cmd.Parameters.AddWithValue("E_Status", "Active");
+
             read = cmd.ExecuteReader();
             while (read.Read())
             {
@@ -244,8 +246,10 @@ namespace SRePS
                 return false;
             }
         }
+
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
+            int count = 0;
             string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
             string oldPosition = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[2].Value.ToString();
 
@@ -280,19 +284,30 @@ namespace SRePS
                     }
 
                     cmd.Parameters.AddWithValue("E_Name", txtName.Text);
-                    if (cmbPosition.SelectedItem.ToString() == oldPosition)
+
+                    if (Program.curUserName == oldID)
                     {
-                        cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
-                    }
-                    else if (isAdminExists() == true)
-                    {
-                        cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
+                        if (cmbPosition.SelectedItem.ToString() == oldPosition)
+                        {
+                            cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
+                        }
+                        else if (isAdminExists() == true)
+                        {
+                            cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Must have at least one active admin.", "Error",
+                                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            count++;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Must have at least one admin.", "Error",
-                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cmd.Parameters.AddWithValue("E_Position", cmbPosition.SelectedItem.ToString());
                     }
+
+
                     if (txtConPass.Text != "")
                     {
                         if (txtConPass.Text == txtPass.Text)
@@ -309,31 +324,55 @@ namespace SRePS
                     }
 
                     bool isChecked = rdActive.Checked;
-                    if (isChecked)
-                        cmd.Parameters.AddWithValue("@E_Status", rdActive.Text);
+                    if (Program.curUserName == oldID)
+                    {
+                        if (isChecked)
+                            cmd.Parameters.AddWithValue("@E_Status", rdActive.Text);
+                        else if (!isChecked)
+                        {
+                            if (isAdminExists() == true)
+                                cmd.Parameters.AddWithValue("@E_Status", rdInactive.Text);
+                            else if (count == 0)
+                            {
+                                MessageBox.Show("Must have at least one active admin.", "Error",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
                     else
-                        cmd.Parameters.AddWithValue("@E_Status", rdInactive.Text);
-
+                    {
+                        if (isChecked)
+                        {
+                            cmd.Parameters.AddWithValue("@E_Status", rdActive.Text);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@E_Status", rdInactive.Text);
+                        }
+                    }
 
                     cmd.Parameters.AddWithValue("E_ID", oldID);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Employee details edited successfully!");
                     Program.frmEmployee.employeesTableAdapter.Fill(Program.frmEmployee.sRePS_DatabaseDataSet.Employees);
                     this.Close();
-                    if (cmbPosition.SelectedItem.ToString() != oldPosition)
+
+                    if (Program.curUserName == oldID)
                     {
-                        //Program.curPosition = cmbPosition.SelectedItem.ToString();
-                        //OR
-                        MessageBox.Show("Please log in to update your position.");
-
-                        Program.frmLogin = new frmLogIn();
-                        Program.frmLogin.Show();
-                        foreach (Form f in Application.OpenForms)
+                        if (cmbPosition.SelectedItem.ToString() != oldPosition)
                         {
-                            if (f != Program.frmLogin)
-                                f.Close();
-                        }
+                            //Program.curPosition = cmbPosition.SelectedItem.ToString();
+                            //OR
+                            MessageBox.Show("Please log in to update your position.");
 
+                            Program.frmLogin = new frmLogIn();
+                            Program.frmLogin.Show();
+                            foreach (Form f in Application.OpenForms)
+                            {
+                                if (f != Program.frmLogin)
+                                    f.Close();
+                            }
+                        }
                     }
                 }
                 catch (Exception)

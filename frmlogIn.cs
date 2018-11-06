@@ -80,16 +80,24 @@ namespace SRePS
                 Program.curPassword = read["E_Password"].ToString();
                 Program.curName = read["E_Name"].ToString();
                 Program.curPosition = read["E_Position"].ToString();
-                Program.frmHome = new frmHomepage();
-                Program.frmHome.Show();
-                this.Dispose();
+                Program.curStatus = read["E_Status"].ToString();
+                if (Program.curStatus == "Active")
+                {
+                    Program.frmHome = new frmHomepage();
+                    Program.frmHome.Show();
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Inactive account.", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
                 MessageBox.Show("Wrong username or password.", "Error",
                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void frmLogIn_Load(object sender, EventArgs e)
