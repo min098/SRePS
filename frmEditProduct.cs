@@ -69,7 +69,7 @@ namespace SRePS
                     con.Open();
 
                     string query = "UPDATE [Product] SET [P_ID]=@P_ID,[P_Name]=@P_Name,[P_Quantity]=@P_Quantity,[P_Price]=@P_Price,[P_Cost]=@P_Cost," +
-                        "[P_Supplier]=@P_Supplier,[P_UOM]=@P_UOM,[P_Group]=@P_Group,[P_SubGroup]=@P_SubGroup WHERE [P_ID] = @oldID";
+                        "[P_Supplier]=@P_Supplier,[P_UOM]=@P_UOM,[P_Group]=@P_Group,[P_SubGroup]=@P_SubGroup,[P_Archive]=@P_Archive WHERE [P_ID] = @oldID";
                     OleDbCommand cmd = new OleDbCommand(query, con);
 
                     if (p_IDTextBox.Text == oldID)
@@ -93,6 +93,15 @@ namespace SRePS
                     cmd.Parameters.AddWithValue("@P_Group", cmbPGroup.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@P_SubGroup", cmbPSubGroup.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@oldID", oldID);
+                    bool isChecked = rdTrue.Checked;
+                    if (isChecked)
+                    {
+                        cmd.Parameters.AddWithValue("@P_Archive", rdTrue.Text);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@P_Archive", rdFalse.Text);
+                    }
 
 
                     //The selling price must not lower than cost

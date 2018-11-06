@@ -502,6 +502,16 @@ namespace SRePS
 
                         Program.frmEditP.p_QuantityUpDown.Value = Convert.ToInt32(this.productDataGridView.CurrentRow.Cells[5].Value);
 
+                        if (this.productDataGridView.CurrentRow.Cells[6].Value.ToString() == "True")
+                        {
+                            Program.frmEditP.rdTrue.Checked = true;
+                        }
+                        else
+                        {
+                            Program.frmEditP.rdFalse.Checked = true;
+
+                        }
+
                         string oldID = Program.frmProduct.productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
 
 
