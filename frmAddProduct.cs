@@ -31,11 +31,9 @@ namespace SRePS
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Product' table. You can move, or remove it, as needed.
             //this.productTableAdapter.Fill(this.sRePS_DatabaseDataSet.Product);
             p_SubGroupComboBox.Enabled = false;
-            //p_GroupComboBox.Text = "--Select the main group of product--";
-            //p_SubGroupComboBox.Text = "--Select the sub group of product--";
-            p_GroupComboBox.SelectedIndex = 0;
-            
-            p_SubGroupComboBox.SelectedIndex = 0;
+            p_UOMComboBox.SelectedItem = null;
+            p_GroupComboBox.SelectedItem = null;
+            p_SubGroupComboBox.SelectedItem = null;
             P_QuantityUpDown.Value = 0;
 
         }
@@ -127,19 +125,10 @@ namespace SRePS
                         }
                     }
 
-                    //foreach (var item in this.Controls)
-                    //{
-                    //    //check item is combobox
-                    //    if (item.GetType().Equals(typeof(ComboBox)))
-                    //    {
-                    //        //clear all combobox at the same time
-                    //        ComboBox c1 = item as ComboBox;
-                    //        c1.Text = string.Empty;
-                    //    }
-                    //}
-
-                    p_GroupComboBox.SelectedIndex = 0;
-                    p_SubGroupComboBox.SelectedIndex = 0;
+                    p_SubGroupComboBox.Enabled = false;
+                    p_UOMComboBox.SelectedItem = null;
+                    p_GroupComboBox.SelectedItem = null;
+                    p_SubGroupComboBox.SelectedItem = null;
                     P_QuantityUpDown.Value = 0;
                 }
             }
@@ -162,16 +151,11 @@ namespace SRePS
                     }
                 }
 
-                foreach (var item in this.Controls)
-                {
-                    //check item is combobox
-                    if (item.GetType().Equals(typeof(ComboBox)))
-                    {
-                        //clear all combobox at the same time
-                        ComboBox c1 = item as ComboBox;
-                        c1.Text = string.Empty;
-                    }
-                }
+                p_SubGroupComboBox.Enabled = false;
+                p_UOMComboBox.SelectedItem = null;
+                p_GroupComboBox.SelectedItem = null;
+                p_SubGroupComboBox.SelectedItem = null;
+                P_QuantityUpDown.Value = 0;
 
                 if (Program.isOpened(Program.frmAddP) == true)
                 {
@@ -325,65 +309,59 @@ namespace SRePS
 
         private void p_GroupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-                if (p_GroupComboBox.SelectedItem.ToString() == "Medicine")
-                {
-                    p_SubGroupComboBox.Items.Clear();
-                    p_SubGroupComboBox.Items.Add("--Select the sub group of product--");
-                    // p_SubGroupComboBox.Text = "--Select the sub group of product--";
+            if (p_GroupComboBox.SelectedIndex == 0) //equipment
+            {
 
-                    p_SubGroupComboBox.Enabled = true;
-                    p_SubGroupComboBox.Items.Add("Allergic");
-                    p_SubGroupComboBox.Items.Add("Birth Control");
-                    p_SubGroupComboBox.Items.Add("Central Nervous System");
-                    p_SubGroupComboBox.Items.Add("Circulatory System");
-                    p_SubGroupComboBox.Items.Add("Cough");
-                    p_SubGroupComboBox.Items.Add("Digestive System");
-                    p_SubGroupComboBox.Items.Add("Ear");
-                    p_SubGroupComboBox.Items.Add("Eye");
-                    p_SubGroupComboBox.Items.Add("Endocrine System");
-                    p_SubGroupComboBox.Items.Add("Fever");
-                    p_SubGroupComboBox.Items.Add("Immune System");
-                    p_SubGroupComboBox.Items.Add("Menstrual Pain");
-                    p_SubGroupComboBox.Items.Add("Musculoskeletal Disorders");
-                    p_SubGroupComboBox.Items.Add("Nose");
-                    p_SubGroupComboBox.Items.Add("Pain and Consciousness");
-                    p_SubGroupComboBox.Items.Add("Reproductive System");
-                    p_SubGroupComboBox.Items.Add("Respiratory System");
-                    p_SubGroupComboBox.Items.Add("Throat");
-                    p_SubGroupComboBox.Items.Add("Skin");
-                    p_SubGroupComboBox.Items.Add("Urinary System");
+                p_SubGroupComboBox.Items.Clear();
+                p_SubGroupComboBox.Enabled = true;
+                p_SubGroupComboBox.Items.Add("Incontinence");
+                p_SubGroupComboBox.Items.Add("Orthopedic");
+                p_SubGroupComboBox.Items.Add("Walking Aids");
+                p_SubGroupComboBox.Items.Add("Wheelchairs");
+                p_SubGroupComboBox.Items.Add("Wound Care");
 
 
-                }
-                else if (p_GroupComboBox.SelectedItem.ToString() == "Healthcare")
-                {
-                    p_SubGroupComboBox.Items.Clear();
-                    p_SubGroupComboBox.Items.Add("--Select the sub group of product--");
 
-                    p_SubGroupComboBox.Enabled = true;
-                    p_SubGroupComboBox.Items.Add("Cod Liver Oil");
-                    p_SubGroupComboBox.Items.Add("Chicken Essence");
-                    p_SubGroupComboBox.Items.Add("Diet");
-                    p_SubGroupComboBox.Items.Add("Fish Essence");
-                    p_SubGroupComboBox.Items.Add("Spirulina");
-                    p_SubGroupComboBox.Items.Add("Vitamin");
+            }
+            else if (p_GroupComboBox.SelectedIndex == 1) //healthcare
+            {
+                p_SubGroupComboBox.Items.Clear();
+                p_SubGroupComboBox.Enabled = true;
+                p_SubGroupComboBox.Items.Add("Cod Liver Oil");
+                p_SubGroupComboBox.Items.Add("Chicken Essence");
+                p_SubGroupComboBox.Items.Add("Diet");
+                p_SubGroupComboBox.Items.Add("Fish Essence");
+                p_SubGroupComboBox.Items.Add("Spirulina");
+                p_SubGroupComboBox.Items.Add("Vitamin");
 
-                }
-                else if (p_GroupComboBox.SelectedItem.ToString() == "Equipment")
-                {
-                    p_SubGroupComboBox.Items.Clear();
-                    p_SubGroupComboBox.Items.Add("--Select the sub group of product--");
+            }
+            else if (p_GroupComboBox.SelectedIndex == 2) //medicine
+            {
+                p_SubGroupComboBox.Items.Clear();
+                p_SubGroupComboBox.Enabled = true;
+                p_SubGroupComboBox.Items.Add("Allergic");
+                p_SubGroupComboBox.Items.Add("Birth Control");
+                p_SubGroupComboBox.Items.Add("Central Nervous System");
+                p_SubGroupComboBox.Items.Add("Circulatory System");
+                p_SubGroupComboBox.Items.Add("Cough");
+                p_SubGroupComboBox.Items.Add("Digestive System");
+                p_SubGroupComboBox.Items.Add("Ear");
+                p_SubGroupComboBox.Items.Add("Eye");
+                p_SubGroupComboBox.Items.Add("Endocrine System");
+                p_SubGroupComboBox.Items.Add("Fever");
+                p_SubGroupComboBox.Items.Add("Immune System");
+                p_SubGroupComboBox.Items.Add("Menstrual Pain");
+                p_SubGroupComboBox.Items.Add("Musculoskeletal Disorders");
+                p_SubGroupComboBox.Items.Add("Nose");
+                p_SubGroupComboBox.Items.Add("Pain and Consciousness");
+                p_SubGroupComboBox.Items.Add("Reproductive System");
+                p_SubGroupComboBox.Items.Add("Respiratory System");
+                p_SubGroupComboBox.Items.Add("Throat");
+                p_SubGroupComboBox.Items.Add("Skin");
+                p_SubGroupComboBox.Items.Add("Urinary System");
+            }
 
-                    p_SubGroupComboBox.Enabled = true;
-                    p_SubGroupComboBox.Items.Add("Incontinence");
-                    p_SubGroupComboBox.Items.Add("Orthopedic");
-                    p_SubGroupComboBox.Items.Add("Walking Aids");
-                    p_SubGroupComboBox.Items.Add("Wheelchairs");
-                    p_SubGroupComboBox.Items.Add("Wound Care");
-                }
-            
 
-           
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -403,28 +381,28 @@ namespace SRePS
 
         private void p_IDTextBox_TextChanged(object sender, EventArgs e)
         {
-            //P_QuantityUpDown.Value = 10;
+          
         }
 
         private void p_UOMComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(p_UOMComboBox.SelectedItem.ToString() == "Bottle")
+            if (p_UOMComboBox.SelectedIndex == 0)
             {
                 P_QuantityUpDown.Value = 6;
             }
-            else if(p_UOMComboBox.SelectedItem.ToString() == "Dozen")
+            else if (p_UOMComboBox.SelectedIndex == 1)
             {
                 P_QuantityUpDown.Value = 12;
             }
-            else if (p_UOMComboBox.SelectedItem.ToString() == "Gram")
+            else if (p_UOMComboBox.SelectedIndex == 2)
             {
                 P_QuantityUpDown.Value = 100;
             }
-            else if (p_UOMComboBox.SelectedItem.ToString() == "Pcs")
+            else if (p_UOMComboBox.SelectedIndex == 3)
             {
                 P_QuantityUpDown.Value = 10;
             }
-            else if (p_UOMComboBox.SelectedItem.ToString() == "Tablet")
+            else if (p_UOMComboBox.SelectedIndex == 4)
             {
                 P_QuantityUpDown.Value = 6;
             }
