@@ -210,7 +210,7 @@ namespace SRePS
 
                         }
 
-                        if (this.employeeDataGridView.CurrentRow.Cells[3].Value.ToString() == "Female")
+                        if (this.employeeDataGridView.CurrentRow.Cells[3].Value.ToString() == "Inactive")
                         {
                             Program.frmEditE.rdInactive.Checked = true;
                         }
