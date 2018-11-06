@@ -68,70 +68,110 @@ namespace SRePS
 
         }
 
+        public Boolean isPIDExists()
+        {
+            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+            con.Open();
+            OleDbDataReader read;
+            string query = "SELECT * FROM Product WHERE [P_ID]=?";
+            OleDbCommand cmd = new OleDbCommand(query, con);
+
+            cmd.Parameters.AddWithValue("P_ID", p_IDTextBox.Text);
+            read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                if (read.HasRows == true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             
             System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
             Boolean added = false;
-            try
+
+
+            string oldID = Program.frmProduct.productDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            if (p_IDTextBox.Text == "" || p_NameTextBox.Text == "" || P_QuantityUpDown.Value < 0 || p_PriceTextBox.Text == "" || p_CostTextBox.Text == ""
+                || p_SupplierTextBox.Text == "" || p_UOMComboBox.SelectedItem == null || p_GroupComboBox.SelectedItem == null
+                || p_SubGroupComboBox.SelectedItem == null)
             {
-                conn.Open();
-
-                string my_query = "INSERT INTO `Product` (`P_ID`,`P_Name`,`P_Quantity`,`P_Price`,`P_Cost`,`P_Supplier`,`P_UOM`,`P_Group`, `P_SubGroup`) VALUES (?,?,?,?,?,?,?,?,?)";
-                OleDbCommand cmd = new OleDbCommand(my_query, conn);
-                cmd.Parameters.AddWithValue("@P_ID", Convert.ToInt32(p_IDTextBox.Text));
-                cmd.Parameters.AddWithValue("@P_Name", p_NameTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_Quantity", P_QuantityUpDown.Value);
-                cmd.Parameters.AddWithValue("@P_Price", Convert.ToDouble(p_PriceTextBox.Text));
-                cmd.Parameters.AddWithValue("@P_Cost", Convert.ToDouble(p_CostTextBox.Text));
-                cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
-                cmd.Parameters.AddWithValue("@P_UOM", p_UOMComboBox.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@P_Group", p_GroupComboBox.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@P_SubGroup", p_SubGroupComboBox.SelectedItem.ToString());
-
-                //The selling price must not lower than cost
-                if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
-                {
-                    MessageBox.Show("Selling price must not be lower than cost!");
-                }
-                else
-                {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Product added successfully!");
-                    added = true;
-                }
-
-                Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                MessageBox.Show("Please fill in all the field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to add product due to " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-
-                if (added == true)
+            else
+                try
                 {
-                    foreach (var item in this.Controls)
+                    conn.Open();
+
+                    string my_query = "INSERT INTO `Product` (`P_ID`,`P_Name`,`P_Quantity`,`P_Price`,`P_Cost`,`P_Supplier`,`P_UOM`,`P_Group`, `P_SubGroup`) VALUES (?,?,?,?,?,?,?,?,?)";
+                    OleDbCommand cmd = new OleDbCommand(my_query, conn);
+
+                    if (isPIDExists())
                     {
-                        //check item is textbox
-                        if (item.GetType().Equals(typeof(TextBox)))
-                        {
-                            //clear all textbox at the same time
-                            TextBox t1 = item as TextBox;
-                            t1.Text = string.Empty;
-                        }
+                        MessageBox.Show("Product ID exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@P_ID", Convert.ToInt32(p_IDTextBox.Text));
+                        cmd.Parameters.AddWithValue("@P_Name", p_NameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@P_Quantity", P_QuantityUpDown.Value);
+                        cmd.Parameters.AddWithValue("@P_Price", Convert.ToDouble(p_PriceTextBox.Text));
+                        cmd.Parameters.AddWithValue("@P_Cost", Convert.ToDouble(p_CostTextBox.Text));
+                        cmd.Parameters.AddWithValue("@P_Supplier", p_SupplierTextBox.Text);
+                        cmd.Parameters.AddWithValue("@P_UOM", p_UOMComboBox.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@P_Group", p_GroupComboBox.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@P_SubGroup", p_SubGroupComboBox.SelectedItem.ToString());
 
-                    p_SubGroupComboBox.Enabled = false;
-                    p_UOMComboBox.SelectedItem = null;
-                    p_GroupComboBox.SelectedItem = null;
-                    p_SubGroupComboBox.SelectedItem = null;
-                    P_QuantityUpDown.Value = 0;
+                        //The selling price must not lower than cost
+                        if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
+                        {
+                            MessageBox.Show("Selling price must not be lower than cost!");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Product added successfully!");
+                            added = true;
+                        }
+
+                        Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                    }
                 }
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to add product due to " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+
+                    if (added == true)
+                    {
+                        foreach (var item in this.Controls)
+                        {
+                            //check item is textbox
+                            if (item.GetType().Equals(typeof(TextBox)))
+                            {
+                                //clear all textbox at the same time
+                                TextBox t1 = item as TextBox;
+                                t1.Text = string.Empty;
+                            }
+                        }
+
+                        p_SubGroupComboBox.Enabled = false;
+                        p_UOMComboBox.SelectedItem = null;
+                        p_GroupComboBox.SelectedItem = null;
+                        p_SubGroupComboBox.SelectedItem = null;
+                        P_QuantityUpDown.Value = 0;
+                    }
+                }
         }
 
         private void btnCancelProduct_Click(object sender, EventArgs e)
