@@ -519,7 +519,7 @@
             // P_Archive
             // 
             this.P_Archive.DataPropertyName = "P_Archive";
-            this.P_Archive.HeaderText = "P_Archive";
+            this.P_Archive.HeaderText = "Archived";
             this.P_Archive.Name = "P_Archive";
             this.P_Archive.ReadOnly = true;
             // 
