@@ -92,7 +92,7 @@ namespace SRePS
                     cmd.Parameters.AddWithValue("@P_UOM", cmbPUOM.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@P_Group", cmbPGroup.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@P_SubGroup", cmbPSubGroup.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@oldID", oldID);
+                    
                     bool isChecked = rdTrue.Checked;
                     if (isChecked)
                     {
@@ -103,6 +103,7 @@ namespace SRePS
                         cmd.Parameters.AddWithValue("@P_Archive", rdFalse.Text);
                     }
 
+                    cmd.Parameters.AddWithValue("@oldID", oldID);
 
                     //The selling price must not lower than cost
                     if (Convert.ToDouble(p_PriceTextBox.Text) < Convert.ToDouble(p_CostTextBox.Text))
