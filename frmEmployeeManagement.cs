@@ -283,8 +283,33 @@ namespace SRePS
                     //Check if the deleting product is existing in the Sales table
                     if (foundPID.Length != 0)
                     {
-                        MessageBox.Show("This record cannot be deleted as this employee have made sales before", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        if (employeeDataGridView.SelectedRows[0].Cells[3].Value.ToString() == "Inactive")
+                        {
+                            DialogResult dialogResult = MessageBox.Show("This record cannot be deleted as this employee have made sales before, but you can change the employee's status. Do you want to change the status of this employee?", "Status record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+                                con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                                con.Open();
+                                string query = "UPDATE [Employees] SET [E_Status]=? WHERE [E_ID]=?";
+                                OleDbCommand cmd = new OleDbCommand(query, con);
+                                cmd.Parameters.AddWithValue("E_Status", "Active");
+                                cmd.Parameters.AddWithValue("E_ID", deleteEID);
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+
+                                //update the datagrid
+                                employeesTableAdapter.Fill(sRePS_DatabaseDataSet.Employees);
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("This record has already change the status.", "Status error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     else
                     {
@@ -299,6 +324,14 @@ namespace SRePS
                         {
                             return;
                         }
+                    }
+
+                    //if AddSales form is opened, after this changes the AddSales form must be forced to close
+                    if (Program.isOpened(Program.frmAddS) == true)
+                    {
+                        Program.frmAddS.Focus();
+                        MessageBox.Show("You have made changes to the Employee table, please reopen the Add Sales window");
+                        Program.frmAddS.Dispose();
                     }
                 }
                 else
