@@ -269,6 +269,40 @@ namespace SRePS
             }
         }
 
+        public Boolean isAdminExists()
+        {
+            int count = 0;
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+
+            conn.Open();
+            OleDbDataReader read;
+            string my_query = "SELECT * FROM Employees WHERE [E_Position]=? AND [E_Status]=?";
+            OleDbCommand cmd = new OleDbCommand(my_query, conn);
+
+            cmd.Parameters.AddWithValue("E_Position", "Admin");
+            cmd.Parameters.AddWithValue("E_Status", "Active");
+
+            read = cmd.ExecuteReader();
+            while (read.Read())
+            {
+                if (read.HasRows == true)
+                {
+                    count++;
+                }
+            }
+            conn.Close();
+
+            if (count > 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void btnDelEmployee_Click(object sender, EventArgs e)
         {
             if (Program.curPosition == "Admin")
@@ -283,32 +317,42 @@ namespace SRePS
                     //Check if the deleting product is existing in the Sales table
                     if (foundPID.Length != 0)
                     {
-                        if (employeeDataGridView.SelectedRows[0].Cells[3].Value.ToString() == "Inactive")
+                        if (isAdminExists() == true)
                         {
-                            DialogResult dialogResult = MessageBox.Show("This record cannot be deleted as this employee have made sales before, but you can change the employee's status. Do you want to change the status of this employee?", "Status record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                            if (dialogResult == DialogResult.Yes)
+                            if (employeeDataGridView.SelectedRows[0].Cells[3].Value.ToString() == "Active")
                             {
-                                System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-                                con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-                                con.Open();
-                                string query = "UPDATE [Employees] SET [E_Status]=? WHERE [E_ID]=?";
-                                OleDbCommand cmd = new OleDbCommand(query, con);
-                                cmd.Parameters.AddWithValue("E_Status", "Active");
-                                cmd.Parameters.AddWithValue("E_ID", deleteEID);
-                                cmd.ExecuteNonQuery();
-                                con.Close();
+                                DialogResult dialogResult = MessageBox.Show("This record cannot be deleted as this employee have made sales before, but you can change the employee's status. Do you want to change the status of this employee?", "Status record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                                if (dialogResult == DialogResult.Yes)
+                                {
+                                    System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+                                    con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                                    con.Open();
+                                    string query = "UPDATE [Employees] SET [E_Status]=? WHERE [E_ID]=?";
+                                    OleDbCommand cmd = new OleDbCommand(query, con);
+                                    cmd.Parameters.AddWithValue("E_Status", "Inactive");
+                                    cmd.Parameters.AddWithValue("E_ID", deleteEID);
+                                    cmd.ExecuteNonQuery();
+                                    con.Close();
 
-                                //update the datagrid
-                                employeesTableAdapter.Fill(sRePS_DatabaseDataSet.Employees);
-                            }
-                            else
-                            {
-                                return;
+                                    //update the datagrid
+                                    employeesTableAdapter.Fill(sRePS_DatabaseDataSet.Employees);
+                                }
+                                else
+                                {
+                                    return;
+                                }
                             }
                         }
                         else
                         {
-                            MessageBox.Show("This record has already change the status.", "Status error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            if (employeeDataGridView.SelectedRows[0].Cells[3].Value.ToString() == "Active")
+                            {
+                                MessageBox.Show("This record cannot be delete because there is not active admin.", "Status error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else
+                            {
+                                MessageBox.Show("This record has already change the status.", "Status error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                     }
                     else
@@ -317,8 +361,20 @@ namespace SRePS
                         DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting record", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                         if (dialogResult == DialogResult.Yes)
                         {
-                            this.sRePS_DatabaseDataSet.Employees.Rows[rowIndex].Delete();
-                            employeesTableAdapter.Update(sRePS_DatabaseDataSet);
+                            if (employeeDataGridView.CurrentRow.Cells[2].Value.ToString() == "Cashier" || (employeeDataGridView.CurrentRow.Cells[2].Value.ToString() == "Admin" && employeeDataGridView.CurrentRow.Cells[3].Value.ToString() == "Inactive"))
+                            {
+                                this.sRePS_DatabaseDataSet.Employees.Rows[rowIndex].Delete();
+                                employeesTableAdapter.Update(sRePS_DatabaseDataSet);
+                            }
+                            else if (isAdminExists() == true)
+                            {
+                                this.sRePS_DatabaseDataSet.Employees.Rows[rowIndex].Delete();
+                                employeesTableAdapter.Update(sRePS_DatabaseDataSet);
+                            }
+                            else
+                            {
+                                MessageBox.Show("This record cannot be delete because there must be at least one active admin.", "Status error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                         else
                         {
