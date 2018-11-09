@@ -276,85 +276,98 @@ namespace SRePS
         {
             System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
             con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-
-            if (Program.curPosition == "Admin")
+            if (salesDataGridView.Visible)
             {
-                if (salesDataGridView.SelectedRows.Count != 0)
+                if (Program.curPosition == "Admin")
                 {
-                    int rowIndex = salesDataGridView.CurrentRow.Index;
-                    string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[1].Value.ToString();
-                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting sales", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (dialogResult == DialogResult.Yes)
+                    if (salesDataGridView.SelectedRows.Count != 0)
                     {
-
-                        con.Open();
-                        string query3 = "UPDATE [Product] SET [P_Quantity]=P_Quantity+@quantityChanged WHERE [P_ID]=?";
-                        OleDbCommand cmd3 = new OleDbCommand(query3, con);
-
-                        for (int i = 0; i < this.sRePS_DatabaseDataSet.Order.Rows.Count; i++)
+                        int rowIndex = salesDataGridView.CurrentRow.Index;
+                        string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                        DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record?", "Deleting sales", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (dialogResult == DialogResult.Yes)
                         {
-                            DataRow row = this.sRePS_DatabaseDataSet.Order.Rows[i];
 
-                            //update the quantity back to Product
-                            if (Convert.ToInt32(row[1]) == Convert.ToInt32(selectedInvNo))
+                            con.Open();
+                            string query3 = "UPDATE [Product] SET [P_Quantity]=P_Quantity+@quantityChanged WHERE [P_ID]=?";
+                            OleDbCommand cmd3 = new OleDbCommand(query3, con);
+
+                            for (int i = 0; i < this.sRePS_DatabaseDataSet.Order.Rows.Count; i++)
                             {
-                                cmd3.Parameters.AddWithValue("@quantityChanged", Convert.ToInt32(row[2]));
-                                cmd3.Parameters.AddWithValue("P_ID", Convert.ToInt32(row[0]));
-                                cmd3.ExecuteNonQuery();
-                                cmd3.Parameters.Clear();
-                                row.Delete();
-                            }
-                        }
+                                DataRow row = this.sRePS_DatabaseDataSet.Order.Rows[i];
 
-                        con.Close();
-
-                        this.sRePS_DatabaseDataSet.Sales.Rows[rowIndex].Delete();
-                        salesTableAdapter.Update(sRePS_DatabaseDataSet);
-
-
-                        if (Program.isOpened(Program.frmProduct) == true)
-                        {
-                            Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
-                        }
-
-                        if (Program.isOpened(Program.frmAddS) == true)
-                        {
-                            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
-                            conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-                            string inv = "SELECT MAX(Inv_No) FROM Sales";
-                            OleDbCommand cmd = new OleDbCommand(inv, conn);
-                            cmd.CommandType = CommandType.Text;
-                            cmd.Connection.Open();
-                            object obj = cmd.ExecuteScalar();
-                            if (string.IsNullOrEmpty(obj.ToString()))
-                            {
-                                Program.frmAddS.lblInv_No.Text = "S1";
-                            }
-                            else
-                            {
-                                Program.frmAddS.lblInv_No.Text = "S"+Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
+                                //update the quantity back to Product
+                                if (Convert.ToInt32(row[1]) == Convert.ToInt32(selectedInvNo))
+                                {
+                                    cmd3.Parameters.AddWithValue("@quantityChanged", Convert.ToInt32(row[2]));
+                                    cmd3.Parameters.AddWithValue("P_ID", Convert.ToInt32(row[0]));
+                                    cmd3.ExecuteNonQuery();
+                                    cmd3.Parameters.Clear();
+                                    row.Delete();
+                                }
                             }
 
-                        }
+                            con.Close();
 
-                        salesManagementTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+                            this.sRePS_DatabaseDataSet.Sales.Rows[rowIndex].Delete();
+                            salesTableAdapter.Update(sRePS_DatabaseDataSet);
 
-                        if (salesMngDetailDataGridView.Visible)
-                        {
-                            salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+
+                            if (Program.isOpened(Program.frmProduct) == true)
+                            {
+                                Program.frmProduct.productTableAdapter.Fill(Program.frmProduct.sRePS_DatabaseDataSet.Product);
+                            }
+
+                            if (Program.isOpened(Program.frmAddS) == true)
+                            {
+                                System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+                                conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
+                                string inv = "SELECT MAX(Inv_No) FROM Sales";
+                                OleDbCommand cmd = new OleDbCommand(inv, conn);
+                                cmd.CommandType = CommandType.Text;
+                                cmd.Connection.Open();
+                                object obj = cmd.ExecuteScalar();
+                                if (string.IsNullOrEmpty(obj.ToString()))
+                                {
+                                    Program.frmAddS.lblInv_No.Text = "1";
+                                }
+                                else
+                                {
+                                    Program.frmAddS.lblInv_No.Text = Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
+                                }
+
+                            }
+
+                            salesManagementTableAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+
+                            if (salesMngDetailDataGridView.Visible)
+                            {
+                                salesMngDetailAdapter.Fill(Program.frmSales.sRePS_DatabaseDataSet.SalesManagement);
+                            }
+
                         }
 
                     }
-
+                    else
+                    {
+                        MessageBox.Show("No row has been selected. Please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No row has been selected. Please select a row to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Only admin can delete sales record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            else if (salesMngDetailDataGridView.Visible)
             {
-                MessageBox.Show("Only admin can delete sales record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialogResult = MessageBox.Show("Cannot delete sales at Sale Detail page." + "\n" + "Redirect back to Sales Management page for delete action?", "Deleting sales", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    salesMngDetailDataGridView.Hide();
+                    salesDataGridView.Show();
+                }
+
+
             }
         }
 
