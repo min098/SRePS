@@ -171,11 +171,11 @@ namespace SRePS
             object obj = cmd.ExecuteScalar();
             if (string.IsNullOrEmpty(obj.ToString()))
             {
-                lblInv_No.Text = "1";
+                lblInv_No.Text = "S1";
             }
             else
             {
-                lblInv_No.Text = Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
+                lblInv_No.Text ="S"+ Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
             }
         }
 

@@ -43,8 +43,9 @@ namespace SRePS
                 else
                 {
                     //the Order table needs the Inv_No, therefore execute the INSERT of Sales first
-                    string my_query = "INSERT INTO `Sales` (`S_Date`,`E_ID`) VALUES (?,?)";
+                    string my_query = "INSERT INTO `Sales` (`Invoice`,`S_Date`,`E_ID`) VALUES (?,?,?)";
                     OleDbCommand cmd = new OleDbCommand(my_query, conn);
+                    cmd.Parameters.AddWithValue("@Invoice", Program.frmAddS.lblInv_No.Text);
                     cmd.Parameters.AddWithValue("@S_Date", s_date);
                     cmd.Parameters.AddWithValue("@E_ID", Program.curUserName);
                     cmd.ExecuteNonQuery();
@@ -130,7 +131,7 @@ namespace SRePS
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection.Open();
                     object obj = cmd.ExecuteScalar();
-                    Program.frmAddS.lblInv_No.Text = Convert.ToString(Convert.ToInt32(obj.ToString()));
+                    Program.frmAddS.lblInv_No.Text = "S"+Convert.ToString(Convert.ToInt32(obj.ToString()));
                 }
 
 

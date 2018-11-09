@@ -1456,6 +1456,8 @@ namespace SRePS {
             
             private global::System.Data.DataColumn columnE_ID;
             
+            private global::System.Data.DataColumn columnInvoice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public SalesDataTable() {
@@ -1515,6 +1517,14 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn InvoiceColumn {
+                get {
+                    return this.columnInvoice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1550,12 +1560,13 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SalesRow AddSalesRow(System.DateTime S_Date, EmployeesRow parentEmployeesRowByEmployeesSales) {
+            public SalesRow AddSalesRow(System.DateTime S_Date, EmployeesRow parentEmployeesRowByEmployeesSales, string Invoice) {
                 SalesRow rowSalesRow = ((SalesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         S_Date,
-                        null};
+                        null,
+                        Invoice};
                 if ((parentEmployeesRowByEmployeesSales != null)) {
                     columnValuesArray[2] = parentEmployeesRowByEmployeesSales[0];
                 }
@@ -1591,6 +1602,7 @@ namespace SRePS {
                 this.columnInv_No = base.Columns["Inv_No"];
                 this.columnS_Date = base.Columns["S_Date"];
                 this.columnE_ID = base.Columns["E_ID"];
+                this.columnInvoice = base.Columns["Invoice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1602,6 +1614,8 @@ namespace SRePS {
                 base.Columns.Add(this.columnS_Date);
                 this.columnE_ID = new global::System.Data.DataColumn("E_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnE_ID);
+                this.columnInvoice = new global::System.Data.DataColumn("Invoice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnInv_No}, true));
                 this.columnInv_No.AutoIncrement = true;
@@ -1610,6 +1624,7 @@ namespace SRePS {
                 this.columnInv_No.AllowDBNull = false;
                 this.columnInv_No.Unique = true;
                 this.columnE_ID.MaxLength = 12;
+                this.columnInvoice.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1751,6 +1766,8 @@ namespace SRePS {
             
             private global::System.Data.DataColumn columnTotal;
             
+            private global::System.Data.DataColumn columnInvoice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public SalesManagementDataTable() {
@@ -1818,6 +1835,14 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn InvoiceColumn {
+                get {
+                    return this.columnInvoice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1853,13 +1878,14 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SalesManagementRow AddSalesManagementRow(System.DateTime S_Date, int Inv_No, string E_ID, double Total) {
+            public SalesManagementRow AddSalesManagementRow(System.DateTime S_Date, int Inv_No, string E_ID, double Total, string Invoice) {
                 SalesManagementRow rowSalesManagementRow = ((SalesManagementRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         S_Date,
                         Inv_No,
                         E_ID,
-                        Total};
+                        Total,
+                        Invoice};
                 rowSalesManagementRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSalesManagementRow);
                 return rowSalesManagementRow;
@@ -1886,6 +1912,7 @@ namespace SRePS {
                 this.columnInv_No = base.Columns["Inv_No"];
                 this.columnE_ID = base.Columns["E_ID"];
                 this.columnTotal = base.Columns["Total"];
+                this.columnInvoice = base.Columns["Invoice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1899,7 +1926,10 @@ namespace SRePS {
                 base.Columns.Add(this.columnE_ID);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
+                this.columnInvoice = new global::System.Data.DataColumn("Invoice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoice);
                 this.columnE_ID.MaxLength = 12;
+                this.columnInvoice.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2610,6 +2640,22 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Invoice {
+                get {
+                    try {
+                        return ((string)(this[this.tableSales.InvoiceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Invoice\' in table \'Sales\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSales.InvoiceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public EmployeesRow EmployeesRow {
                 get {
                     return ((EmployeesRow)(this.GetParentRow(this.Table.ParentRelations["EmployeesSales"])));
@@ -2652,6 +2698,18 @@ namespace SRePS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetE_IDNull() {
                 this[this.tableSales.E_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsInvoiceNull() {
+                return this.IsNull(this.tableSales.InvoiceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetInvoiceNull() {
+                this[this.tableSales.InvoiceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2746,6 +2804,22 @@ namespace SRePS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Invoice {
+                get {
+                    try {
+                        return ((string)(this[this.tableSalesManagement.InvoiceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Invoice\' in table \'SalesManagement\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSalesManagement.InvoiceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsS_DateNull() {
                 return this.IsNull(this.tableSalesManagement.S_DateColumn);
             }
@@ -2790,6 +2864,18 @@ namespace SRePS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTotalNull() {
                 this[this.tableSalesManagement.TotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsInvoiceNull() {
+                return this.IsNull(this.tableSalesManagement.InvoiceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetInvoiceNull() {
+                this[this.tableSalesManagement.InvoiceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4528,36 +4614,44 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Inv_No", "Inv_No");
             tableMapping.ColumnMappings.Add("S_Date", "S_Date");
             tableMapping.ColumnMappings.Add("E_ID", "E_ID");
+            tableMapping.ColumnMappings.Add("Invoice", "Invoice");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `Sales` WHERE ((`Inv_No` = ?) AND ((? = 1 AND `S_Date` IS NULL) OR (`" +
-                "S_Date` = ?)) AND ((? = 1 AND `E_ID` IS NULL) OR (`E_ID` = ?)))";
+                "S_Date` = ?)) AND ((? = 1 AND `E_ID` IS NULL) OR (`E_ID` = ?)) AND ((? = 1 AND `" +
+                "Invoice` IS NULL) OR (`Invoice` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Inv_No", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Inv_No", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_S_Date", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "S_Date", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_S_Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "S_Date", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Invoice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Invoice", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Invoice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Invoice", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Sales` (`S_Date`, `E_ID`) VALUES (?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Sales` (`S_Date`, `E_ID`, `Invoice`) VALUES (?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("S_Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "S_Date", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Invoice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Invoice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `Sales` SET `S_Date` = ?, `E_ID` = ? WHERE ((`Inv_No` = ?) AND ((? = 1 AND" +
-                " `S_Date` IS NULL) OR (`S_Date` = ?)) AND ((? = 1 AND `E_ID` IS NULL) OR (`E_ID`" +
-                " = ?)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `Sales` SET `S_Date` = ?, `E_ID` = ?, `Invoice` = ? WHERE ((`Inv_No` = ?) " +
+                "AND ((? = 1 AND `S_Date` IS NULL) OR (`S_Date` = ?)) AND ((? = 1 AND `E_ID` IS N" +
+                "ULL) OR (`E_ID` = ?)) AND ((? = 1 AND `Invoice` IS NULL) OR (`Invoice` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("S_Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "S_Date", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Invoice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Invoice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Inv_No", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Inv_No", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_S_Date", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "S_Date", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_S_Date", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "S_Date", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_E_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_E_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "E_ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Invoice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Invoice", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Invoice", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Invoice", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4573,7 +4667,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Inv_No, S_Date, E_ID FROM Sales";
+            this._commandCollection[0].CommandText = "SELECT Inv_No, S_Date, E_ID, Invoice FROM Sales";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4634,7 +4728,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Inv_No, global::System.Nullable<global::System.DateTime> Original_S_Date, string Original_E_ID) {
+        public virtual int Delete(int Original_Inv_No, global::System.Nullable<global::System.DateTime> Original_S_Date, string Original_E_ID, string Original_Invoice) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Inv_No));
             if ((Original_S_Date.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -4651,6 +4745,14 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_E_ID));
+            }
+            if ((Original_Invoice == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Invoice));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4672,7 +4774,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> S_Date, string E_ID) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> S_Date, string E_ID, string Invoice) {
             if ((S_Date.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(S_Date.Value));
             }
@@ -4684,6 +4786,12 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(E_ID));
+            }
+            if ((Invoice == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Invoice));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4705,7 +4813,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> S_Date, string E_ID, int Original_Inv_No, global::System.Nullable<global::System.DateTime> Original_S_Date, string Original_E_ID) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> S_Date, string E_ID, string Invoice, int Original_Inv_No, global::System.Nullable<global::System.DateTime> Original_S_Date, string Original_E_ID, string Original_Invoice) {
             if ((S_Date.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(S_Date.Value));
             }
@@ -4718,22 +4826,36 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(E_ID));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_Inv_No));
-            if ((Original_S_Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Original_S_Date.Value));
+            if ((Invoice == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Invoice));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Inv_No));
+            if ((Original_S_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_S_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             if ((Original_E_ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_E_ID));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_E_ID));
+            }
+            if ((Original_Invoice == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Invoice));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4877,6 +4999,7 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Inv_No", "Inv_No");
             tableMapping.ColumnMappings.Add("E_ID", "E_ID");
             tableMapping.ColumnMappings.Add("Total", "Total");
+            tableMapping.ColumnMappings.Add("Invoice", "Invoice");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4893,12 +5016,12 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Sales.S_Date, [Order].Inv_No, Employees.E_ID, SUM(Product.P_Price * [Order].S_Quantity) AS Total
-FROM            (((Product INNER JOIN
-                         [Order] ON Product.P_ID = [Order].P_ID) INNER JOIN
-                         Sales ON [Order].Inv_No = Sales.Inv_No) INNER JOIN
-                         Employees ON Sales.E_ID = Employees.E_ID)
-GROUP BY Sales.S_Date, [Order].Inv_No, Employees.E_ID";
+            this._commandCollection[0].CommandText = @"SELECT Sales.S_Date, [Order].Inv_No, Employees.E_ID, SUM(Product.P_Price * [Order].S_Quantity) AS Total, Sales.Invoice
+FROM   (((Product INNER JOIN
+             [Order] ON Product.P_ID = [Order].P_ID) INNER JOIN
+             Sales ON [Order].Inv_No = Sales.Inv_No) INNER JOIN
+             Employees ON Sales.E_ID = Employees.E_ID)
+GROUP BY Sales.S_Date, [Order].Inv_No, Employees.E_ID, Sales.Invoice";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

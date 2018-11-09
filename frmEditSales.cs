@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace SRePS
 {
@@ -25,7 +26,9 @@ namespace SRePS
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            string oldInvNo = Program.frmSales.salesMngDetailDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+
+            string oldInvNoString = Program.frmSales.salesMngDetailDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            string oldInvNo = Regex.Match(oldInvNoString, "\\d+").Value;
             string oldEID = Program.frmSales.salesMngDetailDataGridView.SelectedRows[0].Cells[2].Value.ToString();
             string oldPID = Program.frmSales.salesMngDetailDataGridView.SelectedRows[0].Cells[3].Value.ToString();
             string oldQtySold = Program.frmSales.salesMngDetailDataGridView.SelectedRows[0].Cells[4].Value.ToString();

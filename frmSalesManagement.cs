@@ -203,7 +203,7 @@ namespace SRePS
                         {
                             conn.Open();
 
-                            string query = "SELECT [Order].Inv_No AS Invoice_No, Sales.S_Date AS Sales_Date, Employees.E_ID AS Employee_ID, Product.P_ID AS Product_ID, [Order].S_Quantity AS Quantity_Sold " +
+                            string query = "SELECT Sales.Invoice AS Invoice_No, Sales.S_Date AS Sales_Date, Employees.E_ID AS Employee_ID, Product.P_ID AS Product_ID, [Order].S_Quantity AS Quantity_Sold " +
                                 "FROM (((Product INNER JOIN [Order] ON Product.P_ID = [Order].P_ID) " +
                                 "INNER JOIN Sales ON [Order].Inv_No = Sales.Inv_No) " +
                                 "INNER JOIN Employees ON Sales.E_ID = Employees.E_ID) " +
@@ -328,11 +328,11 @@ namespace SRePS
                             object obj = cmd.ExecuteScalar();
                             if (string.IsNullOrEmpty(obj.ToString()))
                             {
-                                Program.frmAddS.lblInv_No.Text = "1";
+                                Program.frmAddS.lblInv_No.Text = "S1";
                             }
                             else
                             {
-                                Program.frmAddS.lblInv_No.Text = Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
+                                Program.frmAddS.lblInv_No.Text = "S"+Convert.ToString(Convert.ToInt32(obj.ToString()) + 1);
                             }
 
                         }
