@@ -194,7 +194,7 @@ namespace SRePS
                             sRePS_DatabaseDataSet.Tables["SalesManagementDetail"].Clear();
                         }
 
-                        string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                        string selectedInvNo = salesDataGridView.SelectedRows[0].Cells[2].Value.ToString();
 
                         OleDbConnection conn = new OleDbConnection();
                         conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;

@@ -73,10 +73,10 @@
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salesMngDetailDataGridView = new System.Windows.Forms.DataGridView();
             this.sDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.invNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesManagementBindingSource)).BeginInit();
@@ -200,10 +200,10 @@
             this.salesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sDateDataGridViewTextBoxColumn,
+            this.invoiceDataGridViewTextBoxColumn,
             this.invNoDataGridViewTextBoxColumn,
             this.eIDDataGridViewTextBoxColumn,
-            this.totalDataGridViewTextBoxColumn,
-            this.invoiceDataGridViewTextBoxColumn});
+            this.totalDataGridViewTextBoxColumn});
             this.salesDataGridView.DataSource = this.salesManagementBindingSource;
             this.salesDataGridView.Location = new System.Drawing.Point(15, 51);
             this.salesDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -451,6 +451,13 @@
             this.sDateDataGridViewTextBoxColumn.Name = "sDateDataGridViewTextBoxColumn";
             this.sDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // invoiceDataGridViewTextBoxColumn
+            // 
+            this.invoiceDataGridViewTextBoxColumn.DataPropertyName = "Invoice";
+            this.invoiceDataGridViewTextBoxColumn.HeaderText = "Invoice";
+            this.invoiceDataGridViewTextBoxColumn.Name = "invoiceDataGridViewTextBoxColumn";
+            this.invoiceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // invNoDataGridViewTextBoxColumn
             // 
             this.invNoDataGridViewTextBoxColumn.DataPropertyName = "Inv_No";
@@ -472,13 +479,6 @@
             this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // invoiceDataGridViewTextBoxColumn
-            // 
-            this.invoiceDataGridViewTextBoxColumn.DataPropertyName = "Invoice";
-            this.invoiceDataGridViewTextBoxColumn.HeaderText = "Invoice";
-            this.invoiceDataGridViewTextBoxColumn.Name = "invoiceDataGridViewTextBoxColumn";
-            this.invoiceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmSalesManagement
             // 
@@ -563,9 +563,9 @@
         private System.Windows.Forms.ToolStripButton toolStripBtnBack;
         public System.Windows.Forms.DataGridView salesMngDetailDataGridView;   //NOTE: changed to public
         private System.Windows.Forms.DataGridViewTextBoxColumn sDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn invNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn invoiceDataGridViewTextBoxColumn;
     }
 }
