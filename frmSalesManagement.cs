@@ -358,7 +358,7 @@ namespace SRePS
                     MessageBox.Show("Only admin can delete sales record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (salesMngDetailDataGridView.Visible)
+            else 
             {
                 DialogResult dialogResult = MessageBox.Show("Cannot delete sales at Sale Detail page." + "\n" + "Redirect back to Sales Management page for delete action?", "Deleting sales", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (dialogResult == DialogResult.Yes)
