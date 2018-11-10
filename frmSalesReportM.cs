@@ -169,7 +169,17 @@ namespace SRePS
 
         private void btnVisualize_Click(object sender, EventArgs e)
         {
+            if (Program.isOpened(Program.frmVRev) == true)
+            {
 
+                Program.frmVRev.Focus();
+
+            }
+            else
+            {
+                Program.frmVRev = new frmVRevenue();
+                Program.frmVRev.Show();
+            }
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)

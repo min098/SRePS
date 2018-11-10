@@ -332,7 +332,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView salesReportMDataGridView;
+        public System.Windows.Forms.DataGridView salesReportMDataGridView; //NOTE: changed to public
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnVisualize;
         private System.Windows.Forms.Button btnSearch;

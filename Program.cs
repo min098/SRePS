@@ -22,6 +22,7 @@ namespace SRePS
         public static frmSalesReportD frmSalesD;
         public static frmSalesReportM frmSalesM;
         public static frmSalesReportW frmSalesW;
+        public static frmVRevenue frmVRev;
         public static frmAddSales frmAddS;
         public static frmPayment frmP;
 
