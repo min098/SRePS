@@ -71,7 +71,7 @@
             this.salesReportMDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesReportMDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesReportMDataGridView.Location = new System.Drawing.Point(11, 98);
-            this.salesReportMDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.salesReportMDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.salesReportMDataGridView.MultiSelect = false;
             this.salesReportMDataGridView.Name = "salesReportMDataGridView";
             this.salesReportMDataGridView.ReadOnly = true;
@@ -97,7 +97,7 @@
             this.btnExport.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.Location = new System.Drawing.Point(905, 498);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(4);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(149, 41);
             this.btnExport.TabIndex = 22;
@@ -110,7 +110,7 @@
             this.btnVisualize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnVisualize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisualize.Location = new System.Drawing.Point(748, 498);
-            this.btnVisualize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVisualize.Margin = new System.Windows.Forms.Padding(4);
             this.btnVisualize.Name = "btnVisualize";
             this.btnVisualize.Size = new System.Drawing.Size(149, 41);
             this.btnVisualize.TabIndex = 21;
@@ -122,7 +122,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(677, 48);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 19;
@@ -135,7 +135,7 @@
             this.dtpickerEnd.CustomFormat = "MMMM yyyy";
             this.dtpickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpickerEnd.Location = new System.Drawing.Point(393, 49);
-            this.dtpickerEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpickerEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dtpickerEnd.Name = "dtpickerEnd";
             this.dtpickerEnd.Size = new System.Drawing.Size(265, 22);
             this.dtpickerEnd.TabIndex = 18;
@@ -145,7 +145,7 @@
             this.dtpickerStart.CustomFormat = "MMMM yyyy";
             this.dtpickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpickerStart.Location = new System.Drawing.Point(77, 49);
-            this.dtpickerStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpickerStart.Margin = new System.Windows.Forms.Padding(4);
             this.dtpickerStart.Name = "dtpickerStart";
             this.dtpickerStart.Size = new System.Drawing.Size(265, 22);
             this.dtpickerStart.TabIndex = 17;
@@ -289,7 +289,7 @@
             this.salesDetailDataGridView.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.salesDetailDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesDetailDataGridView.Location = new System.Drawing.Point(11, 98);
-            this.salesDetailDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.salesDetailDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.salesDetailDataGridView.MultiSelect = false;
             this.salesDetailDataGridView.Name = "salesDetailDataGridView";
             this.salesDetailDataGridView.ReadOnly = true;
@@ -324,7 +324,7 @@
             this.Controls.Add(this.dtpickerStart);
             this.Controls.Add(this.lblTo);
             this.Controls.Add(this.lblMonth);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSalesReportM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Monthly Sales Report";
@@ -348,8 +348,8 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnVisualize;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DateTimePicker dtpickerEnd;
-        private System.Windows.Forms.DateTimePicker dtpickerStart;
+        public System.Windows.Forms.DateTimePicker dtpickerEnd; //NOTE: changed to public
+        public System.Windows.Forms.DateTimePicker dtpickerStart; //NOTE: changed to public
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.Label lblMonth;
         private System.Windows.Forms.MenuStrip menuBar;

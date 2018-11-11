@@ -217,7 +217,7 @@ namespace SRePS
         }
 
         //method to convert the month name to month number
-        private string monthDictionary(string month)
+        public string monthDictionary(string month)
         {
             Dictionary<string, int> monthdictionary = new Dictionary<string, int>();
 
