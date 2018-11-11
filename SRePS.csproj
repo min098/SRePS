@@ -149,6 +149,12 @@
     <Compile Include="frmVRevenue.Designer.cs">
       <DependentUpon>frmVRevenue.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVTop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVTop.Designer.cs">
+      <DependentUpon>frmVTop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SRePS_DatabaseDataSet.Designer.cs">
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVRevenue.resx">
       <DependentUpon>frmVRevenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVTop.resx">
+      <DependentUpon>frmVTop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

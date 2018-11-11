@@ -169,17 +169,36 @@ namespace SRePS
 
         private void btnVisualize_Click(object sender, EventArgs e)
         {
-            if (Program.isOpened(Program.frmVRev) == true)
+
+            if(salesReportMDataGridView.Visible)
             {
+                if (Program.isOpened(Program.frmVRev) == true)
+                {
 
-                Program.frmVRev.Focus();
+                    Program.frmVRev.Focus();
 
+                }
+                else
+                {
+                    Program.frmVRev = new frmVRevenue();
+                    Program.frmVRev.Show();
+                }
             }
             else
             {
-                Program.frmVRev = new frmVRevenue();
-                Program.frmVRev.Show();
+                if (Program.isOpened(Program.frmTS) == true)
+                {
+
+                    Program.frmTS.Focus();
+
+                }
+                else
+                {
+                    Program.frmTS = new frmVTop();
+                    Program.frmTS.Show();
+                }
             }
+
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
