@@ -5016,11 +5016,11 @@ namespace SRePS.SRePS_DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Sales.S_Date, [Order].Inv_No, Employees.E_ID, SUM(Product.P_Price * [Order].S_Quantity) AS Total, Sales.Invoice
-FROM   (((Product INNER JOIN
-             [Order] ON Product.P_ID = [Order].P_ID) INNER JOIN
-             Sales ON [Order].Inv_No = Sales.Inv_No) INNER JOIN
-             Employees ON Sales.E_ID = Employees.E_ID)
+            this._commandCollection[0].CommandText = @"SELECT        Sales.S_Date, [Order].Inv_No, Employees.E_ID, ROUND(SUM(Product.P_Price * [Order].S_Quantity), 2) AS Total, Sales.Invoice
+FROM            (((Product INNER JOIN
+                         [Order] ON Product.P_ID = [Order].P_ID) INNER JOIN
+                         Sales ON [Order].Inv_No = Sales.Inv_No) INNER JOIN
+                         Employees ON Sales.E_ID = Employees.E_ID)
 GROUP BY Sales.S_Date, [Order].Inv_No, Employees.E_ID, Sales.Invoice";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
