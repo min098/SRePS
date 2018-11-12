@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label lblPGroup;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.TopSalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
@@ -55,7 +56,7 @@
             // 
             lblPGroup.AutoSize = true;
             lblPGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblPGroup.Location = new System.Drawing.Point(12, 69);
+            lblPGroup.Location = new System.Drawing.Point(7, 30);
             lblPGroup.Name = "lblPGroup";
             lblPGroup.Size = new System.Drawing.Size(123, 20);
             lblPGroup.TabIndex = 18;
@@ -64,19 +65,28 @@
             // 
             // TopSalesChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.TopSalesChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.TopSalesChart.Legends.Add(legend4);
-            this.TopSalesChart.Location = new System.Drawing.Point(12, 129);
+            chartArea5.AxisX.Title = "Item Sub-Group";
+            chartArea5.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisY.Title = "Monthly Quantity Sold";
+            chartArea5.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.Name = "ChartArea1";
+            this.TopSalesChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.TopSalesChart.Legends.Add(legend5);
+            this.TopSalesChart.Location = new System.Drawing.Point(12, 62);
             this.TopSalesChart.Name = "TopSalesChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "P_SubGroup";
-            this.TopSalesChart.Series.Add(series4);
-            this.TopSalesChart.Size = new System.Drawing.Size(1043, 413);
+            series5.ChartArea = "ChartArea1";
+            series5.IsVisibleInLegend = false;
+            series5.Legend = "Legend1";
+            series5.Name = "P_SubGroup";
+            this.TopSalesChart.Series.Add(series5);
+            this.TopSalesChart.Size = new System.Drawing.Size(1043, 480);
             this.TopSalesChart.TabIndex = 0;
             this.TopSalesChart.Text = "chart1";
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title5.Name = "TitleForTS";
+            title5.Text = "Monthly Top Sales Item Group";
+            this.TopSalesChart.Titles.Add(title5);
             // 
             // orderBindingSource
             // 
@@ -97,7 +107,7 @@
             "Equipment",
             "Healthcare",
             "Medicine"});
-            this.GroupComboBox.Location = new System.Drawing.Point(163, 66);
+            this.GroupComboBox.Location = new System.Drawing.Point(158, 27);
             this.GroupComboBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.GroupComboBox.Name = "GroupComboBox";
             this.GroupComboBox.Size = new System.Drawing.Size(371, 28);
@@ -107,11 +117,11 @@
             // 
             // btnVisualize
             // 
-            this.btnVisualize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisualize.Location = new System.Drawing.Point(541, 66);
+            this.btnVisualize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualize.Location = new System.Drawing.Point(536, 26);
             this.btnVisualize.Margin = new System.Windows.Forms.Padding(4);
             this.btnVisualize.Name = "btnVisualize";
-            this.btnVisualize.Size = new System.Drawing.Size(100, 28);
+            this.btnVisualize.Size = new System.Drawing.Size(100, 29);
             this.btnVisualize.TabIndex = 20;
             this.btnVisualize.Text = "&Visualize";
             this.btnVisualize.UseVisualStyleBackColor = true;

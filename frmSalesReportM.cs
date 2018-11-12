@@ -178,6 +178,7 @@ namespace SRePS
             }
             else
             {
+
                 Program.frmV = new frmVisualize();
                 Program.frmV.Show();
             }
