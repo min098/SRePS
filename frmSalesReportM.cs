@@ -350,11 +350,11 @@ namespace SRePS
             {
                 conn.Open();
 
-                string query = "SELECT Sales.S_Date AS Sales_Date, [Order].Inv_No AS Invoice_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
+                string query = "SELECT Sales.S_Date AS Sales_Date, Sales.Invoice AS Invoice_No, Product.P_Name AS Product_Name, [Order].S_Quantity AS Quantity_Sold, Product.P_Price AS Unit_Price, SUM(Product.P_Price*[Order].S_Quantity) AS Total " +
                     "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN " +
                     "Product ON [Order].P_ID = Product.P_ID) " +
                     "WHERE (MONTH(Sales.S_Date) = @selectedMonth) AND (YEAR(Sales.S_Date) = @selectedYear) " +
-                    "GROUP BY Sales.S_Date, [Order].Inv_No, Product.P_Name, [Order].S_Quantity, Product.P_Price";
+                    "GROUP BY Sales.S_Date, Sales.Invoice, Product.P_Name, [Order].S_Quantity, Product.P_Price";
                 OleDbCommand cmd = new OleDbCommand(query, conn);
                 cmd.Parameters.AddWithValue("@selectedMonth", selectedMonth);
                 cmd.Parameters.AddWithValue("@selectedYear", selectedYear);
