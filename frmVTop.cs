@@ -46,9 +46,6 @@ namespace SRePS
             string pickedEDate = endofmonth.ToString() + "/" + pickedEMonth + "/" + pickedEYear;
 
             con.Open();
-            if (pickedSMonthYear == pickedEMonthYear)
-            {
-
 
                 if (GroupComboBox.SelectedItem == null)
                 {
@@ -96,24 +93,7 @@ namespace SRePS
                     }
                     con.Close();
                 }
-            }
-            else
-            {
-                if (Program.frmSalesM.salesReportMDataGridView.Visible)
-                {
-                    if (Program.isOpened(Program.frmVRev) == true)
-                    {
-
-                        Program.frmVRev.Focus();
-
-                    }
-                    else
-                    {
-                        Program.frmVRev = new frmVRevenue();
-                        Program.frmVRev.Show();
-                    }
-                }
-            }
+            
         }
 
         private void GroupComboBox_SelectedIndexChanged(object sender, EventArgs e)

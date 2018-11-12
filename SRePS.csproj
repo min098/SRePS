@@ -143,6 +143,12 @@
     <Compile Include="frmSalesReportW.designer.cs">
       <DependentUpon>frmSalesReportW.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVisualize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualize.designer.cs">
+      <DependentUpon>frmVisualize.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVRevenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     <EmbeddedResource Include="frmSalesReportW.resx">
       <DependentUpon>frmSalesReportW.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualize.resx">
+      <DependentUpon>frmVisualize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVRevenue.resx">
       <DependentUpon>frmVRevenue.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +269,8 @@
     <None Include="Resources\Employees.png" />
     <None Include="Resources\Sales Report.png" />
     <None Include="Resources\Prediction.png" />
+    <Content Include="Resources\barchart.png" />
+    <Content Include="Resources\linegraph.png" />
     <Content Include="SRePS_Database.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
