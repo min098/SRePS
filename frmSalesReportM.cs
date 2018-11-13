@@ -29,6 +29,10 @@ namespace SRePS
 
             //Do not allow the user to select end date that is earlier than the start date
             dtpickerEnd.MinDate = dtpickerStart.Value;
+
+            //Do not show the Visualize and export button when first load to the form
+            btnVisualize.Hide();
+            btnExport.Hide();
         }
 
         private void frmSalesReportM_FormClosing(object sender, FormClosingEventArgs e)
@@ -298,10 +302,26 @@ namespace SRePS
 
                 conn.Close();
             }
+
+            //show visualize and export button after successfully search and have records
+            if(salesReportMDataGridView.Rows.Count > 0 || salesDetailDataGridView.Rows.Count > 0)
+            {
+                btnVisualize.Show();
+                btnExport.Show();
+            }
+            else
+            {
+                btnVisualize.Hide();
+                btnExport.Hide();
+            }
+            
         }
 
         private void salesReportMDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //hide the visualize button when the user double click to view the detail
+            btnVisualize.Hide();
+
             //clear any record in the table before fetching a new one
             if (sRePS_DatabaseDataSet.Tables["MonthlySalesDetail"] != null)
             {

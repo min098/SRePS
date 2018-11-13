@@ -26,7 +26,11 @@ namespace SRePS
 
         private void btnVisualize_Click(object sender, EventArgs e)
         {
-            TopSalesChart.Series["P_SubGroup"].Points.Clear();
+            //clear all series
+            foreach (var s in TopSalesChart.Series)
+            {
+                s.Points.Clear();
+            }
             System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
             con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
@@ -54,7 +58,7 @@ namespace SRePS
             {
                 try
                 {
-                    string query = "SELECT Product.P_SubGroup As SubGroup, SUM(Order.S_Quantity) AS Quantity " +
+                    string query = "SELECT YEAR(Sales.S_Date), MONTH(Sales.S_Date), Product.P_SubGroup As SubGroup, SUM(Order.S_Quantity) AS Quantity " +
                                     "FROM ((Sales INNER JOIN [Order] ON Sales.Inv_No = [Order].Inv_No) INNER JOIN Product ON [Order].P_ID = Product.P_ID) " +
                                     "WHERE (Sales.S_Date >= @startdate) AND (Sales.S_Date <= @endDate)  AND (((Product.P_Group) = @Group)) " +
                                     "GROUP BY YEAR(Sales.S_Date), MONTH(Sales.S_Date), Product.P_SubGroup ";
@@ -73,21 +77,34 @@ namespace SRePS
                     }
                     else
                     {
+                        string yearmonth = String.Empty;    //combine value of year and month together as one string
+
                         while (reader.HasRows)
                         {
                             while (reader.Read())
                             {
                                 TopSalesChart.Visible = true;
-                                TopSalesChart.Series["P_SubGroup"].Points.AddXY(reader.GetValue(0), reader.GetValue(1));
+
+                                yearmonth = reader.GetValue(0) + "-" + reader.GetValue(1);
+
+                                if (TopSalesChart.Series.FindByName(reader.GetValue(2).ToString()) == null) //only create new series when it is not exists
+                                {
+                                    TopSalesChart.Series.Add(reader.GetValue(2).ToString());
+                                }
+
+                                TopSalesChart.Series[reader.GetValue(2).ToString()].Points.AddXY(yearmonth, reader.GetValue(3));
+
+                                //show tooltip when user hover on the series(bar)
+                                TopSalesChart.Series[reader.GetValue(2).ToString()].ToolTip = "SubGroup: " + reader.GetValue(2).ToString() + "\n" + "Quantity: " + "#VALY";
                             }
-                                reader.NextResult();
-                         }
-                     }
+                            reader.NextResult();
+                        }
+                        TopSalesChart.AlignDataPointsByAxisLabel();
+                    }
                 }
                 catch (Exception)
                 {
                     throw;
-
                 }
                 con.Close();
             }
@@ -101,6 +118,29 @@ namespace SRePS
         private void lblPGroup_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmVTop_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if this form is the last open form, exit the application
+            if (Application.OpenForms.Count == 1)
+            {
+                //check the close reason so that exit confirmation messagebox only show up for UserClosing, not ApplicationExitCall
+                //or else it will pop up two times
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit this application?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
     }
 }
