@@ -278,6 +278,7 @@
     <None Include="Resources\Employees.png" />
     <None Include="Resources\Sales Report.png" />
     <None Include="Resources\Prediction.png" />
+    <Content Include="Resources\back.png" />
     <Content Include="Resources\barchart.png" />
     <Content Include="Resources\linegraph.png" />
     <Content Include="SRePS_Database.mdb">
