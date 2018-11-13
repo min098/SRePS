@@ -554,10 +554,16 @@ namespace SRePS
             for (int i = 0; i < productDataGridView.Rows.Count; i++)
             {
                 string value = sRePS_DatabaseDataSet.Product.Rows[i][9].ToString();
+                int quantity = Convert.ToInt32(productDataGridView.Rows[i].Cells[5].Value);
 
                 if (value == "True")
                 {
                     productDataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
+                }
+
+                if (quantity < 10)
+                {
+                    productDataGridView.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
                 }
             }
         }
