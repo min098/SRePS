@@ -69,9 +69,10 @@
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(218, 98);
+            this.lblUserName.Location = new System.Drawing.Point(327, 151);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(80, 16);
+            this.lblUserName.Size = new System.Drawing.Size(116, 25);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "User Name:";
             this.lblUserName.Click += new System.EventHandler(this.lblUserName_Click);
@@ -80,9 +81,10 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(218, 160);
+            this.lblPassword.Location = new System.Drawing.Point(327, 246);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(71, 16);
+            this.lblPassword.Size = new System.Drawing.Size(104, 25);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             this.lblPassword.Click += new System.EventHandler(this.label2_Click);
@@ -91,9 +93,10 @@
             // 
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPassword.Location = new System.Drawing.Point(218, 189);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(327, 291);
+            this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(119, 16);
+            this.lblConfirmPassword.Size = new System.Drawing.Size(177, 25);
             this.lblConfirmPassword.TabIndex = 3;
             this.lblConfirmPassword.Text = "Confirm Password:";
             this.lblConfirmPassword.Click += new System.EventHandler(this.label1_Click);
@@ -102,9 +105,10 @@
             // 
             this.lblPosistion.AutoSize = true;
             this.lblPosistion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPosistion.Location = new System.Drawing.Point(218, 219);
+            this.lblPosistion.Location = new System.Drawing.Point(327, 337);
+            this.lblPosistion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPosistion.Name = "lblPosistion";
-            this.lblPosistion.Size = new System.Drawing.Size(59, 16);
+            this.lblPosistion.Size = new System.Drawing.Size(87, 25);
             this.lblPosistion.TabIndex = 4;
             this.lblPosistion.Text = "Position:";
             this.lblPosistion.Click += new System.EventHandler(this.lblPosistion_Click);
@@ -113,36 +117,40 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(218, 249);
+            this.lblStatus.Location = new System.Drawing.Point(327, 383);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(48, 16);
+            this.lblStatus.Size = new System.Drawing.Size(74, 25);
             this.lblStatus.TabIndex = 5;
             this.lblStatus.Text = "Status:";
             // 
             // e_IDTextBox
             // 
             this.e_IDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_IDTextBox.Location = new System.Drawing.Point(342, 96);
+            this.e_IDTextBox.Location = new System.Drawing.Point(513, 148);
+            this.e_IDTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.e_IDTextBox.Name = "e_IDTextBox";
-            this.e_IDTextBox.Size = new System.Drawing.Size(211, 22);
+            this.e_IDTextBox.Size = new System.Drawing.Size(314, 30);
             this.e_IDTextBox.TabIndex = 1;
             // 
             // e_PasswordTextBox
             // 
             this.e_PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_PasswordTextBox.Location = new System.Drawing.Point(342, 158);
+            this.e_PasswordTextBox.Location = new System.Drawing.Point(513, 243);
+            this.e_PasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.e_PasswordTextBox.Name = "e_PasswordTextBox";
             this.e_PasswordTextBox.PasswordChar = '*';
-            this.e_PasswordTextBox.Size = new System.Drawing.Size(211, 22);
+            this.e_PasswordTextBox.Size = new System.Drawing.Size(314, 30);
             this.e_PasswordTextBox.TabIndex = 3;
             // 
             // e_ConfirmPasswordTextBox
             // 
             this.e_ConfirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_ConfirmPasswordTextBox.Location = new System.Drawing.Point(342, 188);
+            this.e_ConfirmPasswordTextBox.Location = new System.Drawing.Point(513, 289);
+            this.e_ConfirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.e_ConfirmPasswordTextBox.Name = "e_ConfirmPasswordTextBox";
             this.e_ConfirmPasswordTextBox.PasswordChar = '*';
-            this.e_ConfirmPasswordTextBox.Size = new System.Drawing.Size(211, 22);
+            this.e_ConfirmPasswordTextBox.Size = new System.Drawing.Size(314, 30);
             this.e_ConfirmPasswordTextBox.TabIndex = 4;
             // 
             // cmbPosition
@@ -152,9 +160,10 @@
             this.cmbPosition.Items.AddRange(new object[] {
             "Admin",
             "Cashier"});
-            this.cmbPosition.Location = new System.Drawing.Point(342, 219);
+            this.cmbPosition.Location = new System.Drawing.Point(513, 337);
+            this.cmbPosition.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbPosition.Name = "cmbPosition";
-            this.cmbPosition.Size = new System.Drawing.Size(211, 21);
+            this.cmbPosition.Size = new System.Drawing.Size(314, 28);
             this.cmbPosition.TabIndex = 5;
             this.cmbPosition.SelectedIndexChanged += new System.EventHandler(this.cmbPosition_SelectedIndexChanged);
             // 
@@ -162,9 +171,10 @@
             // 
             this.rdActive.AutoSize = true;
             this.rdActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdActive.Location = new System.Drawing.Point(342, 249);
+            this.rdActive.Location = new System.Drawing.Point(513, 383);
+            this.rdActive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdActive.Name = "rdActive";
-            this.rdActive.Size = new System.Drawing.Size(63, 20);
+            this.rdActive.Size = new System.Drawing.Size(91, 29);
             this.rdActive.TabIndex = 6;
             this.rdActive.TabStop = true;
             this.rdActive.Text = "Active";
@@ -174,9 +184,10 @@
             // 
             this.rdInactive.AutoSize = true;
             this.rdInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdInactive.Location = new System.Drawing.Point(422, 249);
+            this.rdInactive.Location = new System.Drawing.Point(633, 383);
+            this.rdInactive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdInactive.Name = "rdInactive";
-            this.rdInactive.Size = new System.Drawing.Size(72, 20);
+            this.rdInactive.Size = new System.Drawing.Size(104, 29);
             this.rdInactive.TabIndex = 7;
             this.rdInactive.TabStop = true;
             this.rdInactive.Text = "Inactive";
@@ -187,9 +198,10 @@
             // 
             this.btnRegister.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(326, 297);
+            this.btnRegister.Location = new System.Drawing.Point(489, 457);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(84, 28);
+            this.btnRegister.Size = new System.Drawing.Size(126, 43);
             this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -199,9 +211,10 @@
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(415, 297);
+            this.btnCancel.Location = new System.Drawing.Point(622, 457);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(84, 28);
+            this.btnCancel.Size = new System.Drawing.Size(126, 43);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -210,18 +223,20 @@
             // e_NameTextBox
             // 
             this.e_NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.e_NameTextBox.Location = new System.Drawing.Point(342, 127);
+            this.e_NameTextBox.Location = new System.Drawing.Point(513, 195);
+            this.e_NameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.e_NameTextBox.Name = "e_NameTextBox";
-            this.e_NameTextBox.Size = new System.Drawing.Size(211, 22);
+            this.e_NameTextBox.Size = new System.Drawing.Size(314, 30);
             this.e_NameTextBox.TabIndex = 2;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(218, 127);
+            this.lblName.Location = new System.Drawing.Point(327, 195);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(48, 16);
+            this.lblName.Size = new System.Drawing.Size(70, 25);
             this.lblName.TabIndex = 14;
             this.lblName.Text = "Name:";
             // 
@@ -239,7 +254,8 @@
             this.predictionToolStripMenuItem});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Size = new System.Drawing.Size(800, 24);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuBar.Size = new System.Drawing.Size(1200, 35);
             this.menuBar.TabIndex = 16;
             // 
             // accountToolStripMenuItem
@@ -247,38 +263,38 @@
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // logToolStripMenuItem
             // 
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(161, 30);
             this.logToolStripMenuItem.Text = "Log Out";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
             this.productToolStripMenuItem.Text = "Product";
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(64, 29);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
@@ -289,32 +305,33 @@
             this.weeklyReportToolStripMenuItem,
             this.monthlyReportToolStripMenuItem});
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(122, 29);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             // 
             // dailyReportToolStripMenuItem
             // 
             this.dailyReportToolStripMenuItem.Name = "dailyReportToolStripMenuItem";
-            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.dailyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.dailyReportToolStripMenuItem.Text = "Daily Report";
             // 
             // weeklyReportToolStripMenuItem
             // 
             this.weeklyReportToolStripMenuItem.Name = "weeklyReportToolStripMenuItem";
-            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.weeklyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.weeklyReportToolStripMenuItem.Text = "Weekly Report";
             // 
             // monthlyReportToolStripMenuItem
             // 
             this.monthlyReportToolStripMenuItem.Name = "monthlyReportToolStripMenuItem";
-            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.monthlyReportToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
             this.monthlyReportToolStripMenuItem.Text = "Monthly Report";
             // 
             // predictionToolStripMenuItem
             // 
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
-            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.predictionToolStripMenuItem.Text = "Prediction";
+            this.predictionToolStripMenuItem.Click += new System.EventHandler(this.predictionToolStripMenuItem_Click);
             // 
             // employeeBindingSource
             // 
@@ -341,9 +358,9 @@
             // 
             // frmRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.e_NameTextBox);
             this.Controls.Add(this.lblName);
@@ -360,6 +377,7 @@
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Aid Pharmacy Inc. SRePS - Register/Add Employee";

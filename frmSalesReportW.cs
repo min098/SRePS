@@ -400,5 +400,20 @@ namespace SRePS
             //automatically select the end date that is 6 days after the start date 
             dtpickerEnd.Value = dtpickerStart.Value.AddDays(6);
         }
+
+        private void predictionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmPredict) == true)
+            {
+
+                Program.frmPredict.Focus();
+
+            }
+            else
+            {
+                Program.frmPredict = new frmPrediction();
+                Program.frmPredict.Show();
+            }
+        }
     }
 }

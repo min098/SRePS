@@ -27,6 +27,8 @@ namespace SRePS
         public static frmPayment frmP;
         public static frmVTop frmTS;
         public static frmVisualize frmV;
+        public static frmPrediction frmPredict;
+
 
         //stores current account information
         public static string curUserName = "";

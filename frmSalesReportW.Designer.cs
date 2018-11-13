@@ -248,6 +248,7 @@
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
             this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.predictionToolStripMenuItem.Text = "Prediction";
+            this.predictionToolStripMenuItem.Click += new System.EventHandler(this.predictionToolStripMenuItem_Click);
             // 
             // lblTo
             // 

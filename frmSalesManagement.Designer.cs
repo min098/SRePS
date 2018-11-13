@@ -43,6 +43,11 @@
             this.monthlyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.predictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesDataGridView = new System.Windows.Forms.DataGridView();
+            this.sDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invoiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.invNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salesManagementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sRePS_DatabaseDataSet = new SRePS.SRePS_DatabaseDataSet();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -72,11 +77,6 @@
             this.employeesTableAdapter = new SRePS.SRePS_DatabaseDataSetTableAdapters.EmployeesTableAdapter();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salesMngDetailDataGridView = new System.Windows.Forms.DataGridView();
-            this.sDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invoiceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.invNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesManagementBindingSource)).BeginInit();
@@ -189,6 +189,7 @@
             this.predictionToolStripMenuItem.Name = "predictionToolStripMenuItem";
             this.predictionToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.predictionToolStripMenuItem.Text = "Prediction";
+            this.predictionToolStripMenuItem.Click += new System.EventHandler(this.predictionToolStripMenuItem_Click);
             // 
             // salesDataGridView
             // 
@@ -215,6 +216,42 @@
             this.salesDataGridView.Size = new System.Drawing.Size(1176, 442);
             this.salesDataGridView.TabIndex = 2;
             this.salesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // sDateDataGridViewTextBoxColumn
+            // 
+            this.sDateDataGridViewTextBoxColumn.DataPropertyName = "S_Date";
+            this.sDateDataGridViewTextBoxColumn.HeaderText = "S_Date";
+            this.sDateDataGridViewTextBoxColumn.Name = "sDateDataGridViewTextBoxColumn";
+            this.sDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // invoiceDataGridViewTextBoxColumn
+            // 
+            this.invoiceDataGridViewTextBoxColumn.DataPropertyName = "Invoice";
+            this.invoiceDataGridViewTextBoxColumn.HeaderText = "Invoice";
+            this.invoiceDataGridViewTextBoxColumn.Name = "invoiceDataGridViewTextBoxColumn";
+            this.invoiceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // invNoDataGridViewTextBoxColumn
+            // 
+            this.invNoDataGridViewTextBoxColumn.DataPropertyName = "Inv_No";
+            this.invNoDataGridViewTextBoxColumn.HeaderText = "Inv_No";
+            this.invNoDataGridViewTextBoxColumn.Name = "invNoDataGridViewTextBoxColumn";
+            this.invNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.invNoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // eIDDataGridViewTextBoxColumn
+            // 
+            this.eIDDataGridViewTextBoxColumn.DataPropertyName = "E_ID";
+            this.eIDDataGridViewTextBoxColumn.HeaderText = "E_ID";
+            this.eIDDataGridViewTextBoxColumn.Name = "eIDDataGridViewTextBoxColumn";
+            this.eIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // salesManagementBindingSource
             // 
@@ -443,42 +480,6 @@
             this.salesMngDetailDataGridView.Size = new System.Drawing.Size(1176, 442);
             this.salesMngDetailDataGridView.TabIndex = 10;
             this.salesMngDetailDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.salesMngDetailDataGridView_RowHeaderMouseClick);
-            // 
-            // sDateDataGridViewTextBoxColumn
-            // 
-            this.sDateDataGridViewTextBoxColumn.DataPropertyName = "S_Date";
-            this.sDateDataGridViewTextBoxColumn.HeaderText = "S_Date";
-            this.sDateDataGridViewTextBoxColumn.Name = "sDateDataGridViewTextBoxColumn";
-            this.sDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // invoiceDataGridViewTextBoxColumn
-            // 
-            this.invoiceDataGridViewTextBoxColumn.DataPropertyName = "Invoice";
-            this.invoiceDataGridViewTextBoxColumn.HeaderText = "Invoice";
-            this.invoiceDataGridViewTextBoxColumn.Name = "invoiceDataGridViewTextBoxColumn";
-            this.invoiceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // invNoDataGridViewTextBoxColumn
-            // 
-            this.invNoDataGridViewTextBoxColumn.DataPropertyName = "Inv_No";
-            this.invNoDataGridViewTextBoxColumn.HeaderText = "Inv_No";
-            this.invNoDataGridViewTextBoxColumn.Name = "invNoDataGridViewTextBoxColumn";
-            this.invNoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.invNoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // eIDDataGridViewTextBoxColumn
-            // 
-            this.eIDDataGridViewTextBoxColumn.DataPropertyName = "E_ID";
-            this.eIDDataGridViewTextBoxColumn.HeaderText = "E_ID";
-            this.eIDDataGridViewTextBoxColumn.Name = "eIDDataGridViewTextBoxColumn";
-            this.eIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmSalesManagement
             // 

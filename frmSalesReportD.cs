@@ -351,5 +351,20 @@ namespace SRePS
         {
             lblStatus.Text = "";
         }
+
+        private void predictionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmPredict) == true)
+            {
+
+                Program.frmPredict.Focus();
+
+            }
+            else
+            {
+                Program.frmPredict = new frmPrediction();
+                Program.frmPredict.Show();
+            }
+        }
     }
 }
