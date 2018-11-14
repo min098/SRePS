@@ -126,12 +126,9 @@ namespace SRePS
                 //increase the Inv_No after the user successfully committed the sales
                 if (added == true)
                 {
-                    string inv = "SELECT MAX(Inv_No) FROM Sales";
-                    OleDbCommand cmd = new OleDbCommand(inv, conn);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection.Open();
-                    object obj = cmd.ExecuteScalar();
-                    Program.frmAddS.lblInv_No.Text = "S"+Convert.ToString(Convert.ToInt32(obj.ToString()));
+                    Program.frmAddS.Dispose();
+                    Program.frmAddS = new frmAddSales();
+                    Program.frmAddS.Show();
                 }
 
 
