@@ -34,7 +34,7 @@ namespace SRePS
             {
                 conn.Open();
 
-                if (Convert.ToInt32(txtChange.Text) < 0 || string.IsNullOrEmpty(txtPaid.Text))
+                if (Convert.ToDouble(txtChange.Text) < 0 || string.IsNullOrEmpty(txtPaid.Text))
                 {
                     MessageBox.Show("The payment must not be lower than total!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPaid.Focus();
@@ -162,6 +162,7 @@ namespace SRePS
 
         private void frmPayment_Load(object sender, EventArgs e)
         {
+            Program.frmAddS.Enabled = false;
             double sum = 0;
             for (int i = 0; i < Program.frmAddS.itemGrid.Rows.Count - 1; i++)
             {
@@ -177,11 +178,13 @@ namespace SRePS
             if (string.IsNullOrEmpty(txtPaid.Text))
             {
                 
-                txtChange.Text = txtTotal.Text;
+                txtChange.Text = "0";
             }
             else
             {
-                txtChange.Text = Convert.ToString(Convert.ToDouble(txtPaid.Text) - Convert.ToDouble(txtTotal.Text));
+
+                txtChange.Text = Convert.ToString(Math.Round((Convert.ToDouble(txtPaid.Text) - Convert.ToDouble(txtTotal.Text)), 2));
+                
             }
 
         }
@@ -207,6 +210,7 @@ namespace SRePS
                     }
                 }
             }
+            Program.frmAddS.Enabled = true;
         }
     }
 }
