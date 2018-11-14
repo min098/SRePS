@@ -253,6 +253,8 @@ namespace SRePS
             string oldID = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[0].Value.ToString();
             string oldPosition = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[2].Value.ToString();
 
+            string oldStatus = Program.frmEmployee.employeeDataGridView.SelectedRows[0].Cells[3].Value.ToString();
+            string newStatus = "";
             System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
 
@@ -327,11 +329,17 @@ namespace SRePS
                     if (Program.curUserName == oldID)
                     {
                         if (isChecked)
+                        {
                             cmd.Parameters.AddWithValue("@E_Status", rdActive.Text);
+                            newStatus = rdActive.Text;
+                        }
                         else if (!isChecked)
                         {
                             if (isAdminExists() == true)
+                            {
                                 cmd.Parameters.AddWithValue("@E_Status", rdInactive.Text);
+                                newStatus = rdActive.Text;
+                            }
                             else if (count == 0)
                             {
                                 MessageBox.Show("Must have at least one active admin.", "Error",
@@ -344,10 +352,12 @@ namespace SRePS
                         if (isChecked)
                         {
                             cmd.Parameters.AddWithValue("@E_Status", rdActive.Text);
+                            newStatus = rdActive.Text;
                         }
                         else
                         {
                             cmd.Parameters.AddWithValue("@E_Status", rdInactive.Text);
+                            newStatus = rdActive.Text;
                         }
                     }
 
@@ -361,9 +371,20 @@ namespace SRePS
                     {
                         if (cmbPosition.SelectedItem.ToString() != oldPosition)
                         {
-                            //Program.curPosition = cmbPosition.SelectedItem.ToString();
-                            //OR
-                            MessageBox.Show("Please log in to update your position.");
+                            MessageBox.Show("Please log in to update your account details.");
+
+                            Program.frmLogin = new frmLogIn();
+                            Program.frmLogin.Show();
+                            foreach (Form f in Application.OpenForms)
+                            {
+                                if (f != Program.frmLogin)
+                                    f.Close();
+                            }
+                        }
+
+                        if (newStatus != oldStatus)
+                        {
+                            MessageBox.Show("Please log in to update your account details.");
 
                             Program.frmLogin = new frmLogIn();
                             Program.frmLogin.Show();
