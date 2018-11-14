@@ -33,7 +33,6 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnLogIn = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
@@ -87,7 +86,7 @@
             this.btnLogIn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogIn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogIn.Location = new System.Drawing.Point(400, 561);
+            this.btnLogIn.Location = new System.Drawing.Point(487, 543);
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(126, 41);
@@ -95,19 +94,6 @@
             this.btnLogIn.Text = "Log In";
             this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(537, 561);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(126, 41);
-            this.btnRegister.TabIndex = 5;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // lblTitle
             // 
@@ -150,7 +136,6 @@
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.lblTitle2);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.PasswordTextBox);
@@ -175,7 +160,6 @@
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnLogIn;
-        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblTitle2;
         private System.Windows.Forms.PictureBox picLogo;

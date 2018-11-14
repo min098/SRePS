@@ -138,22 +138,11 @@ namespace SRePS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if (Program.isOpened(Program.frmEmployee) == true)
+            {
+                this.Close();
+                Program.frmEmployee.Focus();
 
-            if (Program.isOpened(Program.frmEmployee))
-            {
-                e_IDTextBox.Text = "";
-                e_NameTextBox.Text = "";
-                e_PasswordTextBox.Text = "";
-                e_ConfirmPasswordTextBox.Text = "";
-                cmbPosition.Items.Clear();
-                rdActive.Checked = false;
-                rdInactive.Checked = false;
-            }
-            else
-            {
-                Program.frmLogin = new frmLogIn();
-                Program.frmLogin.Show();
-                this.Dispose();
             }
         }
 
@@ -187,12 +176,33 @@ namespace SRePS
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if (Program.isOpened(Program.frmAddS) == true)
+            {
+
+                Program.frmAddS.Focus();
+
+            }
+            else
+            {
+                Program.frmAddS = new frmAddSales();
+                Program.frmAddS.Show();
+            }
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Program.isOpened(Program.frmEmployee) == true)
+            {
 
+                Program.frmEmployee.Focus();
+
+            }
+            else
+            {
+                Program.frmEmployee = new frmEmployeeManagement();
+                Program.frmEmployee.Show();
+                this.Dispose();
+            }
         }
 
         private void cmbPosition_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,6 +222,103 @@ namespace SRePS
             {
                 Program.frmPredict = new frmPrediction();
                 Program.frmPredict.Show();
+            }
+        }
+
+        private void logToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmLogin) == true)
+            {
+
+                Program.frmLogin.Show();
+                this.Dispose();
+
+            }
+            else
+            {
+                Program.frmLogin = new frmLogIn();
+                Program.frmLogin.Show();
+                Program.frmHome.Dispose();
+            }
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmHome) == true)
+            {
+
+                Program.frmHome.Focus();
+
+            }
+            else
+            {
+                Program.frmHome = new frmHomepage();
+                Program.frmHome.Show();
+                this.Dispose();
+            }
+        }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmProduct) == true)
+            {
+
+                Program.frmProduct.Focus();
+
+            }
+            else
+            {
+                Program.frmProduct = new frmProductManagement();
+                Program.frmProduct.Show();
+                this.Dispose();
+            }
+        }
+
+        private void dailyReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmSalesD) == true)
+            {
+
+                Program.frmSalesD.Focus();
+
+            }
+            else
+            {
+                Program.frmSalesD = new frmSalesReportD();
+                Program.frmSalesD.Show();
+                this.Dispose();
+            }
+        }
+
+        private void weeklyReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmSalesW) == true)
+            {
+
+                Program.frmSalesW.Focus();
+
+            }
+            else
+            {
+                Program.frmSalesW = new frmSalesReportW();
+                Program.frmSalesW.Show();
+                this.Dispose();
+            }
+        }
+
+        private void monthlyReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.isOpened(Program.frmSalesM) == true)
+            {
+
+                Program.frmSalesM.Focus();
+
+            }
+            else
+            {
+                Program.frmSalesM = new frmSalesReportM();
+                Program.frmSalesM.Show();
+                this.Dispose();
             }
         }
     }

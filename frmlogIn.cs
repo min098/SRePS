@@ -28,13 +28,7 @@ namespace SRePS
 
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-                Program.frmRegister = new frmRegister();
-                Program.frmRegister.Show();
-                //temporary
-                this.Dispose();
-        }
+    
 
         private void frmLogIn_FormClosing(object sender, FormClosingEventArgs e)
         {
