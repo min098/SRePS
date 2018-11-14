@@ -278,25 +278,6 @@ namespace SRePS
         {
             // TODO: This line of code loads data into the 'sRePS_DatabaseDataSet.Product' table. You can move, or remove it, as needed.
             this.productTableAdapter.Fill(this.sRePS_DatabaseDataSet.Product);
-
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = SRePS.Properties.Settings.Default.SRePS_DatabaseConnectionString;
-
-            con.Open();
-            string my_query = "SELECT P_ID,P_Name,P_Quantity,P_Supplier FROM Product WHERE P_Quantity < 10";
-            OleDbCommand cmd = new OleDbCommand(my_query, con);
-            cmd.ExecuteNonQuery();
-            OleDbDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    MessageBox.Show("P_ID: " + reader.GetInt16(0) + "\n" + "P_Name: " + reader.GetString(1) + "\n" + "P_Quantity: " + reader.GetInt16(2) + "\n" + "P_Supplier: " + reader.GetString(3));
-                }
-            }
-            reader.Close();
-
         }
     }
 }

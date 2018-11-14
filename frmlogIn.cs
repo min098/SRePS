@@ -98,6 +98,20 @@ namespace SRePS
                 MessageBox.Show("Wrong username or password.", "Error",
                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            string my_query1 = "SELECT P_ID,P_Name,P_Quantity,P_Supplier FROM Product WHERE P_Quantity < 10";
+            OleDbCommand cmd1 = new OleDbCommand(my_query1, conn);
+            cmd1.ExecuteNonQuery();
+            OleDbDataReader reader = cmd1.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    MessageBox.Show("P_ID: " + reader.GetInt16(0) + "\n" + "P_Name: " + reader.GetString(1) + "\n" + "P_Quantity: " + reader.GetInt16(2) + "\n" + "P_Supplier: " + reader.GetString(3));
+                }
+            }
+            reader.Close();
         }
 
         private void frmLogIn_Load(object sender, EventArgs e)
