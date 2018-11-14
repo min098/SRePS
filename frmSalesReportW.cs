@@ -31,6 +31,9 @@ namespace SRePS
 
             //automatically select the end date that is 6 days after the start date 
             dtpickerEnd.Value = dtpickerStart.Value.AddDays(6);
+
+            //Do not show the Export button when first load to the form
+            btnExport.Hide();
         }
 
         private void frmSalesReportW_FormClosing(object sender, FormClosingEventArgs e)
@@ -258,6 +261,16 @@ namespace SRePS
             else
             {
                 MessageBox.Show("The start date must be Monday!", "Start date error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            //show Export button after successfully search and have records
+            if (salesReportWDataGridView.Rows.Count > 0)
+            {
+                btnExport.Show();
+            }
+            else
+            {
+                btnExport.Hide();
             }
         }
 

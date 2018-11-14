@@ -26,6 +26,9 @@ namespace SRePS
 
             //hide the salesDetailDataGridView when first load to the form 
             salesDetailDataGridView.Hide();
+
+            //Do not show the Export button when first load to the form
+            btnExport.Hide();
         }
 
         private void frmSalesReportD_FormClosing(object sender, FormClosingEventArgs e)
@@ -201,6 +204,16 @@ namespace SRePS
             }
 
             conn.Close();
+
+            //show Export button after successfully search and have records
+            if (salesReportDDataGridView.Rows.Count > 0)
+            {
+                btnExport.Show();
+            }
+            else
+            {
+                btnExport.Hide();
+            }
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)

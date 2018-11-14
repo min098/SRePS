@@ -33,6 +33,9 @@ namespace SRePS
 
             //hide the salesMngDetailDataGridView when first load to the form 
             salesMngDetailDataGridView.Hide();
+
+            //only show the back button when the user clicked into the detailed one
+            toolStripBtnBack.Visible = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -186,6 +189,8 @@ namespace SRePS
             {
                 if (salesDataGridView.Visible)  //the displayed datagrid is salesDataGrid
                 {
+                    toolStripBtnBack.Visible = true;    //only show the back button when the user clicked into the detailed one
+
                     if (salesDataGridView.SelectedRows.Count != 0)
                     {
                         //clear any record in the table before fetching a new one
@@ -390,6 +395,7 @@ namespace SRePS
         {
             salesDataGridView.Show();
             salesMngDetailDataGridView.Hide();
+            toolStripBtnBack.Visible = false;    //only show the back button when the user clicked into the detailed one
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
