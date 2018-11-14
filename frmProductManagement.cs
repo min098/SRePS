@@ -582,6 +582,11 @@ namespace SRePS
                 Program.frmPredict.Show();
             }
         }
+
+        private void menuBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
  }
 
