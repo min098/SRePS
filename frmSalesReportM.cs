@@ -56,6 +56,25 @@ namespace SRePS
                     }
                 }
             }
+            else if (Program.isOpened(Program.frmV))
+            {
+                //if the visualization page is opened, cannot close the sales monthly report
+                MessageBox.Show("The visualization page is opened, cannot close Monthly Sales Report page." + "\n" + "Please close the visualization page first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Program.frmV.Focus();
+                e.Cancel = true;
+            }
+            else if (Program.isOpened(Program.frmVRev))
+            {
+                MessageBox.Show("The visualization page is opened, cannot close Monthly Sales Report page." + "\n" + "Please close the visualization page first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Program.frmVRev.Focus();
+                e.Cancel = true;
+            }
+            else if (Program.isOpened(Program.frmTS))
+            {
+                MessageBox.Show("The visualization page is opened, cannot close Monthly Sales Report page." + "\n" + "Please close the visualization page first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Program.frmTS.Focus();
+                e.Cancel = true;
+            }
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
